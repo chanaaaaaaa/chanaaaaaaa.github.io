@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>運動學演示：最終校正版</title>
+    <style>
+        :root { --primary: #0984e3; --secondary: #d63031; --bg: #dfe6e9; }
+        body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; background: var(--bg); display: flex; flex-direction: column; align-items: center; padding: 15px; margin: 0; }
+        .container { width: 880px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        canvas { border-radius: 12px; display: block; margin: 0 auto; background: #87CEEB; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 12px; border: 1px solid #ddd; }
+        .slider-box { display: flex; flex-direction: column; gap: 5px; font-weight: bold; }
+        .slider-row { display: flex; align-items: center; gap: 10px; }
+        input[type=range] { flex-grow: 1; cursor: pointer; }
+        .btn-reset { grid-column: span 2; padding: 10px; background: #2d3436; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .val-display { font-size: 1.2em; min-width: 45px; text-align: center; border-radius: 4px; padding: 2px 5px; background: #eee; }
+        .preview-active { background: #ffeaa7; outline: 2px solid #fdcb6e; }
+        .v-color { color: var(--primary); }
+        .a-color { color: var(--secondary); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align:center; color:#2d3436; margin:0 0 10px 0;">🎯 物理演示：v-t & x-t 同步預判</h2>
+    <canvas id="simCanvas" width="840" height="580"></canvas>
+    <div class="controls">
+        <div class="slider-box">
+            <div class="slider-row"><span>速度 (v):</span><span class="val-display v-color" id="vVal">0</span></div>
+            <input type="range" id="vSlider" min="-30" max="30" step="1" value="0">
+        </div>
+        <div class="slider-box">
+            <div class="slider-row"><span>加速度 (a):</span><span class="val-display a-color" id="aVal">0</span></div>
+            <input type="range" id="aSlider" min="-10" max="10" step="1" value="0">
+        </div>
+        <button class="btn-reset" onclick="resetAll()">🗑️ 清空所有數據</button>
+    </div>
+</div>
+<script>
+    const canvas = document.getElementById('simCanvas');
+    const ctx = canvas.getContext('2d');
+    const vS = document.getElementById('vSlider'), aS = document.getElementById('aSlider');
+    const vVal = document.getElementById('vVal'), aVal = document.getElementById('aVal');
+    let carV = 0, carA = 0, carD = 0, history = [], roadX = 0, bgMidX = 0, isAdjusting = false;
+    function handleInput() { isAdjusting = true; vVal.innerText = vS.value; aVal.innerText = aS.value; vVal.classList.add('preview-active'); aVal.classList.add('preview-active'); }
+    function handleChange() { isAdjusting = false; carV = parseInt(vS.value); carA = parseInt(aS.value); vVal.classList.remove('preview-active'); aVal.classList.remove('preview-active'); }
+    vS.addEventListener('input', handleInput); aS.addEventListener('input', handleInput);
+    vS.addEventListener('change', handleChange); aS.addEventListener('change', handleChange);
+    function resetAll() { carV = 0; carA = 0; carD = 0; history = []; vS.value = 0; aS.value = 0; vVal.innerText = 0; aVal.innerText = 0; }
+    function drawEnvironment() {
+        let sky = ctx.createLinearGradient(0,0,0,160); sky.addColorStop(0, "#1e90ff"); sky.addColorStop(1, "#87ceeb"); ctx.fillStyle = sky; ctx.fillRect(0,0,840,160);
+        ctx.save(); ctx.translate(bgMidX % 400 - 400, 0);
+        for(let i=0; i<5; i++) { let px = i * 400; ctx.fillStyle = "#dfe6e9"; ctx.fillRect(px, 100, 50, 60); ctx.fillStyle = "#2ecc71"; ctx.beginPath(); ctx.arc(px+200, 135, 15, 0, Math.PI*2); ctx.fill(); }
+        ctx.restore();
+        ctx.fillStyle = "#2d3436"; ctx.fillRect(0, 160, 840, 40);
+        ctx.strokeStyle = "rgba(255,255,255,0.3)"; ctx.setLineDash([20,20]); ctx.beginPath(); ctx.moveTo(roadX % 40, 180); ctx.lineTo(840+(roadX%60), 180); ctx.stroke(); ctx.setLineDash([]);
+    }
+    function drawCar(x, y, v, a) {
+        ctx.fillStyle = "#d63031"; ctx.fillRect(x-25, y-10, 50, 18); ctx.fillStyle = "#000"; ctx.beginPath(); ctx.arc(x-15, y+10, 7, 0, Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(x+15, y+10, 7, 0, Math.PI*2); ctx.fill();
+        drawArrow(x, y, v, "#0984e3", "v", -25, 4); drawArrow(x, y, a, "#e17055", "a", 30, 10);
+    }
+    function drawArrow(x, y, val, color, label, off, scale) {
+        if(Math.abs(val) < 0.1) return;
+        let len = val * scale; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(x, y+off); ctx.lineTo(x+len, y+off); ctx.stroke();
+        let head = val > 0 ? 6 : -6; ctx.beginPath(); ctx.moveTo(x+len, y+off); ctx.lineTo(x+len-head, y+off-4); ctx.lineTo(x+len-head, y+off+4); ctx.fill();
+    }
+    function renderChart(ox, oy, prop, title, color, scaleY) {
+        ctx.save(); ctx.translate(ox, oy); ctx.strokeStyle = "#b2bec3"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(0,-60); ctx.lineTo(0,60); ctx.moveTo(0,0); ctx.lineTo(720,0); ctx.stroke();
+        ctx.fillStyle = "#2d3436"; ctx.font = "bold 13px sans-serif"; ctx.fillText(title, 10, -70);
+        if(history.length > 1) {
+            ctx.beginPath(); ctx.lineWidth = 3; ctx.strokeStyle = color;
+            history.forEach((p, i) => { let x = i * 1.4; let val = (prop === 'd' ? p.d : p.v) * scaleY; if(i === 0) ctx.moveTo(x, -val); else ctx.lineTo(x, -val); });
+            ctx.stroke();
+        }
+        if(isAdjusting) {
+            let pV = parseInt(vS.value), pA = parseInt(aS.value), pD = carD, sX = (history.length - 1) * 1.4;
+            ctx.beginPath(); ctx.lineWidth = 2; ctx.strokeStyle = "#bdc3c7"; ctx.setLineDash([5, 5]);
+            ctx.moveTo(sX, -((prop === 'd' ? pD : pV) * scaleY));
+            for(let t = 1; t <= 120; t++) { pV += pA * 0.015; pD += pV * 0.5; ctx.lineTo(sX + t * 1.4, -(prop === 'd' ? pD : pV) * scaleY); }
+            ctx.stroke(); ctx.setLineDash([]);
+        }
+        ctx.restore();
+    }
+    function main() {
+        ctx.clearRect(0,0,840,580);
+        if (!isAdjusting) { carV += carA * 0.015; vVal.innerText = Math.round(carV); vS.value = Math.round(carV); }
+        carD += carV * 0.5; roadX -= carV * 2; bgMidX -= carV * 0.4;
+        history.push({ v: carV, d: carD }); if(history.length > 500) history.shift();
+        drawEnvironment(); drawCar(420, 150, carV, carA);
+        ctx.fillStyle = "white"; ctx.fillRect(0, 200, 840, 380);
+        renderChart(70, 340, 'd', '位移-時間圖 (x-t)', '#00b894', 0.1);
+        renderChart(70, 490, 'v', '速度-時間圖 (v-t)', '#0984e3', 1.5);
+        requestAnimationFrame(main);
+    }
+    resetAll(); main();
+</script>
+</body>
+</html>
