@@ -25,7 +25,7 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">/*
+    <pre class="code-block language-cpp"><code><span class="token comment">/*
 #pragma GCC optimize(1)
 #pragma GCC optimize(2)
 #pragma GCC optimize(3)
@@ -69,95 +69,92 @@
 #pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
 #pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
 #pragma GCC optimize(&quot;inline-function-called-once&quot;)
-#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)*/
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-//#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#define int long long
-#define icc ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-using namespace std;
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)*/</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token comment">//#include&lt;iostream&gt;</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token directive">#define</span> icc ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return 0;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
-const int MAXN=10000000;
-const int MOD=20101009;
-int u[MAXN+5], p[MAXN/10+5],sum[MAXN+5];
-bool flag[MAXN+5];
-inline void init(int N,int M){
-    int t=0,lim=min(N,M);
-    u[1]=1;
-    for(int i=2;i&lt;=lim;++i){
-        if(!flag[i]){
+<span class="token comment">//-block</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">10000000</span>;
+<span class="token keyword">const</span> <span class="token keyword">int</span> MOD=<span class="token number">20101009</span>;
+<span class="token keyword">int</span> u[MAXN+<span class="token number">5</span>], p[MAXN/<span class="token number">10</span>+<span class="token number">5</span>],sum[MAXN+<span class="token number">5</span>];
+<span class="token keyword">bool</span> flag[MAXN+<span class="token number">5</span>];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> init(<span class="token keyword">int</span> N,<span class="token keyword">int</span> M){
+    <span class="token keyword">int</span> t=<span class="token number">0</span>,lim=min(N,M);
+    u[<span class="token number">1</span>]=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=lim;++i){
+        <span class="token keyword">if</span>(!flag[i]){
             p[++t]=i;
-            u[i]=-1;
+            u[i]=-<span class="token number">1</span>;
         }
-        for(int j=1;j&lt;=t &amp;&amp; i*p[j]&lt;=lim;++j){
-            flag[i*p[j]]=1;
-            if(i%p[j]==0){
-                u[i*p[j]]=0;
-                break;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;j&lt;=t &amp;&amp; i*p[j]&lt;=lim;++j){
+            flag[i*p[j]]=<span class="token number">1</span>;
+            <span class="token keyword">if</span>(i%p[j]==<span class="token number">0</span>){
+                u[i*p[j]]=<span class="token number">0</span>;
+                <span class="token keyword">break</span>;
             }
             u[i*p[j]]=-u[i];
         }
     }
-    for(int i=1;i&lt;=lim;++i){
-        sum[i]=(sum[i-1]+i*i%MOD*(u[i]+MOD))%MOD;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=lim;++i){
+        sum[i]=(sum[i-<span class="token number">1</span>]+i*i%MOD*(u[i]+MOD))%MOD;
     }
 }
-inline int SUM(int x,int y){
-    return (x*(x+1)/2%MOD)*(y*(y+1)/2%MOD)%MOD;
+<span class="token keyword">inline</span> <span class="token keyword">int</span> SUM(<span class="token keyword">int</span> x,<span class="token keyword">int</span> y){
+    <span class="token keyword">return</span> (x*(x+<span class="token number">1</span>)/<span class="token number">2</span>%MOD)*(y*(y+<span class="token number">1</span>)/<span class="token number">2</span>%MOD)%MOD;
 }
-inline int solve(int n,int m){
-    int res=0;
-    for(int l=1,r;l&lt;=min(n,m);l=r+1){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> solve(<span class="token keyword">int</span> n,<span class="token keyword">int</span> m){
+    <span class="token keyword">int</span> res=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> l=<span class="token number">1</span>,r;l&lt;=min(n,m);l=r+<span class="token number">1</span>){
         r=min(n/(n/l),m/(m/l));
-        res=(res+(sum[r]-sum[l-1]+MOD)*SUM(n/l,m/l)%MOD)%MOD;
+        res=(res+(sum[r]-sum[l-<span class="token number">1</span>]+MOD)*SUM(n/l,m/l)%MOD)%MOD;
     }
-    return res;
+    <span class="token keyword">return</span> res;
 }
 
-signed main(){
-    int n=read(),m=read(),res=0;
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> n=read(),m=read(),res=<span class="token number">0</span>;
     init(n,m);
-    for(int l=1,r;l&lt;=min(n,m);l=r+1){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> l=<span class="token number">1</span>,r;l&lt;=min(n,m);l=r+<span class="token number">1</span>){
         r=min(n/(n/l),m/(m/l));
-        res=(res+(r-l+1)*(l+r)/2%MOD*solve(n/l,m/l)%MOD)%MOD;
+        res=(res+(r-l+<span class="token number">1</span>)*(l+r)/<span class="token number">2</span>%MOD*solve(n/l,m/l)%MOD)%MOD;
     }
     write(res);
-    putchar(&#x27;\n&#x27;);
-	return 0;
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+	<span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="pA.html" class="problem-link">pA</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a></p>
+        <p><a href="uva657.html" class="problem-link">uva657</a> <a href="e545-uva10019.html" class="problem-link">e545 uva10019</a> <a href="c575-2017APCS.html" class="problem-link">c575 2017APCS</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="uva11951.html" class="problem-link">uva11951</a> <a href="a011-uva00494.html" class="problem-link">a011 uva00494</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,41 +25,38 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    int t, n;
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> t, n;
     cin &gt;&gt; t;
 
-    while(t--){
+    <span class="token keyword">while</span>(t--){
         cin &gt;&gt; n;
-        vector&lt;int&gt; vec(n);
-        for(int &amp;i : vec)
+        vector&lt;<span class="token keyword">int</span>&gt; vec(n);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;i : vec)
             cin &gt;&gt; i;
 
         sort(vec.begin(), vec.end());
-        int mid = vec[n / 2], ans = 0;
+        <span class="token keyword">int</span> mid = vec[n / <span class="token number">2</span>], ans = <span class="token number">0</span>;
 
-        for(int &amp;i : vec)
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;i : vec)
             ans += abs(mid - i);
 
-        cout &lt;&lt; ans &lt;&lt; &#x27;\n&#x27;;
+        cout &lt;&lt; ans &lt;&lt; <span class="token string">&#x27;\n&#x27;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva1210.html" class="problem-link">uva1210</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a> <a href="d762-uva10344.html" class="problem-link">d762 uva10344</a> <a href="CSES1090.html" class="problem-link">CSES1090</a></p>
+        <p><a href="pC.html" class="problem-link">pC</a> <a href="f163-2020APCS.html" class="problem-link">f163 2020APCS</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="uva10172.html" class="problem-link">uva10172</a> <a href="uva11770.html" class="problem-link">uva11770</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

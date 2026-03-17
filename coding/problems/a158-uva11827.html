@@ -25,50 +25,47 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;sstream&gt;
-#include &lt;vector&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;sstream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int myGCD(int x,int y){
-    while((x%=y)&amp;&amp;(y%=x));
-    return x+y;
+<span class="token keyword">int</span> myGCD(<span class="token keyword">int</span> x,<span class="token keyword">int</span> y){
+    <span class="token keyword">while</span>((x%=y)&amp;&amp;(y%=x));
+    <span class="token keyword">return</span> x+y;
 }
 
-int main() {
-    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    int N,x,mx;
+<span class="token keyword">int</span> main() {
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+    <span class="token keyword">int</span> N,x,mx;
     string s;
     cin&gt;&gt;N;
     cin.ignore();
-    while(N--){
+    <span class="token keyword">while</span>(N--){
         getline(cin,s);
         stringstream ss(s);
-        vector&lt;int&gt;v;
+        vector&lt;<span class="token keyword">int</span>&gt;v;
 
-        mx=0;
-        while(ss&gt;&gt;x){
+        mx=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(ss&gt;&gt;x){
             v.push_back(x);
-            for(int i=0;i&lt;v.size()-1;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;v.size()-<span class="token number">1</span>;i++){
                 mx=max(mx,myGCD(x,v[i]));
             }
         }
-        cout&lt;&lt;mx&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;mx&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva657.html" class="problem-link">uva657</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="day-163.html" class="problem-link">day-163</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="d671-uva11716.html" class="problem-link">d671 uva11716</a></p>
+        <p><a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="d052-uva11456.html" class="problem-link">d052 uva11456</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,48 +25,45 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int in[41]={92,93,91,112,111,105,117,121,116,114,101,39,59,108,107,106,104,103,102,100,47,46,44,109,110,98,118,63,61,45,48,57,56,55,54,53,52,51,50,99};
-int ou[41]={91,112,111,105,117,121,116,114,101,119,113,108,107,106,104,103,102,100,115,97,44,109,110,98,118,99,120,122,48,57,56,55,54,53,52,51,50,49,96,122};
+<span class="token keyword">int</span> in[<span class="token number">41</span>]={<span class="token number">92</span>,<span class="token number">93</span>,<span class="token number">91</span>,<span class="token number">112</span>,<span class="token number">111</span>,<span class="token number">105</span>,<span class="token number">117</span>,<span class="token number">121</span>,<span class="token number">116</span>,<span class="token number">114</span>,<span class="token number">101</span>,<span class="token number">39</span>,<span class="token number">59</span>,<span class="token number">108</span>,<span class="token number">107</span>,<span class="token number">106</span>,<span class="token number">104</span>,<span class="token number">103</span>,<span class="token number">102</span>,<span class="token number">100</span>,<span class="token number">47</span>,<span class="token number">46</span>,<span class="token number">44</span>,<span class="token number">109</span>,<span class="token number">110</span>,<span class="token number">98</span>,<span class="token number">118</span>,<span class="token number">63</span>,<span class="token number">61</span>,<span class="token number">45</span>,<span class="token number">48</span>,<span class="token number">57</span>,<span class="token number">56</span>,<span class="token number">55</span>,<span class="token number">54</span>,<span class="token number">53</span>,<span class="token number">52</span>,<span class="token number">51</span>,<span class="token number">50</span>,<span class="token number">99</span>};
+<span class="token keyword">int</span> ou[<span class="token number">41</span>]={<span class="token number">91</span>,<span class="token number">112</span>,<span class="token number">111</span>,<span class="token number">105</span>,<span class="token number">117</span>,<span class="token number">121</span>,<span class="token number">116</span>,<span class="token number">114</span>,<span class="token number">101</span>,<span class="token number">119</span>,<span class="token number">113</span>,<span class="token number">108</span>,<span class="token number">107</span>,<span class="token number">106</span>,<span class="token number">104</span>,<span class="token number">103</span>,<span class="token number">102</span>,<span class="token number">100</span>,<span class="token number">115</span>,<span class="token number">97</span>,<span class="token number">44</span>,<span class="token number">109</span>,<span class="token number">110</span>,<span class="token number">98</span>,<span class="token number">118</span>,<span class="token number">99</span>,<span class="token number">120</span>,<span class="token number">122</span>,<span class="token number">48</span>,<span class="token number">57</span>,<span class="token number">56</span>,<span class="token number">55</span>,<span class="token number">54</span>,<span class="token number">53</span>,<span class="token number">52</span>,<span class="token number">51</span>,<span class="token number">50</span>,<span class="token number">49</span>,<span class="token number">96</span>,<span class="token number">122</span>};
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
     string A;
-    while(getline(cin,A)){
-        for(int i=0;i&lt;A.size();i++){
-            if(int(A[i])==32){
-                cout&lt;&lt;char(32);
-                continue;
+    <span class="token keyword">while</span>(getline(cin,A)){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(<span class="token keyword">int</span>(A[i])==<span class="token number">32</span>){
+                cout&lt;&lt;<span class="token keyword">char</span>(<span class="token number">32</span>);
+                <span class="token keyword">continue</span>;
             }
-            int pos=0;
-            for(;pos&lt;41;pos++){
-                if(int(A[i])==in[pos]){
-                    cout&lt;&lt;char(ou[pos]);
+            <span class="token keyword">int</span> pos=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(;pos&lt;<span class="token number">41</span>;pos++){
+                <span class="token keyword">if</span>(<span class="token keyword">int</span>(A[i])==in[pos]){
+                    cout&lt;&lt;<span class="token keyword">char</span>(ou[pos]);
                 }
             }
         }
-        cout&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="e564-uva540.html" class="problem-link">e564 uva540</a> <a href="n773-uva10424.html" class="problem-link">n773 uva10424</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a> <a href="uva1213.html" class="problem-link">uva1213</a></p>
+        <p><a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="uva10006.html" class="problem-link">uva10006</a> <a href="uva507.html" class="problem-link">uva507</a> <a href="a519-uva12459.html" class="problem-link">a519 uva12459</a> <a href="d443-uva10497.html" class="problem-link">d443 uva10497</a> <a href="d188-uva11342.html" class="problem-link">d188 uva11342</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

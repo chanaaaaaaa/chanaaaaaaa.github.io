@@ -25,69 +25,66 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int A,B;
-    while(cin&gt;&gt;A&gt;&gt;B){
-        cout&lt;&lt;A&lt;&lt;&quot; &quot;&lt;&lt;B&lt;&lt;&quot;\n&quot;;
-        if(A+B==0){break;}
-        vector&lt;int&gt;dat;
-        for(int i=0;i&lt;A;i++){
-            int temp;
+    <span class="token keyword">int</span> A,B;
+    <span class="token keyword">while</span>(cin&gt;&gt;A&gt;&gt;B){
+        cout&lt;&lt;A&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;B&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        <span class="token keyword">if</span>(A+B==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        vector&lt;<span class="token keyword">int</span>&gt;dat;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A;i++){
+            <span class="token keyword">int</span> temp;
             cin&gt;&gt;temp;
             dat.push_back(temp);
         }
-        for(int i=0;i&lt;A-1;i++){
-            for(int j=i+1;j&lt;A;j++){
-                if(dat[i]%B &gt; dat[j]%B){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A-<span class="token number">1</span>;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i+<span class="token number">1</span>;j&lt;A;j++){
+                <span class="token keyword">if</span>(dat[i]%B &gt; dat[j]%B){
                     swap(dat[i],dat[j]);
                 }
             }
         }
-        for(int i=0;i&lt;A-1;i++){
-            for(int j=i+1;j&lt;A;j++){
-                if(dat[i]%B==dat[j]%B){
-                    if(dat[i]%2+dat[j]%2==0){
-                        if(dat[i]&gt;dat[j]){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A-<span class="token number">1</span>;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i+<span class="token number">1</span>;j&lt;A;j++){
+                <span class="token keyword">if</span>(dat[i]%B==dat[j]%B){
+                    <span class="token keyword">if</span>(dat[i]%<span class="token number">2</span>+dat[j]%<span class="token number">2</span>==<span class="token number">0</span>){
+                        <span class="token keyword">if</span>(dat[i]&gt;dat[j]){
                             swap(dat[i],dat[j]);
                         }
-                    }else if(dat[i]%2+dat[j]%2==1){
-                        if(dat[j]%2==1){
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(dat[i]%<span class="token number">2</span>+dat[j]%<span class="token number">2</span>==<span class="token number">1</span>){
+                        <span class="token keyword">if</span>(dat[j]%<span class="token number">2</span>==<span class="token number">1</span>){
                             swap(dat[i],dat[j]);
                         }
-                    }else{//dat[i]%2+dat[j]%2==2
-                        if(dat[i]&lt;dat[j]){
+                    }<span class="token keyword">else</span>{<span class="token comment">//dat[i]%2+dat[j]%2==2</span>
+                        <span class="token keyword">if</span>(dat[i]&lt;dat[j]){
                             swap(dat[i],dat[j]);
                         }
                     }
                 }
             }
         }
-        for(int i=0;i&lt;A;i++){
-            cout&lt;&lt;dat[i]&lt;&lt;&quot;\n&quot;;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A;i++){
+            cout&lt;&lt;dat[i]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10858.html" class="problem-link">uva10858</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a> <a href="c012-uva10062.html" class="problem-link">c012 uva10062</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a></p>
+        <p><a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="d443-uva10497.html" class="problem-link">d443 uva10497</a> <a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="Luogu-P2261.html" class="problem-link">Luogu P2261</a> <a href="day-150.html" class="problem-link">day-150</a> <a href="uva10227.html" class="problem-link">uva10227</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

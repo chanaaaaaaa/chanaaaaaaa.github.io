@@ -25,62 +25,59 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-vector&lt;int&gt;nxt;
-inline void makenxt(string &amp;give){
-    nxt.assign(give.size(),0);
-    for(int i=1,now=0;i&lt;give.size();i++){
-        while(now&gt;0 &amp;&amp; give[i]!=give[now]){
-            now=nxt[now-1];
+vector&lt;<span class="token keyword">int</span>&gt;nxt;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> makenxt(string &amp;give){
+    nxt.assign(give.size(),<span class="token number">0</span>);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>,now=<span class="token number">0</span>;i&lt;give.size();i++){
+        <span class="token keyword">while</span>(now&gt;<span class="token number">0</span> &amp;&amp; give[i]!=give[now]){
+            now=nxt[now-<span class="token number">1</span>];
         }
-        if(give[i]==give[now]){
+        <span class="token keyword">if</span>(give[i]==give[now]){
             now++;
         }
         nxt[i]=now;
     }
 }
 
-inline void kmp(string &amp;give,string &amp;want){
-    long long cnt=0;
-    for(int i=0,now=0;i&lt;give.size();i++){
-        while(now&gt;0 &amp;&amp; give[i]!=want[now]){
-            now=nxt[now-1];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> kmp(string &amp;give,string &amp;want){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> cnt=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>,now=<span class="token number">0</span>;i&lt;give.size();i++){
+        <span class="token keyword">while</span>(now&gt;<span class="token number">0</span> &amp;&amp; give[i]!=want[now]){
+            now=nxt[now-<span class="token number">1</span>];
         }
-        if(give[i]==want[now]){now++;}
-        if(now==want.size()){
+        <span class="token keyword">if</span>(give[i]==want[now]){now++;}
+        <span class="token keyword">if</span>(now==want.size()){
             cnt++;
-            now=nxt[now-1];
+            now=nxt[now-<span class="token number">1</span>];
         }
     }
-    cout&lt;&lt;cnt&lt;&lt;&#x27;\n&#x27;;
+    cout&lt;&lt;cnt&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
 }
 
-signed main(){
-    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
 
     string A,B;
-    while(cin&gt;&gt;A&gt;&gt;B){
+    <span class="token keyword">while</span>(cin&gt;&gt;A&gt;&gt;B){
         makenxt(B);
         kmp(A,B);
         nxt.clear();
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="uva1208.html" class="problem-link">uva1208</a> <a href="copy.html" class="problem-link">!copy</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a></p>
+        <p><a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a> <a href="uva12186.html" class="problem-link">uva12186</a> <a href="ytp-races.html" class="problem-link">ytp races</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

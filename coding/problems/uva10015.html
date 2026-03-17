@@ -25,77 +25,74 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
 
-#define MAXN 32610
-using namespace std;
+<span class="token directive">#define</span> MAXN <span class="token number">32610</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
-int N;
-bool isprime[MAXN];
-vector&lt;int&gt;primes;
-inline void form(){
-    for(int i=2;i&lt;MAXN;i++){
-        if(!isprime[i]){primes.emplace_back(i);}
-        for(auto&amp; p:primes){
-            if(p*i&gt;MAXN){break;}
-            isprime[p*i]=true;
-            if(i%p==0){break;}
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> N;
+<span class="token keyword">bool</span> isprime[MAXN];
+vector&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;MAXN;i++){
+        <span class="token keyword">if</span>(!isprime[i]){primes.emplace_back(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span>&amp; p:primes){
+            <span class="token keyword">if</span>(p*i&gt;MAXN){<span class="token keyword">break</span>;}
+            isprime[p*i]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%p==<span class="token number">0</span>){<span class="token keyword">break</span>;}
         }
     }
 }
-inline int solve(int x){
-    vector&lt;int&gt;vec(x);
-    for(int i=0;i&lt;x;i++){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> solve(<span class="token keyword">int</span> x){
+    vector&lt;<span class="token keyword">int</span>&gt;vec(x);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;x;i++){
         vec[i]=i;
     }
-    int tot=x,now=0,idx=0;
-    while(tot!=1){
-        now=(now+primes[idx++]-1)%(tot--);
+    <span class="token keyword">int</span> tot=x,now=<span class="token number">0</span>,idx=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(tot!=<span class="token number">1</span>){
+        now=(now+primes[idx++]-<span class="token number">1</span>)%(tot--);
         vec.erase(vec.begin()+now);
     }
-    return vec[0]+1;
+    <span class="token keyword">return</span> vec[<span class="token number">0</span>]+<span class="token number">1</span>;
 }
-signed main(){
+<span class="token keyword">signed</span> main(){
     form();
-    while(N=read()){
+    <span class="token keyword">while</span>(N=read()){
         write(solve(N));
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="a520-uva12416.html" class="problem-link">a520 uva12416</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="c708-uva11538.html" class="problem-link">c708 uva11538</a> <a href="c009-uva10473.html" class="problem-link">c009 uva10473</a> <a href="day-150.html" class="problem-link">day-150</a></p>
+        <p><a href="f434-uva458.html" class="problem-link">f434 uva458</a> <a href="uva10010.html" class="problem-link">uva10010</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a> <a href="CSES-1646.html" class="problem-link">CSES 1646</a> <a href="CSES1084.html" class="problem-link">CSES1084</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

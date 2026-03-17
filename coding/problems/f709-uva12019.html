@@ -25,52 +25,49 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int N,init=5,m,d;
-int md[12]={0,31,59,90,120,151,181,212,243,273,304,334};
+<span class="token keyword">int</span> N,init=<span class="token number">5</span>,m,d;
+<span class="token keyword">int</span> md[<span class="token number">12</span>]={<span class="token number">0</span>,<span class="token number">31</span>,<span class="token number">59</span>,<span class="token number">90</span>,<span class="token number">120</span>,<span class="token number">151</span>,<span class="token number">181</span>,<span class="token number">212</span>,<span class="token number">243</span>,<span class="token number">273</span>,<span class="token number">304</span>,<span class="token number">334</span>};
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
     cin&gt;&gt;N;
-    while(N--){
+    <span class="token keyword">while</span>(N--){
         cin&gt;&gt;m&gt;&gt;d;
-        int out=(init+md[m-1]+d)%7;
-        if(out==0){
-            cout&lt;&lt;&quot;Sunday\n&quot;;
-        }else if(out==1){
-            cout&lt;&lt;&quot;Monday\n&quot;;
-        }else if(out==2){
-            cout&lt;&lt;&quot;Tuesday\n&quot;;
-        }else if(out==3){
-            cout&lt;&lt;&quot;Wednesday\n&quot;;
-        }else if(out==4){
-            cout&lt;&lt;&quot;Thursday\n&quot;;
-        }else if(out==5){
-            cout&lt;&lt;&quot;Friday\n&quot;;
-        }else if(out==6){
-            cout&lt;&lt;&quot;Saturday\n&quot;;
+        <span class="token keyword">int</span> out=(init+md[m-<span class="token number">1</span>]+d)%<span class="token number">7</span>;
+        <span class="token keyword">if</span>(out==<span class="token number">0</span>){
+            cout&lt;&lt;<span class="token string">&quot;Sunday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;Monday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">2</span>){
+            cout&lt;&lt;<span class="token string">&quot;Tuesday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">3</span>){
+            cout&lt;&lt;<span class="token string">&quot;Wednesday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">4</span>){
+            cout&lt;&lt;<span class="token string">&quot;Thursday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">5</span>){
+            cout&lt;&lt;<span class="token string">&quot;Friday\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(out==<span class="token number">6</span>){
+            cout&lt;&lt;<span class="token string">&quot;Saturday\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="day-149.html" class="problem-link">day-149</a> <a href="b343-uva11518.html" class="problem-link">b343 uva11518</a> <a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a></p>
+        <p><a href="a005.html" class="problem-link">a005</a> <a href="d056-uva10013.html" class="problem-link">d056 uva10013</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

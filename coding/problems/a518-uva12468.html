@@ -25,35 +25,32 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    int a,b;
-    while(cin&gt;&gt;a&gt;&gt;b){
-        if(a+b==-2){break;}
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> a,b;
+    <span class="token keyword">while</span>(cin&gt;&gt;a&gt;&gt;b){
+        <span class="token keyword">if</span>(a+b==-<span class="token number">2</span>){<span class="token keyword">break</span>;}
         a=abs(a-b);
-        b=100-a;
-        if(b&gt;a){
-            cout&lt;&lt;a&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;b&lt;&lt;&quot;\n&quot;;
+        b=<span class="token number">100</span>-a;
+        <span class="token keyword">if</span>(b&gt;a){
+            cout&lt;&lt;a&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;b&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d111-uva10110.html" class="problem-link">d111 uva10110</a> <a href="b343-uva11518.html" class="problem-link">b343 uva11518</a> <a href="uva11709.html" class="problem-link">uva11709</a> <a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a></p>
+        <p><a href="uva1210.html" class="problem-link">uva1210</a> <a href="day-134.html" class="problem-link">day-134</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a> <a href="d186-uva11461.html" class="problem-link">d186 uva11461</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="d111-uva10110.html" class="problem-link">d111 uva10110</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

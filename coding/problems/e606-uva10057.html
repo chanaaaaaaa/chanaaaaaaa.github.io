@@ -25,65 +25,62 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
-    while(cin&gt;&gt;N){
-        set&lt;int&gt;mid;
-        vector&lt;int&gt;data;
-        while(N--){
-            int temp;
+    <span class="token keyword">int</span> N;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        set&lt;<span class="token keyword">int</span>&gt;mid;
+        vector&lt;<span class="token keyword">int</span>&gt;data;
+        <span class="token keyword">while</span>(N--){
+            <span class="token keyword">int</span> temp;
             cin&gt;&gt;temp;
             data.push_back(temp);
         }
         sort(data.begin(),data.end());
-        //Q1
-        int Ans;
-        if((data.size() &amp; 1)==1){
-            Ans=data[(data.size()-1)/2];
+        <span class="token comment">//Q1</span>
+        <span class="token keyword">int</span> Ans;
+        <span class="token keyword">if</span>((data.size() &amp; <span class="token number">1</span>)==<span class="token number">1</span>){
+            Ans=data[(data.size()-<span class="token number">1</span>)/<span class="token number">2</span>];
             mid.insert(Ans);
-        }else{
-            Ans=data[data.size()/2-1];
+        }<span class="token keyword">else</span>{
+            Ans=data[data.size()/<span class="token number">2</span>-<span class="token number">1</span>];
             mid.insert(Ans);
-            mid.insert(data[data.size()/2]);
+            mid.insert(data[data.size()/<span class="token number">2</span>]);
         }
-        cout&lt;&lt;Ans&lt;&lt;&quot; &quot;;
-        //Q2
-        Ans=0;
-        for(int i=0;i&lt;data.size();i++){
-            if(mid.count(data[i])){
+        cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot; &quot;</span>;
+        <span class="token comment">//Q2</span>
+        Ans=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;data.size();i++){
+            <span class="token keyword">if</span>(mid.count(data[i])){
                 Ans++;
             }
         }
-        cout&lt;&lt;Ans&lt;&lt;&quot; &quot;;
-        //Q3
-        if((data.size() &amp; 1)==1){
-            cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;data[data.size()/2]-data[data.size()/2-1]+1&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot; &quot;</span>;
+        <span class="token comment">//Q3</span>
+        <span class="token keyword">if</span>((data.size() &amp; <span class="token number">1</span>)==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;data[data.size()/<span class="token number">2</span>]-data[data.size()/<span class="token number">2</span>-<span class="token number">1</span>]+<span class="token number">1</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES1734.html" class="problem-link">CSES1734</a> <a href="uva10730.html" class="problem-link">uva10730</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="c463-2017APCS.html" class="problem-link">c463 2017APCS</a></p>
+        <p><a href="d898-uva10128.html" class="problem-link">d898 uva10128</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="day-150.html" class="problem-link">day-150</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="uva11934.html" class="problem-link">uva11934</a> <a href="c463-2017APCS.html" class="problem-link">c463 2017APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

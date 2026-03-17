@@ -25,16 +25,16 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 
-//#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include&lt;string&gt;
-using namespace std;
-/*
+<span class="token comment">//#include&lt;cstdio&gt;</span>
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+<span class="token comment">/*
 inline int read(){
     int x=0,w=1;
     char c=0;
@@ -53,19 +53,19 @@ inline void write(int x){
     if(x&gt;=10){write(x/10);}
     putchar(x%10+&#x27;0&#x27;);
 }
-*/
-int LCS[1001][1001];
+*/</span>
+<span class="token keyword">int</span> LCS[<span class="token number">1001</span>][<span class="token number">1001</span>];
 string s1,s2;
-inline int Flcs(int i,int j){
-    if(i==0 || j==0){return 0;}
-    if(LCS[i][j]!=-1){return LCS[i][j];}
-    if(s1[i]==s2[j]){
-        return LCS[i][j]=Flcs(i-1,j-1)+1;
-    }else{
-        return LCS[i][j]=max(Flcs(i-1,j),Flcs(i,j-1));
+<span class="token keyword">inline</span> <span class="token keyword">int</span> Flcs(<span class="token keyword">int</span> i,<span class="token keyword">int</span> j){
+    <span class="token keyword">if</span>(i==<span class="token number">0</span> || j==<span class="token number">0</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">if</span>(LCS[i][j]!=-<span class="token number">1</span>){<span class="token keyword">return</span> LCS[i][j];}
+    <span class="token keyword">if</span>(s1[i]==s2[j]){
+        <span class="token keyword">return</span> LCS[i][j]=Flcs(i-<span class="token number">1</span>,j-<span class="token number">1</span>)+<span class="token number">1</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">return</span> LCS[i][j]=max(Flcs(i-<span class="token number">1</span>,j),Flcs(i,j-<span class="token number">1</span>));
     }
 }
-/*
+<span class="token comment">/*
 bcacbcabbaccbab
 bccabccbbabacbc
 a1b2c3d4e
@@ -82,30 +82,27 @@ opqrstuvwxyzabcdefghijklmn
 3
 26
 14
-*/
-signed main() {
-    while(getline(cin,s1)){
+*/</span>
+<span class="token keyword">signed</span> main() {
+    <span class="token keyword">while</span>(getline(cin,s1)){
         getline(cin,s2);
-        fill(LCS[0],LCS[0]+1001*1001,-1);
-        s1.insert(s1.begin(),&#x27;\0&#x27;);
-        s2.insert(s2.begin(),&#x27;\0&#x27;);
+        fill(LCS[<span class="token number">0</span>],LCS[<span class="token number">0</span>]+<span class="token number">1001</span>*<span class="token number">1001</span>,-<span class="token number">1</span>);
+        s1.insert(s1.begin(),<span class="token string">&#x27;\0&#x27;</span>);
+        s2.insert(s2.begin(),<span class="token string">&#x27;\0&#x27;</span>);
 
-        cout&lt;&lt;Flcs(s1.size(),s2.size())-1&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;Flcs(s1.size(),s2.size())-<span class="token number">1</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="uva10311.html" class="problem-link">uva10311</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a></p>
+        <p><a href="uva11086.html" class="problem-link">uva11086</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="e591-uva11264.html" class="problem-link">e591 uva11264</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

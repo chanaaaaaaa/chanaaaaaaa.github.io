@@ -25,79 +25,76 @@
     <p>O(V + E)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;queue&gt;
-#include&lt;stdio.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;queue&gt;
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(){
-    int cases=1;
-    while(true){
-        queue&lt;int&gt;wait;
-        vector&lt;int&gt;lib;
-        vector&lt;int&gt;mp(10001,0);
-        int L=read(),U=read(),R=read(),flag=0;
-        if(L+U+R==0){return 0;}
-        for(int i=0;i&lt;R;i++){
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> cases=<span class="token number">1</span>;
+    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+        queue&lt;<span class="token keyword">int</span>&gt;wait;
+        vector&lt;<span class="token keyword">int</span>&gt;lib;
+        vector&lt;<span class="token keyword">int</span>&gt;mp(<span class="token number">10001</span>,<span class="token number">0</span>);
+        <span class="token keyword">int</span> L=read(),U=read(),R=read(),flag=<span class="token number">0</span>;
+        <span class="token keyword">if</span>(L+U+R==<span class="token number">0</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R;i++){
             lib.push_back(read());
         }
-        printf(&quot;Case &quot;);
+        printf(<span class="token string">&quot;Case &quot;</span>);
         write(cases);
-        printf(&quot;: &quot;);
+        printf(<span class="token string">&quot;: &quot;</span>);
 
         wait.push(L);
-        mp[L]=1;
-        while(!wait.empty()){
-            for(int i=0;i&lt;R;i++){
-                int temp=(wait.front()+lib[i])%10000;
-                if(temp==U){write(mp[wait.front()]);flag=1;break;}
-                if(mp[temp]==0){
+        mp[L]=<span class="token number">1</span>;
+        <span class="token keyword">while</span>(!wait.empty()){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R;i++){
+                <span class="token keyword">int</span> temp=(wait.front()+lib[i])%<span class="token number">10000</span>;
+                <span class="token keyword">if</span>(temp==U){write(mp[wait.front()]);flag=<span class="token number">1</span>;<span class="token keyword">break</span>;}
+                <span class="token keyword">if</span>(mp[temp]==<span class="token number">0</span>){
                     wait.push(temp);
-                    mp[temp]=mp[wait.front()]+1;
+                    mp[temp]=mp[wait.front()]+<span class="token number">1</span>;
                 }
             }
-            if(flag){break;}
+            <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
             wait.pop();
         }
-        if(wait.empty()){printf(&quot;Permanently Locked&quot;);}
-        putchar(&#x27;\n&#x27;);
+        <span class="token keyword">if</span>(wait.empty()){printf(<span class="token string">&quot;Permanently Locked&quot;</span>);}
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
         cases++;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="d418-uva993.html" class="problem-link">d418 uva993</a> <a href="e565-uva10407.html" class="problem-link">e565 uva10407</a> <a href="uva11015.html" class="problem-link">uva11015</a></p>
+        <p><a href="a007.html" class="problem-link">a007</a> <a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="e287-2019APCS.html" class="problem-link">e287 2019APCS</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a> <a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="f709-uva12019.html" class="problem-link">f709 uva12019</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

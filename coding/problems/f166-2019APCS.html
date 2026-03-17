@@ -25,58 +25,55 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;vector&gt;
-#include&lt;stdio.h&gt;
-//#define int long long
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token comment">//#define int long long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int N,P,L,R,now,read=0;
+<span class="token keyword">int</span> N,P,L,R,now,read=<span class="token number">0</span>;
 
-signed main(){
+<span class="token keyword">signed</span> main(){
 
-    scanf(&quot;%d %d %d %d&quot;,&amp;N,&amp;P,&amp;L,&amp;R);
-    int to[N];
-    vector&lt;int&gt;st(N,-1);//0toN steps
-    vector&lt;int&gt;wait={0};//next to execute
-    st[0]=0;
+    scanf(<span class="token string">&quot;%d %d %d %d&quot;</span>,&amp;N,&amp;P,&amp;L,&amp;R);
+    <span class="token keyword">int</span> to[N];
+    vector&lt;<span class="token keyword">int</span>&gt;st(N,-<span class="token number">1</span>);<span class="token comment">//0toN steps</span>
+    vector&lt;<span class="token keyword">int</span>&gt;wait={<span class="token number">0</span>};<span class="token comment">//next to execute</span>
+    st[<span class="token number">0</span>]=<span class="token number">0</span>;
 
-    for(int i=0;i&lt;N;i++){
-        scanf(&quot;%d&quot;,&amp;to[i]);
-        if(to[i] &gt;= N || to[i] &lt; 0)to[i]=N;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        scanf(<span class="token string">&quot;%d&quot;</span>,&amp;to[i]);
+        <span class="token keyword">if</span>(to[i] &gt;= N || to[i] &lt; <span class="token number">0</span>)to[i]=N;
     }
-    int d[2]={-L,R};
-    while(read&lt;wait.size() &amp;&amp; st[P]==-1){
+    <span class="token keyword">int</span> d[<span class="token number">2</span>]={-L,R};
+    <span class="token keyword">while</span>(read&lt;wait.size() &amp;&amp; st[P]==-<span class="token number">1</span>){
         now=wait[read];
         read++;
-        for(int i=0;i&lt;2;i++){
-            if(now+d[i]&gt;=0 &amp;&amp; now+d[i]&lt;N){
-                if(to[now+d[i]]&lt;N){
-                    if(st[to[now+d[i]]]==-1){
-                        st[to[now+d[i]]]=st[now]+1;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">2</span>;i++){
+            <span class="token keyword">if</span>(now+d[i]&gt;=<span class="token number">0</span> &amp;&amp; now+d[i]&lt;N){
+                <span class="token keyword">if</span>(to[now+d[i]]&lt;N){
+                    <span class="token keyword">if</span>(st[to[now+d[i]]]==-<span class="token number">1</span>){
+                        st[to[now+d[i]]]=st[now]+<span class="token number">1</span>;
                         wait.push_back(to[now+d[i]]);
                     }
                 }
             }
         }
     }
-    printf(&quot;%d\n&quot;,st[P]);
-    return 0;
+    printf(<span class="token string">&quot;%d\n&quot;</span>,st[P]);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10730.html" class="problem-link">uva10730</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="d366-uva294.html" class="problem-link">d366 uva294</a></p>
+        <p><a href="e679-uva11115.html" class="problem-link">e679 uva11115</a> <a href="uva11005.html" class="problem-link">uva11005</a> <a href="d659-uva11727.html" class="problem-link">d659 uva11727</a> <a href="a520-uva12416.html" class="problem-link">a520 uva12416</a> <a href="CSES1629.html" class="problem-link">CSES1629</a> <a href="uva924.html" class="problem-link">uva924</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

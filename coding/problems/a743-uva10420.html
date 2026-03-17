@@ -25,59 +25,56 @@
     <p>O(n log n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
     vector&lt;string&gt;dat;
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    while(N--){
+    <span class="token keyword">while</span>(N--){
         string A;
         cin&gt;&gt;A;
         dat.push_back(A);
         getline(cin,A);
     }
     sort(dat.begin(),dat.end());
-    int same=1;
-    for(int i=0;i&lt;dat.size()-1;i++){
-        if(same==1){
-            cout&lt;&lt;dat[i]&lt;&lt;&quot; &quot;;
+    <span class="token keyword">int</span> same=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;dat.size()-<span class="token number">1</span>;i++){
+        <span class="token keyword">if</span>(same==<span class="token number">1</span>){
+            cout&lt;&lt;dat[i]&lt;&lt;<span class="token string">&quot; &quot;</span>;
         }
-        if(dat[i]==dat[i+1]){
+        <span class="token keyword">if</span>(dat[i]==dat[i+<span class="token number">1</span>]){
             same++;
-            if(i==dat.size()-2){
-                cout&lt;&lt;same&lt;&lt;&quot;\n&quot;;
+            <span class="token keyword">if</span>(i==dat.size()-<span class="token number">2</span>){
+                cout&lt;&lt;same&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
             }
-        }else{
-            if(i==dat.size()-2 &amp;&amp; same==1){
-                cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;&lt;&lt;dat[i+1]&lt;&lt;&quot; &quot;&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
-            }else{
-                cout&lt;&lt;same&lt;&lt;&quot;\n&quot;;
+        }<span class="token keyword">else</span>{
+            <span class="token keyword">if</span>(i==dat.size()-<span class="token number">2</span> &amp;&amp; same==<span class="token number">1</span>){
+                cout&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>&lt;&lt;dat[i+<span class="token number">1</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+            }<span class="token keyword">else</span>{
+                cout&lt;&lt;same&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
             }
-            same=1;
+            same=<span class="token number">1</span>;
         }
 
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva924.html" class="problem-link">uva924</a> <a href="d255-uva11417.html" class="problem-link">d255 uva11417</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="uva10527.html" class="problem-link">uva10527</a> <a href="uva10943.html" class="problem-link">uva10943</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a></p>
+        <p><a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="uva13249.html" class="problem-link">uva13249</a> <a href="uva10223.html" class="problem-link">uva10223</a> <a href="uva11934.html" class="problem-link">uva11934</a> <a href="d190-uva11462.html" class="problem-link">d190 uva11462</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,82 +25,79 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 
-#define ll long long
-using namespace std;
+<span class="token directive">#define</span> ll <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline long long read(){
-    long long x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> read(){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return -1;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(long long x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-inline bool check(ll mid,ll nights,vector&lt;ll&gt; dis){
-	ll cnt=0,spend=0;
-	for(auto &amp;n:dis){
-		if(n&gt;mid)return false;
-		if(cnt+n&gt;mid){
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> check(ll mid,ll nights,vector&lt;ll&gt; dis){
+	ll cnt=<span class="token number">0</span>,spend=<span class="token number">0</span>;
+	<span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;n:dis){
+		<span class="token keyword">if</span>(n&gt;mid)<span class="token keyword">return</span> <span class="token keyword">false</span>;
+		<span class="token keyword">if</span>(cnt+n&gt;mid){
 			spend++;
 			cnt=n;
-		}else{cnt+=n;}
+		}<span class="token keyword">else</span>{cnt+=n;}
 	}
-	if(spend&gt;nights){return false;}
-	else{return true;}
+	<span class="token keyword">if</span>(spend&gt;nights){<span class="token keyword">return</span> <span class="token keyword">false</span>;}
+	<span class="token keyword">else</span>{<span class="token keyword">return</span> <span class="token keyword">true</span>;}
 }
 
-inline int mid_dis(vector&lt;ll&gt; dis,ll nights){
-	ll ans,l=0,r=*max_element(dis.begin(),dis.end());
-	for(auto&amp;c:dis){r+=c;}
-	while(l&lt;=r){
-		ll mid=(r+l)/2;
+<span class="token keyword">inline</span> <span class="token keyword">int</span> mid_dis(vector&lt;ll&gt; dis,ll nights){
+	ll ans,l=<span class="token number">0</span>,r=*max_element(dis.begin(),dis.end());
+	<span class="token keyword">for</span>(<span class="token keyword">auto</span>&amp;c:dis){r+=c;}
+	<span class="token keyword">while</span>(l&lt;=r){
+		ll mid=(r+l)/<span class="token number">2</span>;
 
-		if(check(mid,nights,dis)){
-			r=mid-1;
+		<span class="token keyword">if</span>(check(mid,nights,dis)){
+			r=mid-<span class="token number">1</span>;
 			ans=mid;
-		}else{l=mid+1;}
+		}<span class="token keyword">else</span>{l=mid+<span class="token number">1</span>;}
 	}
-	return ans;
+	<span class="token keyword">return</span> ans;
 }
  main(){
     ll campsites,nights;
 
-    while(campsites=read()+1){
+    <span class="token keyword">while</span>(campsites=read()+<span class="token number">1</span>){
         nights=read();
         vector&lt;ll&gt; dis;
 
-        while(campsites--){dis.emplace_back(read());}
+        <span class="token keyword">while</span>(campsites--){dis.emplace_back(read());}
         write(mid_dis(dis,nights));
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="e465-2018APCS.html" class="problem-link">e465 2018APCS</a> <a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="day-158.html" class="problem-link">day-158</a> <a href="e603-uva10104.html" class="problem-link">e603 uva10104</a> <a href="uva834.html" class="problem-link">uva834</a></p>
+        <p><a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="uva10563.html" class="problem-link">uva10563</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="uva10337.html" class="problem-link">uva10337</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

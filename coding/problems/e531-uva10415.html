@@ -25,74 +25,71 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-string dict = &quot;cdefgabCDEFGAB&quot;;
-int fin[14][10]={
-    {0,1,1,1,0,0,1,1,1,1},{0,1,1,1,0,0,1,1,1,0},
-    {0,1,1,1,0,0,1,1,0,0},{0,1,1,1,0,0,1,0,0,0},
-    {0,1,1,1,0,0,0,0,0,0},{0,1,1,0,0,0,0,0,0,0},
-    {0,1,0,0,0,0,0,0,0,0},{0,0,1,0,0,0,0,0,0,0},
-    {1,1,1,1,0,0,1,1,1,0},{1,1,1,1,0,0,1,1,0,0},
-    {1,1,1,1,0,0,1,0,0,0},{1,1,1,1,0,0,0,0,0,0},
-    {1,1,1,0,0,0,0,0,0,0},{1,1,0,0,0,0,0,0,0,0}
+string dict = <span class="token string">&quot;cdefgabCDEFGAB&quot;</span>;
+<span class="token keyword">int</span> fin[<span class="token number">14</span>][<span class="token number">10</span>]={
+    {<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>},{<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>},
+    {<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    {<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    {<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    {<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>},{<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    {<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    {<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0</span>}
 };
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
     cin.ignore();
-    while(N--){
-        vector&lt;int&gt;dat(10,0);
-        int last=-1;
+    <span class="token keyword">while</span>(N--){
+        vector&lt;<span class="token keyword">int</span>&gt;dat(<span class="token number">10</span>,<span class="token number">0</span>);
+        <span class="token keyword">int</span> last=-<span class="token number">1</span>;
         string in;
         getline(cin,in);
-        for(int i=0;i&lt;in.size();i++){
-            for(int j=0;j&lt;14;j++){
-                if(in[i]==dict[j]){
-                    if(last==-1){
-                        for(int k=0;k&lt;10;k++){
-                            if(fin[j][k]==1){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;in.size();i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">14</span>;j++){
+                <span class="token keyword">if</span>(in[i]==dict[j]){
+                    <span class="token keyword">if</span>(last==-<span class="token number">1</span>){
+                        <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;<span class="token number">10</span>;k++){
+                            <span class="token keyword">if</span>(fin[j][k]==<span class="token number">1</span>){
                                 dat[k]++;
                             }
                             last=j;
                         }
-                    }else{
-                        for(int k=0;k&lt;10;k++){
-                            if(fin[j][k]==1 &amp;&amp; fin[last][k]==0){
+                    }<span class="token keyword">else</span>{
+                        <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;<span class="token number">10</span>;k++){
+                            <span class="token keyword">if</span>(fin[j][k]==<span class="token number">1</span> &amp;&amp; fin[last][k]==<span class="token number">0</span>){
                                 dat[k]++;
                             }
                         }
                         last=j;
                     }
-                    break;
+                    <span class="token keyword">break</span>;
                 }
             }
         }
-        for(int i=0;i&lt;10;i++){
-            cout&lt;&lt;dat[i]&lt;&lt;&quot; &quot;;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">10</span>;i++){
+            cout&lt;&lt;dat[i]&lt;&lt;<span class="token string">&quot; &quot;</span>;
         }
-        cout&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d150-uva11369.html" class="problem-link">d150 uva11369</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="uva12186.html" class="problem-link">uva12186</a> <a href="c006-uva10550.html" class="problem-link">c006 uva10550</a> <a href="c123-uva514.html" class="problem-link">c123 uva514</a> <a href="uva11709.html" class="problem-link">uva11709</a></p>
+        <p><a href="uva10527.html" class="problem-link">uva10527</a> <a href="d206-uva108.html" class="problem-link">d206 uva108</a> <a href="day-146.html" class="problem-link">day-146</a> <a href="LibreOJ-2185.html" class="problem-link">LibreOJ 2185</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="uva10596.html" class="problem-link">uva10596</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,46 +25,43 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
     string A;
-    int check=0;
-    while(getline(cin,A)){
+    <span class="token keyword">int</span> check=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(getline(cin,A)){
 
-        for(int i=0;i&lt;A.size();i++){
-            if(A[i]==&#x27;&quot;&#x27;){
-                if(check==0){
-                    check=1;
-                    cout&lt;&lt;&quot;``&quot;;
-                }else{
-                    check=0;
-                    cout&lt;&lt;&quot;&#x27;&#x27;&quot;;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(A[i]==<span class="token string">&#x27;&quot;&#x27;</span>){
+                <span class="token keyword">if</span>(check==<span class="token number">0</span>){
+                    check=<span class="token number">1</span>;
+                    cout&lt;&lt;<span class="token string">&quot;``&quot;</span>;
+                }<span class="token keyword">else</span>{
+                    check=<span class="token number">0</span>;
+                    cout&lt;&lt;<span class="token string">&quot;&#x27;&#x27;&quot;</span>;
                 }
-            }else{cout&lt;&lt;A[i];}
+            }<span class="token keyword">else</span>{cout&lt;&lt;A[i];}
         }
-        cout&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="f605-2021APCS.html" class="problem-link">f605 2021APCS</a> <a href="uva10174.html" class="problem-link">uva10174</a> <a href="e286-2019APCS.html" class="problem-link">e286 2019APCS</a> <a href="e565-uva10407.html" class="problem-link">e565 uva10407</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a></p>
+        <p><a href="uva11396.html" class="problem-link">uva11396</a> <a href="uva10302.html" class="problem-link">uva10302</a> <a href="e531-uva10415.html" class="problem-link">e531 uva10415</a> <a href="d260-uva11455.html" class="problem-link">d260 uva11455</a> <a href="e513-uva11349.html" class="problem-link">e513 uva11349</a> <a href="a007.html" class="problem-link">a007</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

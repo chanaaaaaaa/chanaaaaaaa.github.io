@@ -46,7 +46,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <p>{complexity_html}</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">{code_html}</code></pre>
+    <pre class="code-block language-cpp"><code>{code_html}</code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
@@ -56,9 +56,6 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>
 '''
@@ -94,6 +91,112 @@ def extract_from_code(code: str, problem_id: str) -> tuple:
             break
 
     return solution or "（請自行補充）", complexity or "（請自行補充）"
+
+
+def highlight_cpp(code: str) -> str:
+    """
+    建置時進行 C++ 語法高亮，輸出 Prism 相容的 token class，
+    無需依賴 JavaScript，確保顏色一定顯示。
+    """
+    # 依序處理：先保護字串與註解，再高亮關鍵字等
+    tokens = []
+    i = 0
+    n = len(code)
+
+    def esc(s):
+        return html.escape(s)
+
+    CPP_KEYWORDS = {
+        'alignas', 'alignof', 'asm', 'auto', 'bool', 'break', 'case', 'catch',
+        'char', 'class', 'const', 'constexpr', 'const_cast', 'continue', 'decltype',
+        'default', 'delete', 'do', 'double', 'dynamic_cast', 'else', 'enum',
+        'explicit', 'export', 'extern', 'false', 'float', 'for', 'friend', 'goto',
+        'if', 'inline', 'int', 'long', 'mutable', 'namespace', 'new', 'noexcept',
+        'nullptr', 'operator', 'override', 'private', 'protected', 'public',
+        'register', 'reinterpret_cast', 'return', 'short', 'signed', 'sizeof',
+        'static', 'static_assert', 'static_cast', 'struct', 'switch', 'template',
+        'this', 'thread_local', 'throw', 'true', 'try', 'typedef', 'typeid',
+        'typename', 'union', 'unsigned', 'using', 'virtual', 'void', 'volatile',
+        'wchar_t', 'while', 'co_await', 'co_return', 'co_yield', 'concept',
+        'consteval', 'constinit', 'import', 'module', 'requires',
+    }
+
+    while i < n:
+        # 雙引號字串
+        if code[i] == '"':
+            j = i + 1
+            while j < n and (code[j] != '"' or (j > 0 and code[j - 1] == '\\')):
+                if code[j] == '\\':
+                    j += 2
+                else:
+                    j += 1
+            if j < n:
+                j += 1
+            tokens.append(f'<span class="token string">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 單引號字元
+        if code[i] == "'":
+            j = i + 1
+            while j < n and (code[j] != "'" or (j > 0 and code[j - 1] == '\\')):
+                if code[j] == '\\':
+                    j += 2
+                else:
+                    j += 1
+            if j < n:
+                j += 1
+            tokens.append(f'<span class="token string">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 區塊註解 /* */
+        if i + 1 < n and code[i:i + 2] == '/*':
+            j = code.find('*/', i + 2)
+            j = j + 2 if j >= 0 else n
+            tokens.append(f'<span class="token comment">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 行註解 //
+        if i + 1 < n and code[i:i + 2] == '//':
+            j = code.find('\n', i + 2)
+            j = n if j < 0 else j
+            tokens.append(f'<span class="token comment">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 預處理 #include 等
+        if code[i] == '#' and (i == 0 or code[i - 1] == '\n'):
+            j = i + 1
+            while j < n and code[j] in ' \t':
+                j += 1
+            while j < n and (code[j].isalnum() or code[j] in '_'):
+                j += 1
+            tokens.append(f'<span class="token directive">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 數字
+        if code[i].isdigit():
+            j = i
+            while j < n and (code[j].isdigit() or code[j] in '.xXaAbBcCdDeEfF'):
+                j += 1
+            tokens.append(f'<span class="token number">{esc(code[i:j])}</span>')
+            i = j
+            continue
+        # 識別符與關鍵字
+        if code[i].isalpha() or code[i] == '_':
+            j = i
+            while j < n and (code[j].isalnum() or code[j] == '_'):
+                j += 1
+            word = code[i:j]
+            if word in CPP_KEYWORDS:
+                tokens.append(f'<span class="token keyword">{esc(word)}</span>')
+            else:
+                tokens.append(esc(word))
+            i = j
+            continue
+        # 其他字元
+        tokens.append(esc(code[i]))
+        i += 1
+
+    return ''.join(tokens)
 
 
 def format_problem_source(problem_id: str) -> str:
@@ -243,13 +346,14 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         solution_html = html.escape(solution).replace('\n', '<br>')
         complexity_html = html.escape(complexity)
 
+        code_html = highlight_cpp(p["code"])
         html_content = PAGE_TEMPLATE.format(
             title=html.escape(p["title"]),
             problem_id=html.escape(p["id"]),
             problem_link_html=problem_link_html,
             solution_html=solution_html,
             complexity_html=complexity_html,
-            code_html=html.escape(p["code"]),
+            code_html=code_html,
             other_links_html=other_links_html,
         )
 

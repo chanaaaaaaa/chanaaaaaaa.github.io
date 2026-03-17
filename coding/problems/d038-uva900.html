@@ -25,68 +25,65 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;</span>)
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return -1;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(long long x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
-//long long lib[50]={1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040,1346269,2178309,3524578,5702887,9227465,14930352,24157817,39088169,63245986,102334155,165580141,267914296,433494437,701408733,1134903170,1836311903,2971215073,4807526976,7778742049,12586269025,20365011074};
-//-some bad things
-//normally ans
-long long lib[51];
-inline void form(){
-    lib[0]=1;
-    lib[1]=2;
-    for(int i=2;i&lt;51;i++){
-        lib[i]=lib[i-1]+lib[i-2];
+<span class="token comment">//-block</span>
+<span class="token comment">//long long lib[50]={1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040,1346269,2178309,3524578,5702887,9227465,14930352,24157817,39088169,63245986,102334155,165580141,267914296,433494437,701408733,1134903170,1836311903,2971215073,4807526976,7778742049,12586269025,20365011074};</span>
+<span class="token comment">//-some bad things</span>
+<span class="token comment">//normally ans</span>
+<span class="token keyword">long</span> <span class="token keyword">long</span> lib[<span class="token number">51</span>];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
+    lib[<span class="token number">0</span>]=<span class="token number">1</span>;
+    lib[<span class="token number">1</span>]=<span class="token number">2</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;<span class="token number">51</span>;i++){
+        lib[i]=lib[i-<span class="token number">1</span>]+lib[i-<span class="token number">2</span>];
     }
 }
-//-normally ans
-int N;
-int main(){
-    form();/*the bad things
+<span class="token comment">//-normally ans</span>
+<span class="token keyword">int</span> N;
+<span class="token keyword">int</span> main(){
+    form();<span class="token comment">/*the bad things
     for(int i=0;i&lt;50;i++){
         write(lib[i]);
         putchar(&#x27;,&#x27;);
-    }*/
-    while(N=read()){
-        write(lib[N-1]);
-        putchar(&#x27;\n&#x27;);
+    }*/</span>
+    <span class="token keyword">while</span>(N=read()){
+        write(lib[N-<span class="token number">1</span>]);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="day-153.html" class="problem-link">day-153</a> <a href="uva10673.html" class="problem-link">uva10673</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="uva10579.html" class="problem-link">uva10579</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="a011-uva00494.html" class="problem-link">a011 uva00494</a></p>
+        <p><a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="c005-uva10300.html" class="problem-link">c005 uva10300</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="a130-uva12015.html" class="problem-link">a130 uva12015</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

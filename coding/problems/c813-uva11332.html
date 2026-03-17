@@ -25,43 +25,40 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    long A;
-    while(cin&gt;&gt;A){
-        if(A==0){break;}
-        while(A&gt;9){
-            for(int i=1;i&lt;=9;i++){
-                if(A&gt;=pow(10,i)){
-                    int temp=A/pow(10,i);
-                    A-=(temp%10)*pow(10,i);
-                    A+=(temp%10);
+    <span class="token keyword">long</span> A;
+    <span class="token keyword">while</span>(cin&gt;&gt;A){
+        <span class="token keyword">if</span>(A==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">while</span>(A&gt;<span class="token number">9</span>){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=<span class="token number">9</span>;i++){
+                <span class="token keyword">if</span>(A&gt;=pow(<span class="token number">10</span>,i)){
+                    <span class="token keyword">int</span> temp=A/pow(<span class="token number">10</span>,i);
+                    A-=(temp%<span class="token number">10</span>)*pow(<span class="token number">10</span>,i);
+                    A+=(temp%<span class="token number">10</span>);
                 }
             }
         }
-        cout&lt;&lt;A&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;A&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a132-uva10931.html" class="problem-link">a132 uva10931</a> <a href="uva13249.html" class="problem-link">uva13249</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="a159-uva11743.html" class="problem-link">a159 uva11743</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a> <a href="f709-uva12019.html" class="problem-link">f709 uva12019</a></p>
+        <p><a href="uva10916.html" class="problem-link">uva10916</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="c004-uva10812.html" class="problem-link">c004 uva10812</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

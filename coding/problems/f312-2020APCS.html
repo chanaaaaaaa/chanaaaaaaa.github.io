@@ -25,38 +25,38 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int a1,b1,c1,a2,b2,c2,n,maxx=0;
+<span class="token keyword">int</span> a1,b1,c1,a2,b2,c2,n,maxx=<span class="token number">0</span>;
 
-inline int read(){
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
-        if(c==&#x27;-&#x27;) w=-1;
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>) w=-<span class="token number">1</span>;
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x*w;
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(int x){
-    if(x&lt;0){
-        putchar(&#x27;-&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){
+        putchar(<span class="token string">&#x27;-&#x27;</span>);
         x=-x;
     }
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
 
     a1=read();
     b1=read();
@@ -65,22 +65,19 @@ signed main(){
     b2=read();
     c2=read();
     n=read();
-    for(int x=0;x&lt;=n;x++)maxx=max(maxx,((a1+a2)*x-a1*2*n+b2-b1)*x);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> x=<span class="token number">0</span>;x&lt;=n;x++)maxx=max(maxx,((a1+a2)*x-a1*<span class="token number">2</span>*n+b2-b1)*x);
     write((a1*n+b1)*n+c1+c2+maxx);
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva924.html" class="problem-link">uva924</a> <a href="a176.html" class="problem-link">a176</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="j123-2022APCS.html" class="problem-link">j123 2022APCS</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="CSES1733.html" class="problem-link">CSES1733</a></p>
+        <p><a href="day-134.html" class="problem-link">day-134</a> <a href="AtCoder-098C.html" class="problem-link">AtCoder 098.C</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="c033-uva406.html" class="problem-link">c033 uva406</a> <a href="CSES1621.html" class="problem-link">CSES1621</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

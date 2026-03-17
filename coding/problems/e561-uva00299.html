@@ -25,47 +25,44 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 
-int main(){
+<span class="token keyword">int</span> main(){
 
-    int cycle;
+    <span class="token keyword">int</span> cycle;
     cin &gt;&gt; cycle;
-    for(int i=0;i&lt;cycle;i++){
-        int ron,con=0;
-        int t[51];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;cycle;i++){
+        <span class="token keyword">int</span> ron,con=<span class="token number">0</span>;
+        <span class="token keyword">int</span> t[<span class="token number">51</span>];
         cin &gt;&gt; ron;
-        for(int j=0;j&lt;ron;j++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;ron;j++){
             cin &gt;&gt; t[j];
         }
-        for(int j=0;j&lt;ron;j++){
-            for(int g=j+1;g&lt;ron;g++){
-                if(t[j]&gt;t[g]){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;ron;j++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> g=j+<span class="token number">1</span>;g&lt;ron;g++){
+                <span class="token keyword">if</span>(t[j]&gt;t[g]){
                     swap(t[j],t[g]);
                     con++;
                 }
             }
         }
-        cout &lt;&lt;&quot;Optimal train swapping takes &quot;&lt;&lt; con &lt;&lt;&quot; swaps.&quot;&lt;&lt; &quot;\n&quot;;
+        cout &lt;&lt;<span class="token string">&quot;Optimal train swapping takes &quot;</span>&lt;&lt; con &lt;&lt;<span class="token string">&quot; swaps.&quot;</span>&lt;&lt; <span class="token string">&quot;\n&quot;</span>;
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10763.html" class="problem-link">uva10763</a> <a href="c060-uva00392.html" class="problem-link">c060 uva00392</a> <a href="CSES-1753.html" class="problem-link">CSES 1753</a> <a href="uva11076.html" class="problem-link">uva11076</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="uva10579.html" class="problem-link">uva10579</a></p>
+        <p><a href="uva624.html" class="problem-link">uva624</a> <a href="e581-uva11067.html" class="problem-link">e581 uva11067</a> <a href="uva10887.html" class="problem-link">uva10887</a> <a href="uva10427.html" class="problem-link">uva10427</a> <a href="uva10161.html" class="problem-link">uva10161</a> <a href="d255-uva11417.html" class="problem-link">d255 uva11417</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

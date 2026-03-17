@@ -25,71 +25,68 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int mx[4]={0,0,-1,1};
-int my[4]={1,-1,0,0};
-int dat[100][100];
+<span class="token keyword">int</span> mx[<span class="token number">4</span>]={<span class="token number">0</span>,<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">1</span>};
+<span class="token keyword">int</span> my[<span class="token number">4</span>]={<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>};
+<span class="token keyword">int</span> dat[<span class="token number">100</span>][<span class="token number">100</span>];
 
-int n,m,sx=0,sy=0;
+<span class="token keyword">int</span> n,m,sx=<span class="token number">0</span>,sy=<span class="token number">0</span>;
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+<span class="token keyword">int</span> main(){
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
 
     cin&gt;&gt;n&gt;&gt;m;
-    for(int i=0;i&lt;n;i++){
-        for(int j=0;j&lt;m;j++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
             cin&gt;&gt;dat[j][i];
-            if(dat[j][i]&lt;dat[sx][sy]){
+            <span class="token keyword">if</span>(dat[j][i]&lt;dat[sx][sy]){
                 sx=j;
                 sy=i;
             }
         }
     }
-    long long Ans=dat[sx][sy];
-    for(int i=0;i&lt;n*m;i++){
-        int nowx=sx,nowy=sy,maxx=1e6;
-        for(int j=0;j&lt;4;j++){
-            if(nowx+mx[j]&lt;m &amp;&amp; nowx+mx[j]&gt;=0 &amp;&amp; nowy+my[j]&lt;n &amp;&amp; nowy+my[j]&gt;=0){
-                if((dat[nowx+mx[j]][nowy+my[j]]!=-1)&amp;&amp;(dat[nowx+mx[j]][nowy+my[j]]&lt;maxx)){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> Ans=dat[sx][sy];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n*m;i++){
+        <span class="token keyword">int</span> nowx=sx,nowy=sy,maxx=<span class="token number">1e6</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">4</span>;j++){
+            <span class="token keyword">if</span>(nowx+mx[j]&lt;m &amp;&amp; nowx+mx[j]&gt;=<span class="token number">0</span> &amp;&amp; nowy+my[j]&lt;n &amp;&amp; nowy+my[j]&gt;=<span class="token number">0</span>){
+                <span class="token keyword">if</span>((dat[nowx+mx[j]][nowy+my[j]]!=-<span class="token number">1</span>)&amp;&amp;(dat[nowx+mx[j]][nowy+my[j]]&lt;maxx)){
                     sx=nowx+mx[j];
                     sy=nowy+my[j];
                     maxx=dat[sx][sy];
                 }
             }
         }
-        if(sx==nowx &amp;&amp; sy==nowy){
-            break;
-        }else{
+        <span class="token keyword">if</span>(sx==nowx &amp;&amp; sy==nowy){
+            <span class="token keyword">break</span>;
+        }<span class="token keyword">else</span>{
             Ans+=dat[sx][sy];
-            dat[nowx][nowy]=-1;
+            dat[nowx][nowy]=-<span class="token number">1</span>;
         }
     }
-    cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;/*
+    cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;<span class="token comment">/*
     for(int i=0;i&lt;n;i++){
         for(int j=0;j&lt;m;j++){
             cout&lt;&lt;dat[j][i]&lt;&lt;&quot;\t&quot;;
         }
         cout&lt;&lt;&quot;\n&quot;;
-    }*/
-    return 0;
+    }*/</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10334.html" class="problem-link">uva10334</a> <a href="d188-uva11342.html" class="problem-link">d188 uva11342</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="b059.html" class="problem-link">b059</a></p>
+        <p><a href="day-135.html" class="problem-link">day-135</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="CSES1641.html" class="problem-link">CSES1641</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="day-149.html" class="problem-link">day-149</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

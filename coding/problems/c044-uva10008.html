@@ -25,54 +25,51 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int dic[26];
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> dic[<span class="token number">26</span>];
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N,maxx=0;
+    <span class="token keyword">int</span> N,maxx=<span class="token number">0</span>;
     cin&gt;&gt;N;
     cin.ignore();
-    while(N--){
+    <span class="token keyword">while</span>(N--){
         string A;
         getline(cin,A);
-        for(int i=0;i&lt;A.size();i++){
-            int temp=int(A[i]);
-            if(temp&gt;=65 &amp;&amp; temp&lt;=90){
-               dic[temp-65]++;
-               if(dic[temp-65]&gt;maxx) maxx=dic[temp-65];
-            }else if(temp&gt;=97 &amp;&amp; temp&lt;=122){
-                dic[temp-97]++;
-                if(dic[temp-97]&gt;maxx) maxx=dic[temp-97];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">int</span> temp=<span class="token keyword">int</span>(A[i]);
+            <span class="token keyword">if</span>(temp&gt;=<span class="token number">65</span> &amp;&amp; temp&lt;=<span class="token number">90</span>){
+               dic[temp-<span class="token number">65</span>]++;
+               <span class="token keyword">if</span>(dic[temp-<span class="token number">65</span>]&gt;maxx) maxx=dic[temp-<span class="token number">65</span>];
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(temp&gt;=<span class="token number">97</span> &amp;&amp; temp&lt;=<span class="token number">122</span>){
+                dic[temp-<span class="token number">97</span>]++;
+                <span class="token keyword">if</span>(dic[temp-<span class="token number">97</span>]&gt;maxx) maxx=dic[temp-<span class="token number">97</span>];
             }
         }
     }
-    for(int i=maxx;i&gt;0;i--){
-        for(int j=0;j&lt;26;j++){
-            if(dic[j]==i){
-                cout&lt;&lt;char(j+65)&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot;\n&quot;;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=maxx;i&gt;<span class="token number">0</span>;i--){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">26</span>;j++){
+            <span class="token keyword">if</span>(dic[j]==i){
+                cout&lt;&lt;<span class="token keyword">char</span>(j+<span class="token number">65</span>)&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
             }
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10523.html" class="problem-link">uva10523</a> <a href="uva10916.html" class="problem-link">uva10916</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="day-148.html" class="problem-link">day-148</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a></p>
+        <p><a href="b437-uva11476.html" class="problem-link">b437 uva11476</a> <a href="uva624.html" class="problem-link">uva624</a> <a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="d253-uva674.html" class="problem-link">d253 uva674</a> <a href="CSES1754.html" class="problem-link">CSES1754</a> <a href="a176.html" class="problem-link">a176</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

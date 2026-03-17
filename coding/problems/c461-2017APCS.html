@@ -25,48 +25,45 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int a1,a2,c;
-    while(cin&gt;&gt;a1&gt;&gt;a2&gt;&gt;c){
-        bool flag=true;
-        if((a1!=0 &amp;&amp; a2!=0 &amp;&amp; c==1) || ((a1==0 || a2==0) &amp;&amp; c==0)){
-            cout&lt;&lt;&quot;AND\n&quot;;
-            flag=false;
+    <span class="token keyword">int</span> a1,a2,c;
+    <span class="token keyword">while</span>(cin&gt;&gt;a1&gt;&gt;a2&gt;&gt;c){
+        <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
+        <span class="token keyword">if</span>((a1!=<span class="token number">0</span> &amp;&amp; a2!=<span class="token number">0</span> &amp;&amp; c==<span class="token number">1</span>) || ((a1==<span class="token number">0</span> || a2==<span class="token number">0</span>) &amp;&amp; c==<span class="token number">0</span>)){
+            cout&lt;&lt;<span class="token string">&quot;AND\n&quot;</span>;
+            flag=<span class="token keyword">false</span>;
         }
-        if(((a1!=0 || a2!=0) &amp;&amp; c==1)||(a1==0 &amp;&amp; a2==0 &amp;&amp; c==0)){
-            cout&lt;&lt;&quot;OR\n&quot;;
-            flag=false;
+        <span class="token keyword">if</span>(((a1!=<span class="token number">0</span> || a2!=<span class="token number">0</span>) &amp;&amp; c==<span class="token number">1</span>)||(a1==<span class="token number">0</span> &amp;&amp; a2==<span class="token number">0</span> &amp;&amp; c==<span class="token number">0</span>)){
+            cout&lt;&lt;<span class="token string">&quot;OR\n&quot;</span>;
+            flag=<span class="token keyword">false</span>;
         }
-        if(((a1!=0 &amp;&amp; a2==0)||(a1==0 &amp;&amp; a2!=0))&amp;&amp;(c==1)||((a1==0 &amp;&amp; a2==0)||(a1!=0 &amp;&amp; a2!=0))&amp;&amp;(c==0)){
-            cout&lt;&lt;&quot;XOR\n&quot;;
-            flag=false;
+        <span class="token keyword">if</span>(((a1!=<span class="token number">0</span> &amp;&amp; a2==<span class="token number">0</span>)||(a1==<span class="token number">0</span> &amp;&amp; a2!=<span class="token number">0</span>))&amp;&amp;(c==<span class="token number">1</span>)||((a1==<span class="token number">0</span> &amp;&amp; a2==<span class="token number">0</span>)||(a1!=<span class="token number">0</span> &amp;&amp; a2!=<span class="token number">0</span>))&amp;&amp;(c==<span class="token number">0</span>)){
+            cout&lt;&lt;<span class="token string">&quot;XOR\n&quot;</span>;
+            flag=<span class="token keyword">false</span>;
         }
-        if(flag){
-            cout&lt;&lt;&quot;IMPOSSIBLE\n&quot;;
+        <span class="token keyword">if</span>(flag){
+            cout&lt;&lt;<span class="token string">&quot;IMPOSSIBLE\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="LibreOJ-2185.html" class="problem-link">LibreOJ 2185</a> <a href="pA.html" class="problem-link">pA</a> <a href="e579-uva10050.html" class="problem-link">e579 uva10050</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="d793-uva929.html" class="problem-link">d793 uva929</a></p>
+        <p><a href="CSES1754.html" class="problem-link">CSES1754</a> <a href="e530-uva1644.html" class="problem-link">e530 uva1644</a> <a href="e183-uva10940.html" class="problem-link">e183 uva10940</a> <a href="AtCoder-098C.html" class="problem-link">AtCoder 098.C</a> <a href="day-155.html" class="problem-link">day-155</a> <a href="e605-uva10189.html" class="problem-link">e605 uva10189</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

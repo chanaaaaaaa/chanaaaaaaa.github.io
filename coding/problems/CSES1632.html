@@ -25,48 +25,48 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-//#include&lt;vector&gt;
-#include&lt;set&gt;
-#include&lt;algorithm&gt;
-//#define int long long
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token comment">//#include&lt;vector&gt;</span>
+<span class="token directive">#include</span>&lt;set&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token comment">//#define int long long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(void){
-    int N=read(),P=read(),cnt=0,a,b;
-    multiset&lt;pair&lt;int,int&gt;&gt;dat;
-    multiset&lt;int&gt;exe;
-    while(N--){
+<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
+    <span class="token keyword">int</span> N=read(),P=read(),cnt=<span class="token number">0</span>,a,b;
+    multiset&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;dat;
+    multiset&lt;<span class="token keyword">int</span>&gt;exe;
+    <span class="token keyword">while</span>(N--){
         a=read(),b=read();
         dat.insert({b,a});
-        if(P){--P;exe.insert(0);}
+        <span class="token keyword">if</span>(P){--P;exe.insert(<span class="token number">0</span>);}
     }
-    while(P--){exe.insert(0);}
+    <span class="token keyword">while</span>(P--){exe.insert(<span class="token number">0</span>);}
 
-    for(auto c:dat){
-        auto pos=exe.upper_bound(c.second);
-        if(pos==exe.cbegin()){
-            continue;
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> c:dat){
+        <span class="token keyword">auto</span> pos=exe.upper_bound(c.second);
+        <span class="token keyword">if</span>(pos==exe.cbegin()){
+            <span class="token keyword">continue</span>;
         }
         exe.erase(--pos);
         exe.insert(c.first);
@@ -79,14 +79,11 @@ signed main(void){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="n693-uva10721.html" class="problem-link">n693 uva10721</a> <a href="f163-2020APCS.html" class="problem-link">f163 2020APCS</a> <a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a></p>
+        <p><a href="day-151.html" class="problem-link">day-151</a> <a href="AtCoder-098C.html" class="problem-link">AtCoder 098.C</a> <a href="uva10887.html" class="problem-link">uva10887</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

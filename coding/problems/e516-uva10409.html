@@ -25,73 +25,70 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 string in;
-int dice[3][4];
-int a;
+<span class="token keyword">int</span> dice[<span class="token number">3</span>][<span class="token number">4</span>];
+<span class="token keyword">int</span> a;
 
-int main(){
+<span class="token keyword">int</span> main(){
 
-    while(cin&gt;&gt;a){
-        if(a==0){break;}
-        dice[1][0]=1;
-        dice[1][1]=2;
-        dice[1][2]=6;
-        dice[1][3]=5;
-        dice[0][2]=3;
-        dice[2][2]=4;
+    <span class="token keyword">while</span>(cin&gt;&gt;a){
+        <span class="token keyword">if</span>(a==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        dice[<span class="token number">1</span>][<span class="token number">0</span>]=<span class="token number">1</span>;
+        dice[<span class="token number">1</span>][<span class="token number">1</span>]=<span class="token number">2</span>;
+        dice[<span class="token number">1</span>][<span class="token number">2</span>]=<span class="token number">6</span>;
+        dice[<span class="token number">1</span>][<span class="token number">3</span>]=<span class="token number">5</span>;
+        dice[<span class="token number">0</span>][<span class="token number">2</span>]=<span class="token number">3</span>;
+        dice[<span class="token number">2</span>][<span class="token number">2</span>]=<span class="token number">4</span>;
 
-        for(int i=0;i&lt;a;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a;i++){
             cin &gt;&gt; in;
-            if(in==&quot;north&quot;){
-                swap(dice[1][3],dice[1][0]);
-                swap(dice[1][3],dice[1][1]);
-                swap(dice[1][3],dice[1][2]);
-            }else if(in==&quot;south&quot;){
-                swap(dice[1][0],dice[1][3]);
-                swap(dice[1][0],dice[1][2]);
-                swap(dice[1][0],dice[1][1]);
-            }else if(in==&quot;east&quot;){
-                swap(dice[0][2],dice[1][2]);
-                swap(dice[1][2],dice[2][2]);
-                swap(dice[2][2],dice[1][0]);
-            }else if(in==&quot;west&quot;){
-                swap(dice[1][2],dice[2][2]);
-                swap(dice[0][2],dice[1][2]);
-                swap(dice[0][2],dice[1][0]);
+            <span class="token keyword">if</span>(in==<span class="token string">&quot;north&quot;</span>){
+                swap(dice[<span class="token number">1</span>][<span class="token number">3</span>],dice[<span class="token number">1</span>][<span class="token number">0</span>]);
+                swap(dice[<span class="token number">1</span>][<span class="token number">3</span>],dice[<span class="token number">1</span>][<span class="token number">1</span>]);
+                swap(dice[<span class="token number">1</span>][<span class="token number">3</span>],dice[<span class="token number">1</span>][<span class="token number">2</span>]);
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(in==<span class="token string">&quot;south&quot;</span>){
+                swap(dice[<span class="token number">1</span>][<span class="token number">0</span>],dice[<span class="token number">1</span>][<span class="token number">3</span>]);
+                swap(dice[<span class="token number">1</span>][<span class="token number">0</span>],dice[<span class="token number">1</span>][<span class="token number">2</span>]);
+                swap(dice[<span class="token number">1</span>][<span class="token number">0</span>],dice[<span class="token number">1</span>][<span class="token number">1</span>]);
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(in==<span class="token string">&quot;east&quot;</span>){
+                swap(dice[<span class="token number">0</span>][<span class="token number">2</span>],dice[<span class="token number">1</span>][<span class="token number">2</span>]);
+                swap(dice[<span class="token number">1</span>][<span class="token number">2</span>],dice[<span class="token number">2</span>][<span class="token number">2</span>]);
+                swap(dice[<span class="token number">2</span>][<span class="token number">2</span>],dice[<span class="token number">1</span>][<span class="token number">0</span>]);
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(in==<span class="token string">&quot;west&quot;</span>){
+                swap(dice[<span class="token number">1</span>][<span class="token number">2</span>],dice[<span class="token number">2</span>][<span class="token number">2</span>]);
+                swap(dice[<span class="token number">0</span>][<span class="token number">2</span>],dice[<span class="token number">1</span>][<span class="token number">2</span>]);
+                swap(dice[<span class="token number">0</span>][<span class="token number">2</span>],dice[<span class="token number">1</span>][<span class="token number">0</span>]);
             }
         }
-        cout &lt;&lt; dice[1][0] &lt;&lt;&quot;\n&quot;;
+        cout &lt;&lt; dice[<span class="token number">1</span>][<span class="token number">0</span>] &lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 
 
-while 1:
+<span class="token keyword">while</span> <span class="token number">1</span>:
 
-    a=int(input())
-    if a==0:
-        break
-    elif a%11==0 :
-        print(a,&quot;is a multiple of 11.&quot;)
-    else :
-        print(a,&quot;is not a multiple of 11.&quot;)
+    a=<span class="token keyword">int</span>(input())
+    <span class="token keyword">if</span> a==<span class="token number">0</span>:
+        <span class="token keyword">break</span>
+    elif a%<span class="token number">11</span>==<span class="token number">0</span> :
+        print(a,<span class="token string">&quot;is a multiple of 11.&quot;</span>)
+    <span class="token keyword">else</span> :
+        print(a,<span class="token string">&quot;is not a multiple of 11.&quot;</span>)
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva924.html" class="problem-link">uva924</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="b059.html" class="problem-link">b059</a> <a href="d686-uva10003.html" class="problem-link">d686 uva10003</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a></p>
+        <p><a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="CSES1619.html" class="problem-link">CSES1619</a> <a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a> <a href="a003.html" class="problem-link">a003</a> <a href="d186-uva11461.html" class="problem-link">d186 uva11461</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

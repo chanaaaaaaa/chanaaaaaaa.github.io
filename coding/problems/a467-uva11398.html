@@ -25,46 +25,43 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    long long Ans=0;
-    int flag=0;
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> Ans=<span class="token number">0</span>;
+    <span class="token keyword">int</span> flag=<span class="token number">0</span>;
     string a;
-    while(cin&gt;&gt;a){
-        if(a==&quot;~&quot;){break;}
+    <span class="token keyword">while</span>(cin&gt;&gt;a){
+        <span class="token keyword">if</span>(a==<span class="token string">&quot;~&quot;</span>){<span class="token keyword">break</span>;}
 
-        if(a==&quot;#&quot;){
-            cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;//reset
-            Ans=0;
-        }else{
-            if(a.size()==1){
-                flag=1;
-            }else if(a.size()==2){
-                flag=0;
-            }else{
-                for(int i=0;i&lt;a.size()-2;i++){//줸 N210i
-                    Ans*=2;
+        <span class="token keyword">if</span>(a==<span class="token string">&quot;#&quot;</span>){
+            cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;<span class="token comment">//reset</span>
+            Ans=<span class="token number">0</span>;
+        }<span class="token keyword">else</span>{
+            <span class="token keyword">if</span>(a.size()==<span class="token number">1</span>){
+                flag=<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(a.size()==<span class="token number">2</span>){
+                flag=<span class="token number">0</span>;
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a.size()-<span class="token number">2</span>;i++){<span class="token comment">//줸 N210i</span>
+                    Ans*=<span class="token number">2</span>;
                     Ans+=flag;
                 }
             }
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva624.html" class="problem-link">uva624</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="LibreOJ-2185.html" class="problem-link">LibreOJ 2185</a> <a href="uva10827.html" class="problem-link">uva10827</a></p>
+        <p><a href="c082-uva00118.html" class="problem-link">c082 uva00118</a> <a href="c575-2017APCS.html" class="problem-link">c575 2017APCS</a> <a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="e465-2018APCS.html" class="problem-link">e465 2018APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

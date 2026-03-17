@@ -25,44 +25,41 @@
     <p>O(n log n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+<span class="token keyword">int</span> main(){
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
 
-    int N,nah,AnsN=27;
+    <span class="token keyword">int</span> N,nah,AnsN=<span class="token number">27</span>;
     string IN,AnsS,d;
 
     cin&gt;&gt;N;
-    while(N--){
-        nah=1;
+    <span class="token keyword">while</span>(N--){
+        nah=<span class="token number">1</span>;
         cin&gt;&gt;IN;
         d=IN;
         sort(d.begin(),d.end());
-        for(int i=1;i&lt;d.size();i++){
-            if(d[i]!=d[i-1])nah++;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;d.size();i++){
+            <span class="token keyword">if</span>(d[i]!=d[i-<span class="token number">1</span>])nah++;
         }
-        if((nah&lt;AnsN)||((nah==AnsN)&amp;&amp;(IN&lt;AnsS))){AnsN=nah;AnsS=IN;}
+        <span class="token keyword">if</span>((nah&lt;AnsN)||((nah==AnsN)&amp;&amp;(IN&lt;AnsS))){AnsN=nah;AnsS=IN;}
     }
-    cout&lt;&lt;AnsS&lt;&lt;&quot;\n&quot;;
-    return 0;
+    cout&lt;&lt;AnsS&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d206-uva108.html" class="problem-link">d206 uva108</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="c124-uva532.html" class="problem-link">c124 uva532</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="uva10227.html" class="problem-link">uva10227</a></p>
+        <p><a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="copy.html" class="problem-link">!copy</a> <a href="e603-uva10104.html" class="problem-link">e603 uva10104</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="CSES-1753.html" class="problem-link">CSES 1753</a> <a href="uva796.html" class="problem-link">uva796</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

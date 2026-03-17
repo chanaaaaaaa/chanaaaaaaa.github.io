@@ -25,72 +25,69 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;string&gt;
-#include&lt;algorithm&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-inline void say(string x){
-    for(int i=0;i&lt;x.size();i++){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> say(string x){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;x.size();i++){
         putchar(x[i]);
     }
 }
-// -block
+<span class="token comment">// -block</span>
 
-signed main(){
-    int t=read();
-    while(t--){
-        int dat[4];
-        for(int i=0;i&lt;4;i++){
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> t=read();
+    <span class="token keyword">while</span>(t--){
+        <span class="token keyword">int</span> dat[<span class="token number">4</span>];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">4</span>;i++){
             dat[i]=read();
         }
-        sort(dat,dat+4);
+        sort(dat,dat+<span class="token number">4</span>);
 
-        if(dat[0]==dat[1] &amp;&amp; dat[1]==dat[2] &amp;&amp; dat[2]==dat[3]){
-            say(&quot;square&quot;);
-        }else if(dat[0]==dat[1] &amp;&amp; dat[2]==dat[3]){
-            say(&quot;rectangle&quot;);
-        }else if(dat[0]+dat[1]+dat[2] &gt; dat[3]){
-            say(&quot;quadrangle&quot;);
-        }else{
-            say(&quot;banana&quot;);
+        <span class="token keyword">if</span>(dat[<span class="token number">0</span>]==dat[<span class="token number">1</span>] &amp;&amp; dat[<span class="token number">1</span>]==dat[<span class="token number">2</span>] &amp;&amp; dat[<span class="token number">2</span>]==dat[<span class="token number">3</span>]){
+            say(<span class="token string">&quot;square&quot;</span>);
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(dat[<span class="token number">0</span>]==dat[<span class="token number">1</span>] &amp;&amp; dat[<span class="token number">2</span>]==dat[<span class="token number">3</span>]){
+            say(<span class="token string">&quot;rectangle&quot;</span>);
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(dat[<span class="token number">0</span>]+dat[<span class="token number">1</span>]+dat[<span class="token number">2</span>] &gt; dat[<span class="token number">3</span>]){
+            say(<span class="token string">&quot;quadrangle&quot;</span>);
+        }<span class="token keyword">else</span>{
+            say(<span class="token string">&quot;banana&quot;</span>);
         }
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11770.html" class="problem-link">uva11770</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="day-150.html" class="problem-link">day-150</a> <a href="c124-uva532.html" class="problem-link">c124 uva532</a> <a href="e183-uva10940.html" class="problem-link">e183 uva10940</a> <a href="CSES1621.html" class="problem-link">CSES1621</a></p>
+        <p><a href="ytp-races.html" class="problem-link">ytp races</a> <a href="CSES1090.html" class="problem-link">CSES1090</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="i959-uva11078.html" class="problem-link">i959 uva11078</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

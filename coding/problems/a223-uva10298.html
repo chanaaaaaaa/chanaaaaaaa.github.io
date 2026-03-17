@@ -25,40 +25,37 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
+<span class="token keyword">int</span> main(){
 
     string a;
-    while(cin&gt;&gt;a){
-        if(a==&quot;.&quot;){break;}
-        int maxx,out=0;
-        for(int i=1;i&lt;=a.size();i++){
-            if(a.size()%i==0){
-                for(int j=0;j&lt;a.size();j++){
-                    if(a[j]!=a[j%i]){break;}
-                    else if(j+1==a.size()){out=i;break;}
+    <span class="token keyword">while</span>(cin&gt;&gt;a){
+        <span class="token keyword">if</span>(a==<span class="token string">&quot;.&quot;</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">int</span> maxx,out=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=a.size();i++){
+            <span class="token keyword">if</span>(a.size()%i==<span class="token number">0</span>){
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;a.size();j++){
+                    <span class="token keyword">if</span>(a[j]!=a[j%i]){<span class="token keyword">break</span>;}
+                    <span class="token keyword">else</span> <span class="token keyword">if</span>(j+<span class="token number">1</span>==a.size()){out=i;<span class="token keyword">break</span>;}
                 }
             }
-            if(out!=0){break;}
+            <span class="token keyword">if</span>(out!=<span class="token number">0</span>){<span class="token keyword">break</span>;}
         }
-        cout&lt;&lt;a.size()/out&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;a.size()/out&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11934.html" class="problem-link">uva11934</a> <a href="b266-2016APCS.html" class="problem-link">b266 2016APCS</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="e564-uva540.html" class="problem-link">e564 uva540</a> <a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a> <a href="c290-2017APCS.html" class="problem-link">c290 2017APCS</a></p>
+        <p><a href="uva1213.html" class="problem-link">uva1213</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="uva657.html" class="problem-link">uva657</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

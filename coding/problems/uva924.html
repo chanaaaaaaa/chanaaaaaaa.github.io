@@ -25,46 +25,46 @@
     <p>O(V + E)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-int E;
-vector&lt;vector&lt;int&gt;&gt;dat;
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;queue&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+<span class="token keyword">int</span> E;
+vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dat;
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-void bfs(int S){
-    queue&lt;int&gt;wait;
-    vector&lt;int&gt;con(E,-1);
-    vector&lt;int&gt;day(E,0);
-    int maxx=0,d=0;
+<span class="token keyword">void</span> bfs(<span class="token keyword">int</span> S){
+    queue&lt;<span class="token keyword">int</span>&gt;wait;
+    vector&lt;<span class="token keyword">int</span>&gt;con(E,-<span class="token number">1</span>);
+    vector&lt;<span class="token keyword">int</span>&gt;day(E,<span class="token number">0</span>);
+    <span class="token keyword">int</span> maxx=<span class="token number">0</span>,d=<span class="token number">0</span>;
     wait.emplace(S);
-    con[S]=0;
-    while(!wait.empty()){
-        if(dat[wait.front()].size()){
-            for(auto &amp;v :dat[wait.front()]){
-                if(con[v]==-1){
-                    con[v]=con[wait.front()]+1;
+    con[S]=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(!wait.empty()){
+        <span class="token keyword">if</span>(dat[wait.front()].size()){
+            <span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;v :dat[wait.front()]){
+                <span class="token keyword">if</span>(con[v]==-<span class="token number">1</span>){
+                    con[v]=con[wait.front()]+<span class="token number">1</span>;
                     wait.emplace(v);
                     day[con[v]]++;
                 }
@@ -72,49 +72,46 @@ void bfs(int S){
         }
         wait.pop();
     }
-    for(int i=0;i&lt;day.size();i++){
-        if(day[i]&gt;maxx){maxx=day[i];d=i;}
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;day.size();i++){
+        <span class="token keyword">if</span>(day[i]&gt;maxx){maxx=day[i];d=i;}
     }
 
-    if(maxx==0){
-        putchar(&#x27;0&#x27;);
-    }else{
+    <span class="token keyword">if</span>(maxx==<span class="token number">0</span>){
+        putchar(<span class="token string">&#x27;0&#x27;</span>);
+    }<span class="token keyword">else</span>{
         write(maxx);
-        putchar(&#x27; &#x27;);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
         write(d);
     }
-    putchar(&#x27;\n&#x27;);
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
 }
-signed main(){
+<span class="token keyword">signed</span> main(){
     E=read();
 
-    dat.assign(E, vector&lt;int&gt;());
-    for(int i=0;i&lt;E;i++){
-        int t=read();
-        while(t--){
+    dat.assign(E, vector&lt;<span class="token keyword">int</span>&gt;());
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;E;i++){
+        <span class="token keyword">int</span> t=read();
+        <span class="token keyword">while</span>(t--){
             dat[i].emplace_back(read());
         }
     }
-    int T=read();
-    while(T--){
+    <span class="token keyword">int</span> T=read();
+    <span class="token keyword">while</span>(T--){
         bfs(read());
-        //write(bfs(s));
-        //putchar(&#x27;\n&#x27;);
+        <span class="token comment">//write(bfs(s));</span>
+        <span class="token comment">//putchar(&#x27;\n&#x27;);</span>
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="f313-2020APCS.html" class="problem-link">f313 2020APCS</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a></p>
+        <p><a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a> <a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="c004-uva10812.html" class="problem-link">c004 uva10812</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="c012-uva10062.html" class="problem-link">c012 uva10062</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

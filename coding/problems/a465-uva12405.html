@@ -25,46 +25,43 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
     cin.ignore();
-    for(int i=1;i&lt;=N;i++){
-        int cou=0,k;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
+        <span class="token keyword">int</span> cou=<span class="token number">0</span>,k;
         string K;
         cin&gt;&gt;k&gt;&gt;K;
 
-        for(int j=0;j&lt;k;j++){
-            if(K[j]==&#x27;.&#x27;){
-                j+=2;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;k;j++){
+            <span class="token keyword">if</span>(K[j]==<span class="token string">&#x27;.&#x27;</span>){
+                j+=<span class="token number">2</span>;
                 cou++;
             }
         }
 
-        cout&lt;&lt;&quot;Case &quot;&lt;&lt;i&lt;&lt;&quot;: &quot;&lt;&lt;cou&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;Case &quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;: &quot;</span>&lt;&lt;cou&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="uva11709.html" class="problem-link">uva11709</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="uva10910.html" class="problem-link">uva10910</a> <a href="uva11504.html" class="problem-link">uva11504</a></p>
+        <p><a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a> <a href="a011-uva00494.html" class="problem-link">a011 uva00494</a> <a href="uva834.html" class="problem-link">uva834</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="e555-uva10170.html" class="problem-link">e555 uva10170</a> <a href="d195-uva11495.html" class="problem-link">d195 uva11495</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

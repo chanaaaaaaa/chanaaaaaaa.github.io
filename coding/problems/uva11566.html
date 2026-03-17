@@ -25,64 +25,61 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;memory.h&gt;
-#include &lt;iomanip&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;memory.h&gt;
+<span class="token directive">#include</span> &lt;iomanip&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-	// fast io
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
+<span class="token keyword">int</span> main(){
+	<span class="token comment">// fast io</span>
+	ios::sync_with_stdio(<span class="token keyword">false</span>);
+	cin.tie(<span class="token keyword">nullptr</span>);
+	cout.tie(<span class="token keyword">nullptr</span>);
 
-	int N, x, T, K;
-	int P;
-	int dp[23][1001];
+	<span class="token keyword">int</span> N, x, T, K;
+	<span class="token keyword">int</span> P;
+	<span class="token keyword">int</span> dp[<span class="token number">23</span>][<span class="token number">1001</span>];
 
-	while(cin&gt;&gt;N&gt;&gt;x&gt;&gt;T&gt;&gt;K,N+x+T+K){
-		P=(++N*x)/(float)1.1-(N*T);
+	<span class="token keyword">while</span>(cin&gt;&gt;N&gt;&gt;x&gt;&gt;T&gt;&gt;K,N+x+T+K){
+		P=(++N*x)/(<span class="token keyword">float</span>)<span class="token number">1.1</span>-(N*T);
 
-		vector&lt;pair&lt;int,int&gt;&gt;pf;
-		memset(dp,0,sizeof(dp));
-		int ans=0;
+		vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;pf;
+		memset(dp,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(dp));
+		<span class="token keyword">int</span> ans=<span class="token number">0</span>;
 
-		for(int i=0;i&lt;K;++i){
-			int a,b=0,tmp;
+		<span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;K;++i){
+			<span class="token keyword">int</span> a,b=<span class="token number">0</span>,tmp;
 
 			cin&gt;&gt;a;
-			for(int j=0;j&lt;N;++j)cin&gt;&gt;tmp,b+=tmp;
+			<span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;++j)cin&gt;&gt;tmp,b+=tmp;
 
 			pf.push_back({a,b});
 			pf.push_back({a,b});
 		}
 
-		for (int k = 0; k &lt; pf.size(); ++k){
-			auto&amp; [price,favour]=pf[k];
-			for(int i=N*2;i&gt;0;--i) for(int j=P;j&gt;=price;--j)
-				dp[i][j]=max(dp[i][j],max(dp[i-1][j],dp[i-1][j-price]+favour));
+		<span class="token keyword">for</span> (<span class="token keyword">int</span> k = <span class="token number">0</span>; k &lt; pf.size(); ++k){
+			<span class="token keyword">auto</span>&amp; [price,favour]=pf[k];
+			<span class="token keyword">for</span>(<span class="token keyword">int</span> i=N*<span class="token number">2</span>;i&gt;<span class="token number">0</span>;--i) <span class="token keyword">for</span>(<span class="token keyword">int</span> j=P;j&gt;=price;--j)
+				dp[i][j]=max(dp[i][j],max(dp[i-<span class="token number">1</span>][j],dp[i-<span class="token number">1</span>][j-price]+favour));
 		}
 
-		for(int i=0;i&lt;=N*2;++i)ans=max(ans,dp[i][P]);
-		cout&lt;&lt;setprecision(2)&lt;&lt;fixed&lt;&lt;(double)ans/N&lt;&lt;&quot;\n&quot;;
+		<span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=N*<span class="token number">2</span>;++i)ans=max(ans,dp[i][P]);
+		cout&lt;&lt;setprecision(<span class="token number">2</span>)&lt;&lt;fixed&lt;&lt;(<span class="token keyword">double</span>)ans/N&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
 	}
 
-	return 0;
+	<span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="d674-uva10192.html" class="problem-link">d674 uva10192</a> <a href="d762-uva10344.html" class="problem-link">d762 uva10344</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a> <a href="d387-uva10235.html" class="problem-link">d387 uva10235</a></p>
+        <p><a href="uva10312.html" class="problem-link">uva10312</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="uva10563.html" class="problem-link">uva10563</a> <a href="pC.html" class="problem-link">pC</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="c006-uva10550.html" class="problem-link">c006 uva10550</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,47 +25,44 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 
-#include&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-signed main() {
-    int t;
+<span class="token keyword">signed</span> main() {
+    <span class="token keyword">int</span> t;
     cin&gt;&gt;t;
     cin.ignore();
 
-    for(int i=1;i&lt;=t;i++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=t;i++){
         string A;
         getline(cin,A);
 
-        int con=0;
-        for(int i=0;i&lt;A.size();i++){
-            int n=A[i];
-            if(n==&#x27; &#x27;){con++;}
-            else{
-                con+=min(n%&#x27;a&#x27;,min(n%&#x27;d&#x27;,min(n%&#x27;g&#x27;,min(n%&#x27;j&#x27;,min(n%&#x27;m&#x27;,min(n%&#x27;p&#x27;,min(n%&#x27;t&#x27;,n%&#x27;w&#x27;)))))))+1;
+        <span class="token keyword">int</span> con=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">int</span> n=A[i];
+            <span class="token keyword">if</span>(n==<span class="token string">&#x27; &#x27;</span>){con++;}
+            <span class="token keyword">else</span>{
+                con+=min(n%<span class="token string">&#x27;a&#x27;</span>,min(n%<span class="token string">&#x27;d&#x27;</span>,min(n%<span class="token string">&#x27;g&#x27;</span>,min(n%<span class="token string">&#x27;j&#x27;</span>,min(n%<span class="token string">&#x27;m&#x27;</span>,min(n%<span class="token string">&#x27;p&#x27;</span>,min(n%<span class="token string">&#x27;t&#x27;</span>,n%<span class="token string">&#x27;w&#x27;</span>)))))))+<span class="token number">1</span>;
             }
         }
-        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;i&lt;&lt;&quot;: &quot;&lt;&lt;con&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;Case #&quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;: &quot;</span>&lt;&lt;con&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="ytp-races.html" class="problem-link">ytp races</a> <a href="CSES1085.html" class="problem-link">CSES1085</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a></p>
+        <p><a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="uva10015.html" class="problem-link">uva10015</a> <a href="a737-uva10041.html" class="problem-link">a737 uva10041</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="c124-uva532.html" class="problem-link">c124 uva532</a> <a href="uva834.html" class="problem-link">uva834</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

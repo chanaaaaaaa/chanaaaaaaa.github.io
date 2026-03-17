@@ -25,102 +25,99 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;memory.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int L,N,dp[55][55],cut[55];
+<span class="token keyword">int</span> L,N,dp[<span class="token number">55</span>][<span class="token number">55</span>],cut[<span class="token number">55</span>];
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
 
-    while(L=read()){
+    <span class="token keyword">while</span>(L=read()){
         N=read();
 
-        memset(cut,0,sizeof(cut));
-        memset(dp,0,sizeof(dp));
+        memset(cut,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(cut));
+        memset(dp,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(dp));
 
-        for(int i=1;i&lt;=N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
             cut[i]=read();
         }
-        cut[0]=0;
+        cut[<span class="token number">0</span>]=<span class="token number">0</span>;
         cut[++N]=L;
-        for(int i=0;i&lt;=N;++i){
-            for(int j=0;j&lt;=N;++j){
-                dp[i][j]=0x7fffffff;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=N;++i){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;=N;++j){
+                dp[i][j]=<span class="token number">0x7fffffff</span>;
             }
         }
-        for(int i=0;i&lt;N;i++){
-            dp[i][i+1]=0;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            dp[i][i+<span class="token number">1</span>]=<span class="token number">0</span>;
         }
-        for(int i=L;i&gt;=0;i--){
-            for(int j=i+1;j&lt;=N;j++){
-                for(int k=i+1;k&lt;j;k++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=L;i&gt;=<span class="token number">0</span>;i--){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i+<span class="token number">1</span>;j&lt;=N;j++){
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> k=i+<span class="token number">1</span>;k&lt;j;k++){
                     dp[i][j]=min(dp[i][j],dp[i][k]+dp[k][j]+cut[j]-cut[i]);
                 }
             }
         }
-        putchar(&#x27;T&#x27;);
-        putchar(&#x27;h&#x27;);
-        putchar(&#x27;e&#x27;);
-        putchar(&#x27; &#x27;);
-        putchar(&#x27;m&#x27;);
-        putchar(&#x27;i&#x27;);
-        putchar(&#x27;n&#x27;);
-        putchar(&#x27;i&#x27;);
-        putchar(&#x27;m&#x27;);
-        putchar(&#x27;u&#x27;);
-        putchar(&#x27;m&#x27;);
-        putchar(&#x27; &#x27;);
-        putchar(&#x27;c&#x27;);
-        putchar(&#x27;u&#x27;);
-        putchar(&#x27;t&#x27;);
-        putchar(&#x27;t&#x27;);
-        putchar(&#x27;i&#x27;);
-        putchar(&#x27;n&#x27;);
-        putchar(&#x27;g&#x27;);
-        putchar(&#x27; &#x27;);
-        putchar(&#x27;i&#x27;);
-        putchar(&#x27;s&#x27;);
-        putchar(&#x27; &#x27;);
-        write(dp[0][N]);
-        putchar(&#x27;.&#x27;);
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;T&#x27;</span>);
+        putchar(<span class="token string">&#x27;h&#x27;</span>);
+        putchar(<span class="token string">&#x27;e&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;m&#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;n&#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;m&#x27;</span>);
+        putchar(<span class="token string">&#x27;u&#x27;</span>);
+        putchar(<span class="token string">&#x27;m&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;c&#x27;</span>);
+        putchar(<span class="token string">&#x27;u&#x27;</span>);
+        putchar(<span class="token string">&#x27;t&#x27;</span>);
+        putchar(<span class="token string">&#x27;t&#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;n&#x27;</span>);
+        putchar(<span class="token string">&#x27;g&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;s&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        write(dp[<span class="token number">0</span>][N]);
+        putchar(<span class="token string">&#x27;.&#x27;</span>);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10199.html" class="problem-link">uva10199</a> <a href="d056-uva10013.html" class="problem-link">d056 uva10013</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="uva1235.html" class="problem-link">uva1235</a> <a href="uva10427.html" class="problem-link">uva10427</a> <a href="day-150.html" class="problem-link">day-150</a></p>
+        <p><a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="a001.html" class="problem-link">a001</a> <a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

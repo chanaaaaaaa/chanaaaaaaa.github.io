@@ -25,41 +25,38 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    while(N--){
-        int n;
-        unsigned long long Ans=0;
+    <span class="token keyword">while</span>(N--){
+        <span class="token keyword">int</span> n;
+        <span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span> Ans=<span class="token number">0</span>;
         cin&gt;&gt;n;
-        while(n--){
-            unsigned long long a,b,c;
+        <span class="token keyword">while</span>(n--){
+            <span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span> a,b,c;
             cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
             Ans+=a*c;
         }
-        cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="a004.html" class="problem-link">a004</a> <a href="uva13249.html" class="problem-link">uva13249</a> <a href="uva10920.html" class="problem-link">uva10920</a> <a href="uva11770.html" class="problem-link">uva11770</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a></p>
+        <p><a href="a004.html" class="problem-link">a004</a> <a href="uva10611.html" class="problem-link">uva10611</a> <a href="uva13249.html" class="problem-link">uva13249</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,71 +25,68 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;iostream&gt;
-#include&lt;string&gt;
-#include&lt;iomanip&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token directive">#include</span>&lt;iomanip&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-signed main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">signed</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
     string A,B;
-    while(getline(cin,A)){
+    <span class="token keyword">while</span>(getline(cin,A)){
         getline(cin,B);
 
-        int a=0,b=0;
-        for(int i=0;i&lt;A.size();i++){
-            if(A[i]&gt;=&#x27;a&#x27; &amp;&amp; A[i]&lt;=&#x27;z&#x27;){
-                a+=int(A[i]-&#x27;a&#x27;)+1;
-            }else if(A[i]&gt;=&#x27;A&#x27; &amp;&amp; A[i]&lt;=&#x27;Z&#x27;){
-                a+=int(A[i]-&#x27;A&#x27;)+1;
+        <span class="token keyword">int</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
             }
         }
-        while(a&gt;=10){
-            int temp=0;
-            while(a){
-                temp+=a%10;
-                a/=10;
+        <span class="token keyword">while</span>(a&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(a){
+                temp+=a%<span class="token number">10</span>;
+                a/=<span class="token number">10</span>;
             }
             a=temp;
         }
-        for(int i=0;i&lt;B.size();i++){
-            if(B[i]&gt;=&#x27;a&#x27; &amp;&amp; B[i]&lt;=&#x27;z&#x27;){
-                b+=int(B[i]-&#x27;a&#x27;)+1;
-            }else if(B[i]&gt;=&#x27;A&#x27; &amp;&amp; B[i]&lt;=&#x27;Z&#x27;){
-                b+=int(B[i]-&#x27;A&#x27;)+1;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;B.size();i++){
+            <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
             }
         }
-        while(b&gt;=10){
-            int temp=0;
-            while(b){
-                temp+=b%10;
-                b/=10;
+        <span class="token keyword">while</span>(b&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(b){
+                temp+=b%<span class="token number">10</span>;
+                b/=<span class="token number">10</span>;
             }
             b=temp;
         }
-        double ans=(double)a/(double)b;
-        if(ans&gt;1){ans=1.0/ans;}
-        cout&lt;&lt;fixed&lt;&lt;setprecision(2)&lt;&lt;ans*100&lt;&lt;&quot; %\n&quot;;
+        <span class="token keyword">double</span> ans=(<span class="token keyword">double</span>)a/(<span class="token keyword">double</span>)b;
+        <span class="token keyword">if</span>(ans&gt;<span class="token number">1</span>){ans=<span class="token number">1.0</span>/ans;}
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">2</span>)&lt;&lt;ans*<span class="token number">100</span>&lt;&lt;<span class="token string">&quot; %\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva13249.html" class="problem-link">uva13249</a> <a href="uva10172.html" class="problem-link">uva10172</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a> <a href="e584-uva11094.html" class="problem-link">e584 uva11094</a> <a href="d186-uva11461.html" class="problem-link">d186 uva11461</a></p>
+        <p><a href="uva10523.html" class="problem-link">uva10523</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="uva10563.html" class="problem-link">uva10563</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="day-158.html" class="problem-link">day-158</a> <a href="CSES1745.html" class="problem-link">CSES1745</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

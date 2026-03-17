@@ -25,54 +25,51 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
-    int N;
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
     cin.ignore();
-    while(N--){
+    <span class="token keyword">while</span>(N--){
         string s;
-        int cnt=0;
-        for(int i=0;i&lt;4;i++){
+        <span class="token keyword">int</span> cnt=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">4</span>;i++){
             cin&gt;&gt;s;
-            for(int j=0;j&lt;4;j++){
-                int n=s[j]-&#x27;0&#x27;;
-                if(j%2==0){
-                    if(n&gt;=5){
-                        cnt+=n*2-9;
-                    }else{
-                        cnt+=n*2;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">4</span>;j++){
+                <span class="token keyword">int</span> n=s[j]-<span class="token string">&#x27;0&#x27;</span>;
+                <span class="token keyword">if</span>(j%<span class="token number">2</span>==<span class="token number">0</span>){
+                    <span class="token keyword">if</span>(n&gt;=<span class="token number">5</span>){
+                        cnt+=n*<span class="token number">2</span>-<span class="token number">9</span>;
+                    }<span class="token keyword">else</span>{
+                        cnt+=n*<span class="token number">2</span>;
                     }
-                }else{
+                }<span class="token keyword">else</span>{
                     cnt+=n;
                 }
             }
         }
-        if(cnt%10==0){
-            cout&lt;&lt;&quot;Valid\n&quot;;
-        }else{
-            cout&lt;&lt;&quot;Invalid\n&quot;;
+        <span class="token keyword">if</span>(cnt%<span class="token number">10</span>==<span class="token number">0</span>){
+            cout&lt;&lt;<span class="token string">&quot;Valid\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;<span class="token string">&quot;Invalid\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="c575-2017APCS.html" class="problem-link">c575 2017APCS</a> <a href="d195-uva11495.html" class="problem-link">d195 uva11495</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a></p>
+        <p><a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a> <a href="a004.html" class="problem-link">a004</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="e183-uva10940.html" class="problem-link">e183 uva10940</a> <a href="d492-uva10226.html" class="problem-link">d492 uva10226</a> <a href="uva10910.html" class="problem-link">uva10910</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

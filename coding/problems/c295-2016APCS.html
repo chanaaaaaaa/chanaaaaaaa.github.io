@@ -25,56 +25,53 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    vector&lt;int&gt;dat;
-    int a,b,sum=0;
+    vector&lt;<span class="token keyword">int</span>&gt;dat;
+    <span class="token keyword">int</span> a,b,sum=<span class="token number">0</span>;
     cin&gt;&gt;a&gt;&gt;b;
-    while(a--){
-        int maxx=0;
-        for(int i=0;i&lt;b;i++){
-            int temp;
+    <span class="token keyword">while</span>(a--){
+        <span class="token keyword">int</span> maxx=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;b;i++){
+            <span class="token keyword">int</span> temp;
             cin&gt;&gt;temp;
             maxx=max(maxx,temp);
         }
         sum+=maxx;
         dat.push_back(maxx);
     }
-    bool flag=true;
-    cout&lt;&lt;sum&lt;&lt;&quot;\n&quot;;
-    int maxx=dat.size()-1;
-    for(;maxx&gt;=0;maxx--){
-        if(sum%dat[maxx]==0)break;
+    <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
+    cout&lt;&lt;sum&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">int</span> maxx=dat.size()-<span class="token number">1</span>;
+    <span class="token keyword">for</span>(;maxx&gt;=<span class="token number">0</span>;maxx--){
+        <span class="token keyword">if</span>(sum%dat[maxx]==<span class="token number">0</span>)<span class="token keyword">break</span>;
     }
-    for(int i=0;i&lt;=maxx;i++){
-        if(sum%dat[i]==0){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=maxx;i++){
+        <span class="token keyword">if</span>(sum%dat[i]==<span class="token number">0</span>){
             cout&lt;&lt;dat[i];
-            flag=false;
-            if(i!=maxx)cout&lt;&lt;&quot; &quot;;
+            flag=<span class="token keyword">false</span>;
+            <span class="token keyword">if</span>(i!=maxx)cout&lt;&lt;<span class="token string">&quot; &quot;</span>;
         }
     }
-    if(flag)cout&lt;&lt;&quot;-1&quot;;
-    return 0;
+    <span class="token keyword">if</span>(flag)cout&lt;&lt;<span class="token string">&quot;-1&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d669-uva11677.html" class="problem-link">d669 uva11677</a> <a href="a007.html" class="problem-link">a007</a> <a href="uva11566.html" class="problem-link">uva11566</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="uva10368.html" class="problem-link">uva10368</a> <a href="c290-2017APCS.html" class="problem-link">c290 2017APCS</a></p>
+        <p><a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="CSES1650.html" class="problem-link">CSES1650</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="c125-uva534.html" class="problem-link">c125 uva534</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

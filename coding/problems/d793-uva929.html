@@ -25,62 +25,62 @@
     <p>O((V + E) log V)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 
-#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-#include&lt;utility&gt;
-#include&lt;memory.h&gt;
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;queue&gt;
+<span class="token directive">#include</span>&lt;utility&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
 
-#define INF 100000000
-using namespace std;
+<span class="token directive">#define</span> INF <span class="token number">100000000</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span>||c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==&#x27;-&#x27;){w=-1;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x*w;
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
-int T,N,M,
-    mp[1001][1001],
-    vals[1001][1001],
-    d[2][4]={{1,-1,0,0},{0,0,1,-1}};
-bool vis[1001][1001];
-priority_queue&lt;pair&lt;int,pair&lt;int,int&gt;&gt;,vector&lt;pair&lt;int,pair&lt;int,int&gt;&gt;&gt;,greater&lt;pair&lt;int,pair&lt;int,int&gt;&gt;&gt;&gt;pq;
-inline void solve(){
-    vals[0][0]=mp[0][0];
-    pq.push({mp[0][0],{0,0}});
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> T,N,M,
+    mp[<span class="token number">1001</span>][<span class="token number">1001</span>],
+    vals[<span class="token number">1001</span>][<span class="token number">1001</span>],
+    d[<span class="token number">2</span>][<span class="token number">4</span>]={{<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>},{<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,-<span class="token number">1</span>}};
+<span class="token keyword">bool</span> vis[<span class="token number">1001</span>][<span class="token number">1001</span>];
+priority_queue&lt;pair&lt;<span class="token keyword">int</span>,pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;,vector&lt;pair&lt;<span class="token keyword">int</span>,pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;&gt;,greater&lt;pair&lt;<span class="token keyword">int</span>,pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;&gt;&gt;pq;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    vals[<span class="token number">0</span>][<span class="token number">0</span>]=mp[<span class="token number">0</span>][<span class="token number">0</span>];
+    pq.push({mp[<span class="token number">0</span>][<span class="token number">0</span>],{<span class="token number">0</span>,<span class="token number">0</span>}});
 
-    while(!pq.empty()){
-        int val=pq.top().first,
+    <span class="token keyword">while</span>(!pq.empty()){
+        <span class="token keyword">int</span> val=pq.top().first,
             x=pq.top().second.first,
             y=pq.top().second.second;
 
         pq.pop();
-        vis[x][y]=true;
+        vis[x][y]=<span class="token keyword">true</span>;
 
-        for(int f=0;f&lt;4;++f){
-            int nx=x+d[0][f];
-            int ny=y+d[1][f];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> f=<span class="token number">0</span>;f&lt;<span class="token number">4</span>;++f){
+            <span class="token keyword">int</span> nx=x+d[<span class="token number">0</span>][f];
+            <span class="token keyword">int</span> ny=y+d[<span class="token number">1</span>][f];
 
-            if(nx&gt;=0 &amp;&amp; nx&lt;N &amp;&amp; ny&gt;=0 &amp;&amp; ny&lt;M &amp;&amp; !vis[nx][ny]){
-                int nv=mp[nx][ny]+val;
-                if(vals[nx][ny]&gt;nv || vals[nx][ny]==-1){
+            <span class="token keyword">if</span>(nx&gt;=<span class="token number">0</span> &amp;&amp; nx&lt;N &amp;&amp; ny&gt;=<span class="token number">0</span> &amp;&amp; ny&lt;M &amp;&amp; !vis[nx][ny]){
+                <span class="token keyword">int</span> nv=mp[nx][ny]+val;
+                <span class="token keyword">if</span>(vals[nx][ny]&gt;nv || vals[nx][ny]==-<span class="token number">1</span>){
                     vals[nx][ny]=nv;
                     pq.push({nv,{nx,ny}});
                 }
@@ -90,38 +90,35 @@ inline void solve(){
 }
 
 
-signed main(){
+<span class="token keyword">signed</span> main(){
     T=read();
-    while(T--){
+    <span class="token keyword">while</span>(T--){
         N=read(),M=read();
-        memset(mp,0,sizeof(mp));
-        memset(vis,false,sizeof(vis));
-        memset(vals,-1,sizeof(vals));
-        for(int i=0;i&lt;N;++i){
-            for(int j=0;j&lt;M;++j){
+        memset(mp,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(mp));
+        memset(vis,<span class="token keyword">false</span>,<span class="token keyword">sizeof</span>(vis));
+        memset(vals,-<span class="token number">1</span>,<span class="token keyword">sizeof</span>(vals));
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;M;++j){
                 mp[i][j]=read();
             }
         }
 
         solve();
-        write(vals[N-1][M-1]);
-        putchar(&#x27;\n&#x27;);
+        write(vals[N-<span class="token number">1</span>][M-<span class="token number">1</span>]);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="CSES1650.html" class="problem-link">CSES1650</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="uva10673.html" class="problem-link">uva10673</a></p>
+        <p><a href="pA.html" class="problem-link">pA</a> <a href="uva10368.html" class="problem-link">uva10368</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="a001.html" class="problem-link">a001</a> <a href="uva11057.html" class="problem-link">uva11057</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

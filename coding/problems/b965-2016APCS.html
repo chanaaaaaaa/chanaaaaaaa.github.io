@@ -25,83 +25,80 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int dat[10][10];
+<span class="token keyword">int</span> dat[<span class="token number">10</span>][<span class="token number">10</span>];
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int R,C,M;
-    bool check=true;
-    while(cin&gt;&gt;R&gt;&gt;C&gt;&gt;M){
-        if(check)check=false;
-        else cout&lt;&lt;&quot;\n&quot;;
-        //input
-        for(int i=0;i&lt;R;i++){
-            for(int j=0;j&lt;C;j++){
+    <span class="token keyword">int</span> R,C,M;
+    <span class="token keyword">bool</span> check=<span class="token keyword">true</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;R&gt;&gt;C&gt;&gt;M){
+        <span class="token keyword">if</span>(check)check=<span class="token keyword">false</span>;
+        <span class="token keyword">else</span> cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        <span class="token comment">//input</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;C;j++){
                 cin&gt;&gt;dat[i][j];
             }
         }
-        //doing
-        vector&lt;int&gt;step;
-        for(int i=0;i&lt;M;i++){
-            int temp;
+        <span class="token comment">//doing</span>
+        vector&lt;<span class="token keyword">int</span>&gt;step;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
+            <span class="token keyword">int</span> temp;
             cin&gt;&gt;temp;
             step.push_back(temp);
         }
-        for(int i=0;i&lt;M;i++){
-            if(step[M-1-i]!=0){//fan
-                for(int j=0;j&lt;C;j++){
-                    for(int i=0;i&lt;R/2;i++){
-                        int temp=dat[i][j];
-                        dat[i][j]=dat[R-1-i][j];
-                        dat[R-1-i][j]=temp;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
+            <span class="token keyword">if</span>(step[M-<span class="token number">1</span>-i]!=<span class="token number">0</span>){<span class="token comment">//fan</span>
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;C;j++){
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R/<span class="token number">2</span>;i++){
+                        <span class="token keyword">int</span> temp=dat[i][j];
+                        dat[i][j]=dat[R-<span class="token number">1</span>-i][j];
+                        dat[R-<span class="token number">1</span>-i][j]=temp;
                     }
                 }
-            }else{//rotate
-                int temp[10][10] = {0};
-                for(int i=0;i&lt;C;i++){
-                    for(int j=0;j&lt;R;j++){
-                        temp[i][j]=dat[j][C-1-i];
+            }<span class="token keyword">else</span>{<span class="token comment">//rotate</span>
+                <span class="token keyword">int</span> temp[<span class="token number">10</span>][<span class="token number">10</span>] = {<span class="token number">0</span>};
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;C;i++){
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;R;j++){
+                        temp[i][j]=dat[j][C-<span class="token number">1</span>-i];
                     }
                 }
 
-                int t=R;
+                <span class="token keyword">int</span> t=R;
                 R=C;
                 C=t;
-                for(int i=0;i&lt;R;i++){
-                    for(int j=0;j&lt;C;j++) dat[i][j]=temp[i][j];
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R;i++){
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;C;j++) dat[i][j]=temp[i][j];
                 }
             }
         }
-        cout&lt;&lt;R&lt;&lt;&quot; &quot;&lt;&lt;C&lt;&lt;&quot;\n&quot;;
-        for(int i=0;i&lt;R;i++){
-            for(int j=0;j&lt;C;j++){
+        cout&lt;&lt;R&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;C&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;R;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;C;j++){
                 cout&lt;&lt;dat[i][j];
-                if(j!=C-1) cout&lt;&lt;&quot; &quot;;
+                <span class="token keyword">if</span>(j!=C-<span class="token number">1</span>) cout&lt;&lt;<span class="token string">&quot; &quot;</span>;
             }
-            cout&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="LibreOJ-2185.html" class="problem-link">LibreOJ 2185</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="uva10223.html" class="problem-link">uva10223</a> <a href="d255-uva11417.html" class="problem-link">d255 uva11417</a> <a href="ytp-races.html" class="problem-link">ytp races</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a></p>
+        <p><a href="e288-2019APCS.html" class="problem-link">e288 2019APCS</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="e606-uva10057.html" class="problem-link">e606 uva10057</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="CSES1734.html" class="problem-link">CSES1734</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

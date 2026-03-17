@@ -25,47 +25,44 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int N,con=1;
-int A[50];
-int main(){
+<span class="token keyword">int</span> N,con=<span class="token number">1</span>;
+<span class="token keyword">int</span> A[<span class="token number">50</span>];
+<span class="token keyword">int</span> main(){
 
 
-    while(cin&gt;&gt;N){
-        if(N==0){break;}
-        int tol=0;
-        for(int i=0;i&lt;N;i++){
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        <span class="token keyword">if</span>(N==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">int</span> tol=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
             cin&gt;&gt;A[i];
             tol+=A[i];
         }
         tol/=N;
-        int Ans=0;
-        for(int i=0;i&lt;N;i++){
-            if(A[i]&gt;tol){
+        <span class="token keyword">int</span> Ans=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">if</span>(A[i]&gt;tol){
                 Ans+=A[i]-tol;
             }
         }
-        cout&lt;&lt;&quot;Set #&quot;&lt;&lt;con&lt;&lt;&quot;\n&quot;&lt;&lt;&quot;The minimum number of moves is &quot;&lt;&lt;Ans&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;Set #&quot;</span>&lt;&lt;con&lt;&lt;<span class="token string">&quot;\n&quot;</span>&lt;&lt;<span class="token string">&quot;The minimum number of moves is &quot;</span>&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;.&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         con++;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="day-153.html" class="problem-link">day-153</a> <a href="i959-uva11078.html" class="problem-link">i959 uva11078</a> <a href="uva10596.html" class="problem-link">uva10596</a> <a href="uva10763.html" class="problem-link">uva10763</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="pA.html" class="problem-link">pA</a></p>
+        <p><a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="CSES1090.html" class="problem-link">CSES1090</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="c007-uva00272.html" class="problem-link">c007 uva00272</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,63 +25,60 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int N,K,x;
-set&lt;int&gt;dat;
+<span class="token keyword">int</span> N,K,x;
+set&lt;<span class="token keyword">int</span>&gt;dat;
 
-bool check(int ran){
-    int now=0,times=0;
-    for(auto &amp;s : dat){
-        if(s&gt;now){
+<span class="token keyword">bool</span> check(<span class="token keyword">int</span> ran){
+    <span class="token keyword">int</span> now=<span class="token number">0</span>,times=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;s : dat){
+        <span class="token keyword">if</span>(s&gt;now){
             now=s+ran;
             times++;
-            if(times&gt;K){break;}
+            <span class="token keyword">if</span>(times&gt;K){<span class="token keyword">break</span>;}
         }
     }
-    return times&lt;=K;
+    <span class="token keyword">return</span> times&lt;=K;
 }
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+<span class="token keyword">int</span> main(){
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
 
-    //init
+    <span class="token comment">//init</span>
     cin&gt;&gt;N&gt;&gt;K;
-    for(int i=0;i&lt;N;i++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
         cin&gt;&gt;x;
         dat.insert(x);
     }
-    //doing
-    int l=1,r=1e9;
-    while(l&lt;r){
-        if(r==l+1){
-            if(!check(l))l=r;
-            break;
-        }else{
-            x=(l+r)/2;
-            if(check(x))r=x;
-            else l=x+1;
+    <span class="token comment">//doing</span>
+    <span class="token keyword">int</span> l=<span class="token number">1</span>,r=<span class="token number">1e9</span>;
+    <span class="token keyword">while</span>(l&lt;r){
+        <span class="token keyword">if</span>(r==l+<span class="token number">1</span>){
+            <span class="token keyword">if</span>(!check(l))l=r;
+            <span class="token keyword">break</span>;
+        }<span class="token keyword">else</span>{
+            x=(l+r)/<span class="token number">2</span>;
+            <span class="token keyword">if</span>(check(x))r=x;
+            <span class="token keyword">else</span> l=x+<span class="token number">1</span>;
         }
     }
-    cout&lt;&lt;l&lt;&lt;&quot;\n&quot;;
-    return 0;
+    cout&lt;&lt;l&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10102.html" class="problem-link">uva10102</a> <a href="day-155.html" class="problem-link">day-155</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="uva10223.html" class="problem-link">uva10223</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a></p>
+        <p><a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="day-149.html" class="problem-link">day-149</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="uva10535.html" class="problem-link">uva10535</a> <a href="e561-uva00299.html" class="problem-link">e561 uva00299</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

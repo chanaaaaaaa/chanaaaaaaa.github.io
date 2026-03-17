@@ -25,64 +25,64 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;deque&gt;
-#include&lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;deque&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==&#x27;-&#x27;){w=-1;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x*w;
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-int main(void){
-    int n=read(),m=read(),k=read(),Ans=0;
-    vector&lt;deque&lt;char&gt;&gt;dat(n,deque&lt;char&gt;());
-    char c;
-    for(int i=0;i&lt;n;i++){
-        for(int j=0;j&lt;m;j++){
+<span class="token keyword">int</span> main(<span class="token keyword">void</span>){
+    <span class="token keyword">int</span> n=read(),m=read(),k=read(),Ans=<span class="token number">0</span>;
+    vector&lt;deque&lt;<span class="token keyword">char</span>&gt;&gt;dat(n,deque&lt;<span class="token keyword">char</span>&gt;());
+    <span class="token keyword">char</span> c;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
             c=getchar();
             dat[i].push_back(c);
         }
         c=getchar();
     }
-    while(k--){
-        for(int i=0;i&lt;n;i++){
-            int temp=read();
-            if(temp&gt;0){
-                for(;0&lt;temp;temp--){
-                    dat[i].push_front(dat[i][m-1]);
+    <span class="token keyword">while</span>(k--){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">int</span> temp=read();
+            <span class="token keyword">if</span>(temp&gt;<span class="token number">0</span>){
+                <span class="token keyword">for</span>(;<span class="token number">0</span>&lt;temp;temp--){
+                    dat[i].push_front(dat[i][m-<span class="token number">1</span>]);
                     dat[i].pop_back();
                 }
-            }else if(temp&lt;0){
-                for(;temp&lt;0;temp++){
-                    dat[i].push_back(dat[i][0]);
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(temp&lt;<span class="token number">0</span>){
+                <span class="token keyword">for</span>(;temp&lt;<span class="token number">0</span>;temp++){
+                    dat[i].push_back(dat[i][<span class="token number">0</span>]);
                     dat[i].pop_front();
                 }
             }
         }
-        for(int i=0;i&lt;m;i++){
-            int con[26]={0},maxx=0;
-            for(int j=0;j&lt;n;j++){
-                con[dat[j][i]-&#x27;a&#x27;]++;
-                if(con[dat[j][i]-&#x27;a&#x27;]&gt;maxx){maxx=con[dat[j][i]-&#x27;a&#x27;];}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;m;i++){
+            <span class="token keyword">int</span> con[<span class="token number">26</span>]={<span class="token number">0</span>},maxx=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;n;j++){
+                con[dat[j][i]-<span class="token string">&#x27;a&#x27;</span>]++;
+                <span class="token keyword">if</span>(con[dat[j][i]-<span class="token string">&#x27;a&#x27;</span>]&gt;maxx){maxx=con[dat[j][i]-<span class="token string">&#x27;a&#x27;</span>];}
             }
             Ans+=maxx;
         }
@@ -93,14 +93,11 @@ int main(void){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="AtCoder-212C.html" class="problem-link">AtCoder 212.C</a> <a href="uva11517.html" class="problem-link">uva11517</a> <a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a></p>
+        <p><a href="c123-uva514.html" class="problem-link">c123 uva514</a> <a href="uva11076.html" class="problem-link">uva11076</a> <a href="uva11287.html" class="problem-link">uva11287</a> <a href="a536-uva11689.html" class="problem-link">a536 uva11689</a> <a href="uva10449.html" class="problem-link">uva10449</a> <a href="b266-2016APCS.html" class="problem-link">b266 2016APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

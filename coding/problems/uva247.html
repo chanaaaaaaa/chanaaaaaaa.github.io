@@ -25,103 +25,103 @@
     <p>O(V + E)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(1)
-#pragma GCC optimize(2)
-#pragma GCC optimize(3)
-#pragma GCC optimize(&quot;Ofast&quot;)
-#pragma GCC optimize(&quot;inilne&quot;)
-#pragma GCC optimize(&quot;-fgcse&quot;)
-#pragma GCC optimize(&quot;fast-math&quot;)
-#pragma GCC optimize(&quot;-fgcse-lm&quot;)
-#pragma GCC optimize(&quot;-fipa-sra&quot;)
-#pragma GCC optimize(&quot;-ftree-vrp&quot;)
-#pragma GCC optimize(&quot;-fpeephole2&quot;)
-#pragma GCC optimize(&quot;-ffast-math&quot;)
-#pragma GCC optimize(&quot;-fsched-spec&quot;)
-#pragma GCC optimize(&quot;unroll-loops&quot;)
-#pragma GCC optimize(&quot;-falign-labels&quot;)
-#pragma GCC optimize(&quot;-fdevirtualize&quot;)
-#pragma GCC optimize(&quot;-fcaller-saves&quot;)
-#pragma GCC optimize(&quot;-fcrossjumping&quot;)
-#pragma GCC optimize(&quot;-fthread-jumps&quot;)
-#pragma GCC optimize(&quot;-funroll-loops&quot;)
-#pragma GCC optimize(&quot;-fwhole-program&quot;)
-#pragma GCC optimize(&quot;-freorder-blocks&quot;)
-#pragma GCC optimize(&quot;-fschedule-insns&quot;)
-#pragma GCC optimize(&quot;inline-functions&quot;)
-#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
-#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
-#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
-#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
-#pragma GCC optimize(&quot;-falign-functions&quot;)
-#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
-#pragma GCC optimize(&quot;-fsched-interblock&quot;)
-#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
-#pragma GCC optimize(&quot;no-stack-protector&quot;)
-#pragma GCC optimize(&quot;-freorder-functions&quot;)
-#pragma GCC optimize(&quot;-findirect-inlining&quot;)
-#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
-#pragma GCC optimize(&quot;inline-small-functions&quot;)
-#pragma GCC optimize(&quot;-finline-small-functions&quot;)
-#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
-#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
-#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
-#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
-#pragma GCC optimize(&quot;inline-function-called-once&quot;)
-#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;iostream&gt;
-//#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;vector&gt;
-#include&lt;stack&gt;
-#include&lt;algorithm&gt;
-#define int long long
-#define icc ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token number">1</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">2</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">3</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inilne&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse-lm&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fipa-sra&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-vrp&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpeephole2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ffast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-spec&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;unroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-labels&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdevirtualize&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcaller-saves&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcrossjumping&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fthread-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fwhole-program&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-blocks&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-tail-merge&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-aliasing&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-overflow&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcse-follow-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-interblock&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpartial-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;no-stack-protector&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-findirect-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ferun-cse-after-loop&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-finline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-switch-conversion&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-foptimize-sibling-calls&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fexpensive-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funsafe-loop-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-function-called-once&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token comment">//#include&lt;cstdio&gt;</span>
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;map&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;stack&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token directive">#define</span> icc ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-//-block
-vector&lt;int&gt;dfn;
-vector&lt;int&gt;low;
-vector&lt;vector&lt;int&gt;&gt;grid;
-vector&lt;bool&gt;instack;
+<span class="token comment">//-block</span>
+vector&lt;<span class="token keyword">int</span>&gt;dfn;
+vector&lt;<span class="token keyword">int</span>&gt;low;
+vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;grid;
+vector&lt;<span class="token keyword">bool</span>&gt;instack;
 
-stack&lt;int&gt;s;
-map&lt;string,int&gt;mp;
-map&lt;int,string&gt;demp;
+stack&lt;<span class="token keyword">int</span>&gt;s;
+map&lt;string,<span class="token keyword">int</span>&gt;mp;
+map&lt;<span class="token keyword">int</span>,string&gt;demp;
 
-int dfstime,cnt;
+<span class="token keyword">int</span> dfstime,cnt;
 
-inline void tarjan(int u){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> tarjan(<span class="token keyword">int</span> u){
     dfn[u]=low[u]=++dfstime;
     s.push(u);
-    instack[u]=true;
+    instack[u]=<span class="token keyword">true</span>;
 
-    for(auto &amp;v:grid[u]){
-        if(!dfn[v]){
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;v:grid[u]){
+        <span class="token keyword">if</span>(!dfn[v]){
             tarjan(v);
             low[u]=min(low[u],low[v]);
-        }else if(instack[v]){
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(instack[v]){
             low[u]=min(low[u],dfn[v]);
         }
     }
-    if(low[u]==dfn[u]){
-        int a=-1;
-        do{
-            if(a!=-1){cout&lt;&lt;&quot;, &quot;;}
+    <span class="token keyword">if</span>(low[u]==dfn[u]){
+        <span class="token keyword">int</span> a=-<span class="token number">1</span>;
+        <span class="token keyword">do</span>{
+            <span class="token keyword">if</span>(a!=-<span class="token number">1</span>){cout&lt;&lt;<span class="token string">&quot;, &quot;</span>;}
             a=s.top();
             s.pop();
-            instack[a]=false;
+            instack[a]=<span class="token keyword">false</span>;
             cout&lt;&lt;demp[a];
-        }while(a!=u);
-        cout&lt;&lt;&#x27;\n&#x27;;
+        }<span class="token keyword">while</span>(a!=u);
+        cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
     }
 }
-signed main(){
-    int N,M,cases=0;
-    while(cin&gt;&gt;N&gt;&gt;M &amp;&amp; (N || M)){
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N,M,cases=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;N&gt;&gt;M &amp;&amp; (N || M)){
         cin.ignore();
         dfn.clear();
         low.clear();
@@ -129,43 +129,43 @@ signed main(){
         instack.clear();
         mp.clear();
         demp.clear();
-        while(!s.empty()){s.pop();}
+        <span class="token keyword">while</span>(!s.empty()){s.pop();}
 
-        dfn.assign(N+1,0);
-        low.assign(N+1,0);
-        instack.assign(N+1,false);
-        grid.assign(N+1,vector&lt;int&gt;());
-        dfstime=0;cnt=0;
+        dfn.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        low.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        instack.assign(N+<span class="token number">1</span>,<span class="token keyword">false</span>);
+        grid.assign(N+<span class="token number">1</span>,vector&lt;<span class="token keyword">int</span>&gt;());
+        dfstime=<span class="token number">0</span>;cnt=<span class="token number">0</span>;
 
-        for(int i=0;i&lt;M;++i){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;++i){
             string s1,s2;
-            int n1,n2;
+            <span class="token keyword">int</span> n1,n2;
             cin&gt;&gt;s1&gt;&gt;s2;
-            if(mp[s1]==0){
+            <span class="token keyword">if</span>(mp[s1]==<span class="token number">0</span>){
                 mp[s1]=++cnt;
                 demp[cnt]=s1;
                 n1=cnt;
-            }else{n1=mp[s1];}
+            }<span class="token keyword">else</span>{n1=mp[s1];}
 
-            if(mp[s2]==0){
+            <span class="token keyword">if</span>(mp[s2]==<span class="token number">0</span>){
                 mp[s2]=++cnt;
                 demp[cnt]=s2;
                 n2=cnt;
-            }else{n2=mp[s2];}
+            }<span class="token keyword">else</span>{n2=mp[s2];}
 
             grid[n1].push_back(n2);
         }
 
-        if(cases){cout&lt;&lt;&#x27;\n&#x27;;}
-        cout&lt;&lt;&quot;Calling circles for data set &quot;&lt;&lt;++cases&lt;&lt;&quot;:\n&quot;;
-        for(int i=1;i&lt;=cnt;++i){
-            if(!dfn[i]){
+        <span class="token keyword">if</span>(cases){cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;}
+        cout&lt;&lt;<span class="token string">&quot;Calling circles for data set &quot;</span>&lt;&lt;++cases&lt;&lt;<span class="token string">&quot;:\n&quot;</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=cnt;++i){
+            <span class="token keyword">if</span>(!dfn[i]){
                 tarjan(i);
             }
         }
     }
 }
-/*
+<span class="token comment">/*
 5 6
 Ben Alexander
 Alexander Dolly
@@ -209,19 +209,16 @@ Betsy Benedict
 Betsy Benedict
 Quincy Martha
 0 0
-*/
+*/</span>
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES1090.html" class="problem-link">CSES1090</a> <a href="a130-uva12015.html" class="problem-link">a130 uva12015</a> <a href="CSES1641.html" class="problem-link">CSES1641</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="a132-uva10931.html" class="problem-link">a132 uva10931</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a></p>
+        <p><a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="uva907.html" class="problem-link">uva907</a> <a href="e591-uva11264.html" class="problem-link">e591 uva11264</a> <a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="uva10827.html" class="problem-link">uva10827</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

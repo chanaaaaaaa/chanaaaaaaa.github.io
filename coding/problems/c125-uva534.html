@@ -25,91 +25,88 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
-#include&lt;vector&gt;
-#include&lt;utility&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;math.h&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;utility&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-// -block
-int N,cases=0;
-vector&lt;pair&lt;int,int&gt;&gt;mp;
-double dis[201][201],x,y;
+<span class="token comment">// -block</span>
+<span class="token keyword">int</span> N,cases=<span class="token number">0</span>;
+vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;mp;
+<span class="token keyword">double</span> dis[<span class="token number">201</span>][<span class="token number">201</span>],x,y;
 
-inline void pts(){
-    for(int i=0;i&lt;N;i++){
-        for(int j=0;j&lt;N;j++){
-            printf(&quot;%.3lf &quot;,dis[i][j]);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> pts(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
+            printf(<span class="token string">&quot;%.3lf &quot;</span>,dis[i][j]);
         }
-        printf(&quot;\n&quot;);
+        printf(<span class="token string">&quot;\n&quot;</span>);
     }
-    printf(&quot;\n&quot;);
+    printf(<span class="token string">&quot;\n&quot;</span>);
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
 
-    while(N=read()){
-        for(int i=0;i&lt;N;i++){
+    <span class="token keyword">while</span>(N=read()){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
             mp.push_back({read(),read()});
         }
-        //do
-        for(int i=0;i&lt;N;i++){
-            for(int j=0;j&lt;i;j++){
+        <span class="token comment">//do</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;i;j++){
                 y=mp[i].first-mp[j].first;
                 x=mp[i].second-mp[j].second;
                 dis[i][j]=sqrt(x*x+y*y);
                 dis[j][i]=dis[i][j];
             }
         }
-        for(int i=0;i&lt;N;i++){
-            for(int j=0;j&lt;N;j++){
-                for(int k=0;k&lt;N;k++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;N;k++){
                     pts();
-                    double maxx;
-                    if(dis[j][i]&gt;dis[i][k]){
+                    <span class="token keyword">double</span> maxx;
+                    <span class="token keyword">if</span>(dis[j][i]&gt;dis[i][k]){
                         maxx=dis[j][i];
-                    }else{
+                    }<span class="token keyword">else</span>{
                         maxx=dis[i][k];
                     }
-                    if(dis[j][k]&gt;maxx){dis[j][k]=maxx;}
+                    <span class="token keyword">if</span>(dis[j][k]&gt;maxx){dis[j][k]=maxx;}
                 }
             }
         }
-        printf(&quot;Scenario #%d\nFrog Distance = %.3lf\n\n&quot;,++cases,dis[0][1]);
-        //-do
+        printf(<span class="token string">&quot;Scenario #%d\nFrog Distance = %.3lf\n\n&quot;</span>,++cases,dis[<span class="token number">0</span>][<span class="token number">1</span>]);
+        <span class="token comment">//-do</span>
         mp.clear();
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="n773-uva10424.html" class="problem-link">n773 uva10424</a> <a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="e564-uva540.html" class="problem-link">e564 uva540</a> <a href="d260-uva11455.html" class="problem-link">d260 uva11455</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a></p>
+        <p><a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="uva10930.html" class="problem-link">uva10930</a> <a href="day-155.html" class="problem-link">day-155</a> <a href="uva10227.html" class="problem-link">uva10227</a> <a href="e566-uva10190.html" class="problem-link">e566 uva10190</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

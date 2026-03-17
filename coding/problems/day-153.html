@@ -25,7 +25,7 @@
     <p>O(V + E)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">/*#pragma GCC optimize(1)
+    <pre class="code-block language-cpp"><code><span class="token comment">/*#pragma GCC optimize(1)
 #pragma GCC optimize(2)
 #pragma GCC optimize(3)
 #pragma GCC optimize(&quot;Ofast&quot;)
@@ -95,95 +95,92 @@ const int      Mod = 1e9 + 7;
 const int      INF = 0x7FFFFFFF;
 const LL     LLINF = 0x7FFFFFFFFFFFFFFF;
 const LL  MEMLLINF = 0x3F3F3F3F3F3F3F3F;
-/* Self Define Const */
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-using namespace std;
+/* Self Define Const */</span>
+<span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;cstdlib&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0,w=1;
-    int c;
-    while((c=getchar())&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
-        if(c==-1){return 0;}
-        if(c==&#x27;-&#x27;){w=-1;}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">int</span> c;
+    <span class="token keyword">while</span>((c=getchar())&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
     }
-    do{x=(x&lt;&lt;3)+(x&lt;&lt;1)+c-&#x27;0&#x27;;}while((c=getchar())&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;);
-    return x*w;
+    <span class="token keyword">do</span>{x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;}<span class="token keyword">while</span>((c=getchar())&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>);
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-/* I/O Optimize */
-const int MAXN=1e6+5;
-vector&lt;int&gt; v,adjL[MAXN];
-bool vis[MAXN];
-int v1[MAXN];
-int N,M,a,b;
-inline void dfs(int cur){
-    if(vis[cur]){return;}
-    vis[cur]=true;
-    for(int &amp;nex:adjL[cur]){
+<span class="token comment">/* I/O Optimize */</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">1e6</span>+<span class="token number">5</span>;
+vector&lt;<span class="token keyword">int</span>&gt; v,adjL[MAXN];
+<span class="token keyword">bool</span> vis[MAXN];
+<span class="token keyword">int</span> v1[MAXN];
+<span class="token keyword">int</span> N,M,a,b;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> dfs(<span class="token keyword">int</span> cur){
+    <span class="token keyword">if</span>(vis[cur]){<span class="token keyword">return</span>;}
+    vis[cur]=<span class="token keyword">true</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;nex:adjL[cur]){
         dfs(nex);
     }
     v.push_back(cur);
 }
-inline bool cycle(int cur){
-    v1[cur]=1;
-    for(int &amp;i:adjL[cur]){
-        if(!v1[i]){
-            if(cycle(i)){return true;}
-        }else if(v1[i]==1){
-            return true;
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> cycle(<span class="token keyword">int</span> cur){
+    v1[cur]=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;i:adjL[cur]){
+        <span class="token keyword">if</span>(!v1[i]){
+            <span class="token keyword">if</span>(cycle(i)){<span class="token keyword">return</span> <span class="token keyword">true</span>;}
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(v1[i]==<span class="token number">1</span>){
+            <span class="token keyword">return</span> <span class="token keyword">true</span>;
         }
     }
-    v1[cur]=2;
-    return false;
+    v1[cur]=<span class="token number">2</span>;
+    <span class="token keyword">return</span> <span class="token keyword">false</span>;
 }
-inline void solve(){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
     N=read(),M=read();
-    for(int i=0;i&lt;M;++i){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;++i){
         a=read(), b=read();
         adjL[a].push_back(b);
     }
-    for(int i=1;i&lt;N+1;++i){
-        if(!v1[i] &amp;&amp; cycle(i)){
-            printf(&quot;IMPOSSIBLE\n&quot;);
-            return;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N+<span class="token number">1</span>;++i){
+        <span class="token keyword">if</span>(!v1[i] &amp;&amp; cycle(i)){
+            printf(<span class="token string">&quot;IMPOSSIBLE\n&quot;</span>);
+            <span class="token keyword">return</span>;
         }
-        if(!vis[i]){
+        <span class="token keyword">if</span>(!vis[i]){
             dfs(i);
         }
     }
-    bool first=true;
-    for(vector&lt;int&gt;::reverse_iterator it=v.rbegin();it!=v.rend();++it){
-        if(!first) putchar(&#x27; &#x27;);
-        first=false;
+    <span class="token keyword">bool</span> first=<span class="token keyword">true</span>;
+    <span class="token keyword">for</span>(vector&lt;<span class="token keyword">int</span>&gt;::reverse_iterator it=v.rbegin();it!=v.rend();++it){
+        <span class="token keyword">if</span>(!first) putchar(<span class="token string">&#x27; &#x27;</span>);
+        first=<span class="token keyword">false</span>;
         write(*it);
     }
 }
 
-/* Programing area*/
-signed main(){
+<span class="token comment">/* Programing area*/</span>
+<span class="token keyword">signed</span> main(){
     solve();
-    putchar(&#x27;\n&#x27;);
-    return 0;
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e579-uva10050.html" class="problem-link">e579 uva10050</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a> <a href="uva10611.html" class="problem-link">uva10611</a> <a href="uva10930.html" class="problem-link">uva10930</a></p>
+        <p><a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="c119-uva10220.html" class="problem-link">c119 uva10220</a> <a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a> <a href="uva10311.html" class="problem-link">uva10311</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

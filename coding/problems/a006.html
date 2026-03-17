@@ -25,42 +25,39 @@
     <p>O(1)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    int a,b,c;
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> a,b,c;
     cin &gt;&gt;a&gt;&gt;b&gt;&gt;c;
 
-    if(b*b-4*a*c==0){
-        cout&lt;&lt;&quot;Two same roots x=&quot;&lt;&lt;b*-1/2/a;
-    }else if(b*b-4*a*c&lt;0){
-        cout&lt;&lt;&quot;No real root&quot;;
-    }else{
-        int ans1=(b*-1+sqrt(b*b-4*a*c))/2/a,ans2=(b*-1-sqrt(b*b-4*a*c))/2/a;
-        if(ans2&gt;ans1){
-            int temp=ans1;
+    <span class="token keyword">if</span>(b*b-<span class="token number">4</span>*a*c==<span class="token number">0</span>){
+        cout&lt;&lt;<span class="token string">&quot;Two same roots x=&quot;</span>&lt;&lt;b*-<span class="token number">1</span>/<span class="token number">2</span>/a;
+    }<span class="token keyword">else</span> <span class="token keyword">if</span>(b*b-<span class="token number">4</span>*a*c&lt;<span class="token number">0</span>){
+        cout&lt;&lt;<span class="token string">&quot;No real root&quot;</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">int</span> ans1=(b*-<span class="token number">1</span>+sqrt(b*b-<span class="token number">4</span>*a*c))/<span class="token number">2</span>/a,ans2=(b*-<span class="token number">1</span>-sqrt(b*b-<span class="token number">4</span>*a*c))/<span class="token number">2</span>/a;
+        <span class="token keyword">if</span>(ans2&gt;ans1){
+            <span class="token keyword">int</span> temp=ans1;
             ans1=ans2;
             ans2=temp;
         }
-        cout&lt;&lt;&quot;Two different roots x1=&quot;&lt;&lt;ans1&lt;&lt;&quot; , x2=&quot;&lt;&lt;ans2;
+        cout&lt;&lt;<span class="token string">&quot;Two different roots x1=&quot;</span>&lt;&lt;ans1&lt;&lt;<span class="token string">&quot; , x2=&quot;</span>&lt;&lt;ans2;
     }
-    //-b+_g.b*b-4ac)/2a
-    return 0;
+    <span class="token comment">//-b+_g.b*b-4ac)/2a</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a012-uva10055.html" class="problem-link">a012 uva10055</a> <a href="CSES1621.html" class="problem-link">CSES1621</a> <a href="uva10236.html" class="problem-link">uva10236</a> <a href="d669-uva11677.html" class="problem-link">d669 uva11677</a> <a href="uva657.html" class="problem-link">uva657</a> <a href="uva10172.html" class="problem-link">uva10172</a></p>
+        <p><a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="uva11934.html" class="problem-link">uva11934</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="uva10102.html" class="problem-link">uva10102</a> <a href="CSES1733.html" class="problem-link">CSES1733</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

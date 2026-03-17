@@ -25,69 +25,66 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
     cin.ignore();
     cin.ignore();
-    while(N--){
+    <span class="token keyword">while</span>(N--){
 
         vector&lt;string&gt;li;
 
         string A;
-        while(getline(cin,A)){
-            if(A.empty()){break;}
-            else{li.push_back(A);}
+        <span class="token keyword">while</span>(getline(cin,A)){
+            <span class="token keyword">if</span>(A.empty()){<span class="token keyword">break</span>;}
+            <span class="token keyword">else</span>{li.push_back(A);}
         }
         sort(li.begin(),li.end());
 
-        if(li.size()==1){
-            cout&lt;&lt;li[0]&lt;&lt;&quot; &quot;&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)1/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+        <span class="token keyword">if</span>(li.size()==<span class="token number">1</span>){
+            cout&lt;&lt;li[<span class="token number">0</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;(((<span class="token keyword">double</span>)<span class="token number">1</span>/(<span class="token keyword">double</span>)li.size())*<span class="token number">100</span>)&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
 
-        int same=1;
-        for(int i=0;i&lt;li.size()-1;i++){
-            if(same==1){
-                cout&lt;&lt;li[i]&lt;&lt;&quot; &quot;;
+        <span class="token keyword">int</span> same=<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;li.size()-<span class="token number">1</span>;i++){
+            <span class="token keyword">if</span>(same==<span class="token number">1</span>){
+                cout&lt;&lt;li[i]&lt;&lt;<span class="token string">&quot; &quot;</span>;
             }
-            if(li[i]==li[i+1]){
+            <span class="token keyword">if</span>(li[i]==li[i+<span class="token number">1</span>]){
                 same++;
-            }else{
-                cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)same/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
-                same=1;
+            }<span class="token keyword">else</span>{
+                cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;(((<span class="token keyword">double</span>)same/(<span class="token keyword">double</span>)li.size())*<span class="token number">100</span>)&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                same=<span class="token number">1</span>;
             }
-            if(i==li.size()-2){
-                if(same==1){
-                    cout&lt;&lt;li[i+1]&lt;&lt;&quot; &quot;&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)same/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
-                }else{
-                    cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;((((double)same)/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+            <span class="token keyword">if</span>(i==li.size()-<span class="token number">2</span>){
+                <span class="token keyword">if</span>(same==<span class="token number">1</span>){
+                    cout&lt;&lt;li[i+<span class="token number">1</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;(((<span class="token keyword">double</span>)same/(<span class="token keyword">double</span>)li.size())*<span class="token number">100</span>)&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                }<span class="token keyword">else</span>{
+                    cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;((((<span class="token keyword">double</span>)same)/(<span class="token keyword">double</span>)li.size())*<span class="token number">100</span>)&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
                 }
             }
         }
-        cout&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a> <a href="a012-uva10055.html" class="problem-link">a012 uva10055</a> <a href="CSES1754.html" class="problem-link">CSES1754</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a></p>
+        <p><a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="uva10302.html" class="problem-link">uva10302</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

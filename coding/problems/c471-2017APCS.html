@@ -25,58 +25,55 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-#define int long long
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-pair&lt;int,int&gt;wt[100000+10];//weight,times
-int N,Ans=0;
+pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;wt[<span class="token number">100000</span>+<span class="token number">10</span>];<span class="token comment">//weight,times</span>
+<span class="token keyword">int</span> N,Ans=<span class="token number">0</span>;
 
-bool cmp(pair&lt;int,int&gt;a,pair&lt;int,int&gt;b){
-    return a.first*b.second &lt; b.first*a.second;
+<span class="token keyword">bool</span> cmp(pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;a,pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;b){
+    <span class="token keyword">return</span> a.first*b.second &lt; b.first*a.second;
 }
 
-signed main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
-    //init
+<span class="token keyword">signed</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    <span class="token comment">//init</span>
     cin&gt;&gt;N;
-    for(int i=0;i&lt;N;i++)cin&gt;&gt;wt[i].first;
-    for(int i=0;i&lt;N;i++)cin&gt;&gt;wt[i].second;
-    //doing
-    /*
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++)cin&gt;&gt;wt[i].first;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++)cin&gt;&gt;wt[i].second;
+    <span class="token comment">//doing</span>
+    <span class="token comment">/*
     for(int i=0;i&lt;N-1;i++){
         for(int j=i+1;j&lt;N;j++){
             if(wt[i].first*wt[j].second&gt;wt[j].first*wt[i].second){
                 swap(wt[i],wt[j]);
             }
         }
-    }*/
+    }*/</span>
     sort(wt,wt+N,cmp);
 
 
-    for(int i=N-1;i&gt;=0;i--){
-        wt[i].second+=wt[i+1].second;
-        Ans+=wt[i].first*wt[i+1].second;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=N-<span class="token number">1</span>;i&gt;=<span class="token number">0</span>;i--){
+        wt[i].second+=wt[i+<span class="token number">1</span>].second;
+        Ans+=wt[i].first*wt[i+<span class="token number">1</span>].second;
     }
 
-    cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
-    return 0;
+    cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="d306-uva10193.html" class="problem-link">d306 uva10193</a> <a href="d047-uva10070.html" class="problem-link">d047 uva10070</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a></p>
+        <p><a href="uva10916.html" class="problem-link">uva10916</a> <a href="day-149.html" class="problem-link">day-149</a> <a href="d260-uva11455.html" class="problem-link">d260 uva11455</a> <a href="c007-uva00272.html" class="problem-link">c007 uva00272</a> <a href="e601-uva255.html" class="problem-link">!e601 uva255</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

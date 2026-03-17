@@ -25,37 +25,34 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    long long S,D;
-    while(cin&gt;&gt;S&gt;&gt;D){
-        while(D&gt;0){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> S,D;
+    <span class="token keyword">while</span>(cin&gt;&gt;S&gt;&gt;D){
+        <span class="token keyword">while</span>(D&gt;<span class="token number">0</span>){
             D-=S;
             S++;
         }
-        cout&lt;&lt;S&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;S&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="c005-uva10300.html" class="problem-link">c005 uva10300</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="uva1210.html" class="problem-link">uva1210</a> <a href="d186-uva11461.html" class="problem-link">d186 uva11461</a> <a href="c119-uva10220.html" class="problem-link">c119 uva10220</a></p>
+        <p><a href="d731-uva11039.html" class="problem-link">d731 uva11039</a> <a href="uva10611.html" class="problem-link">uva10611</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="uva10535.html" class="problem-link">uva10535</a> <a href="CSES-1753.html" class="problem-link">CSES 1753</a> <a href="day-150.html" class="problem-link">day-150</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

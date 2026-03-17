@@ -25,59 +25,56 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int dat[49][49];
-int mx[4]={0,-1,0,1};
-int my[4]={-1,0,1,0};
+<span class="token keyword">int</span> dat[<span class="token number">49</span>][<span class="token number">49</span>];
+<span class="token keyword">int</span> mx[<span class="token number">4</span>]={<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">1</span>};
+<span class="token keyword">int</span> my[<span class="token number">4</span>]={-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>};
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N,F;
+    <span class="token keyword">int</span> N,F;
     cin&gt;&gt;N&gt;&gt;F;
-    for(int i=0;i&lt;N;i++){
-        for(int j=0;j&lt;N;j++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
             cin&gt;&gt;dat[i][j];
         }
     }
-    int x=(N-1)/2,y=x;
+    <span class="token keyword">int</span> x=(N-<span class="token number">1</span>)/<span class="token number">2</span>,y=x;
     cout&lt;&lt;dat[x][y];
-    for(int i=1;i&lt;N;i++){//_move_num
-        for(int j=0;j&lt;2;j++){//move2t per num
-            for(int g=0;g&lt;i;g++){
-                x+=mx[F%4];
-                y+=my[F%4];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;i++){<span class="token comment">//_move_num</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">2</span>;j++){<span class="token comment">//move2t per num</span>
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> g=<span class="token number">0</span>;g&lt;i;g++){
+                x+=mx[F%<span class="token number">4</span>];
+                y+=my[F%<span class="token number">4</span>];
                 cout&lt;&lt;dat[x][y];
             }
             F++;
         }
-        if(i==N-1){
-            for(int g=0;g&lt;i;g++){
-                x+=mx[F%4];
-                y+=my[F%4];
+        <span class="token keyword">if</span>(i==N-<span class="token number">1</span>){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> g=<span class="token number">0</span>;g&lt;i;g++){
+                x+=mx[F%<span class="token number">4</span>];
+                y+=my[F%<span class="token number">4</span>];
                 cout&lt;&lt;dat[x][y];
             }
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d659-uva11727.html" class="problem-link">d659 uva11727</a> <a href="a158-uva11827.html" class="problem-link">a158 uva11827</a> <a href="a005.html" class="problem-link">a005</a> <a href="a007.html" class="problem-link">a007</a> <a href="day-140.html" class="problem-link">day-140</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a></p>
+        <p><a href="uva10611.html" class="problem-link">uva10611</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="uva11396.html" class="problem-link">uva11396</a> <a href="pD.html" class="problem-link">pD</a> <a href="a466-uva12289.html" class="problem-link">a466 uva12289</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

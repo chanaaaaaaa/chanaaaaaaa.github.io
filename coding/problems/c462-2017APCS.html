@@ -25,71 +25,68 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     string A;
 
     cin&gt;&gt;N&gt;&gt;A;
-    if(N==1 &amp;&amp; A.size()==1){
-        cout&lt;&lt;&quot;1\n&quot;;
-        return 0;
+    <span class="token keyword">if</span>(N==<span class="token number">1</span> &amp;&amp; A.size()==<span class="token number">1</span>){
+        cout&lt;&lt;<span class="token string">&quot;1\n&quot;</span>;
+        <span class="token keyword">return</span> <span class="token number">0</span>;
     }
-    vector&lt;int&gt;dat;
-    int tmp=1;
-    for(int i=1;i&lt;A.size();i++){
-        if(isupper(A[i])==isupper(A[i-1])){
+    vector&lt;<span class="token keyword">int</span>&gt;dat;
+    <span class="token keyword">int</span> tmp=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;A.size();i++){
+        <span class="token keyword">if</span>(isupper(A[i])==isupper(A[i-<span class="token number">1</span>])){
             tmp++;
-        }else{
+        }<span class="token keyword">else</span>{
             dat.push_back(tmp);
-            tmp=1;
+            tmp=<span class="token number">1</span>;
         }
     }
-    if(tmp&gt;1)dat.push_back(tmp);
-    int Ans=0,now=0,head=-1;
-    for(int i=0;i&lt;dat.size();i++){
-        if(dat[i]==N){
+    <span class="token keyword">if</span>(tmp&gt;<span class="token number">1</span>)dat.push_back(tmp);
+    <span class="token keyword">int</span> Ans=<span class="token number">0</span>,now=<span class="token number">0</span>,head=-<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;dat.size();i++){
+        <span class="token keyword">if</span>(dat[i]==N){
             now++;
-            if(head==-1){head=i;}
-        }else if(dat[i]&gt;N){
-            if(head==-1){
+            <span class="token keyword">if</span>(head==-<span class="token number">1</span>){head=i;}
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(dat[i]&gt;N){
+            <span class="token keyword">if</span>(head==-<span class="token number">1</span>){
                 now++;
                 head=i;
-            }else{
+            }<span class="token keyword">else</span>{
                 now++;
                 Ans=max(Ans,now);
-                now=0;
+                now=<span class="token number">0</span>;
                 i--;
-                head=-1;
+                head=-<span class="token number">1</span>;
             }
-        }else{
-            now=0;
+        }<span class="token keyword">else</span>{
+            now=<span class="token number">0</span>;
         }
-        //cout&lt;&lt;now&lt;&lt;&quot; &quot;;
+        <span class="token comment">//cout&lt;&lt;now&lt;&lt;&quot; &quot;;</span>
         Ans=max(Ans,now);
     }
-    cout&lt;&lt;Ans*N&lt;&lt;&quot;\n&quot;;
-    return 0;
+    cout&lt;&lt;Ans*N&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10006.html" class="problem-link">uva10006</a> <a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="c024-uva10079.html" class="problem-link">c024 uva10079</a> <a href="d418-uva993.html" class="problem-link">d418 uva993</a> <a href="e566-uva10190.html" class="problem-link">e566 uva10190</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a></p>
+        <p><a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="c005-uva10300.html" class="problem-link">c005 uva10300</a> <a href="day-155.html" class="problem-link">day-155</a> <a href="uva10535.html" class="problem-link">uva10535</a> <a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="uva10763.html" class="problem-link">uva10763</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,58 +25,55 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 
-#include&lt;iostream&gt;
-#include&lt;math.h&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;math.h&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-signed main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
+<span class="token keyword">signed</span> main() {
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
 
-    int t;
+    <span class="token keyword">int</span> t;
     cin&gt;&gt;t;
     cin.ignore();
-    while(t--){
-        int dic[26]={0};
+    <span class="token keyword">while</span>(t--){
+        <span class="token keyword">int</span> dic[<span class="token number">26</span>]={<span class="token number">0</span>};
         string A;
         getline(cin,A);
-        for(int i=0;i&lt;A.size();i++){
-            if(A[i]&lt;=&#x27;z&#x27; &amp;&amp; A[i]&gt;=&#x27;a&#x27;){
-                dic[A[i]-&#x27;a&#x27;]++;
-            }else if(A[i]&lt;=&#x27;Z&#x27; &amp;&amp; A[i]&gt;=&#x27;A&#x27;){
-                dic[A[i]-&#x27;A&#x27;]++;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(A[i]&lt;=<span class="token string">&#x27;z&#x27;</span> &amp;&amp; A[i]&gt;=<span class="token string">&#x27;a&#x27;</span>){
+                dic[A[i]-<span class="token string">&#x27;a&#x27;</span>]++;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(A[i]&lt;=<span class="token string">&#x27;Z&#x27;</span> &amp;&amp; A[i]&gt;=<span class="token string">&#x27;A&#x27;</span>){
+                dic[A[i]-<span class="token string">&#x27;A&#x27;</span>]++;
             }
         }
 
-        int maxx=-1;
-        for(int i=0;i&lt;26;i++){
-            if(dic[i]&gt;maxx){maxx=dic[i];}
+        <span class="token keyword">int</span> maxx=-<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">26</span>;i++){
+            <span class="token keyword">if</span>(dic[i]&gt;maxx){maxx=dic[i];}
         }
-        for(int i=0;i&lt;26;i++){
-            if(dic[i]==maxx){cout&lt;&lt;char(&#x27;a&#x27;+i);}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">26</span>;i++){
+            <span class="token keyword">if</span>(dic[i]==maxx){cout&lt;&lt;<span class="token keyword">char</span>(<span class="token string">&#x27;a&#x27;</span>+i);}
         }
-        cout&lt;&lt;&#x27;\n&#x27;;
+        cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c295-2016APCS.html" class="problem-link">c295 2016APCS</a> <a href="CSES1643.html" class="problem-link">CSES1643</a> <a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="c463-2017APCS.html" class="problem-link">c463 2017APCS</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a></p>
+        <p><a href="d669-uva11677.html" class="problem-link">d669 uva11677</a> <a href="d306-uva10193.html" class="problem-link">d306 uva10193</a> <a href="d813-uva10583.html" class="problem-link">d813 uva10583</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="a519-uva12459.html" class="problem-link">a519 uva12459</a> <a href="j123-2022APCS.html" class="problem-link">j123 2022APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,45 +25,42 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(false);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
 
-    int N,con=1;
-    while(cin&gt;&gt;N){
-        long long maxx=0;
-        int aa[N];
-        for(int i=0;i&lt;N;i++){
+    <span class="token keyword">int</span> N,con=<span class="token number">1</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        <span class="token keyword">long</span> <span class="token keyword">long</span> maxx=<span class="token number">0</span>;
+        <span class="token keyword">int</span> aa[N];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
             cin&gt;&gt;aa[i];
         }
-        for(int i=0;i&lt;N;i++){
-            long long temp=1;
-            for(int j=i;j&lt;N;j++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">long</span> <span class="token keyword">long</span> temp=<span class="token number">1</span>;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i;j&lt;N;j++){
                 temp*=aa[j];
-                if(temp&gt;maxx){maxx=temp;}
+                <span class="token keyword">if</span>(temp&gt;maxx){maxx=temp;}
             }
         }
-        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;con&lt;&lt;&quot;: The maximum product is &quot;&lt;&lt;maxx&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;Case #&quot;</span>&lt;&lt;con&lt;&lt;<span class="token string">&quot;: The maximum product is &quot;</span>&lt;&lt;maxx&lt;&lt;<span class="token string">&quot;.&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         con++;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="uva10312.html" class="problem-link">uva10312</a></p>
+        <p><a href="pC.html" class="problem-link">pC</a> <a href="f434-uva458.html" class="problem-link">f434 uva458</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="uva10916.html" class="problem-link">uva10916</a> <a href="uva10368.html" class="problem-link">uva10368</a> <a href="a132-uva10931.html" class="problem-link">a132 uva10931</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

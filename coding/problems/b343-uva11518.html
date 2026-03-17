@@ -25,61 +25,58 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(false);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    while(N--){
-        int n,m,l;
-        int route[10000][2];
+    <span class="token keyword">while</span>(N--){
+        <span class="token keyword">int</span> n,m,l;
+        <span class="token keyword">int</span> route[<span class="token number">10000</span>][<span class="token number">2</span>];
         cin&gt;&gt;n&gt;&gt;m&gt;&gt;l;
-        for(int i=0;i&lt;m;i++){
-            cin&gt;&gt;route[i][0]&gt;&gt;route[i][1];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;m;i++){
+            cin&gt;&gt;route[i][<span class="token number">0</span>]&gt;&gt;route[i][<span class="token number">1</span>];
         }
 
-        set&lt;int&gt;ed;
-        for(int i=0;i&lt;l;i++){
-            int head;
+        set&lt;<span class="token keyword">int</span>&gt;ed;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;l;i++){
+            <span class="token keyword">int</span> head;
             cin&gt;&gt;head;
             ed.insert(head);
         }
 
-        int cou=0;
-        int check=1;
-        while(check!=cou){
+        <span class="token keyword">int</span> cou=<span class="token number">0</span>;
+        <span class="token keyword">int</span> check=<span class="token number">1</span>;
+        <span class="token keyword">while</span>(check!=cou){
             check=cou;
-            for(int i=0;i&lt;m;i++){
-                if((ed.count(route[i][0]))&amp;&amp;(!ed.count(route[i][1]))){
-                    //cout&lt;&lt;route[i][0]&lt;&lt;&quot;-&gt;&quot;&lt;&lt;route[i][1]&lt;&lt;&quot;\n&quot;;
-                    ed.insert(route[i][1]);
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;m;i++){
+                <span class="token keyword">if</span>((ed.count(route[i][<span class="token number">0</span>]))&amp;&amp;(!ed.count(route[i][<span class="token number">1</span>]))){
+                    <span class="token comment">//cout&lt;&lt;route[i][0]&lt;&lt;&quot;-&gt;&quot;&lt;&lt;route[i][1]&lt;&lt;&quot;\n&quot;;</span>
+                    ed.insert(route[i][<span class="token number">1</span>]);
                     cou++;
-                    route[i][0]=-1;
-                    route[i][1]=-1;
+                    route[i][<span class="token number">0</span>]=-<span class="token number">1</span>;
+                    route[i][<span class="token number">1</span>]=-<span class="token number">1</span>;
                 }
             }
         }
-        cout&lt;&lt;cou+l&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;cou+l&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10535.html" class="problem-link">uva10535</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="e579-uva10050.html" class="problem-link">e579 uva10050</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="uva10926.html" class="problem-link">uva10926</a></p>
+        <p><a href="d669-uva11677.html" class="problem-link">d669 uva11677</a> <a href="AtCoder-212C.html" class="problem-link">AtCoder 212.C</a> <a href="uva10820.html" class="problem-link">uva10820</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="uva10102.html" class="problem-link">uva10102</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

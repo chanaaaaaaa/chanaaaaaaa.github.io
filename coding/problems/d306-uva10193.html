@@ -25,61 +25,58 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int gc(int a,int b){
-    return a ? gc(b%a,a) : b;
+<span class="token keyword">int</span> gc(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
+    <span class="token keyword">return</span> a ? gc(b%a,a) : b;
 }
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    for(int j=1;j&lt;=N;j++){
-        cout&lt;&lt;&quot;Pair #&quot;&lt;&lt;j&lt;&lt;&quot;: &quot;;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;j&lt;=N;j++){
+        cout&lt;&lt;<span class="token string">&quot;Pair #&quot;</span>&lt;&lt;j&lt;&lt;<span class="token string">&quot;: &quot;</span>;
 
         string temp;
-        long a=0,b=0;
-        //input
+        <span class="token keyword">long</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+        <span class="token comment">//input</span>
         cin&gt;&gt;temp;
-        for(int i=0;i&lt;temp.size();i++){
-            a*=2;
-            if(temp[i]==&#x27;1&#x27;){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;temp.size();i++){
+            a*=<span class="token number">2</span>;
+            <span class="token keyword">if</span>(temp[i]==<span class="token string">&#x27;1&#x27;</span>){
                 a++;
             }
         }
         cin&gt;&gt;temp;
-        for(int i=0;i&lt;temp.size();i++){
-            b*=2;
-            if(temp[i]==&#x27;1&#x27;){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;temp.size();i++){
+            b*=<span class="token number">2</span>;
+            <span class="token keyword">if</span>(temp[i]==<span class="token string">&#x27;1&#x27;</span>){
                 b++;
             }
         }
-        //doing
-        if(gc(a,b)==1){
-            cout&lt;&lt;&quot;Love is not all you need!&quot;;
-        }else{cout&lt;&lt;&quot;All you need is love!&quot;;}
-        cout&lt;&lt;&quot;\n&quot;;
+        <span class="token comment">//doing</span>
+        <span class="token keyword">if</span>(gc(a,b)==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;Love is not all you need!&quot;</span>;
+        }<span class="token keyword">else</span>{cout&lt;&lt;<span class="token string">&quot;All you need is love!&quot;</span>;}
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="f581-2020APCS.html" class="problem-link">f581 2020APCS</a> <a href="a159-uva11743.html" class="problem-link">a159 uva11743</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a></p>
+        <p><a href="day-151.html" class="problem-link">day-151</a> <a href="day-146.html" class="problem-link">day-146</a> <a href="uva10174.html" class="problem-link">uva10174</a> <a href="a006.html" class="problem-link">a006</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="uva12186.html" class="problem-link">uva12186</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

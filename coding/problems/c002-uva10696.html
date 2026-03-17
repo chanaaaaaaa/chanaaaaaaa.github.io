@@ -25,42 +25,39 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int f91(int a){
-    if(a&gt;=101){
-        return a-10;
+<span class="token keyword">int</span> f91(<span class="token keyword">int</span> a){
+    <span class="token keyword">if</span>(a&gt;=<span class="token number">101</span>){
+        <span class="token keyword">return</span> a-<span class="token number">10</span>;
     }
-    else{
-        return f91(f91(a+11));
+    <span class="token keyword">else</span>{
+        <span class="token keyword">return</span> f91(f91(a+<span class="token number">11</span>));
     }
 }
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
-    while(cin&gt;&gt;N){
-        if(N==0){break;}
-        cout&lt;&lt;&quot;f91(&quot;&lt;&lt;N&lt;&lt;&quot;) = &quot;&lt;&lt;f91(N)&lt;&lt;&quot;\n&quot;;
+    <span class="token keyword">int</span> N;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        <span class="token keyword">if</span>(N==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        cout&lt;&lt;<span class="token string">&quot;f91(&quot;</span>&lt;&lt;N&lt;&lt;<span class="token string">&quot;) = &quot;</span>&lt;&lt;f91(N)&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="day-148.html" class="problem-link">day-148</a> <a href="f709-uva12019.html" class="problem-link">f709 uva12019</a> <a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="uva10199.html" class="problem-link">uva10199</a> <a href="day-150.html" class="problem-link">day-150</a></p>
+        <p><a href="c119-uva10220.html" class="problem-link">c119 uva10220</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="d674-uva10192.html" class="problem-link">d674 uva10192</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="uva10535.html" class="problem-link">uva10535</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

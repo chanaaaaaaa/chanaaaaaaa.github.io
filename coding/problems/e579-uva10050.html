@@ -25,50 +25,47 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    while(N--){
-        int don[100];
-        int day,party,Ans=0;
+    <span class="token keyword">while</span>(N--){
+        <span class="token keyword">int</span> don[<span class="token number">100</span>];
+        <span class="token keyword">int</span> day,party,Ans=<span class="token number">0</span>;
         cin&gt;&gt;day&gt;&gt;party;
-        for(int i=0;i&lt;party;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;party;i++){
             cin&gt;&gt;don[i];
         }
-        for(int i=1;i&lt;=day;i++){
-            if(!(i%7==6 || i%7==0)){
-                for(int j=0;j&lt;party;j++){
-                    if(i%don[j]==0){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=day;i++){
+            <span class="token keyword">if</span>(!(i%<span class="token number">7</span>==<span class="token number">6</span> || i%<span class="token number">7</span>==<span class="token number">0</span>)){
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;party;j++){
+                    <span class="token keyword">if</span>(i%don[j]==<span class="token number">0</span>){
                         Ans++;
-                        break;
+                        <span class="token keyword">break</span>;
                     }
                 }
             }
         }
-        cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="day-155.html" class="problem-link">day-155</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="d492-uva10226.html" class="problem-link">d492 uva10226</a> <a href="d097-uva10038.html" class="problem-link">d097 uva10038</a> <a href="AtCoder-212C.html" class="problem-link">AtCoder 212.C</a> <a href="uva10820.html" class="problem-link">uva10820</a></p>
+        <p><a href="uva10730.html" class="problem-link">uva10730</a> <a href="d686-uva10003.html" class="problem-link">d686 uva10003</a> <a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="e583-uva11040.html" class="problem-link">e583 uva11040</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

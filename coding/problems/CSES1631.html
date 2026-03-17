@@ -25,77 +25,74 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#define int long long
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return 0;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(void){
-    int N,maxx,sum;
-    while(N=read()){
-        vector&lt;int&gt;dat(N);
-        maxx=0;sum=0;
-        for(int i=0;i&lt;N;i++){
+<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
+    <span class="token keyword">int</span> N,maxx,sum;
+    <span class="token keyword">while</span>(N=read()){
+        vector&lt;<span class="token keyword">int</span>&gt;dat(N);
+        maxx=<span class="token number">0</span>;sum=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
             dat[i]=read();
             maxx=max(maxx,dat[i]);
             sum+=dat[i];
         }
-        if(maxx&gt;=sum-maxx){
-            write(maxx*2);
-            putchar(&#x27;\n&#x27;);
-            continue;
+        <span class="token keyword">if</span>(maxx&gt;=sum-maxx){
+            write(maxx*<span class="token number">2</span>);
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+            <span class="token keyword">continue</span>;
         }
         sort(dat.begin(),dat.end());
 
-        int pin_1=0, pin_2=0,
-            value_1=0,value_2=0;
+        <span class="token keyword">int</span> pin_1=<span class="token number">0</span>, pin_2=<span class="token number">0</span>,
+            value_1=<span class="token number">0</span>,value_2=<span class="token number">0</span>;
 
-        while(pin_1&lt;N &amp;&amp; pin_2&lt;N){
-            if(value_1 &lt; value_2){
+        <span class="token keyword">while</span>(pin_1&lt;N &amp;&amp; pin_2&lt;N){
+            <span class="token keyword">if</span>(value_1 &lt; value_2){
                 value_1+=dat[pin_1++];
-            }else{
+            }<span class="token keyword">else</span>{
                 value_2+=dat[pin_2++];
             }
         }
         write(max(value_1,value_2));
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="pB.html" class="problem-link">pB</a> <a href="uva10312.html" class="problem-link">uva10312</a> <a href="f313-2020APCS.html" class="problem-link">f313 2020APCS</a> <a href="a539-uva10327.html" class="problem-link">a539 uva10327</a> <a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="uva10523.html" class="problem-link">uva10523</a></p>
+        <p><a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="uva13249.html" class="problem-link">uva13249</a> <a href="n693-uva10721.html" class="problem-link">n693 uva10721</a> <a href="uva624.html" class="problem-link">uva624</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="f312-2020APCS.html" class="problem-link">f312 2020APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

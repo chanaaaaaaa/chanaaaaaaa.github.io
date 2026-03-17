@@ -25,40 +25,37 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
+<span class="token keyword">int</span> main(){
 
     string a;
-    while(getline(cin, a)){
-		bool check=false;
-		int cnt=0;
-        for(int i=0;i&lt;a.size();i++){
-			if((&#x27;a&#x27;&lt;=a[i] &amp;&amp; a[i]&lt;=&#x27;z&#x27;)||(&#x27;A&#x27;&lt;=a[i] &amp;&amp; a[i]&lt;=&#x27;Z&#x27;)){
-				check=true;
-			}else if(check){
-				check=false;
+    <span class="token keyword">while</span>(getline(cin, a)){
+		<span class="token keyword">bool</span> check=<span class="token keyword">false</span>;
+		<span class="token keyword">int</span> cnt=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a.size();i++){
+			<span class="token keyword">if</span>((<span class="token string">&#x27;a&#x27;</span>&lt;=a[i] &amp;&amp; a[i]&lt;=<span class="token string">&#x27;z&#x27;</span>)||(<span class="token string">&#x27;A&#x27;</span>&lt;=a[i] &amp;&amp; a[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>)){
+				check=<span class="token keyword">true</span>;
+			}<span class="token keyword">else</span> <span class="token keyword">if</span>(check){
+				check=<span class="token keyword">false</span>;
 				cnt++;
 			}
 		}
-		if(check){cnt++;}
-		cout&lt;&lt;cnt&lt;&lt;&quot;\n&quot;;
+		<span class="token keyword">if</span>(check){cnt++;}
+		cout&lt;&lt;cnt&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10926.html" class="problem-link">uva10926</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="e575-uva10908.html" class="problem-link">e575 uva10908</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="uva10102.html" class="problem-link">uva10102</a></p>
+        <p><a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="pD.html" class="problem-link">pD</a> <a href="d190-uva11462.html" class="problem-link">d190 uva11462</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

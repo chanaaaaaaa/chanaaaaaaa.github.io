@@ -25,99 +25,96 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-struct f{
-    int x,y,step;
+<span class="token keyword">struct</span> f{
+    <span class="token keyword">int</span> x,y,step;
 };
 deque&lt;f&gt;now;
-int xm[]={1,-1,-3,-3,-1,1,3,3}; //move
-int ym[]={3,3,1,-1,-3,-3,-1,1};
-int cx[]={0,-1,0,1};            //check
-int cy[]={1,0,-1,0};
-bool ma[105][105];              //map
-bool maed[105][105];            //maped
-int Ans=0x7fffffff;
+<span class="token keyword">int</span> xm[]={<span class="token number">1</span>,-<span class="token number">1</span>,-<span class="token number">3</span>,-<span class="token number">3</span>,-<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">3</span>,<span class="token number">3</span>}; <span class="token comment">//move</span>
+<span class="token keyword">int</span> ym[]={<span class="token number">3</span>,<span class="token number">3</span>,<span class="token number">1</span>,-<span class="token number">1</span>,-<span class="token number">3</span>,-<span class="token number">3</span>,-<span class="token number">1</span>,<span class="token number">1</span>};
+<span class="token keyword">int</span> cx[]={<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">1</span>};            <span class="token comment">//check</span>
+<span class="token keyword">int</span> cy[]={<span class="token number">1</span>,<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>};
+<span class="token keyword">bool</span> ma[<span class="token number">105</span>][<span class="token number">105</span>];              <span class="token comment">//map</span>
+<span class="token keyword">bool</span> maed[<span class="token number">105</span>][<span class="token number">105</span>];            <span class="token comment">//maped</span>
+<span class="token keyword">int</span> Ans=<span class="token number">0x7fffffff</span>;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;      //time
-    int sx,sy;  //stone
-    int dx,dy;  //dog
-    int tx,ty;  //target
+    <span class="token keyword">int</span> N;      <span class="token comment">//time</span>
+    <span class="token keyword">int</span> sx,sy;  <span class="token comment">//stone</span>
+    <span class="token keyword">int</span> dx,dy;  <span class="token comment">//dog</span>
+    <span class="token keyword">int</span> tx,ty;  <span class="token comment">//target</span>
     f next,num;
-    while(cin&gt;&gt;N){
-        //init
-        Ans=0x7fffffff;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        <span class="token comment">//init</span>
+        Ans=<span class="token number">0x7fffffff</span>;
         now.clear();
-        memset(ma,0,sizeof(ma));
-        memset(maed,0,sizeof(maed));
-        for(int i=0;i&lt;N;i++){
+        memset(ma,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(ma));
+        memset(maed,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(maed));
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
             cin&gt;&gt;sx&gt;&gt;sy;
-            ma[sx][sy]=true;
+            ma[sx][sy]=<span class="token keyword">true</span>;
         }
-        //dog
-        //target
+        <span class="token comment">//dog</span>
+        <span class="token comment">//target</span>
         cin&gt;&gt;dx&gt;&gt;dy;
         cin&gt;&gt;tx&gt;&gt;ty;
         next.x=dx;
         next.y=dy;
-        next.step=0;
+        next.step=<span class="token number">0</span>;
         now.push_back(next);
-        maed[dx][dy]=true;
-        //doing
-        int tempx,tempy;
-        bool flag=false;
-        while(!now.empty()){
+        maed[dx][dy]=<span class="token keyword">true</span>;
+        <span class="token comment">//doing</span>
+        <span class="token keyword">int</span> tempx,tempy;
+        <span class="token keyword">bool</span> flag=<span class="token keyword">false</span>;
+        <span class="token keyword">while</span>(!now.empty()){
             next=now.front();
             now.pop_front();
-            for(int face=0;face&lt;4;face++){
-                if(flag)break;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> face=<span class="token number">0</span>;face&lt;<span class="token number">4</span>;face++){
+                <span class="token keyword">if</span>(flag)<span class="token keyword">break</span>;
                 tempx=next.x+cx[face];
                 tempy=next.y+cy[face];
-                if(!ma[tempx][tempy] &amp;&amp; (tempx&gt;=0 &amp;&amp; tempx&lt;=99) &amp;&amp; (tempy&gt;=0 &amp;&amp; tempy&lt;=99)){
-                    for(int j=2*face;j&lt;=(2*face)+1;j++){
+                <span class="token keyword">if</span>(!ma[tempx][tempy] &amp;&amp; (tempx&gt;=<span class="token number">0</span> &amp;&amp; tempx&lt;=<span class="token number">99</span>) &amp;&amp; (tempy&gt;=<span class="token number">0</span> &amp;&amp; tempy&lt;=<span class="token number">99</span>)){
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">2</span>*face;j&lt;=(<span class="token number">2</span>*face)+<span class="token number">1</span>;j++){
                         num.x=next.x+xm[j];
                         num.y=next.y+ym[j];
-                        num.step=next.step+1;
-                        if(!ma[num.x][num.y] &amp;&amp; !maed[num.x][num.y] &amp;&amp; (num.x&gt;=0 &amp;&amp; num.x&lt;=99) &amp;&amp; (num.y&gt;=0 &amp;&amp; num.y&lt;=99) &amp;&amp; (num.x!=tx || num.y!=ty)){
-                            maed[num.x][num.y]=true;
+                        num.step=next.step+<span class="token number">1</span>;
+                        <span class="token keyword">if</span>(!ma[num.x][num.y] &amp;&amp; !maed[num.x][num.y] &amp;&amp; (num.x&gt;=<span class="token number">0</span> &amp;&amp; num.x&lt;=<span class="token number">99</span>) &amp;&amp; (num.y&gt;=<span class="token number">0</span> &amp;&amp; num.y&lt;=<span class="token number">99</span>) &amp;&amp; (num.x!=tx || num.y!=ty)){
+                            maed[num.x][num.y]=<span class="token keyword">true</span>;
                             now.push_back(num);
-                        }else if(!ma[num.x][num.y] &amp;&amp; !maed[num.x][num.y] &amp;&amp; (num.x&gt;=0 &amp;&amp; num.x&lt;=99) &amp;&amp; (num.y&gt;=0 &amp;&amp; num.y&lt;=99) &amp;&amp; (num.x==tx &amp;&amp; num.y==ty)){
+                        }<span class="token keyword">else</span> <span class="token keyword">if</span>(!ma[num.x][num.y] &amp;&amp; !maed[num.x][num.y] &amp;&amp; (num.x&gt;=<span class="token number">0</span> &amp;&amp; num.x&lt;=<span class="token number">99</span>) &amp;&amp; (num.y&gt;=<span class="token number">0</span> &amp;&amp; num.y&lt;=<span class="token number">99</span>) &amp;&amp; (num.x==tx &amp;&amp; num.y==ty)){
                             Ans=num.step;
                             now.clear();
-                            flag=true;
-                            break;
+                            flag=<span class="token keyword">true</span>;
+                            <span class="token keyword">break</span>;
                         }
                     }
                 }
             }
         }
-        if(Ans!=0x7fffffff){
-            cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;&quot;impossible\n&quot;;
+        <span class="token keyword">if</span>(Ans!=<span class="token number">0x7fffffff</span>){
+            cout&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;<span class="token string">&quot;impossible\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d492-uva10226.html" class="problem-link">d492 uva10226</a> <a href="ytp-races.html" class="problem-link">ytp races</a> <a href="uva1213.html" class="problem-link">uva1213</a> <a href="uva907.html" class="problem-link">uva907</a> <a href="uva10010.html" class="problem-link">uva10010</a> <a href="uva11086.html" class="problem-link">uva11086</a></p>
+        <p><a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="c119-uva10220.html" class="problem-link">c119 uva10220</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

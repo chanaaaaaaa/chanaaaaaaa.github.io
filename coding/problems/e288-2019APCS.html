@@ -25,52 +25,49 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int m,n;
-long long Ans=0;
+<span class="token keyword">int</span> m,n;
+<span class="token keyword">long</span> <span class="token keyword">long</span> Ans=<span class="token number">0</span>;
 string IN;
-unordered_map&lt;long long,long long&gt;dat;
+unordered_map&lt;<span class="token keyword">long</span> <span class="token keyword">long</span>,<span class="token keyword">long</span> <span class="token keyword">long</span>&gt;dat;
 
-int dtm (char a){
-    return a&lt;=&#x27;Z&#x27;?a-&#x27;A&#x27;:a-&#x27;a&#x27;+26;
+<span class="token keyword">int</span> dtm (<span class="token keyword">char</span> a){
+    <span class="token keyword">return</span> a&lt;=<span class="token string">&#x27;Z&#x27;</span>?a-<span class="token string">&#x27;A&#x27;</span>:a-<span class="token string">&#x27;a&#x27;</span>+<span class="token number">26</span>;
 }
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+<span class="token keyword">int</span> main(){
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
 
     cin&gt;&gt;m&gt;&gt;n;
-    for(int i=0;i&lt;n;i++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
         cin&gt;&gt;IN;
-        long long temp=0;
-        for(char c:IN)temp|=(long long)1&lt;&lt;(dtm(c));
+        <span class="token keyword">long</span> <span class="token keyword">long</span> temp=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">char</span> c:IN)temp|=(<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">1</span>&lt;&lt;(dtm(c));
         dat[temp]++;
     }
-    auto it=dat.begin();
-    while(it!=dat.end()){
-        long long temp=(((long long)1&lt;&lt;m)-1)^(it-&gt;first);
-        if(dat.find(temp)!=dat.end())Ans+=(it-&gt;second)*dat[temp];
+    <span class="token keyword">auto</span> it=dat.begin();
+    <span class="token keyword">while</span>(it!=dat.end()){
+        <span class="token keyword">long</span> <span class="token keyword">long</span> temp=(((<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">1</span>&lt;&lt;m)-<span class="token number">1</span>)^(it-&gt;first);
+        <span class="token keyword">if</span>(dat.find(temp)!=dat.end())Ans+=(it-&gt;second)*dat[temp];
         it++;
     }
-    cout&lt;&lt;Ans/2&lt;&lt;&quot;\n&quot;;
-    return 0;
+    cout&lt;&lt;Ans/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="d731-uva11039.html" class="problem-link">d731 uva11039</a> <a href="uva10730.html" class="problem-link">uva10730</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="uva10916.html" class="problem-link">uva10916</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a></p>
+        <p><a href="day-140.html" class="problem-link">day-140</a> <a href="e591-uva11264.html" class="problem-link">e591 uva11264</a> <a href="uva11480.html" class="problem-link">uva11480</a> <a href="day-152.html" class="problem-link">day-152</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

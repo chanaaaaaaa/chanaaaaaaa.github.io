@@ -25,46 +25,46 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;climits&gt;
-#include&lt;memory.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    bool check=false;
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">bool</span> check=<span class="token keyword">false</span>;
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==&#x27;-&#x27;){w=-1;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x*w;
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(long long x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
-int T,N,num[160][160],sum[160],he,Max;
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> T,N,num[<span class="token number">160</span>][<span class="token number">160</span>],sum[<span class="token number">160</span>],he,Max;
 
-inline void solve(){
-    for(int i=0;i&lt;N;i++){
-        for(int j=0;j&lt;N;j++){
-            memset(sum,0,sizeof(sum));
-            for(int k=i;k&lt;N+i;k++){
-                he=0;
-                for(int l=j;l&lt;N+j;l++){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
+            memset(sum,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(sum));
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> k=i;k&lt;N+i;k++){
+                he=<span class="token number">0</span>;
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> l=j;l&lt;N+j;l++){
                     sum[l]+=num[k][l];
                     he+=sum[l];
-                    if(Max&lt;he){
+                    <span class="token keyword">if</span>(Max&lt;he){
                         Max=he;
                     }
                 }
@@ -73,37 +73,34 @@ inline void solve(){
     }
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
     T=read();
-    while(T--){
+    <span class="token keyword">while</span>(T--){
         N=read();
         Max=-INT_MAX;
-        for(int i=0;i&lt;N;i++){
-            for(int j=0;j&lt;N;j++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
                 num[i][j]=num[i+N][j]=num[i][j+N]=num[i+N][j+N]=read();
-                if(num[i][j]&gt;Max){Max=num[i][j];}
+                <span class="token keyword">if</span>(num[i][j]&gt;Max){Max=num[i][j];}
             }
         }
-        //-init
+        <span class="token comment">//-init</span>
         solve();
         write(Max);
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c708-uva11538.html" class="problem-link">c708 uva11538</a> <a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a> <a href="d097-uva10038.html" class="problem-link">d097 uva10038</a></p>
+        <p><a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="uva1213.html" class="problem-link">uva1213</a> <a href="uva796.html" class="problem-link">uva796</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

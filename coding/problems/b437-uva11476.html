@@ -25,45 +25,42 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
 
-#include&lt;stdio.h&gt;
-#include&lt;cmath&gt;
-using namespace std;
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;cmath&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    int c;
-    while(scanf(&quot;%d&quot;,&amp;c)){
-        if(c==0){break;}
-        int cal=c*4-3,Ans=1,cou=1,zu=3;
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> c;
+    <span class="token keyword">while</span>(scanf(<span class="token string">&quot;%d&quot;</span>,&amp;c)){
+        <span class="token keyword">if</span>(c==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">int</span> cal=c*<span class="token number">4</span>-<span class="token number">3</span>,Ans=<span class="token number">1</span>,cou=<span class="token number">1</span>,zu=<span class="token number">3</span>;
 
-        while(cal!=1){
-            if(cal%zu==0){
+        <span class="token keyword">while</span>(cal!=<span class="token number">1</span>){
+            <span class="token keyword">if</span>(cal%zu==<span class="token number">0</span>){
                 cal/=zu;
                 cou++;
-                printf(&quot;%d &quot;,zu);
-            }else{
+                printf(<span class="token string">&quot;%d &quot;</span>,zu);
+            }<span class="token keyword">else</span>{
                 Ans*=cou;
-                cou=1;
-                zu+=2;
+                cou=<span class="token number">1</span>;
+                zu+=<span class="token number">2</span>;
             }
         }
-        printf(&quot;%d %d\n&quot;,c,Ans*2);
+        printf(<span class="token string">&quot;%d %d\n&quot;</span>,c,Ans*<span class="token number">2</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10449.html" class="problem-link">uva10449</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="CSES1643.html" class="problem-link">CSES1643</a> <a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="uva11770.html" class="problem-link">uva11770</a></p>
+        <p><a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="e566-uva10190.html" class="problem-link">e566 uva10190</a> <a href="uva10325.html" class="problem-link">uva10325</a> <a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

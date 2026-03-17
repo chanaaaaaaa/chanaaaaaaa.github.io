@@ -25,95 +25,92 @@
     <p>O(V + E)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;algorithm&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;queue&gt;
+<span class="token directive">#include</span>&lt;stack&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return -1;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-// -block
-int N,temp;
-queue&lt;int&gt;dat;
-stack&lt;int&gt;wait;
-inline bool solve(){
-    for(int i=1;i&lt;=N;i++){
-        if(dat.front()==i){
+<span class="token comment">// -block</span>
+<span class="token keyword">int</span> N,temp;
+queue&lt;<span class="token keyword">int</span>&gt;dat;
+stack&lt;<span class="token keyword">int</span>&gt;wait;
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> solve(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
+        <span class="token keyword">if</span>(dat.front()==i){
             dat.pop();
-        }else{
-            while(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
+        }<span class="token keyword">else</span>{
+            <span class="token keyword">while</span>(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
                 dat.pop();
                 wait.pop();
             }
             wait.push(i);
         }
     }
-    while(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
+    <span class="token keyword">while</span>(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
         dat.pop();
         wait.pop();
     }
-    return (dat.empty() &amp;&amp; wait.empty());
+    <span class="token keyword">return</span> (dat.empty() &amp;&amp; wait.empty());
 }
-signed main(void){
-    while(true){
+<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
+    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
         N=read(),temp;
-        if(N==0){break;}
-        while(true){
-            for(int i=0;i&lt;N;i++){
+        <span class="token keyword">if</span>(N==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
                 temp=read();
-                if(temp==0){break;}
+                <span class="token keyword">if</span>(temp==<span class="token number">0</span>){<span class="token keyword">break</span>;}
                 dat.push(temp);
             }
-            if(temp==0){break;}
-            //do
-            if(solve()){
-                putchar(&#x27;Y&#x27;);
-                putchar(&#x27;e&#x27;);
-                putchar(&#x27;s&#x27;);
-            }else{
-                putchar(&#x27;N&#x27;);
-                putchar(&#x27;o&#x27;);
+            <span class="token keyword">if</span>(temp==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+            <span class="token comment">//do</span>
+            <span class="token keyword">if</span>(solve()){
+                putchar(<span class="token string">&#x27;Y&#x27;</span>);
+                putchar(<span class="token string">&#x27;e&#x27;</span>);
+                putchar(<span class="token string">&#x27;s&#x27;</span>);
+            }<span class="token keyword">else</span>{
+                putchar(<span class="token string">&#x27;N&#x27;</span>);
+                putchar(<span class="token string">&#x27;o&#x27;</span>);
             }
-            queue&lt;int&gt;empq;swap(empq,dat);
-            stack&lt;int&gt;emps;swap(emps,wait);
-            putchar(&#x27;\n&#x27;);
-            //-do
+            queue&lt;<span class="token keyword">int</span>&gt;empq;swap(empq,dat);
+            stack&lt;<span class="token keyword">int</span>&gt;emps;swap(emps,wait);
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+            <span class="token comment">//-do</span>
         }
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c014-uva10035.html" class="problem-link">c014 uva10035</a> <a href="e513-uva11349.html" class="problem-link">e513 uva11349</a> <a href="pC.html" class="problem-link">pC</a> <a href="uva10887.html" class="problem-link">uva10887</a> <a href="a007.html" class="problem-link">a007</a> <a href="uva11504.html" class="problem-link">uva11504</a></p>
+        <p><a href="e545-uva10019.html" class="problem-link">e545 uva10019</a> <a href="uva10535.html" class="problem-link">uva10535</a> <a href="c024-uva10079.html" class="problem-link">c024 uva10079</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="day-135.html" class="problem-link">day-135</a> <a href="a539-uva10327.html" class="problem-link">a539 uva10327</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

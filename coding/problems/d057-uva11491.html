@@ -25,59 +25,56 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;math.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;math.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-signed main(){
-    int a,b,c,d;
-    while(a=read(),b=read(),c=read(),d=read()){
-        if(a+b+c+d==0){break;}
-        if(a==c &amp;&amp; b==d){
-            putchar(&#x27;0&#x27;);
-            putchar(&#x27;\n&#x27;);
-        }else if(a==c || b==d || abs(a-c)==abs(b-d)){
-            putchar(&#x27;1&#x27;);
-            putchar(&#x27;\n&#x27;);
-        }else{
-            putchar(&#x27;2&#x27;);
-            putchar(&#x27;\n&#x27;);
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> a,b,c,d;
+    <span class="token keyword">while</span>(a=read(),b=read(),c=read(),d=read()){
+        <span class="token keyword">if</span>(a+b+c+d==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token keyword">if</span>(a==c &amp;&amp; b==d){
+            putchar(<span class="token string">&#x27;0&#x27;</span>);
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(a==c || b==d || abs(a-c)==abs(b-d)){
+            putchar(<span class="token string">&#x27;1&#x27;</span>);
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        }<span class="token keyword">else</span>{
+            putchar(<span class="token string">&#x27;2&#x27;</span>);
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="Luogu-P2261.html" class="problem-link">Luogu P2261</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a></p>
+        <p><a href="uva11709.html" class="problem-link">uva11709</a> <a href="uva507.html" class="problem-link">uva507</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="d307-uva686.html" class="problem-link">d307 uva686</a> <a href="f312-2020APCS.html" class="problem-link">f312 2020APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

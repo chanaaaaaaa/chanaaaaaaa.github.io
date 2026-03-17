@@ -25,58 +25,55 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N,Case=1;
-    while(cin&gt;&gt;N){
-        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;Case&lt;&lt;&quot;: &quot;;
-        vector&lt;int&gt;dat;
-        for(int i=0;i&lt;N;i++){
-            int temp;
+    <span class="token keyword">int</span> N,Case=<span class="token number">1</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        cout&lt;&lt;<span class="token string">&quot;Case #&quot;</span>&lt;&lt;Case&lt;&lt;<span class="token string">&quot;: &quot;</span>;
+        vector&lt;<span class="token keyword">int</span>&gt;dat;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">int</span> temp;
             cin&gt;&gt;temp;
             dat.push_back(temp);
         }
-        set&lt;int&gt;check;
-        int flag=0;
-        for(int i=0;i&lt;N;i++){
-            for(int j=i;j&lt;N;j++){
-                int temp=dat[i]+dat[j];
-                if(check.count(temp)){
-                    cout&lt;&lt;&quot;It is not a B2-Sequence.\n\n&quot;;
-                    flag=1;
-                    break;
-                }else{
+        set&lt;<span class="token keyword">int</span>&gt;check;
+        <span class="token keyword">int</span> flag=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i;j&lt;N;j++){
+                <span class="token keyword">int</span> temp=dat[i]+dat[j];
+                <span class="token keyword">if</span>(check.count(temp)){
+                    cout&lt;&lt;<span class="token string">&quot;It is not a B2-Sequence.\n\n&quot;</span>;
+                    flag=<span class="token number">1</span>;
+                    <span class="token keyword">break</span>;
+                }<span class="token keyword">else</span>{
                     check.insert(temp);
                 }
-                if(i==N-1 &amp;&amp; j==N-1){
-                    cout&lt;&lt;&quot;It is a B2-Sequence.\n\n&quot;;
+                <span class="token keyword">if</span>(i==N-<span class="token number">1</span> &amp;&amp; j==N-<span class="token number">1</span>){
+                    cout&lt;&lt;<span class="token string">&quot;It is a B2-Sequence.\n\n&quot;</span>;
                 }
             }
-            if(flag){break;}
+            <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
         }
         Case++;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="day-160.html" class="problem-link">day-160</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="c295-2016APCS.html" class="problem-link">c295 2016APCS</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="day-155.html" class="problem-link">day-155</a></p>
+        <p><a href="p497-uva497.html" class="problem-link">p497 uva497</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="e512-uva10242.html" class="problem-link">e512 uva10242</a> <a href="f605-2021APCS.html" class="problem-link">f605 2021APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

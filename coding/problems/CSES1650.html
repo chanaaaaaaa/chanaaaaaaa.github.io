@@ -25,89 +25,86 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-//-block
-int N,Q,a,b,
-    dat[200010],
-    tre[800040];
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> N,Q,a,b,
+    dat[<span class="token number">200010</span>],
+    tre[<span class="token number">800040</span>];
 
-inline void build(int l,int r,int id){
-    if(l==r){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> build(<span class="token keyword">int</span> l,<span class="token keyword">int</span> r,<span class="token keyword">int</span> id){
+    <span class="token keyword">if</span>(l==r){
         tre[id]=dat[l];
-        return;
+        <span class="token keyword">return</span>;
     }
-    int m=(l+r)/2;
-    build(l,m,id*2);
-    build(m+1,r,id*2+1);
+    <span class="token keyword">int</span> m=(l+r)/<span class="token number">2</span>;
+    build(l,m,id*<span class="token number">2</span>);
+    build(m+<span class="token number">1</span>,r,id*<span class="token number">2</span>+<span class="token number">1</span>);
 
-    tre[id]=tre[id*2]^tre[id*2+1];
-    return;
+    tre[id]=tre[id*<span class="token number">2</span>]^tre[id*<span class="token number">2</span>+<span class="token number">1</span>];
+    <span class="token keyword">return</span>;
 }
 
-inline int query(int l,int r,int ql,int qr,int id){
-    if(l&gt;r||ql&gt;r||qr&lt;l){return 0;}
-    if(ql&lt;=l&amp;&amp;qr&gt;=r){return tre[id];}
-    int m=(l+r)/2;
-    return query(l,m,ql,qr,id*2)^query(m+1,r,ql,qr,id*2+1);
+<span class="token keyword">inline</span> <span class="token keyword">int</span> query(<span class="token keyword">int</span> l,<span class="token keyword">int</span> r,<span class="token keyword">int</span> ql,<span class="token keyword">int</span> qr,<span class="token keyword">int</span> id){
+    <span class="token keyword">if</span>(l&gt;r||ql&gt;r||qr&lt;l){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">if</span>(ql&lt;=l&amp;&amp;qr&gt;=r){<span class="token keyword">return</span> tre[id];}
+    <span class="token keyword">int</span> m=(l+r)/<span class="token number">2</span>;
+    <span class="token keyword">return</span> query(l,m,ql,qr,id*<span class="token number">2</span>)^query(m+<span class="token number">1</span>,r,ql,qr,id*<span class="token number">2</span>+<span class="token number">1</span>);
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
     N=read();Q=read();
-    for(int i=1;i&lt;=N;++i){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;++i){
         dat[i]=read();
     }
-    build(1,N,1);
+    build(<span class="token number">1</span>,N,<span class="token number">1</span>);
 
-    while(Q--){
+    <span class="token keyword">while</span>(Q--){
         a=read(),b=read();
-        write(query(1,N,a,b,1));
-        putchar(&#x27;\n&#x27;);
+        write(query(<span class="token number">1</span>,N,a,b,<span class="token number">1</span>));
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
 }
 
-/*
+<span class="token comment">/*
 8 4
 3 2 4 5 1 1 5 3
 2 4
 5 6
 1 8
 3 3
-*/
+*/</span>
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva13249.html" class="problem-link">uva13249</a> <a href="e583-uva11040.html" class="problem-link">e583 uva11040</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="uva10302.html" class="problem-link">uva10302</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a></p>
+        <p><a href="e561-uva00299.html" class="problem-link">e561 uva00299</a> <a href="a466-uva12289.html" class="problem-link">a466 uva12289</a> <a href="uva12186.html" class="problem-link">uva12186</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="d659-uva11727.html" class="problem-link">d659 uva11727</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

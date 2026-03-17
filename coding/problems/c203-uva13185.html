@@ -25,57 +25,54 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;cmath&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;cmath&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-signed main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    int t=read();
-    while(t--){
-        int IN=read(),su=1;
-        for(int i=2;i&lt;sqrt(IN);i++){
-            if(IN%i==0){
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    <span class="token keyword">int</span> t=read();
+    <span class="token keyword">while</span>(t--){
+        <span class="token keyword">int</span> IN=read(),su=<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;sqrt(IN);i++){
+            <span class="token keyword">if</span>(IN%i==<span class="token number">0</span>){
                 su+=i;
                 su+=IN/i;
             }
         }
-        if(su==IN){cout&lt;&lt;&quot;perfect\n&quot;;}
-        else if(su&lt;IN){cout&lt;&lt;&quot;deficient\n&quot;;}
-        else if(su&gt;IN){cout&lt;&lt;&quot;abundant\n&quot;;}
+        <span class="token keyword">if</span>(su==IN){cout&lt;&lt;<span class="token string">&quot;perfect\n&quot;</span>;}
+        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&lt;IN){cout&lt;&lt;<span class="token string">&quot;deficient\n&quot;</span>;}
+        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&gt;IN){cout&lt;&lt;<span class="token string">&quot;abundant\n&quot;</span>;}
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e575-uva10908.html" class="problem-link">e575 uva10908</a> <a href="LibreOJ-2185.html" class="problem-link">LibreOJ 2185</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="uva834.html" class="problem-link">uva834</a> <a href="AtCoder-212C.html" class="problem-link">AtCoder 212.C</a> <a href="d387-uva10235.html" class="problem-link">d387 uva10235</a></p>
+        <p><a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="uva10199.html" class="problem-link">uva10199</a> <a href="uva11770.html" class="problem-link">uva11770</a> <a href="b967-2016APCS.html" class="problem-link">b967 2016APCS</a> <a href="uva10858.html" class="problem-link">uva10858</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

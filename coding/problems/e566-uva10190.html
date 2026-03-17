@@ -25,50 +25,47 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    long long a,b;
-    while(cin&gt;&gt;a&gt;&gt;b){
-        if(b==0 || b==1){
-            cout&lt;&lt;&quot;Boring!&quot;&lt;&lt;&quot;\n&quot;;
-            continue;
+    <span class="token keyword">long</span> <span class="token keyword">long</span> a,b;
+    <span class="token keyword">while</span>(cin&gt;&gt;a&gt;&gt;b){
+        <span class="token keyword">if</span>(b==<span class="token number">0</span> || b==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;Boring!&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+            <span class="token keyword">continue</span>;
         }
-        for(int i=0;i&lt;1000;i++){
-            if(pow(b,i)==a){
-                while(a!=1){
-                    cout&lt;&lt;a&lt;&lt;&quot; &quot;;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">1000</span>;i++){
+            <span class="token keyword">if</span>(pow(b,i)==a){
+                <span class="token keyword">while</span>(a!=<span class="token number">1</span>){
+                    cout&lt;&lt;a&lt;&lt;<span class="token string">&quot; &quot;</span>;
                     a/=b;
                 }
-                cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
-                break;
-            }else if(pow(b,i)&gt;a){
-                cout&lt;&lt;&quot;Boring!&quot;&lt;&lt;&quot;\n&quot;;
-                break;
+                cout&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                <span class="token keyword">break</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(pow(b,i)&gt;a){
+                cout&lt;&lt;<span class="token string">&quot;Boring!&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                <span class="token keyword">break</span>;
             }
         }
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="n773-uva10424.html" class="problem-link">n773 uva10424</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="uva10325.html" class="problem-link">uva10325</a> <a href="pE.html" class="problem-link">pE</a></p>
+        <p><a href="a519-uva12459.html" class="problem-link">a519 uva12459</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="CSES1621.html" class="problem-link">CSES1621</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="uva10763.html" class="problem-link">uva10763</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

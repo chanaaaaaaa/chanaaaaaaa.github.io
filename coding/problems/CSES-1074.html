@@ -25,46 +25,43 @@
     <p>O(n log n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;math.h&gt;
-#include &lt;algorithm&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;math.h&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
 
-#define int long long
-using namespace std;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-signed main()
+<span class="token keyword">signed</span> main()
 {
-    int N;
+    <span class="token keyword">int</span> N;
     cin &gt;&gt; N;
-    vector&lt;int&gt; dat;
-    for (int i = 0; i &lt; N; i++)
+    vector&lt;<span class="token keyword">int</span>&gt; dat;
+    <span class="token keyword">for</span> (<span class="token keyword">int</span> i = <span class="token number">0</span>; i &lt; N; i++)
     {
-        int temp;
+        <span class="token keyword">int</span> temp;
         cin &gt;&gt; temp;
         dat.push_back(temp);
     }
     sort(dat.begin(), dat.end());
-    int mid = dat[N / 2], ans = 0;
-    for (int i = 0; i &lt; N; i++)
+    <span class="token keyword">int</span> mid = dat[N / <span class="token number">2</span>], ans = <span class="token number">0</span>;
+    <span class="token keyword">for</span> (<span class="token keyword">int</span> i = <span class="token number">0</span>; i &lt; N; i++)
     {
         ans += abs(dat[i] - mid);
     }
-    cout &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
-    return 0;
+    cout &lt;&lt; ans &lt;&lt; <span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a003.html" class="problem-link">a003</a> <a href="d306-uva10193.html" class="problem-link">d306 uva10193</a> <a href="uva11057.html" class="problem-link">uva11057</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="a007.html" class="problem-link">a007</a></p>
+        <p><a href="uva10763.html" class="problem-link">uva10763</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="uva10910.html" class="problem-link">uva10910</a> <a href="uva624.html" class="problem-link">uva624</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

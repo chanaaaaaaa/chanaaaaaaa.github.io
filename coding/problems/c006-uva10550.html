@@ -25,45 +25,42 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int a,b,c,d;
-    while(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d){
-        int deg=0;
-        if(a+b+c+d==0){break;}
-        deg+=40*3;
+    <span class="token keyword">int</span> a,b,c,d;
+    <span class="token keyword">while</span>(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d){
+        <span class="token keyword">int</span> deg=<span class="token number">0</span>;
+        <span class="token keyword">if</span>(a+b+c+d==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        deg+=<span class="token number">40</span>*<span class="token number">3</span>;
 
-        if(b&gt;=a){deg+=40-(b-a);}
-        else{deg+=(a-b);}
+        <span class="token keyword">if</span>(b&gt;=a){deg+=<span class="token number">40</span>-(b-a);}
+        <span class="token keyword">else</span>{deg+=(a-b);}
 
-        if(b&gt;=c){deg+=40-(b-c);}
-        else{deg+=(c-b);}
+        <span class="token keyword">if</span>(b&gt;=c){deg+=<span class="token number">40</span>-(b-c);}
+        <span class="token keyword">else</span>{deg+=(c-b);}
 
-        if(d&gt;=c){deg+=40-(d-c);}
-        else{deg+=(c-d);}
+        <span class="token keyword">if</span>(d&gt;=c){deg+=<span class="token number">40</span>-(d-c);}
+        <span class="token keyword">else</span>{deg+=(c-d);}
 
-        cout&lt;&lt;deg*9&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;deg*<span class="token number">9</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="c125-uva534.html" class="problem-link">c125 uva534</a> <a href="uva10325.html" class="problem-link">uva10325</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a></p>
+        <p><a href="e601-uva255.html" class="problem-link">!e601 uva255</a> <a href="a176.html" class="problem-link">a176</a> <a href="CSES1640.html" class="problem-link">CSES1640</a> <a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="e575-uva10908.html" class="problem-link">e575 uva10908</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

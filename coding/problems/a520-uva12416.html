@@ -25,48 +25,45 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
+<span class="token keyword">int</span> main(){
     string a;
-    while(getline(cin,a)){
-        int maxx=0,cou=0;
-        for(int i=0;i&lt;a.size();i++){
-            if(a[i]==&#x27; &#x27;){
+    <span class="token keyword">while</span>(getline(cin,a)){
+        <span class="token keyword">int</span> maxx=<span class="token number">0</span>,cou=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a.size();i++){
+            <span class="token keyword">if</span>(a[i]==<span class="token string">&#x27; &#x27;</span>){
                 cou++;
-            }else{
-                if(cou&gt;maxx){maxx=cou;}
-                cou=0;
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">if</span>(cou&gt;maxx){maxx=cou;}
+                cou=<span class="token number">0</span>;
             }
         }
-        int time=0;
-        while(maxx&gt;1){
-            if(maxx%2==0){
-                maxx/=2;
-            }else{
-                maxx-=1;
-                maxx/=2;
-                maxx+=1;
+        <span class="token keyword">int</span> time=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(maxx&gt;<span class="token number">1</span>){
+            <span class="token keyword">if</span>(maxx%<span class="token number">2</span>==<span class="token number">0</span>){
+                maxx/=<span class="token number">2</span>;
+            }<span class="token keyword">else</span>{
+                maxx-=<span class="token number">1</span>;
+                maxx/=<span class="token number">2</span>;
+                maxx+=<span class="token number">1</span>;
             }
             time++;
         }
-        cout&lt;&lt;time&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;time&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10523.html" class="problem-link">uva10523</a> <a href="uva657.html" class="problem-link">uva657</a> <a href="uva11005.html" class="problem-link">uva11005</a> <a href="uva10006.html" class="problem-link">uva10006</a> <a href="uva624.html" class="problem-link">uva624</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a></p>
+        <p><a href="a176.html" class="problem-link">a176</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a> <a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="c290-2017APCS.html" class="problem-link">c290 2017APCS</a> <a href="i959-uva11078.html" class="problem-link">i959 uva11078</a> <a href="uva10887.html" class="problem-link">uva10887</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

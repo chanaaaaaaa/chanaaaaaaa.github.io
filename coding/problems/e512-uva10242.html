@@ -25,56 +25,53 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    double a[4][2];
-    set&lt;int&gt;check;
-    while(cin&gt;&gt;a[0][0]&gt;&gt;a[0][1]){
-        for(int i=1;i&lt;4;i++){
-            cin&gt;&gt;a[i][0]&gt;&gt;a[i][1];
-            for(int j=0;j&lt;i;j++){
-                if(check.empty()){
-                    if(a[j][0]==a[i][0] &amp;&amp; a[j][1]==a[i][1]){
+    <span class="token keyword">double</span> a[<span class="token number">4</span>][<span class="token number">2</span>];
+    set&lt;<span class="token keyword">int</span>&gt;check;
+    <span class="token keyword">while</span>(cin&gt;&gt;a[<span class="token number">0</span>][<span class="token number">0</span>]&gt;&gt;a[<span class="token number">0</span>][<span class="token number">1</span>]){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;<span class="token number">4</span>;i++){
+            cin&gt;&gt;a[i][<span class="token number">0</span>]&gt;&gt;a[i][<span class="token number">1</span>];
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;i;j++){
+                <span class="token keyword">if</span>(check.empty()){
+                    <span class="token keyword">if</span>(a[j][<span class="token number">0</span>]==a[i][<span class="token number">0</span>] &amp;&amp; a[j][<span class="token number">1</span>]==a[i][<span class="token number">1</span>]){
                         check.insert(i);
                         check.insert(j);
                     }
                 }
             }
         }
-        double x=0,y=0;
-        for(int i=0;i&lt;4;i++){
-            if(check.count(i)){
-                x-=a[i][0]/2;
-                y-=a[i][1]/2;
-            }else{
-                x+=a[i][0];
-                y+=a[i][1];
+        <span class="token keyword">double</span> x=<span class="token number">0</span>,y=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">4</span>;i++){
+            <span class="token keyword">if</span>(check.count(i)){
+                x-=a[i][<span class="token number">0</span>]/<span class="token number">2</span>;
+                y-=a[i][<span class="token number">1</span>]/<span class="token number">2</span>;
+            }<span class="token keyword">else</span>{
+                x+=a[i][<span class="token number">0</span>];
+                y+=a[i][<span class="token number">1</span>];
             }
         }
-        cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">3</span>)&lt;&lt;x&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         check.clear();
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d056-uva10013.html" class="problem-link">d056 uva10013</a> <a href="day-150.html" class="problem-link">day-150</a> <a href="day-152.html" class="problem-link">day-152</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="pB.html" class="problem-link">pB</a> <a href="day-151.html" class="problem-link">day-151</a></p>
+        <p><a href="n773-uva10424.html" class="problem-link">n773 uva10424</a> <a href="scpp.html" class="problem-link">s.cpp</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="a159-uva11743.html" class="problem-link">a159 uva11743</a> <a href="a005.html" class="problem-link">a005</a> <a href="i959-uva11078.html" class="problem-link">i959 uva11078</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

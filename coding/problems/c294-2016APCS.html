@@ -25,47 +25,44 @@
     <p>O(n log n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    vector&lt;int&gt;dat;
-    for(int i=0;i&lt;3;i++){
-        int x;
+    vector&lt;<span class="token keyword">int</span>&gt;dat;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">3</span>;i++){
+        <span class="token keyword">int</span> x;
         cin&gt;&gt;x;
         dat.push_back(x);
     }
     sort(dat.begin(),dat.end());
-    cout&lt;&lt;dat[0]&lt;&lt;&quot; &quot;&lt;&lt;dat[1]&lt;&lt;&quot; &quot;&lt;&lt;dat[2]&lt;&lt;&quot;\n&quot;;
-    if(dat[0]+dat[1]&lt;=dat[2]){
-        cout&lt;&lt;&quot;No\n&quot;;
-        return 0;
+    cout&lt;&lt;dat[<span class="token number">0</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;dat[<span class="token number">1</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;dat[<span class="token number">2</span>]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">if</span>(dat[<span class="token number">0</span>]+dat[<span class="token number">1</span>]&lt;=dat[<span class="token number">2</span>]){
+        cout&lt;&lt;<span class="token string">&quot;No\n&quot;</span>;
+        <span class="token keyword">return</span> <span class="token number">0</span>;
     }
 
-    dat[2]*=dat[2];
-    dat[0]=dat[0]*dat[0]+dat[1]*dat[1];
-    if(dat[2]&gt;dat[0])cout&lt;&lt;&quot;Obtuse\n&quot;;
-    else if(dat[2]&lt;dat[0])cout&lt;&lt;&quot;Acute\n&quot;;
-    else cout&lt;&lt;&quot;Right\n&quot;;
-    return 0;
+    dat[<span class="token number">2</span>]*=dat[<span class="token number">2</span>];
+    dat[<span class="token number">0</span>]=dat[<span class="token number">0</span>]*dat[<span class="token number">0</span>]+dat[<span class="token number">1</span>]*dat[<span class="token number">1</span>];
+    <span class="token keyword">if</span>(dat[<span class="token number">2</span>]&gt;dat[<span class="token number">0</span>])cout&lt;&lt;<span class="token string">&quot;Obtuse\n&quot;</span>;
+    <span class="token keyword">else</span> <span class="token keyword">if</span>(dat[<span class="token number">2</span>]&lt;dat[<span class="token number">0</span>])cout&lt;&lt;<span class="token string">&quot;Acute\n&quot;</span>;
+    <span class="token keyword">else</span> cout&lt;&lt;<span class="token string">&quot;Right\n&quot;</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="uva11480.html" class="problem-link">uva11480</a> <a href="d307-uva686.html" class="problem-link">d307 uva686</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a> <a href="uva10302.html" class="problem-link">uva10302</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a></p>
+        <p><a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="day-163.html" class="problem-link">day-163</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="zj601-uva255.html" class="problem-link">zj.601 uva255</a> <a href="inclass.html" class="problem-link">inclass</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

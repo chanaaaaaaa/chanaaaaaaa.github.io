@@ -25,50 +25,47 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(false);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
 
-    int a;
-    while(cin&gt;&gt;a){
-        if(a==0){break;}
+    <span class="token keyword">int</span> a;
+    <span class="token keyword">while</span>(cin&gt;&gt;a){
+        <span class="token keyword">if</span>(a==<span class="token number">0</span>){<span class="token keyword">break</span>;}
 
-        int N[10000];
-        for(int i=0;i&lt;a;i++){
+        <span class="token keyword">int</span> N[<span class="token number">10000</span>];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a;i++){
             cin&gt;&gt;N[i];
         }
-        int maxx=0;
-        for(int i=0;i&lt;a;i++){
-            int cou=0;
-            for(int j=i;j&lt;a;j++){
+        <span class="token keyword">int</span> maxx=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a;i++){
+            <span class="token keyword">int</span> cou=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i;j&lt;a;j++){
                 cou+=N[j];
-                if(cou&gt;maxx){maxx=cou;}
+                <span class="token keyword">if</span>(cou&gt;maxx){maxx=cou;}
             }
         }
-        if(maxx&gt;0){
-            cout&lt;&lt;&quot;The maximum winning streak is &quot;&lt;&lt;maxx&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;&quot;Losing streak.&quot;&lt;&lt;&quot;\n&quot;;
+        <span class="token keyword">if</span>(maxx&gt;<span class="token number">0</span>){
+            cout&lt;&lt;<span class="token string">&quot;The maximum winning streak is &quot;</span>&lt;&lt;maxx&lt;&lt;<span class="token string">&quot;.&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;<span class="token string">&quot;Losing streak.&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11086.html" class="problem-link">uva11086</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="f166-2019APCS.html" class="problem-link">f166 2019APCS</a> <a href="uva10427.html" class="problem-link">uva10427</a> <a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a></p>
+        <p><a href="day-140.html" class="problem-link">day-140</a> <a href="a012-uva10055.html" class="problem-link">a012 uva10055</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="uva10102.html" class="problem-link">uva10102</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="uva796.html" class="problem-link">uva796</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

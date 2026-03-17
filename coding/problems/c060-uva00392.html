@@ -25,90 +25,87 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
-    int A[9];
-    int nz=-1;
-    while(cin&gt;&gt;A[8]){
-        if(A[8]!=0){nz=8;}
-        for(int i=7;i&gt;=0;i--){
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    <span class="token keyword">int</span> A[<span class="token number">9</span>];
+    <span class="token keyword">int</span> nz=-<span class="token number">1</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;A[<span class="token number">8</span>]){
+        <span class="token keyword">if</span>(A[<span class="token number">8</span>]!=<span class="token number">0</span>){nz=<span class="token number">8</span>;}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">7</span>;i&gt;=<span class="token number">0</span>;i--){
             cin&gt;&gt;A[i];
-            if(A[i]!=0 &amp;&amp; nz==-1){nz=i;}
-            else if(i==0 &amp;&amp; nz==-1){nz=i;}
+            <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span> &amp;&amp; nz==-<span class="token number">1</span>){nz=i;}
+            <span class="token keyword">else</span> <span class="token keyword">if</span>(i==<span class="token number">0</span> &amp;&amp; nz==-<span class="token number">1</span>){nz=i;}
         }
-        for(int i=nz;i&gt;=0;i--){
-            if(i!=nz){//if first num?
-                if(A[i]!=0){
-                    if(A[i]&gt;0){
-                        cout&lt;&lt;&quot; + &quot;;
-                    }else{
-                        cout&lt;&lt;&quot; - &quot;;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=nz;i&gt;=<span class="token number">0</span>;i--){
+            <span class="token keyword">if</span>(i!=nz){<span class="token comment">//if first num?</span>
+                <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
+                    <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
+                        cout&lt;&lt;<span class="token string">&quot; + &quot;</span>;
+                    }<span class="token keyword">else</span>{
+                        cout&lt;&lt;<span class="token string">&quot; - &quot;</span>;
                     }
                 }
-            }else{
-                if(A[i]&lt;0){
-                    cout&lt;&lt;&quot;-&quot;;
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">if</span>(A[i]&lt;<span class="token number">0</span>){
+                    cout&lt;&lt;<span class="token string">&quot;-&quot;</span>;
                 }
             }
-            if(i!=nz){
-                if(A[i]!=0){
-                    if(A[i]&gt;0){
-                        if(A[i]!=1 || i==0){
+            <span class="token keyword">if</span>(i!=nz){
+                <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
+                    <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
+                        <span class="token keyword">if</span>(A[i]!=<span class="token number">1</span> || i==<span class="token number">0</span>){
                             cout&lt;&lt;A[i];
                         }
-                    }else{
-                        if(A[i]!=-1 || i==0){
+                    }<span class="token keyword">else</span>{
+                        <span class="token keyword">if</span>(A[i]!=-<span class="token number">1</span> || i==<span class="token number">0</span>){
                             cout&lt;&lt;-A[i];
                         }
                     }
                 }
-            }else{
-                if(A[i]&gt;0){
-                    if(A[i]!=1){
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
+                    <span class="token keyword">if</span>(A[i]!=<span class="token number">1</span>){
                         cout&lt;&lt;A[i];
                     }
-                }else{
-                    if(A[i]!=-1){
+                }<span class="token keyword">else</span>{
+                    <span class="token keyword">if</span>(A[i]!=-<span class="token number">1</span>){
                         cout&lt;&lt;-A[i];
                     }
-                }/*
+                }<span class="token comment">/*
                 if(nz==0 &amp;&amp; A[i]==0){
                     cout&lt;&lt;&quot;0&quot;;
-                }*/
+                }*/</span>
             }
-            if(A[i]!=0){
-                if(i==1){
-                    cout&lt;&lt;&quot;x&quot;;
-                }else if(i&gt;1){
-                    cout&lt;&lt;&quot;x^&quot;&lt;&lt;i;
+            <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
+                <span class="token keyword">if</span>(i==<span class="token number">1</span>){
+                    cout&lt;&lt;<span class="token string">&quot;x&quot;</span>;
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(i&gt;<span class="token number">1</span>){
+                    cout&lt;&lt;<span class="token string">&quot;x^&quot;</span>&lt;&lt;i;
                 }
             }
         }
-        cout&lt;&lt;&quot;\n&quot;;
-        nz=-1;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        nz=-<span class="token number">1</span>;
     }
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="e531-uva10415.html" class="problem-link">e531 uva10415</a> <a href="e530-uva1644.html" class="problem-link">e530 uva1644</a> <a href="copy.html" class="problem-link">!copy</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="CSES1074.html" class="problem-link">CSES1074</a></p>
+        <p><a href="day-135.html" class="problem-link">day-135</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="a466-uva12289.html" class="problem-link">a466 uva12289</a> <a href="uva10312.html" class="problem-link">uva10312</a> <a href="uva10334.html" class="problem-link">uva10334</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

@@ -25,81 +25,78 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-struct TrieNode{
-    int nxt[26];
-    int cnt;
-} node[500050];
+<span class="token keyword">struct</span> TrieNode{
+    <span class="token keyword">int</span> nxt[<span class="token number">26</span>];
+    <span class="token keyword">int</span> cnt;
+} node[<span class="token number">500050</span>];
 
-int idx=2;
-inline void insert(string si){
-    int cur=1;
-    for(auto i:si){
-        if(node[cur].nxt[i-&#x27;a&#x27;]==0){
-            node[cur].nxt[i-&#x27;a&#x27;]=idx;
+<span class="token keyword">int</span> idx=<span class="token number">2</span>;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> insert(string si){
+    <span class="token keyword">int</span> cur=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> i:si){
+        <span class="token keyword">if</span>(node[cur].nxt[i-<span class="token string">&#x27;a&#x27;</span>]==<span class="token number">0</span>){
+            node[cur].nxt[i-<span class="token string">&#x27;a&#x27;</span>]=idx;
             cur=idx;
             ++idx;
-        }else{
-            cur=node[cur].nxt[i-&#x27;a&#x27;];
+        }<span class="token keyword">else</span>{
+            cur=node[cur].nxt[i-<span class="token string">&#x27;a&#x27;</span>];
         }
     }
-    node[cur].cnt=1;
+    node[cur].cnt=<span class="token number">1</span>;
 }
-inline int query(string sq){
-    int cur=1;
-    for(auto i:sq){
-        if(node[cur].nxt[i-&#x27;a&#x27;]==0){
-            return 0;
-        }else{
-            cur=node[cur].nxt[i-&#x27;a&#x27;];
+<span class="token keyword">inline</span> <span class="token keyword">int</span> query(string sq){
+    <span class="token keyword">int</span> cur=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> i:sq){
+        <span class="token keyword">if</span>(node[cur].nxt[i-<span class="token string">&#x27;a&#x27;</span>]==<span class="token number">0</span>){
+            <span class="token keyword">return</span> <span class="token number">0</span>;
+        }<span class="token keyword">else</span>{
+            cur=node[cur].nxt[i-<span class="token string">&#x27;a&#x27;</span>];
         }
     }
-    if(node[cur].cnt==1){
-        node[cur].cnt=2;
-        return 1;
+    <span class="token keyword">if</span>(node[cur].cnt==<span class="token number">1</span>){
+        node[cur].cnt=<span class="token number">2</span>;
+        <span class="token keyword">return</span> <span class="token number">1</span>;
     }
-    return node[cur].cnt;
+    <span class="token keyword">return</span> node[cur].cnt;
 }
 
-signed main(){
-    int n;
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> n;
     string s;
     cin&gt;&gt;n;
 
-    while(n--){
+    <span class="token keyword">while</span>(n--){
         cin&gt;&gt;s;
         insert(s);
     }
 
     cin&gt;&gt;n;
-    while(n--){
+    <span class="token keyword">while</span>(n--){
         cin&gt;&gt;s;
-        int res=query(s);
-        if(res==0){
-            cout&lt;&lt;&quot;WRONG\n&quot;;
-        }else if(res==1){
-            cout&lt;&lt;&quot;OK\n&quot;;
-        }else{
-            cout&lt;&lt;&quot;REPEAT\n&quot;;
+        <span class="token keyword">int</span> res=query(s);
+        <span class="token keyword">if</span>(res==<span class="token number">0</span>){
+            cout&lt;&lt;<span class="token string">&quot;WRONG\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(res==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;OK\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;<span class="token string">&quot;REPEAT\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a539-uva10327.html" class="problem-link">a539 uva10327</a> <a href="d674-uva10192.html" class="problem-link">d674 uva10192</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="d671-uva11716.html" class="problem-link">d671 uva11716</a> <a href="uva10334.html" class="problem-link">uva10334</a> <a href="p497-uva497.html" class="problem-link">p497 uva497</a></p>
+        <p><a href="a007.html" class="problem-link">a007</a> <a href="CSES1074.html" class="problem-link">CSES1074</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="d898-uva10128.html" class="problem-link">!d898 uva10128</a> <a href="uva1213.html" class="problem-link">uva1213</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

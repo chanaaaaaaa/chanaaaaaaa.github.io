@@ -25,48 +25,45 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/stack:200000000&quot;)
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 
-#include&lt;iostream&gt;
-#include&lt;sstream&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;sstream&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-signed main() {
-    int t;
+<span class="token keyword">signed</span> main() {
+    <span class="token keyword">int</span> t;
     cin&gt;&gt;t;
     cin.ignore();
-    while(t--){
+    <span class="token keyword">while</span>(t--){
         string A;
         stringstream AA;
         getline(cin,A);
         AA&lt;&lt;A;
 
-        int check=0,con=0;
-        while(AA&gt;&gt;A){
+        <span class="token keyword">int</span> check=<span class="token number">0</span>,con=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(AA&gt;&gt;A){
             con++;
-            if(A==&quot;MM&quot;){check++;}
-            else if(A==&quot;FF&quot;){check--;}
+            <span class="token keyword">if</span>(A==<span class="token string">&quot;MM&quot;</span>){check++;}
+            <span class="token keyword">else</span> <span class="token keyword">if</span>(A==<span class="token string">&quot;FF&quot;</span>){check--;}
         }
-        if(!check &amp;&amp; con&gt;1){cout&lt;&lt;&quot;LOOP\n&quot;;}
-        else{cout&lt;&lt;&quot;NO LOOP\n&quot;;}
+        <span class="token keyword">if</span>(!check &amp;&amp; con&gt;<span class="token number">1</span>){cout&lt;&lt;<span class="token string">&quot;LOOP\n&quot;</span>;}
+        <span class="token keyword">else</span>{cout&lt;&lt;<span class="token string">&quot;NO LOOP\n&quot;</span>;}
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10930.html" class="problem-link">uva10930</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="e565-uva10407.html" class="problem-link">e565 uva10407</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="b059.html" class="problem-link">b059</a></p>
+        <p><a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="uva10312.html" class="problem-link">uva10312</a> <a href="c082-uva00118.html" class="problem-link">c082 uva00118</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="day-151.html" class="problem-link">day-151</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

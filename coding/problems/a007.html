@@ -25,60 +25,57 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    vector&lt;int&gt;ze;
-    for(int i=2;i&lt;65535;i++){
-        bool flag=true;
-        for(int j=2;j&lt;=sqrt(i);j++){
-            if(i%j==0){
-                flag=false;
-                break;
+    vector&lt;<span class="token keyword">int</span>&gt;ze;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;<span class="token number">65535</span>;i++){
+        <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">2</span>;j&lt;=sqrt(i);j++){
+            <span class="token keyword">if</span>(i%j==<span class="token number">0</span>){
+                flag=<span class="token keyword">false</span>;
+                <span class="token keyword">break</span>;
             }
         }
-        if(flag){
+        <span class="token keyword">if</span>(flag){
             ze.push_back(i);
         }
     }
-    int A;
-    while(cin&gt;&gt;A){
-        bool flag=true;
-        int maxx=sqrt(A);
-        for(int i=0;i&lt;ze.size();i++){
-            if(ze[i]&gt;maxx){
-                break;
+    <span class="token keyword">int</span> A;
+    <span class="token keyword">while</span>(cin&gt;&gt;A){
+        <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
+        <span class="token keyword">int</span> maxx=sqrt(A);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;ze.size();i++){
+            <span class="token keyword">if</span>(ze[i]&gt;maxx){
+                <span class="token keyword">break</span>;
             }
-            if(A%ze[i]==0){
-                flag=false;
-                break;
+            <span class="token keyword">if</span>(A%ze[i]==<span class="token number">0</span>){
+                flag=<span class="token keyword">false</span>;
+                <span class="token keyword">break</span>;
             }
         }
-        if(flag){cout&lt;&lt;&quot;\n&quot;;}
-        else{cout&lt;&lt;&quot;D\n&quot;;}
+        <span class="token keyword">if</span>(flag){cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;}
+        <span class="token keyword">else</span>{cout&lt;&lt;<span class="token string">&quot;D\n&quot;</span>;}
     }
 
 
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10920.html" class="problem-link">uva10920</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="day-162.html" class="problem-link">day-162</a> <a href="uva10172.html" class="problem-link">uva10172</a> <a href="AtCoder-212C.html" class="problem-link">AtCoder 212.C</a></p>
+        <p><a href="uva10827.html" class="problem-link">uva10827</a> <a href="uva10227.html" class="problem-link">uva10227</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="e601-uva255.html" class="problem-link">!e601 uva255</a> <a href="uva10449.html" class="problem-link">uva10449</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

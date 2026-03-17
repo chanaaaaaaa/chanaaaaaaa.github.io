@@ -25,51 +25,48 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    int N;
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    for(int i=0;i&lt;N;i++){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
         string K;
         cin&gt;&gt;K;
-        if(K.size()==5){
-            cout&lt;&lt;&quot;3&quot;&lt;&lt;&quot;\n&quot;;
-        }else{
-            string one=&quot;one&quot;;
-            string two=&quot;two&quot;;
-            int a=0,b=0;
-            for(int j=0;j&lt;3;j++){
-                if(K[j]==one[j]){
+        <span class="token keyword">if</span>(K.size()==<span class="token number">5</span>){
+            cout&lt;&lt;<span class="token string">&quot;3&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            string one=<span class="token string">&quot;one&quot;</span>;
+            string two=<span class="token string">&quot;two&quot;</span>;
+            <span class="token keyword">int</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">3</span>;j++){
+                <span class="token keyword">if</span>(K[j]==one[j]){
                     a++;
-                }else if(K[j]==two[j]){
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(K[j]==two[j]){
                     b++;
                 }
             }
-            if(a&gt;=2){
-                cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
-            }else if(b&gt;=2){
-                cout&lt;&lt;&quot;2&quot;&lt;&lt;&quot;\n&quot;;
+            <span class="token keyword">if</span>(a&gt;=<span class="token number">2</span>){
+                cout&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(b&gt;=<span class="token number">2</span>){
+                cout&lt;&lt;<span class="token string">&quot;2&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
             }
         }
 
 
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10827.html" class="problem-link">uva10827</a> <a href="pE.html" class="problem-link">pE</a> <a href="a012-uva10055.html" class="problem-link">a012 uva10055</a> <a href="CSES1734.html" class="problem-link">CSES1734</a> <a href="d188-uva11342.html" class="problem-link">d188 uva11342</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a></p>
+        <p><a href="a004.html" class="problem-link">a004</a> <a href="uva10227.html" class="problem-link">uva10227</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="uva10015.html" class="problem-link">uva10015</a> <a href="uva10916.html" class="problem-link">uva10916</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

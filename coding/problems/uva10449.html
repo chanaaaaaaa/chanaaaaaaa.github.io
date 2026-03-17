@@ -25,61 +25,61 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;utility&gt;
-#include&lt;unordered_set&gt;
-#include&lt;climits&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;utility&gt;
+<span class="token directive">#include</span>&lt;unordered_set&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span>||c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==&#x27;-&#x27;){w=-1;}
-        if(c==-1){return 0;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x*w;
+    <span class="token keyword">return</span> x*w;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//--block
-vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt;Edges;
-vector&lt;int&gt;stoc;
-vector&lt;int&gt;dist;
-unordered_set&lt;int&gt;walked;
-int Node_N,Edge_N,End_N,cases=0,
+<span class="token comment">//--block</span>
+vector&lt;vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;&gt;Edges;
+vector&lt;<span class="token keyword">int</span>&gt;stoc;
+vector&lt;<span class="token keyword">int</span>&gt;dist;
+unordered_set&lt;<span class="token keyword">int</span>&gt;walked;
+<span class="token keyword">int</span> Node_N,Edge_N,End_N,cases=<span class="token number">0</span>,
     u,v,endpos;
 
-inline int pow3(int x){
-    return x*x*x;
+<span class="token keyword">inline</span> <span class="token keyword">int</span> pow3(<span class="token keyword">int</span> x){
+    <span class="token keyword">return</span> x*x*x;
 }
 
-inline void solve(){
-    dist[1]=0;
-    for(int i=0;i&lt;Node_N-1;++i){
-        for(int u=0;u&lt;=Node_N;++u){
-            for(auto&amp;[v,w]:Edges[u]){
-                if(dist[u]!=INT_MAX){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    dist[<span class="token number">1</span>]=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Node_N-<span class="token number">1</span>;++i){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> u=<span class="token number">0</span>;u&lt;=Node_N;++u){
+            <span class="token keyword">for</span>(<span class="token keyword">auto</span>&amp;[v,w]:Edges[u]){
+                <span class="token keyword">if</span>(dist[u]!=INT_MAX){
                     dist[v]=min(dist[v],dist[u]+w);
                 }
             }
         }
     }
-    for(int u=1;u&lt;=Node_N;++u){
-        for(auto&amp;[v,w]:Edges[u]){
-            if(dist[v]&gt;dist[u]+w){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> u=<span class="token number">1</span>;u&lt;=Node_N;++u){
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span>&amp;[v,w]:Edges[u]){
+            <span class="token keyword">if</span>(dist[v]&gt;dist[u]+w){
                 dist[v]=dist[u]+w;
                 walked.emplace(v);
             }
@@ -88,63 +88,60 @@ inline void solve(){
 
 }
 
-signed main(){
+<span class="token keyword">signed</span> main(){
 
-    while(Node_N=read()){
-        //init
-        Edges.assign(Node_N+1,vector&lt;pair&lt;int,int&gt;&gt;());
-        stoc.assign(201,0);
-        dist.assign(201,INT_MAX);
-        //-init
-        //input
-        for(int i=1;i&lt;=Node_N;i++){
+    <span class="token keyword">while</span>(Node_N=read()){
+        <span class="token comment">//init</span>
+        Edges.assign(Node_N+<span class="token number">1</span>,vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;());
+        stoc.assign(<span class="token number">201</span>,<span class="token number">0</span>);
+        dist.assign(<span class="token number">201</span>,INT_MAX);
+        <span class="token comment">//-init</span>
+        <span class="token comment">//input</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=Node_N;i++){
             stoc[i]=read();
         }
         Edge_N=read();
-        for(int i=0;i&lt;Edge_N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Edge_N;i++){
             u=read();v=read();
             Edges[u].push_back({v,pow3(stoc[v]-stoc[u])});
         }
-        //-input
+        <span class="token comment">//-input</span>
         solve();
-        //output
-        putchar(&#x27;S&#x27;);
-        putchar(&#x27;e&#x27;);
-        putchar(&#x27;t&#x27;);
-        putchar(&#x27; &#x27;);
-        putchar(&#x27;#&#x27;);
+        <span class="token comment">//output</span>
+        putchar(<span class="token string">&#x27;S&#x27;</span>);
+        putchar(<span class="token string">&#x27;e&#x27;</span>);
+        putchar(<span class="token string">&#x27;t&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;#&#x27;</span>);
         write(++cases);
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
 
         End_N=read();
-        while(End_N--){
+        <span class="token keyword">while</span>(End_N--){
             endpos=read();
-            if(walked.count(endpos) || dist[endpos]&lt;3 || dist[endpos]==INT_MAX){
-                putchar(&#x27;?&#x27;);
-            }else{write(dist[endpos]);}
-            putchar(&#x27;\n&#x27;);
+            <span class="token keyword">if</span>(walked.count(endpos) || dist[endpos]&lt;<span class="token number">3</span> || dist[endpos]==INT_MAX){
+                putchar(<span class="token string">&#x27;?&#x27;</span>);
+            }<span class="token keyword">else</span>{write(dist[endpos]);}
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
         }
-        //-output
-        //clear
+        <span class="token comment">//-output</span>
+        <span class="token comment">//clear</span>
         Edges.clear();
         stoc.clear();
         dist.clear();
         walked.clear();
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES1140.html" class="problem-link">CSES1140</a> <a href="d418-uva993.html" class="problem-link">d418 uva993</a> <a href="d190-uva11462.html" class="problem-link">d190 uva11462</a> <a href="d762-uva10344.html" class="problem-link">d762 uva10344</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="ytp-races.html" class="problem-link">ytp races</a></p>
+        <p><a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="zj601-uva255.html" class="problem-link">zj.601 uva255</a> <a href="CSES1084.html" class="problem-link">CSES1084</a> <a href="a520-uva12416.html" class="problem-link">a520 uva12416</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

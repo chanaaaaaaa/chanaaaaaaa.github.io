@@ -25,7 +25,7 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">/*#pragma GCC optimize(1)
+    <pre class="code-block language-cpp"><code><span class="token comment">/*#pragma GCC optimize(1)
 #pragma GCC optimize(2)
 #pragma GCC optimize(3)
 #pragma GCC optimize(&quot;Ofast&quot;)
@@ -95,77 +95,74 @@ const int      Mod = 1e9 + 7;
 const int      INF = 0x7FFFFFFF;
 const LL     LLINF = 0x7FFFFFFFFFFFFFFF;
 const LL  MEMLLINF = 0x3F3F3F3F3F3F3F3F;
-Self Define Const */
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
+Self Define Const */</span>
+<span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;cstdlib&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline long long read(){
-    long long x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> read(){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return 0;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+c-&#x27;0&#x27;;
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(long long x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-/* I/O Optimize */
-const long long maxx=1e8;
-int N;
-inline void solve(){
+<span class="token comment">/* I/O Optimize */</span>
+<span class="token keyword">const</span> <span class="token keyword">long</span> <span class="token keyword">long</span> maxx=<span class="token number">1e8</span>;
+<span class="token keyword">int</span> N;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
     
-    while(N=read()){
-        long long ans[150],pos=0;  // 需足夠大：N=300 時約需 100 個 base-10^8 位數
-        ans[0]=1;
+    <span class="token keyword">while</span>(N=read()){
+        <span class="token keyword">long</span> <span class="token keyword">long</span> ans[<span class="token number">150</span>],pos=<span class="token number">0</span>;  <span class="token comment">// 需足夠大：N=300 時約需 100 個 base-10^8 位數</span>
+        ans[<span class="token number">0</span>]=<span class="token number">1</span>;
 
-        for(int i=N+2;i&lt;=N*2;++i){
-            long long tmp=0;
-            for(int j=0;j&lt;=pos;++j){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=N+<span class="token number">2</span>;i&lt;=N*<span class="token number">2</span>;++i){
+            <span class="token keyword">long</span> <span class="token keyword">long</span> tmp=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;=pos;++j){
                 ans[j]=ans[j]*i+tmp;
                 tmp=ans[j]/maxx;
                 ans[j]%=maxx;
             }
-            if(tmp&gt;0){
+            <span class="token keyword">if</span>(tmp&gt;<span class="token number">0</span>){
                 ans[++pos]=tmp;
             }
         }
 
         write(ans[pos]);
-        for(int i=pos-1;i&gt;=0;--i){
-            printf(&quot;%08lld&quot;,ans[i]);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=pos-<span class="token number">1</span>;i&gt;=<span class="token number">0</span>;--i){
+            printf(<span class="token string">&quot;%08lld&quot;</span>,ans[i]);
         }
-        putchar(&#x27;\n&#x27;);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
 }
 
-/* Programing area*/
-signed main(){
+<span class="token comment">/* Programing area*/</span>
+<span class="token keyword">signed</span> main(){
     solve();
-    //system(&quot;pause&quot;);
-    return 0;
+    <span class="token comment">//system(&quot;pause&quot;);</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="day-134.html" class="problem-link">day-134</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="uva10161.html" class="problem-link">uva10161</a> <a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="uva11770.html" class="problem-link">uva11770</a> <a href="d659-uva11727.html" class="problem-link">d659 uva11727</a></p>
+        <p><a href="d793-uva929.html" class="problem-link">d793 uva929</a> <a href="CSES1640.html" class="problem-link">CSES1640</a> <a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="uva10368.html" class="problem-link">uva10368</a> <a href="uva10596.html" class="problem-link">uva10596</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

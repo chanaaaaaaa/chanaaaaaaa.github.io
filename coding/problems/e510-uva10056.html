@@ -25,42 +25,39 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int S;
+    <span class="token keyword">int</span> S;
     cin&gt;&gt;S;
-    while(S--){
-        int N,i;
-        double p,Ans;
+    <span class="token keyword">while</span>(S--){
+        <span class="token keyword">int</span> N,i;
+        <span class="token keyword">double</span> p,Ans;
         cin&gt;&gt;N&gt;&gt;p&gt;&gt;i;
-        if(p==0.0){
-            cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;&quot;0.0000&quot;&lt;&lt;&quot;\n&quot;;
-            continue;
+        <span class="token keyword">if</span>(p==<span class="token number">0.0</span>){
+            cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;<span class="token string">&quot;0.0000&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+            <span class="token keyword">continue</span>;
         }
-        Ans=(p*pow(1-p,i-1))/(1-pow(1-p,N));
-        cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+        Ans=(p*pow(<span class="token number">1</span>-p,i-<span class="token number">1</span>))/(<span class="token number">1</span>-pow(<span class="token number">1</span>-p,N));
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">4</span>)&lt;&lt;Ans&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10527.html" class="problem-link">uva10527</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva11566.html" class="problem-link">uva11566</a> <a href="a011-uva00494.html" class="problem-link">a011 uva00494</a> <a href="d190-uva11462.html" class="problem-link">d190 uva11462</a></p>
+        <p><a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="e583-uva11040.html" class="problem-link">e583 uva11040</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="c295-2016APCS.html" class="problem-link">c295 2016APCS</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="uva10611.html" class="problem-link">uva10611</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

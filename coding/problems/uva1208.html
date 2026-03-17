@@ -25,75 +25,75 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 
-#define MAXN 26
-#define int long long
-using namespace std;
+<span class="token directive">#define</span> MAXN <span class="token number">26</span>
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline int read(){
-    int x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        if(c==-1){return 0;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-//-block
+<span class="token comment">//-block</span>
 
-struct node{
-    int start_point,
+<span class="token keyword">struct</span> node{
+    <span class="token keyword">int</span> start_point,
         end_point,
         weight;
 }E[MAXN*MAXN];
 
-int mp[MAXN+1]={0},tcnt=0;
-inline void init(int a){
-    for(int i=0;i&lt;=a;++i){
+<span class="token keyword">int</span> mp[MAXN+<span class="token number">1</span>]={<span class="token number">0</span>},tcnt=<span class="token number">0</span>;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> init(<span class="token keyword">int</span> a){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=a;++i){
         mp[i]=i;
     }
     tcnt=a;
 }
-inline int fd(int a){
-    return a==mp[a] ? a:mp[a]=fd(mp[a]);
+<span class="token keyword">inline</span> <span class="token keyword">int</span> fd(<span class="token keyword">int</span> a){
+    <span class="token keyword">return</span> a==mp[a] ? a:mp[a]=fd(mp[a]);
 }
-inline bool un(int a,int b){
-    if((a=fd(a))!=(b=fd(b))){
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> un(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
+    <span class="token keyword">if</span>((a=fd(a))!=(b=fd(b))){
         mp[a]=b;--tcnt;
-        return true;
-    }else{
-        return false;
+        <span class="token keyword">return</span> <span class="token keyword">true</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">return</span> <span class="token keyword">false</span>;
     }
 }
-bool cmp(node a,node b){
-    return a.weight &lt; b.weight;
+<span class="token keyword">bool</span> cmp(node a,node b){
+    <span class="token keyword">return</span> a.weight &lt; b.weight;
 }
-signed main(){
-    int T=read();
-    for(int cases=1;cases&lt;=T;++cases){
-        int N=read();
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> T=read();
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> cases=<span class="token number">1</span>;cases&lt;=T;++cases){
+        <span class="token keyword">int</span> N=read();
         init(N);
 
-        int cnt=0;
-        for(int i=0;i&lt;N;++i){
-            for(int j=0;j&lt;N;++j){
-                int w=read();
-                if(j&gt;i &amp;&amp; w!=0){
+        <span class="token keyword">int</span> cnt=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;++j){
+                <span class="token keyword">int</span> w=read();
+                <span class="token keyword">if</span>(j&gt;i &amp;&amp; w!=<span class="token number">0</span>){
                     E[cnt].start_point=i;
                     E[cnt].end_point=j;
                     E[cnt++].weight=w;
@@ -101,23 +101,23 @@ signed main(){
             }
         }
         sort(E,E+cnt,cmp);
-        putchar(&#x27;C&#x27;);putchar(&#x27;a&#x27;);putchar(&#x27;s&#x27;);putchar(&#x27;e&#x27;);putchar(&#x27; &#x27;);write(cases);putchar(&#x27;:&#x27;);putchar(&#x27;\n&#x27;);
-        for(int i=0;i&lt;cnt;++i){
-            if(un(E[i].start_point,E[i].end_point)){
-                putchar(&#x27;A&#x27;+E[i].start_point);
-                putchar(&#x27;-&#x27;);
-                putchar(&#x27;A&#x27;+E[i].end_point);
-                putchar(&#x27; &#x27;);
+        putchar(<span class="token string">&#x27;C&#x27;</span>);putchar(<span class="token string">&#x27;a&#x27;</span>);putchar(<span class="token string">&#x27;s&#x27;</span>);putchar(<span class="token string">&#x27;e&#x27;</span>);putchar(<span class="token string">&#x27; &#x27;</span>);write(cases);putchar(<span class="token string">&#x27;:&#x27;</span>);putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;cnt;++i){
+            <span class="token keyword">if</span>(un(E[i].start_point,E[i].end_point)){
+                putchar(<span class="token string">&#x27;A&#x27;</span>+E[i].start_point);
+                putchar(<span class="token string">&#x27;-&#x27;</span>);
+                putchar(<span class="token string">&#x27;A&#x27;</span>+E[i].end_point);
+                putchar(<span class="token string">&#x27; &#x27;</span>);
                 write(E[i].weight);
-                putchar(&#x27;\n&#x27;);
+                putchar(<span class="token string">&#x27;\n&#x27;</span>);
             }
-            if(tcnt==1){break;}
+            <span class="token keyword">if</span>(tcnt==<span class="token number">1</span>){<span class="token keyword">break</span>;}
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 
-/*
+<span class="token comment">/*
 1
 6
 0, 8, 12, 0, 0, 7
@@ -126,19 +126,16 @@ signed main(){
 0, 3, 0, 0, 0, 4
 0, 0, 6, 0, 0, 5
 7, 0, 0, 4, 5, 0
-*/
+*/</span>
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11951.html" class="problem-link">uva11951</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="copy.html" class="problem-link">!copy</a></p>
+        <p><a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="uva11005.html" class="problem-link">uva11005</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="uva10312.html" class="problem-link">uva10312</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="e581-uva11067.html" class="problem-link">e581 uva11067</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

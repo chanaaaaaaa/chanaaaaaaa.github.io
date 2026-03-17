@@ -25,57 +25,54 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//x0 x1
-//
-//0=0,9=9,A=10,Z=35,a=36,z=61
-#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
-#include &lt;string.h&gt;
-#include &lt;stdlib.h&gt;
-int main() {
-    char input[100];
-    while(scanf(&quot;%s&quot;,input)!=EOF){
-            //printf(&quot;%s&quot;,input);
-            int sum=0,t,max=1;
-        for(int i=0;i&lt;strlen(input);i++){
-            if(input[i]&lt;=&#x27;9&#x27; &amp;&amp; input[i]&gt;=&#x27;0&#x27;){
-                t=(input[i]-&#x27;0&#x27;);
+    <pre class="code-block language-cpp"><code><span class="token comment">//x0 x1</span>
+<span class="token comment">//</span>
+<span class="token comment">//0=0,9=9,A=10,Z=35,a=36,z=61</span>
+<span class="token directive">#include</span> &lt;stdio.h&gt;
+<span class="token directive">#include</span> &lt;math.h&gt;
+<span class="token directive">#include</span> &lt;string.h&gt;
+<span class="token directive">#include</span> &lt;stdlib.h&gt;
+<span class="token keyword">int</span> main() {
+    <span class="token keyword">char</span> input[<span class="token number">100</span>];
+    <span class="token keyword">while</span>(scanf(<span class="token string">&quot;%s&quot;</span>,input)!=EOF){
+            <span class="token comment">//printf(&quot;%s&quot;,input);</span>
+            <span class="token keyword">int</span> sum=<span class="token number">0</span>,t,max=<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;strlen(input);i++){
+            <span class="token keyword">if</span>(input[i]&lt;=<span class="token string">&#x27;9&#x27;</span> &amp;&amp; input[i]&gt;=<span class="token string">&#x27;0&#x27;</span>){
+                t=(input[i]-<span class="token string">&#x27;0&#x27;</span>);
             }
-            else if(input[i]&lt;=&#x27;Z&#x27; &amp;&amp; input[i]&gt;=&#x27;A&#x27;){
-                t=(input[i]-&#x27;A&#x27;+10);
+            <span class="token keyword">else</span> <span class="token keyword">if</span>(input[i]&lt;=<span class="token string">&#x27;Z&#x27;</span> &amp;&amp; input[i]&gt;=<span class="token string">&#x27;A&#x27;</span>){
+                t=(input[i]-<span class="token string">&#x27;A&#x27;</span>+<span class="token number">10</span>);
             }
-            else if(input[i]&lt;=&#x27;z&#x27; &amp;&amp; input[i]&gt;=&#x27;a&#x27;){
-                t=(input[i]-&#x27;a&#x27;+36);
+            <span class="token keyword">else</span> <span class="token keyword">if</span>(input[i]&lt;=<span class="token string">&#x27;z&#x27;</span> &amp;&amp; input[i]&gt;=<span class="token string">&#x27;a&#x27;</span>){
+                t=(input[i]-<span class="token string">&#x27;a&#x27;</span>+<span class="token number">36</span>);
             }
-            else continue;
-            if(max&lt;t){ max=t; }
+            <span class="token keyword">else</span> <span class="token keyword">continue</span>;
+            <span class="token keyword">if</span>(max&lt;t){ max=t; }
             sum+=t;
         }
-        //printf(&quot;%d %d&quot;,sum,max);
-        for(int i=max;i&lt;62;i++){
-            if(!(sum%i)){
-                printf(&quot;%d\n&quot;,i+1);
-                break;
+        <span class="token comment">//printf(&quot;%d %d&quot;,sum,max);</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=max;i&lt;<span class="token number">62</span>;i++){
+            <span class="token keyword">if</span>(!(sum%i)){
+                printf(<span class="token string">&quot;%d\n&quot;</span>,i+<span class="token number">1</span>);
+                <span class="token keyword">break</span>;
             }
-            if(sum%i!=0 &amp;&amp; i==61){
-                printf(&quot;such number is impossible!\n&quot;);
+            <span class="token keyword">if</span>(sum%i!=<span class="token number">0</span> &amp;&amp; i==<span class="token number">61</span>){
+                printf(<span class="token string">&quot;such number is impossible!\n&quot;</span>);
             }
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="day-162.html" class="problem-link">day-162</a> <a href="pE.html" class="problem-link">pE</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="uva10325.html" class="problem-link">uva10325</a> <a href="a467-uva11398.html" class="problem-link">a467 uva11398</a></p>
+        <p><a href="day-151.html" class="problem-link">day-151</a> <a href="a466-uva12289.html" class="problem-link">a466 uva12289</a> <a href="c009-uva10473.html" class="problem-link">c009 uva10473</a> <a href="d206-uva108.html" class="problem-link">d206 uva108</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="a132-uva10931.html" class="problem-link">a132 uva10931</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

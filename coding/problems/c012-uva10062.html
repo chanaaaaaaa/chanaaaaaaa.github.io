@@ -25,49 +25,46 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int co[96];
+<span class="token keyword">int</span> co[<span class="token number">96</span>];
 string A;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
 
-    while(getline(cin,A)){
+    <span class="token keyword">while</span>(getline(cin,A)){
 
-        for(int i=0;i&lt;A.size();i++){
-            co[int(A[i])-32]++;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            co[<span class="token keyword">int</span>(A[i])-<span class="token number">32</span>]++;
         }
-        for(int i=1;i&lt;A.size();i++){
-            for(int j=95;j&gt;=0;j--){
-                if(co[j]==i){
-                    cout&lt;&lt;j+32&lt;&lt;&quot; &quot;&lt;&lt;co[j]&lt;&lt;&quot;\n&quot;;
-                    co[j]=0;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;A.size();i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">95</span>;j&gt;=<span class="token number">0</span>;j--){
+                <span class="token keyword">if</span>(co[j]==i){
+                    cout&lt;&lt;j+<span class="token number">32</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;co[j]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                    co[j]=<span class="token number">0</span>;
                 }
             }
         }
-        cout&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10368.html" class="problem-link">uva10368</a> <a href="c708-uva11538.html" class="problem-link">c708 uva11538</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a></p>
+        <p><a href="e287-2019APCS.html" class="problem-link">e287 2019APCS</a> <a href="b059.html" class="problem-link">b059</a> <a href="uva10015.html" class="problem-link">uva10015</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="uva10006.html" class="problem-link">uva10006</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

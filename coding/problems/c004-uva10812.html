@@ -25,39 +25,36 @@
     <p>O(n)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int N;
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    while(N--){
-        int s,d;
+    <span class="token keyword">while</span>(N--){
+        <span class="token keyword">int</span> s,d;
         cin&gt;&gt;s&gt;&gt;d;
-        if(((((s&amp;1)==1)&amp;&amp;((d&amp;1)==1))||(((s&amp;1)==0)&amp;&amp;((d&amp;1)==0)))&amp;&amp;(s&gt;=d)){
-            cout&lt;&lt;(s+d)/2&lt;&lt;&quot; &quot;&lt;&lt;(s-d)/2&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;&quot;impossible&quot;&lt;&lt;&quot;\n&quot;;
+        <span class="token keyword">if</span>(((((s&amp;<span class="token number">1</span>)==<span class="token number">1</span>)&amp;&amp;((d&amp;<span class="token number">1</span>)==<span class="token number">1</span>))||(((s&amp;<span class="token number">1</span>)==<span class="token number">0</span>)&amp;&amp;((d&amp;<span class="token number">1</span>)==<span class="token number">0</span>)))&amp;&amp;(s&gt;=d)){
+            cout&lt;&lt;(s+d)/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;(s-d)/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;<span class="token string">&quot;impossible&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10579.html" class="problem-link">uva10579</a> <a href="c060-uva00392.html" class="problem-link">c060 uva00392</a> <a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="c123-uva514.html" class="problem-link">c123 uva514</a> <a href="uva10348.html" class="problem-link">uva10348</a> <a href="uva10673.html" class="problem-link">uva10673</a></p>
+        <p><a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="Luogu-P2261.html" class="problem-link">Luogu P2261</a> <a href="d111-uva10110.html" class="problem-link">d111 uva10110</a> <a href="d418-uva993.html" class="problem-link">d418 uva993</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

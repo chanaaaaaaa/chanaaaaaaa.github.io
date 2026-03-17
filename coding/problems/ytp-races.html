@@ -25,55 +25,52 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;stdio.h&gt;
-#include&lt;vector&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-int q,t,l,r,A;
-vector&lt;int&gt;d;
+<span class="token keyword">int</span> q,t,l,r,A;
+vector&lt;<span class="token keyword">int</span>&gt;d;
 
-int main(){
+<span class="token keyword">int</span> main(){
 
-    scanf(&quot;%d %d&quot;,&amp;t,&amp;q);
-    d.reserve(t+1);
-    while(t--){
-        scanf(&quot;%d&quot;,&amp;A);
+    scanf(<span class="token string">&quot;%d %d&quot;</span>,&amp;t,&amp;q);
+    d.reserve(t+<span class="token number">1</span>);
+    <span class="token keyword">while</span>(t--){
+        scanf(<span class="token string">&quot;%d&quot;</span>,&amp;A);
         d.push_back(A);
     }
 
-    while(q--){
-        scanf(&quot;%d %d %d&quot;,&amp;t,&amp;l,&amp;r);
-        if(t==1){
-            for(l--;l&lt;r;l++){
-                if((d[l]&amp;1)==1){
-                    d[l]=d[l]*3+1;
-                }else{
-                    d[l]/=2;
+    <span class="token keyword">while</span>(q--){
+        scanf(<span class="token string">&quot;%d %d %d&quot;</span>,&amp;t,&amp;l,&amp;r);
+        <span class="token keyword">if</span>(t==<span class="token number">1</span>){
+            <span class="token keyword">for</span>(l--;l&lt;r;l++){
+                <span class="token keyword">if</span>((d[l]&amp;<span class="token number">1</span>)==<span class="token number">1</span>){
+                    d[l]=d[l]*<span class="token number">3</span>+<span class="token number">1</span>;
+                }<span class="token keyword">else</span>{
+                    d[l]/=<span class="token number">2</span>;
                 }
             }
-        }else{
-            A=0;
-            for(l--;l&lt;r;l++){
+        }<span class="token keyword">else</span>{
+            A=<span class="token number">0</span>;
+            <span class="token keyword">for</span>(l--;l&lt;r;l++){
                 A+=d[l];
             }
-            printf(&quot;%d\n&quot;,A);
+            printf(<span class="token string">&quot;%d\n&quot;</span>,A);
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11057.html" class="problem-link">uva11057</a> <a href="a176.html" class="problem-link">a176</a> <a href="uva12186.html" class="problem-link">uva12186</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="d267-uva11577.html" class="problem-link">d267 uva11577</a> <a href="CSES1745.html" class="problem-link">CSES1745</a></p>
+        <p><a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="day-162.html" class="problem-link">day-162</a> <a href="d898-uva10128.html" class="problem-link">d898 uva10128</a> <a href="uva10174.html" class="problem-link">uva10174</a> <a href="e465-2018APCS.html" class="problem-link">e465 2018APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

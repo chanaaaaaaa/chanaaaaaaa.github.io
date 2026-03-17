@@ -25,75 +25,72 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;math.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;math.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-inline long long read(){
-    long long x=0;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> read(){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=x*10+(c-&#x27;0&#x27;);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    return x;
+    <span class="token keyword">return</span> x;
 }
-inline void write(long long x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-// -block
+<span class="token comment">// -block</span>
 
-signed main(){
-    int t=read();
-    while(t--){
-        int num=read(),flag=0,a,b,i,j;
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> t=read();
+    <span class="token keyword">while</span>(t--){
+        <span class="token keyword">int</span> num=read(),flag=<span class="token number">0</span>,a,b,i,j;
 
-        for(i=0;i*i&lt;num;i++){
+        <span class="token keyword">for</span>(i=<span class="token number">0</span>;i*i&lt;num;i++){
             a=num-i*i;
-            for(j=0;j*j&lt;num;j++){
+            <span class="token keyword">for</span>(j=<span class="token number">0</span>;j*j&lt;num;j++){
                 b=a-j*j;
-                if(b&lt;0){break;}
-                if(ceil(sqrt(b))==sqrt(b)){
-                    flag=1;
-                    break;
+                <span class="token keyword">if</span>(b&lt;<span class="token number">0</span>){<span class="token keyword">break</span>;}
+                <span class="token keyword">if</span>(ceil(sqrt(b))==sqrt(b)){
+                    flag=<span class="token number">1</span>;
+                    <span class="token keyword">break</span>;
                 }
             }
-            if(flag){break;}
+            <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
         }
 
-        if(i*i+j*j+b==num){
+        <span class="token keyword">if</span>(i*i+j*j+b==num){
             write(i);
-            putchar(&#x27; &#x27;);
+            putchar(<span class="token string">&#x27; &#x27;</span>);
             write(j);
-            putchar(&#x27; &#x27;);
+            putchar(<span class="token string">&#x27; &#x27;</span>);
             write(sqrt(b));
-        }else{write(-1);}
-        putchar(&#x27;\n&#x27;);
+        }<span class="token keyword">else</span>{write(-<span class="token number">1</span>);}
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
  }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="d047-uva10070.html" class="problem-link">d047 uva10070</a> <a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a></p>
+        <p><a href="e583-uva11040.html" class="problem-link">e583 uva11040</a> <a href="uva10943.html" class="problem-link">uva10943</a> <a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="a737-uva10041.html" class="problem-link">a737 uva10041</a> <a href="uva907.html" class="problem-link">uva907</a> <a href="d898-uva10128.html" class="problem-link">!d898 uva10128</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

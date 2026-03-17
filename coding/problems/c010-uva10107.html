@@ -25,55 +25,52 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-vector&lt;int&gt;al;
+vector&lt;<span class="token keyword">int</span>&gt;al;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    int in;
+    <span class="token keyword">int</span> in;
     cin&gt;&gt;in;
     al.push_back(in);
-    cout&lt;&lt;al[0]&lt;&lt;&quot;\n&quot;;
+    cout&lt;&lt;al[<span class="token number">0</span>]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
 
-    while(cin&gt;&gt;in){
-        for(int i=0;i&lt;al.size();i++){
-            if(in&gt;=al[i]){
+    <span class="token keyword">while</span>(cin&gt;&gt;in){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;al.size();i++){
+            <span class="token keyword">if</span>(in&gt;=al[i]){
                 al.insert(al.begin()+i,in);
-                break;
-            }else if(i==al.size()-1){
+                <span class="token keyword">break</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(i==al.size()-<span class="token number">1</span>){
                 al.push_back(in);
-                break;
+                <span class="token keyword">break</span>;
             }
         }
-        if(al.size()%2==0){
-            cout&lt;&lt;(al[al.size()/2]+al[al.size()/2-1])/2&lt;&lt;&quot;\n&quot;;
-        }else{
-            cout&lt;&lt;al[(al.size()-1)/2]&lt;&lt;&quot;\n&quot;;
+        <span class="token keyword">if</span>(al.size()%<span class="token number">2</span>==<span class="token number">0</span>){
+            cout&lt;&lt;(al[al.size()/<span class="token number">2</span>]+al[al.size()/<span class="token number">2</span>-<span class="token number">1</span>])/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;al[(al.size()-<span class="token number">1</span>)/<span class="token number">2</span>]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10236.html" class="problem-link">uva10236</a> <a href="d188-uva11342.html" class="problem-link">d188 uva11342</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="uva10102.html" class="problem-link">uva10102</a> <a href="uva11770.html" class="problem-link">uva11770</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a></p>
+        <p><a href="c007-uva00272.html" class="problem-link">c007 uva00272</a> <a href="uva10227.html" class="problem-link">uva10227</a> <a href="a539-uva10327.html" class="problem-link">a539 uva10327</a> <a href="ytp-races.html" class="problem-link">ytp races</a> <a href="CSES-1646.html" class="problem-link">CSES 1646</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

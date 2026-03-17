@@ -25,80 +25,77 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
-//#pragma comment(linker, &quot;/stack:200000000&quot;)
-#include&lt;stdio.h&gt;
-#include&lt;vector&gt;
-#include&lt;set&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;set&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-//--block
-set&lt;int&gt;primes;
-bool isprime[65001];
-inline void primef(){
-    for(int i=2;i&lt;=65000;i++){
-        if(!isprime[i]){primes.insert(i);}
-        for(auto it=primes.cbegin();it!=primes.cend();it++){
-            if(*it*i&gt;65000){break;}
-            isprime[*it*i]=true;
-            if(i%*it==0){break;}
+<span class="token comment">//--block</span>
+set&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">bool</span> isprime[<span class="token number">65001</span>];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> primef(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=<span class="token number">65000</span>;i++){
+        <span class="token keyword">if</span>(!isprime[i]){primes.insert(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span> it=primes.cbegin();it!=primes.cend();it++){
+            <span class="token keyword">if</span>(*it*i&gt;<span class="token number">65000</span>){<span class="token keyword">break</span>;}
+            isprime[*it*i]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%*it==<span class="token number">0</span>){<span class="token keyword">break</span>;}
         }
     }
 }
-inline int solve(int a,int n,int m){
-    if(n==1){return a%m;}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> solve(<span class="token keyword">int</span> a,<span class="token keyword">int</span> n,<span class="token keyword">int</span> m){
+    <span class="token keyword">if</span>(n==<span class="token number">1</span>){<span class="token keyword">return</span> a%m;}
 
-    long long tmp=solve(a,n/2,m);
+    <span class="token keyword">long</span> <span class="token keyword">long</span> tmp=solve(a,n/<span class="token number">2</span>,m);
     tmp=(tmp*tmp)%m;
-    if(n%2){tmp=(tmp*a)%m;}
-    return tmp;
+    <span class="token keyword">if</span>(n%<span class="token number">2</span>){tmp=(tmp*a)%m;}
+    <span class="token keyword">return</span> tmp;
 }
-set&lt;int&gt;res;
-inline void form(){
+set&lt;<span class="token keyword">int</span>&gt;res;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
     primef();
-    for(int i=2;i&lt;=65000;i++){
-        if(primes.count(i)){continue;}
-        int now;
-        for(now=2;now&lt;i;now++){
-            printf(&quot;%d-%d\n&quot;,i,now);
-            if(solve(now,i,i)!=now){break;}
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=<span class="token number">65000</span>;i++){
+        <span class="token keyword">if</span>(primes.count(i)){<span class="token keyword">continue</span>;}
+        <span class="token keyword">int</span> now;
+        <span class="token keyword">for</span>(now=<span class="token number">2</span>;now&lt;i;now++){
+            printf(<span class="token string">&quot;%d-%d\n&quot;</span>,i,now);
+            <span class="token keyword">if</span>(solve(now,i,i)!=now){<span class="token keyword">break</span>;}
         }
 
-        if(now==i){res.insert(i);}
+        <span class="token keyword">if</span>(now==i){res.insert(i);}
     }
 }
-signed main(){
-    /*
+<span class="token keyword">signed</span> main(){
+    <span class="token comment">/*
     form();
     for(auto it=res.cbegin();it!=res.cend();it++){
         printf(&quot;%d,&quot;,*it);
-    }*/
-    //get 561,1105,1729,2465,2821,6601,8911,10585,15841,29341,41041,46657,52633,62745,63973
-    set&lt;int&gt;ans={561,1105,1729,2465,2821,6601,8911,10585,15841,29341,41041,46657,52633,62745,63973};
-    int N=0;
-    while(scanf(&quot;%d&quot;,&amp;N)&amp;&amp;N){
-        if(ans.count(N)){
-            printf(&quot;The number %d is a Carmichael number.\n&quot;,N);
-        }else{
-            printf(&quot;%d is normal.\n&quot;,N);
+    }*/</span>
+    <span class="token comment">//get 561,1105,1729,2465,2821,6601,8911,10585,15841,29341,41041,46657,52633,62745,63973</span>
+    set&lt;<span class="token keyword">int</span>&gt;ans={<span class="token number">561</span>,<span class="token number">1105</span>,<span class="token number">1729</span>,<span class="token number">2465</span>,<span class="token number">2821</span>,<span class="token number">6601</span>,<span class="token number">8911</span>,<span class="token number">10585</span>,<span class="token number">15841</span>,<span class="token number">29341</span>,<span class="token number">41041</span>,<span class="token number">46657</span>,<span class="token number">52633</span>,<span class="token number">62745</span>,<span class="token number">63973</span>};
+    <span class="token keyword">int</span> N=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(scanf(<span class="token string">&quot;%d&quot;</span>,&amp;N)&amp;&amp;N){
+        <span class="token keyword">if</span>(ans.count(N)){
+            printf(<span class="token string">&quot;The number %d is a Carmichael number.\n&quot;</span>,N);
+        }<span class="token keyword">else</span>{
+            printf(<span class="token string">&quot;%d is normal.\n&quot;</span>,N);
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="e287-2019APCS.html" class="problem-link">e287 2019APCS</a> <a href="a518-uva12468.html" class="problem-link">a518 uva12468</a> <a href="d813-uva10583.html" class="problem-link">d813 uva10583</a> <a href="uva10673.html" class="problem-link">uva10673</a></p>
+        <p><a href="uva10312.html" class="problem-link">uva10312</a> <a href="uva10334.html" class="problem-link">uva10334</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="a737-uva10041.html" class="problem-link">a737 uva10041</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="uva10912.html" class="problem-link">uva10912</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>

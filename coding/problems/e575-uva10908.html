@@ -25,62 +25,59 @@
     <p>O(n³)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-string A[100];
-int dir[4][2]={{0,1},{1,0},{0,-1},{-1,0}};
-int T,M,N,Q,r,c;
+string A[<span class="token number">100</span>];
+<span class="token keyword">int</span> dir[<span class="token number">4</span>][<span class="token number">2</span>]={{<span class="token number">0</span>,<span class="token number">1</span>},{<span class="token number">1</span>,<span class="token number">0</span>},{<span class="token number">0</span>,-<span class="token number">1</span>},{-<span class="token number">1</span>,<span class="token number">0</span>}};
+<span class="token keyword">int</span> T,M,N,Q,r,c;
 
-int main(){
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(0);
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
     cin&gt;&gt;T;
-    while(T--){
+    <span class="token keyword">while</span>(T--){
         cin&gt;&gt;M&gt;&gt;N&gt;&gt;Q;
-        cout&lt;&lt;M&lt;&lt;&quot; &quot;&lt;&lt;N&lt;&lt;&quot; &quot;&lt;&lt;Q&lt;&lt;&quot;\n&quot;;
-        for(int i=0;i&lt;M;i++){
+        cout&lt;&lt;M&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;N&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;Q&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
             cin&gt;&gt;A[i];
         }
-        for(int g=0;g&lt;Q;g++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> g=<span class="token number">0</span>;g&lt;Q;g++){
             cin&gt;&gt;r&gt;&gt;c;
-            int Ans=-10,limit=min(M,N);
+            <span class="token keyword">int</span> Ans=-<span class="token number">10</span>,limit=min(M,N);
 
-            for(int i=1;i&lt;=limit;i++){
-                int rex=r-i,rey=c-i;
-                for(int j=0;j&lt;4;j++){
-                    for(int k=0;k&lt;i*2;k++){
-                        rex+=dir[j][0];
-                        rey+=dir[j][1];
-                        if(rex&lt;0 || rex&gt;=M || rey&lt;0 || rey&gt;=N || A[rex][rey]!=A[r][c]){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=limit;i++){
+                <span class="token keyword">int</span> rex=r-i,rey=c-i;
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">4</span>;j++){
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;i*<span class="token number">2</span>;k++){
+                        rex+=dir[j][<span class="token number">0</span>];
+                        rey+=dir[j][<span class="token number">1</span>];
+                        <span class="token keyword">if</span>(rex&lt;<span class="token number">0</span> || rex&gt;=M || rey&lt;<span class="token number">0</span> || rey&gt;=N || A[rex][rey]!=A[r][c]){
                             Ans=i;
-                            break;
+                            <span class="token keyword">break</span>;
                         }
                     }
-                    if(Ans!=-10){break;}
+                    <span class="token keyword">if</span>(Ans!=-<span class="token number">10</span>){<span class="token keyword">break</span>;}
                 }
-                if(Ans!=-10){break;}
+                <span class="token keyword">if</span>(Ans!=-<span class="token number">10</span>){<span class="token keyword">break</span>;}
             }
-        cout&lt;&lt;Ans*2-1&lt;&lt;&quot;\n&quot;;
+        cout&lt;&lt;Ans*<span class="token number">2</span>-<span class="token number">1</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
         }
     }
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="c082-uva00118.html" class="problem-link">c082 uva00118</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="uva10596.html" class="problem-link">uva10596</a> <a href="d260-uva11455.html" class="problem-link">d260 uva11455</a></p>
+        <p><a href="day-150.html" class="problem-link">day-150</a> <a href="d813-uva10583.html" class="problem-link">d813 uva10583</a> <a href="d097-uva10038.html" class="problem-link">d097 uva10038</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="day-148.html" class="problem-link">day-148</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="../vendor/prism.min.js"></script>
-    <script src="../vendor/prism-cpp.min.js"></script>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>
