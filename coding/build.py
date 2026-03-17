@@ -26,6 +26,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
     <header>
@@ -45,7 +46,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <p>{complexity_html}</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block"><code>{code_html}</code></pre>
+    <pre class="code-block"><code class="language-cpp">{code_html}</code></pre>
 
     <div class="other-problems">
         <h3>其他題目</h3>
@@ -55,6 +56,9 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script>Prism.highlightAll();</script>
 </body>
 </html>
 '''

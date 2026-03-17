@@ -62,17 +62,15 @@ a:hover { text-decoration: underline; }
 }
 
 .code-block {
-    background: #f5f5f5;
-    border: 1px solid #e0e0e0;
     border-radius: 4px;
     padding: 1rem 1.2rem;
     overflow-x: auto;
     font-family: "Consolas", "Monaco", "Courier New", monospace;
     font-size: 0.85rem;
     line-height: 1.5;
-    white-space: pre;
     margin: 1rem 0;
 }
+/* Prism 語法高亮：由 prism-tomorrow 主題控制顏色 */
 
 .other-problems {
     margin-top: 2.5rem;

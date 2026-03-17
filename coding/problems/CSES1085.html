@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSES1085 - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
     <header>
@@ -24,7 +25,7 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+    <pre class="code-block"><code class="language-cpp">#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
 #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
 //#pragma comment(linker, &quot;/stack:200000000&quot;)
 #include&lt;cstdio&gt;
@@ -87,11 +88,14 @@ inline bool IsValid(long long ans){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11287.html" class="problem-link">uva11287</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="uva10337.html" class="problem-link">uva10337</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="uva10325.html" class="problem-link">uva10325</a></p>
+        <p><a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="CSES1643.html" class="problem-link">CSES1643</a> <a href="a001.html" class="problem-link">a001</a> <a href="pD.html" class="problem-link">pD</a> <a href="a005.html" class="problem-link">a005</a> <a href="c119-uva10220.html" class="problem-link">c119 uva10220</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script>Prism.highlightAll();</script>
 </body>
 </html>
