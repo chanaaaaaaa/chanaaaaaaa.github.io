@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>day-163 - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
 </head>
 <body>
     <header>
@@ -25,7 +25,7 @@
     <p>O(n²)</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block"><code class="language-cpp">#pragma GCC optimize(1)
+    <pre class="code-block language-cpp"><code class="language-cpp">#pragma GCC optimize(1)
 #pragma GCC optimize(2)
 #pragma GCC optimize(3)
 #pragma GCC optimize(&quot;Ofast&quot;)
@@ -73,6 +73,7 @@
 
 #include &lt;string&gt;
 #include &lt;vector&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 inline int read(){
@@ -96,6 +97,10 @@ inline void write(int x){
     return;
 }
 /* I/O Optimize */
+inline int min(int a,int b){
+    return a&lt;b?a:b;
+}
+
 const int LLINF=0x7fffffffffffffffLL;
 int R,N,T;
 int frequency[27],frequensum;
@@ -117,6 +122,59 @@ struct node{
 };
 node root;
 
+inline void build(){
+    priority_queue&lt;node&gt;minHaff;
+
+    for(int i=0;i&lt;N;++i){
+        node tmp;
+        tmp.letter=i;
+        tmp.weight=frequency[i];
+        tmp.dfn=i;
+        minHaff.emplace(tmp);
+    }
+
+    int right=(N-1)%(R-1);
+    if(right){right+=1;}
+
+    node tmpRight;
+    for(int i=0;i&lt;right;++i){
+        node tmp=minHaff.top();
+        minHaff.pop();
+
+        tmpRight.nex.emplace_back(tmp);
+        tmpRight.weight+=tmp.weight;
+
+        tmpRight.dfn=min(tmpRight.dfn,tmp.dfn);
+    }
+    if(tmpRight.weight){minHaff.emplace(tmpRight);}
+
+    while(minHaff.size()&gt;=R){
+        node t;
+        for(int i=0;i&lt;R;++i){
+            node cur=minHaff.top();minHaff.pop();
+
+            t.nex.emplace_back(cur);
+            t.weight+=cur.weight;
+
+            t.dfn = min(t.dfn,cur.dfn);
+        }
+        minHaff.emplace(t);
+    }
+
+    root = minHaff.top();
+    return;
+}
+inline void dfs(node &amp;cur,string s,int dep){
+    if(!cur.nex.size()){
+        codes[cur.letter]=s;
+        expval+=frequency[cur.letter]*dep;
+        return;
+    }
+
+    for(int i=0;i&lt;cur.nex.size();++i){
+        dfs(cur.nex[i], s+to_string(i+R-cur.nex.size()),dep+1);
+    }
+}
 inline void solve(){
     write(67);
 }
@@ -131,14 +189,14 @@ signed main(){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11005.html" class="problem-link">uva11005</a> <a href="uva1213.html" class="problem-link">uva1213</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="a007.html" class="problem-link">a007</a> <a href="e288-2019APCS.html" class="problem-link">e288 2019APCS</a> <a href="a132-uva10931.html" class="problem-link">a132 uva10931</a></p>
+        <p><a href="uva10930.html" class="problem-link">uva10930</a> <a href="ytp-races.html" class="problem-link">ytp races</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="uva11076.html" class="problem-link">uva11076</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="../vendor/prism.min.js"></script>
+    <script src="../vendor/prism-cpp.min.js"></script>
     <script>Prism.highlightAll();</script>
 </body>
 </html>
