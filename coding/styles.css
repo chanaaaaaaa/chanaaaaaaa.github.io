@@ -1,20 +1,54 @@
 /* 參考博客園風格 - 簡潔、無桌面寵物 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    background: #e8eef5; /* 無圖時的 fallback */
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
     line-height: 1.7;
     color: #333;
-    background: #fff;
+    min-height: 100vh;
+    /* 背景圖片：請將 back-g.jpg 放在 coding 資料夾，與 index.html 同層 */
+    background: #e8eef5 url('back-g.jpg') center center / cover no-repeat fixed;
+    position: relative;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
 }
 
+/* 霧面遮罩層 */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* 若無背景圖時顯示純色背景 */
+@supports not (backdrop-filter: blur(8px)) {
+    body::before { background: rgba(255, 255, 255, 0.92); }
+}
+
 header {
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
     margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 h1 {
@@ -62,20 +96,26 @@ a:hover { text-decoration: underline; }
 }
 
 .code-block {
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 1rem 1.2rem;
     overflow-x: auto;
     font-family: "Consolas", "Monaco", "Courier New", monospace;
     font-size: 0.85rem;
     line-height: 1.5;
     margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
 /* Prism 語法高亮：由 prism-tomorrow 主題控制顏色 */
 
 .other-problems {
     margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .other-problems h3 {
@@ -91,9 +131,14 @@ a:hover { text-decoration: underline; }
 .problem-list li {
     margin: 0.5rem 0;
     padding: 0.6rem 1rem;
-    background: #fafafa;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
     border-left: 3px solid #3498db;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+.problem-list li:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
 }
 
 .problem-id {
@@ -124,6 +169,13 @@ a:hover { text-decoration: underline; }
 
 .problem-section {
     margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .section-title {
@@ -154,8 +206,13 @@ a:hover { text-decoration: underline; }
 
 footer {
     margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
     font-size: 0.85rem;
-    color: #95a5a6;
+    color: #7f8c8d;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
