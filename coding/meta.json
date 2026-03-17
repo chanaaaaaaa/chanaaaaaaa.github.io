@@ -1,1022 +1,1705 @@
 {
-  "_說明": "在此補充各題的題解與時間複雜度，key 為題目 ID",
+  "_說明": "在此補充各題的題解、時間複雜度、類型(type)、難度(difficulty 1-5)。",
   "_範例": {},
   "!a470 uva12406": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "!copy": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "!d898 uva10128": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "!e601 uva255": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "AtCode212": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "AtCoder 098.C": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "AtCoder 212.C": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "AtCoder 429 D": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "CSES 1074": {
-    "complexity": "O(n log n)"
+    "complexity": "O(n log n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "CSES 1646": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "CSES 1753": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "CSES1073": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "CSES1074": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1084": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1085": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "CSES1090": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1140": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "CSES1619": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "CSES1620": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "CSES1621": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "CSES1629": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1630": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1631": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1632": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "CSES1640": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "CSES1641": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "CSES1643": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "CSES1650": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "CSES1733": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "CSES1734": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "CSES1745": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "CSES1753": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "CSES1754": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "LibreOJ 2185": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "Luogu P2261": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "Luogu P2522": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "Luogu P2580": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a001": {
-    "complexity": "O(1)"
+    "complexity": "O(1)",
+    "type": "字串",
+    "difficulty": 1
   },
   "a003": {
-    "complexity": "O(1)"
+    "complexity": "O(1)",
+    "type": "其他",
+    "difficulty": 1
   },
   "a004": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 1
   },
   "a005": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 1
   },
   "a006": {
-    "complexity": "O(1)"
+    "complexity": "O(1)",
+    "type": "其他",
+    "difficulty": 1
   },
   "a007": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "a011 uva00494": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a012 uva10055": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "a111 uva12149": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "a130 uva12015": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a132 uva10931": {
     "complexity": "O(n²)",
-    "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。"
+    "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。",
+    "type": "數學",
+    "difficulty": 3
   },
   "a133 uva10066": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "a134 uva00948": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a135 uva12250": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "a158 uva11827": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a159 uva11743": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a176": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "a221 uva11734": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a223 uva10298": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a465 uva12405": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a466 uva12289": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a467 uva11398": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a518 uva12468": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "a519 uva12459": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "a520 uva12416": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a536 uva11689": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a539 uva10327": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "a540 uva10684": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "a737 uva10041": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a741 uva10101": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "a743 uva10420": {
-    "complexity": "O(n log n)"
+    "complexity": "O(n log n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "a884 uva11448": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "a993 uva10127": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "b059": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "b265 uva11286": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "b266 2016APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "b343 uva11518": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "b437 uva11476": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "b917 uva11059": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "b964 2016APCS": {
-    "complexity": "O(n log n)"
+    "complexity": "O(n log n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "b965 2016APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "b966 2016APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "b967 2016APCS": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "c001 uva10405": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "c002 uva10696": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "c004 uva10812": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "c005 uva10300": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c006 uva10550": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "c007 uva00272": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c009 uva10473": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "c010 uva10107": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c012 uva10062": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c013 uva00488": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "c014 uva10035": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "c022 uva10783": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "c024 uva10079": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "其他",
+    "difficulty": 2
   },
   "c033 uva406": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "c039 uva00100": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "c044 uva10008": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c045 uva00490": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c060 uva00392": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c067 uva00591": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "c074 uva441": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "c082 uva00118": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c088 uva516": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "c119 uva10220": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "c123 uva514": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "c124 uva532": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "c125 uva534": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "c129 uva572": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "c203 uva13185": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "c290 2017APCS": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "c292 2017APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "c294 2016APCS": {
-    "complexity": "O(n log n)"
+    "complexity": "O(n log n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "c295 2016APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c296 2016APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "c297 2016APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "c461 2017APCS": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "其他",
+    "difficulty": 2
   },
   "c462 2017APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c463 2017APCS": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "c471 2017APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c575 2017APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "c708 uva11538": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "c813 uva11332": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "d038 uva900": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d042 uva11420": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "d047 uva10070": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "d052 uva11456": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "d056 uva10013": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "d057 uva11491": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d097 uva10038": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "d111 uva10110": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "d117 uva10924": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "d123 uva11063": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d143 uva11172": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "d150 uva11369": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "d186 uva11461": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "其他",
+    "difficulty": 2
   },
   "d187 uva11530": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d188 uva11342": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d189 uva11150": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d190 uva11462": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "d191 uva11352": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "d192 uva11351": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d194 d716 uva11572": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "資料結構",
+    "difficulty": 4
   },
   "d195 uva11495": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "d206 uva108": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "d219 uva374": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "d226 uva10071": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "其他",
+    "difficulty": 2
   },
   "d253 uva674": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "d255 uva11417": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d260 uva11455": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d267 uva11577": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d275 uva11586": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d306 uva10193": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d307 uva686": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "d365 uva10336": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "d366 uva294": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "d380 uva10106": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "d387 uva10235": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "d418 uva993": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "d440 uva10299": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d443 uva10497": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "d492 uva10226": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d658 uva11636": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d659 uva11727": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d669 uva11677": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d671 uva11716": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "d672 uva10922": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "d673 uva11608": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "d674 uva10192": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "d686 uva10003": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "d731 uva11039": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "d750 uva11321": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "d762 uva10344": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d793 uva929": {
-    "complexity": "O((V + E) log V)"
+    "complexity": "O((V + E) log V)",
+    "type": "圖論",
+    "difficulty": 4
   },
   "d813 uva10583": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "d898 uva10128": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "d980 uva11479": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "day-134": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "資料結構",
+    "difficulty": 4
   },
   "day-135": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "day-140": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-146": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-148": {
-    "complexity": "O((V + E) log V)"
+    "complexity": "O((V + E) log V)",
+    "type": "圖論",
+    "difficulty": 4
   },
   "day-149": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "day-150": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "day-151": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-152": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-153": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-155": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "day-158": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "day-160": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "day-161": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "day-162": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
+  },
+  "day-163": {
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "e183 uva10940": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e286 2019APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e287 2019APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e288 2019APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e289 2019APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e313 2018APCS": {
-    "complexity": "O(n log n)"
+    "complexity": "O(n log n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "e465 2018APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "e507 uva10252": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e510 uva10056": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "數學",
+    "difficulty": 2
   },
   "e512 uva10242": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "e513 uva11349": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e516 uva10409": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e530 uva1644": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "e531 uva10415": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "e535 uva11344": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e539 uva967": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "e545 uva10019": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "e555 uva10170": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e561 uva00299": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e564 uva540": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "資料結構",
+    "difficulty": 4
   },
   "e565 uva10407": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "e566 uva10190": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "e573 uva10700": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "e575 uva10908": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "e578 uva10222": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e579 uva10050": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e580 uva696": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "e581 uva11067": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "e583 uva11040": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e584 uva11094": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "e591 uva11264": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e603 uva10104": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "e605 uva10189": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "e606 uva10057": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "e679 uva11115": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "f163 2020APCS": {
-    "complexity": "O(1)"
+    "complexity": "O(1)",
+    "type": "其他",
+    "difficulty": 1
   },
   "f166 2019APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "f312 2020APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "f313 2020APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "f314 2020APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "f434 uva458": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "f444 uva10268": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "f579 2020APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "f580 2020APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "f581 2020APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "f605 2021APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "f606 2021APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "f607 2021APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "f637 2018APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "f709 uva12019": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "字串",
+    "difficulty": 2
   },
   "i859 uva10642": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "數學",
+    "difficulty": 2
   },
   "i959 uva11078": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "inclass": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "模擬",
+    "difficulty": 2
   },
   "j059 uva11547": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "j123 2022APCS": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "m371 2023APCS": {
-    "complexity": "O(V³)"
+    "complexity": "O(V³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "n693 uva10721": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "n773 uva10424": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "n786 uva10093": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "p497 uva497": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "pA": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "pB": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "pC": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "pD": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "模擬",
+    "difficulty": 3
   },
   "pE": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "q837 2025APCS": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "q981 uva151": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "s.cpp": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10006": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "uva10010": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "uva10015": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "uva10102": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10125": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "uva10161": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10172": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10174": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "uva10199": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10223": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10227": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "資料結構",
+    "difficulty": 3
   },
   "uva10236": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "uva10302": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10305": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10311": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "uva10312": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10325": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "uva10334": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10337": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10348": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10368": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10427": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10449": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10523": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "字串",
+    "difficulty": 3
   },
   "uva10527": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10535": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "uva10563": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "uva10579": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10596": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10611": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "搜尋",
+    "difficulty": 3
   },
   "uva10653": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10673": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10730": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10763": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10820": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva10827": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10858": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10887": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "uva10910": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10912": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10916": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10920": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva10926": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva10930": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva10943": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "uva10959": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva11005": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "uva11015": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "字串",
+    "difficulty": 4
   },
   "uva11057": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "排序",
+    "difficulty": 3
   },
   "uva11076": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva11086": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "數學",
+    "difficulty": 4
   },
   "uva11093": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva11121": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "uva11287": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "數學",
+    "difficulty": 3
   },
   "uva11396": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "uva11480": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva11504": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva11517": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "DP",
+    "difficulty": 3
   },
   "uva11566": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva11709": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva11770": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva11934": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva11951": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva1208": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "uva1210": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva1213": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva12160": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva12186": {
-    "complexity": "O((V + E) log V)"
+    "complexity": "O((V + E) log V)",
+    "type": "圖論",
+    "difficulty": 4
   },
   "uva1235": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "排序",
+    "difficulty": 4
   },
   "uva12783": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva13249": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "其他",
+    "difficulty": 4
   },
   "uva247": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva507": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva624": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "DP",
+    "difficulty": 4
   },
   "uva657": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "uva796": {
-    "complexity": "O((V + E) log V)"
+    "complexity": "O((V + E) log V)",
+    "type": "圖論",
+    "difficulty": 4
   },
   "uva834": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "uva907": {
-    "complexity": "O(n³)"
+    "complexity": "O(n³)",
+    "type": "模擬",
+    "difficulty": 4
   },
   "uva924": {
-    "complexity": "O(V + E)"
+    "complexity": "O(V + E)",
+    "type": "圖論",
+    "difficulty": 3
   },
   "ytp races": {
-    "complexity": "O(n²)"
+    "complexity": "O(n²)",
+    "type": "其他",
+    "difficulty": 3
   },
   "zj.601 uva255": {
-    "complexity": "O(n)"
+    "complexity": "O(n)",
+    "type": "其他",
+    "difficulty": 2
   }
 }

@@ -122,6 +122,65 @@ def analyze_complexity(code: str) -> str:
     return "O(1)"
 
 
+def infer_type(code: str, problem_id: str) -> str:
+    """根據程式碼與題目 ID 推斷題目類型"""
+    code_lower = code.lower()
+    pid = problem_id.lower()
+
+    # 圖論
+    if re.search(r'\b(bfs|dfs|queue\s*<|adjacency|graph|floyd|dijkstra|priority_queue)', code_lower):
+        return "圖論"
+    # DP
+    if re.search(r'\b(dp\[|memo|recurrence|遞迴)', code_lower) or 'dp' in code_lower:
+        return "DP"
+    # 數學
+    if re.search(r'\b(gcd|lcm|prime|mod\s*|pow\(|factorial)', code_lower):
+        return "數學"
+    # 字串
+    if re.search(r'\b(string|substr|regex|getline|cin\s*>>\s*\w+;)', code_lower):
+        return "字串"
+    # 排序 + 貪心
+    if re.search(r'\bsort\s*\(', code_lower):
+        if re.search(r'\b(greedy|貪心|two.?pointer|雙指標)', code_lower):
+            return "貪心"
+        return "排序"
+    # 搜尋
+    if re.search(r'\b(binary_search|lower_bound|upper_bound|bisect)', code_lower):
+        return "搜尋"
+    # 資料結構
+    if re.search(r'\b(segment_tree|BIT|fenwick|map\s*<|set\s*<|unordered_map|unordered_set)', code_lower):
+        return "資料結構"
+    # 模擬（簡單迴圈為主）
+    if re.search(r'\b(for|while)\s*\(', code_lower) and not re.search(r'\b(sort|queue|stack|map|set)\s*', code_lower):
+        return "模擬"
+    return "其他"
+
+
+def infer_difficulty(complexity: str, ptype: str, problem_id: str) -> int:
+    """
+    推斷難度 1–5（1=入門, 2=簡單, 3=中等, 4=困難, 5=進階）
+    """
+    pid = problem_id.lower()
+    # 入門題：a001, a003 等 ZeroJudge 基礎
+    if re.match(r'^a00[1-5]$', pid.replace(' ', '')):
+        return 1
+    if 'O(1)' in complexity:
+        return 1
+    if 'O(n)' in complexity and 'log' not in complexity:
+        return 2
+    if 'O(n log n)' in complexity or 'O(log n)' in complexity:
+        return 2
+    if 'O(n²)' in complexity or 'O(n2)' in complexity:
+        return 3
+    if 'O(V + E)' in complexity:
+        return 3
+    if 'O(n³)' in complexity or 'O(n3)' in complexity or 'O(V³)' in complexity:
+        return 4
+    if 'O((V + E) log V)' in complexity:
+        return 4
+    return 3
+
+
 def main():
     code_dir = CODE_DIR if os.path.exists(CODE_DIR) else ALT_CODE_DIR
     if not os.path.exists(code_dir):
@@ -145,15 +204,24 @@ def main():
 
     for p in problems:
         complexity = analyze_complexity(p["code"])
+        ptype = infer_type(p["code"], p["id"])
+        difficulty = infer_difficulty(complexity, ptype, p["id"])
         pid = p["id"]
         if pid not in meta:
             meta[pid] = {}
         if not isinstance(meta[pid], dict):
             meta[pid] = {}
         meta[pid]["complexity"] = complexity
+        if "type" not in meta[pid]:
+            meta[pid]["type"] = ptype
+        if "difficulty" not in meta[pid]:
+            meta[pid]["difficulty"] = difficulty
 
     # 保留 _說明 與 _範例
-    output = {"_說明": "在此補充各題的題解與時間複雜度，key 為題目 ID", "_範例": {}}
+    output = {
+        "_說明": "在此補充各題的題解、時間複雜度、類型(type)、難度(difficulty 1-5)。",
+        "_範例": {},
+    }
     for k, v in sorted(meta.items()):
         output[k] = v
 

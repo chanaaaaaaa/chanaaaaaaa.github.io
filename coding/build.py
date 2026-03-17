@@ -220,6 +220,53 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         with open(out / "problems" / f"{p['safe_id']}.html", "w", encoding="utf-8") as f:
             f.write(html_content)
 
+    # 依類型與難度分組排序
+    TYPE_ORDER = ["圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他"]
+    DIFFICULTY_ORDER = {1: "入門", 2: "簡單", 3: "中等", 4: "困難", 5: "進階"}
+
+    def get_type(p):
+        t = meta.get(p["id"], {}).get("type") or meta.get(p["safe_id"], {}).get("type") or "其他"
+        return t
+
+    def get_difficulty(p):
+        d = meta.get(p["id"], {}).get("difficulty") or meta.get(p["safe_id"], {}).get("difficulty") or 3
+        return int(d) if isinstance(d, (int, float)) else 3
+
+    grouped = {}
+    for p in problems:
+        t = get_type(p)
+        d = get_difficulty(p)
+        if t not in grouped:
+            grouped[t] = []
+        grouped[t].append((d, p))
+
+    for t in grouped:
+        grouped[t].sort(key=lambda x: (x[0], x[1]["id"]))
+
+    problem_list = []
+    for t in TYPE_ORDER:
+        if t in grouped:
+            for d, p in grouped[t]:
+                problem_list.append({
+                    "id": p["id"],
+                    "title": p["title"],
+                    "url": f"problems/{p['safe_id']}.html",
+                    "type": t,
+                    "difficulty": d,
+                })
+
+    # 未在 TYPE_ORDER 的類型放最後
+    for t in sorted(grouped.keys()):
+        if t not in TYPE_ORDER:
+            for d, p in grouped[t]:
+                problem_list.append({
+                    "id": p["id"],
+                    "title": p["title"],
+                    "url": f"problems/{p['safe_id']}.html",
+                    "type": t,
+                    "difficulty": d,
+                })
+
     with open(out / "data" / "problems.json", "w", encoding="utf-8") as f:
         json.dump({"problems": problem_list}, f, ensure_ascii=False, indent=2)
 
@@ -234,13 +281,22 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
 <body>
     <header>
         <h1>程式競賽題解</h1>
-        <p class="subtitle">LibOfManyCodes - 題目列表</p>
+        <p class="subtitle">LibOfManyCodes - 依類型與難度分類</p>
     </header>
-    <ul class="problem-list" id="problem-list">
-    '''
+'''
+    current_type = None
     for pl in problem_list:
-        index_html += f'        <li><a href="{pl["url"]}">{html.escape(pl["title"])}</a><span class="problem-id">{html.escape(pl["id"])}</span></li>\n'
-    index_html += '''    </ul>
+        if pl["type"] != current_type:
+            if current_type is not None:
+                index_html += '        </ul>\n    </section>\n'
+            current_type = pl["type"]
+            index_html += f'    <section class="problem-section">\n'
+            index_html += f'        <h2 class="section-title">{html.escape(current_type)}</h2>\n'
+            index_html += f'        <ul class="problem-list">\n'
+        diff_label = DIFFICULTY_ORDER.get(pl["difficulty"], str(pl["difficulty"]))
+        index_html += f'            <li><a href="{pl["url"]}">{html.escape(pl["title"])}</a><span class="problem-id">{html.escape(pl["id"])}</span><span class="difficulty-badge">{html.escape(diff_label)}</span></li>\n'
+    index_html += '''        </ul>
+    </section>
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
