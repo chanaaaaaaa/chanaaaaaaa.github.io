@@ -29,6 +29,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
 </head>
 <body>
+    <div class="page-wrapper">
     <header>
         <a href="../index.html" class="back-link">← 返回題目列表</a>
         <h1>{title}</h1>
@@ -36,6 +37,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
         {problem_link_html}
     </header>
 
+    <div class="content-card">
     <h2>題目大意</h2>
     <p>（請自行查閱題目描述）</p>
 
@@ -47,6 +49,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code>{code_html}</code></pre>
+    </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
@@ -56,6 +59,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
+    </div>
 </body>
 </html>
 '''

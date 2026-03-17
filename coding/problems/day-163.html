@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
 </head>
 <body>
+    <div class="page-wrapper">
     <header>
         <a href="../index.html" class="back-link">← 返回題目列表</a>
         <h1>day-163</h1>
@@ -15,6 +16,7 @@
         
     </header>
 
+    <div class="content-card">
     <h2>題目大意</h2>
     <p>（請自行查閱題目描述）</p>
 
@@ -74,6 +76,7 @@
 <span class="token directive">#include</span> &lt;string&gt;
 <span class="token directive">#include</span> &lt;vector&gt;
 <span class="token directive">#include</span> &lt;queue&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -97,10 +100,6 @@
     <span class="token keyword">return</span>;
 }
 <span class="token comment">/* I/O Optimize */</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> min(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
-    <span class="token keyword">return</span> a&lt;b?a:b;
-}
-
 <span class="token keyword">const</span> <span class="token keyword">int</span> LLINF=<span class="token number">0x7fffffffffffffff</span>LL;
 <span class="token keyword">int</span> R,N,T;
 <span class="token keyword">int</span> frequency[<span class="token number">27</span>],frequensum;
@@ -171,6 +170,12 @@ node root;
         <span class="token keyword">return</span>;
     }
 
+    <span class="token comment">// 依題目規則排序：頻率較低者優先，相同則字母序較早者優先</span>
+    sort(cur.nex.begin(), cur.nex.end(), [](<span class="token keyword">const</span> node &amp;a, <span class="token keyword">const</span> node &amp;b){
+        <span class="token keyword">if</span>(a.weight != b.weight) <span class="token keyword">return</span> a.weight &lt; b.weight;
+        <span class="token keyword">return</span> a.dfn &lt; b.dfn;
+    });
+
     <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;cur.nex.size();++i){
         dfs(cur.nex[i], s+to_string(i+R-cur.nex.size()),dep+<span class="token number">1</span>);
     }
@@ -207,14 +212,16 @@ node root;
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
+    </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="inclass.html" class="problem-link">inclass</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="uva624.html" class="problem-link">uva624</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a></p>
+        <p><a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="d306-uva10193.html" class="problem-link">d306 uva10193</a> <a href="e545-uva10019.html" class="problem-link">e545 uva10019</a> <a href="f605-2021APCS.html" class="problem-link">f605 2021APCS</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a></p>
     </div>
 
     <footer>
         LibOfManyCodes · 程式競賽題解
     </footer>
+    </div>
 </body>
 </html>
