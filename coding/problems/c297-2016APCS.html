@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c297 2016APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c297 2016APCS</h1>
+        <p class="subtitle">題目編號：c297 2016APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2016" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int dat[9][5];
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    for(int i=0;i&lt;9;i++){
+        int N;
+        cin&gt;&gt;N;
+        for(int j=0;j&lt;N;j++){
+            string IN;
+            cin&gt;&gt;IN;
+            if(IN==&quot;1B&quot;){dat[i][j]=1;}
+            else if(IN==&quot;2B&quot;){dat[i][j]=2;}
+            else if(IN==&quot;3B&quot;){dat[i][j]=3;}
+            else if(IN==&quot;HR&quot;){dat[i][j]=4;}
+            else{dat[i][j]=0;}
+        }
+    }
+    deque&lt;int&gt;lay;
+    int EN,Ans=0,now=0;
+    cin&gt;&gt;EN;
+    for(int i=0;i&lt;5;i++){
+        for(int j=0;j&lt;9;j++){
+            if(dat[j][i]==0){
+                now++;
+                //lay.push_front(-1);
+                if(now%3==0 || EN==now){
+                    for(int i=3;i&lt;lay.size();i++){
+                        Ans+=lay[i];
+                    }
+                    lay.clear();
+                }
+                if(EN==now){
+                    cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+                    break;
+                }
+            }else{
+                lay.push_front(1);
+                if(dat[j][i]&gt;1){
+                    for(int k=1;k&lt;dat[j][i];k++){
+                        lay.push_front(0);
+                    }
+                }
+            }
+        }
+        if(EN==now)break;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10763.html" class="problem-link">uva10763</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="uva10312.html" class="problem-link">uva10312</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

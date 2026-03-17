@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b964 2016APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>b964 2016APCS</h1>
+        <p class="subtitle">題目編號：b964 2016APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2016" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n log n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    vector&lt;int&gt;dat;
+    int N;
+    cin&gt;&gt;N;
+    while(N--){
+        int temp;
+        cin&gt;&gt;temp;
+        dat.push_back(temp);
+    }
+    int inside=101,outside=-1;//60
+    sort(dat.begin(),dat.end());
+    for(const auto &amp;s :dat){
+        if(s&lt;60 &amp;&amp; s&gt;outside)outside=s;
+        else if(s&gt;=60 &amp;&amp; s&lt;inside)inside=s;
+        cout&lt;&lt;s&lt;&lt;&quot; &quot;;
+    }
+    cout&lt;&lt;&quot;\n&quot;;
+    if(outside==-1)cout&lt;&lt;&quot;best case\n&quot;;
+    else cout&lt;&lt;outside&lt;&lt;&quot;\n&quot;;
+    if(inside==101)cout&lt;&lt;&quot;worst case\n&quot;;
+    else cout&lt;&lt;inside&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10912.html" class="problem-link">uva10912</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

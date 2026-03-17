@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e605 uva10189 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e605 uva10189</h1>
+        <p class="subtitle">題目編號：e605 uva10189</p>
+        <p><a href="https://vjudge.net/problem/UVA-10189" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int n,m,ron=1;
+int bom[100][100];
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+
+    while(cin&gt;&gt;n&gt;&gt;m){
+        if(n+m==0){break;}
+        //part-input
+        char A;
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;m;j++){
+                cin&gt;&gt;A;
+                if(A==&#x27;*&#x27;){bom[i][j]=9;}
+                else{bom[i][j]=0;}
+            }
+        }
+        //part-doing
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;m;j++){
+                if(bom[i][j]&gt;=9){
+                    if(i==0){
+                        if(j==0){
+                            bom[0][1]++;
+                            bom[1][0]++;
+                            bom[1][1]++;
+                        }else if(j==m-1){
+                            bom[0][j-1]++;
+                            bom[1][j-1]++;
+                            bom[1][j]++;
+                        }else{
+                            bom[0][j-1]++;
+                            bom[0][j+1]++;
+                            bom[1][j-1]++;
+                            bom[1][j+1]++;
+                            bom[1][j]++;
+                        }
+                    }else if(i==n-1){
+                        if(j==0){
+                            bom[i-1][0]++;
+                            bom[i-1][1]++;
+                            bom[i][1]++;
+                        }else if(j==m-1){
+                            bom[i-1][j]++;
+                            bom[i-1][j-1]++;
+                            bom[i][j-1]++;
+                        }else{
+                            bom[i][j+1]++;
+                            bom[i][j-1]++;
+                            bom[i-1][j+1]++;
+                            bom[i-1][j-1]++;
+                            bom[i-1][j]++;
+                        }
+                    }else if(j==0){
+                        bom[i+1][j]++;
+                        bom[i-1][j]++;
+                        bom[i+1][j+1]++;
+                        bom[i-1][j+1]++;
+                        bom[i][j+1]++;
+                    }else if(j==m-1){
+                        bom[i+1][j]++;
+                        bom[i-1][j]++;
+                        bom[i+1][j-1]++;
+                        bom[i-1][j-1]++;
+                        bom[i][j-1]++;
+                    }else{
+                        bom[i+1][j]++;
+                        bom[i+1][j+1]++;
+                        bom[i+1][j-1]++;
+                        bom[i][j+1]++;
+                        bom[i][j-1]++;
+                        bom[i-1][j]++;
+                        bom[i-1][j+1]++;
+                        bom[i-1][j-1]++;
+                    }
+                }
+            }
+        }
+        //part-output
+        cout&lt;&lt;&quot;Field #&quot;&lt;&lt;ron&lt;&lt;&quot;:&quot;&lt;&lt;&quot;\n&quot;;
+        ron++;
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;m;j++){
+                if(bom[i][j]&gt;=9){cout&lt;&lt;&quot;*&quot;;}
+                else{cout&lt;&lt;bom[i][j];}
+            }
+            cout&lt;&lt;&quot;\n&quot;;
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="day-146.html" class="problem-link">day-146</a> <a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="uva11480.html" class="problem-link">uva11480</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

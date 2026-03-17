@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a011 uva00494 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a011 uva00494</h1>
+        <p class="subtitle">題目編號：a011 uva00494</p>
+        <p><a href="https://vjudge.net/problem/UVA-00494" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+
+    string a;
+    while(getline(cin, a)){
+		bool check=false;
+		int cnt=0;
+        for(int i=0;i&lt;a.size();i++){
+			if((&#x27;a&#x27;&lt;=a[i] &amp;&amp; a[i]&lt;=&#x27;z&#x27;)||(&#x27;A&#x27;&lt;=a[i] &amp;&amp; a[i]&lt;=&#x27;Z&#x27;)){
+				check=true;
+			}else if(check){
+				check=false;
+				cnt++;
+			}
+		}
+		if(check){cnt++;}
+		cout&lt;&lt;cnt&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva657.html" class="problem-link">uva657</a> <a href="uva11934.html" class="problem-link">uva11934</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="CSES1640.html" class="problem-link">CSES1640</a> <a href="day-148.html" class="problem-link">day-148</a> <a href="CSES1074.html" class="problem-link">CSES1074</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

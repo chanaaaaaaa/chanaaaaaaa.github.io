@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d898 uva10128 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d898 uva10128</h1>
+        <p class="subtitle">題目編號：d898 uva10128</p>
+        <p><a href="https://vjudge.net/problem/UVA-10128" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(long long x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+int dp[15][15][15]={0},
+    N,a,b,c;
+inline void form(){
+    dp[1][1][1]=1;
+    for(int i=2;i&lt;=13;i++){
+        for(int a=1;a&lt;=i;a++){
+            for(int b=1;b&lt;=i;b++){
+                dp[i][a+1][b]+=dp[i-1][a][b];
+                dp[i][a][b+1]+=dp[i-1][a][b];
+                dp[i][a][b]+=dp[i-1][a][b]*(i-2);
+            }
+        }
+    }
+}
+
+signed main(){
+    form();
+    N=read();
+    while(N--){
+        a=read(),b=read(),c=read();
+        if(a&lt;=0 || a&gt;13 || b&lt;=0 || b&gt;13 || c&lt;=0 || c&gt;13 || b&gt;a || c&gt;a){
+            putchar(&#x27;0&#x27;);
+        }else{
+            write(dp[a][b][c]);
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10920.html" class="problem-link">uva10920</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva11287.html" class="problem-link">uva11287</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

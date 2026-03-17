@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+CodeLib GitHub Pages 建置腳本
+掃描 CodeLib/code 內所有題目，為每題產生解題頁面（含題解、時間複雜度），並在每頁附上隨機的其他題目連結。
+輸出至 chanaaaaaaa.github.io/coding
+"""
+
+import os
+import re
+import json
+import random
+import html
+import argparse
+from pathlib import Path
+
+# 預設路徑
+DEFAULT_CODELIB = os.path.join(os.path.expanduser("~"), "Downloads", "git", "CodeLib", "code")
+ALT_CODELIB = os.path.join(os.path.expanduser("~"), "Downloads", "CodeLib", "code")
+DEFAULT_OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)))  # coding/ 目錄
+
+PAGE_TEMPLATE = '''<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>{title}</h1>
+        <p class="subtitle">題目編號：{problem_id}</p>
+        {problem_link_html}
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>{solution_html}</p>
+
+    <h2>時間複雜度</h2>
+    <p>{complexity_html}</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>{code_html}</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p>{other_links_html}</p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>
+'''
+
+
+def extract_from_code(code: str, problem_id: str) -> tuple:
+    """嘗試從程式碼註解中擷取題解與時間複雜度"""
+    solution = ""
+    complexity = ""
+
+    # 題解：// 題解: 或 /* 題解: 或 // 解法:
+    for pattern in [
+        r'//\s*題解\s*[：:]\s*(.+?)(?:\n|$)',
+        r'/\*\s*題解\s*[：:]\s*(.+?)\s*\*/',
+        r'//\s*解法\s*[：:]\s*(.+?)(?:\n|$)',
+    ]:
+        m = re.search(pattern, code, re.DOTALL)
+        if m:
+            solution = m.group(1).strip()
+            break
+
+    # 時間複雜度：// 時間複雜度: O(...) 或 O(n) 等
+    for pattern in [
+        r'//\s*時間複雜度\s*[：:]\s*(.+?)(?:\n|$)',
+        r'/\*\s*時間複雜度\s*[：:]\s*(.+?)\s*\*/',
+        r'//\s*複雜度\s*[：:]\s*(.+?)(?:\n|$)',
+        r'//\s*Time\s*[Cc]omplexity\s*[：:]\s*(.+?)(?:\n|$)',
+        r'//\s*O\s*\(\s*[^)]+\s*\)',
+    ]:
+        m = re.search(pattern, code, re.DOTALL)
+        if m:
+            complexity = m.group(1).strip() if m.lastindex else m.group(0).strip()
+            break
+
+    return solution or "（請自行補充）", complexity or "（請自行補充）"
+
+
+def find_problem_link(problem_id: str) -> str:
+    """根據題目 ID 推測 VJudge / ZeroJudge 連結"""
+    problem_id = problem_id.strip().lower()
+    uva_match = re.search(r'uva\s*(\d+)', problem_id) or re.search(r'(\d{4,5})', problem_id)
+    if uva_match:
+        return f'https://vjudge.net/problem/UVA-{uva_match.group(1)}'
+    zj_match = re.search(r'([a-z])\s*(\d+)', problem_id) or re.search(r'([a-z]\d+)', problem_id)
+    if zj_match:
+        pid = zj_match.group(0).replace(' ', '').upper()
+        return f'https://zerojudge.tw/ShowProblem?problemid={pid}'
+    if 'cses' in problem_id:
+        num = re.search(r'\d+', problem_id)
+        if num:
+            return f'https://cses.fi/problemset/task/{num.group(0)}'
+    return ''
+
+
+def load_meta(meta_path: Path) -> dict:
+    """載入 meta.json（題解、時間複雜度）"""
+    if not meta_path.exists():
+        return {}
+    try:
+        with open(meta_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def collect_problems(code_dir: str) -> list:
+    """掃描 code 目錄，收集所有題目"""
+    code_path = Path(code_dir)
+    if not code_path.exists():
+        return []
+
+    problems = []
+    seen = set()
+
+    for cpp_file in code_path.rglob("*.cpp"):
+        if cpp_file.name.endswith('.o') or 'obj' in str(cpp_file).lower():
+            continue
+        rel = cpp_file.relative_to(code_path)
+        parts = rel.parts
+        folder_name = parts[-2] if len(parts) >= 2 else (parts[0] if parts else str(rel.parent))
+
+        if folder_name in seen:
+            continue
+
+        folder = cpp_file.parent
+        preferred = folder / "c.cpp"
+        if preferred.exists():
+            cpp_file = preferred
+        else:
+            cpp_files = list(folder.glob("*.cpp"))
+            if cpp_files:
+                cpp_file = sorted(cpp_files)[0]
+
+        try:
+            with open(cpp_file, "r", encoding="utf-8", errors="ignore") as f:
+                code = f.read()
+        except Exception:
+            code = "// 無法讀取程式碼"
+
+        safe_id = re.sub(r'[^\w\s-]', '', folder_name).strip().replace(' ', '-')
+        if not safe_id:
+            safe_id = f"p{len(problems)}"
+        safe_id = safe_id[:50]
+
+        solution, complexity = extract_from_code(code, folder_name)
+
+        problems.append({
+            "id": folder_name,
+            "safe_id": safe_id,
+            "title": folder_name,
+            "code": code,
+            "link": find_problem_link(folder_name),
+            "solution": solution,
+            "complexity": complexity,
+        })
+        seen.add(folder_name)
+
+    return problems
+
+
+def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6):
+    """產生各題目頁面與 index"""
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "problems").mkdir(exist_ok=True)
+    (out / "data").mkdir(exist_ok=True)
+
+    problem_list = []
+    for i, p in enumerate(problems):
+        url = f"problems/{p['safe_id']}.html"
+        problem_list.append({"id": p["id"], "title": p["title"], "url": url})
+
+        # 優先使用 meta.json 的內容
+        solution = meta.get(p["id"], {}).get("solution") or meta.get(p["safe_id"], {}).get("solution") or p["solution"]
+        complexity = meta.get(p["id"], {}).get("complexity") or meta.get(p["safe_id"], {}).get("complexity") or p["complexity"]
+
+        others = [x for j, x in enumerate(problems) if j != i]
+        random.shuffle(others)
+        links = others[:num_links]
+
+        other_links_html = " ".join(
+            f'<a href="{x["safe_id"]}.html" class="problem-link">{html.escape(x["title"])}</a>'
+            for x in links
+        )
+
+        problem_link_html = ""
+        if p["link"]:
+            problem_link_html = f'<p><a href="{p["link"]}" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>'
+
+        solution_html = html.escape(solution).replace('\n', '<br>')
+        complexity_html = html.escape(complexity)
+
+        html_content = PAGE_TEMPLATE.format(
+            title=html.escape(p["title"]),
+            problem_id=html.escape(p["id"]),
+            problem_link_html=problem_link_html,
+            solution_html=solution_html,
+            complexity_html=complexity_html,
+            code_html=html.escape(p["code"]),
+            other_links_html=other_links_html,
+        )
+
+        with open(out / "problems" / f"{p['safe_id']}.html", "w", encoding="utf-8") as f:
+            f.write(html_content)
+
+    with open(out / "data" / "problems.json", "w", encoding="utf-8") as f:
+        json.dump({"problems": problem_list}, f, ensure_ascii=False, indent=2)
+
+    index_html = '''<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程式競賽題解 - CodeLib</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>程式競賽題解</h1>
+        <p class="subtitle">LibOfManyCodes - 題目列表</p>
+    </header>
+    <ul class="problem-list" id="problem-list">
+    '''
+    for pl in problem_list:
+        index_html += f'        <li><a href="{pl["url"]}">{html.escape(pl["title"])}</a><span class="problem-id">{html.escape(pl["id"])}</span></li>\n'
+    index_html += '''    </ul>
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>
+'''
+    with open(out / "index.html", "w", encoding="utf-8") as f:
+        f.write(index_html)
+
+    return len(problems)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="建置 CodeLib 題解網站（輸出至 coding/）")
+    parser.add_argument("--code-dir", default=DEFAULT_CODELIB, help="CodeLib/code 目錄路徑")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT, help="輸出目錄（預設為 coding/）")
+    parser.add_argument("--links", type=int, default=6, help="每頁顯示的其他題目連結數量")
+    parser.add_argument("--seed", type=int, default=None, help="隨機種子")
+    args = parser.parse_args()
+
+    code_dir = args.code_dir if os.path.exists(args.code_dir) else ALT_CODELIB
+    if not os.path.exists(code_dir):
+        print(f"錯誤：找不到 CodeLib/code 目錄")
+        print(f"請使用 --code-dir 指定路徑")
+        return 1
+
+    if args.seed is not None:
+        random.seed(args.seed)
+
+    output_dir = os.path.abspath(args.output)
+    meta_path = Path(output_dir) / "meta.json"
+    meta = load_meta(meta_path)
+
+    print(f"掃描目錄：{code_dir}")
+    problems = collect_problems(code_dir)
+    print(f"找到 {len(problems)} 個題目")
+
+    if not problems:
+        print("沒有找到任何題目")
+        return 1
+
+    count = build_pages(problems, output_dir, meta, args.links)
+    print(f"已產生 {count} 個題目頁面與 index.html")
+    print(f"輸出目錄：{output_dir}")
+    print(f"提示：可編輯 meta.json 補充各題的「題解」與「時間複雜度」")
+    return 0
+
+
+if __name__ == "__main__":
+    exit(main() or 0)

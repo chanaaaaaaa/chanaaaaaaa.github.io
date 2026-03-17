@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e564 uva540 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e564 uva540</h1>
+        <p class="subtitle">題目編號：e564 uva540</p>
+        <p><a href="https://vjudge.net/problem/UVA-540" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+#include&lt;unordered_map&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+inline char read_command(){
+    char c=0,x=0;
+    while(c&lt;&#x27;A&#x27; || c&gt;&#x27;Z&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;A&#x27; &amp;&amp; c&lt;=&#x27;Z&#x27;){
+        if(!x){x=c;}
+        c=getchar();
+    }
+    return x;
+}
+inline int read_judge(){
+    char IN=read_command();
+    if(IN==&#x27;S&#x27;){return 0;}
+    if(IN==&#x27;E&#x27;){return 1;}
+    if(IN==&#x27;D&#x27;){return -1;}
+}
+int T,N,command,Num,cases=0;
+unordered_map&lt;int,int&gt;dat;
+vector&lt;int&gt;sub;
+int main(){
+    while(T=read()){
+        if(T==-1){break;}
+        //-head
+        for(int i=0;i&lt;T;i++){
+            N=read();
+            for(int j=0;j&lt;N;j++){
+                dat[read()]=i;
+            }
+        }
+        putchar(&#x27;S&#x27;);
+        putchar(&#x27;c&#x27;);
+        putchar(&#x27;e&#x27;);
+        putchar(&#x27;n&#x27;);
+        putchar(&#x27;a&#x27;);
+        putchar(&#x27;r&#x27;);
+        putchar(&#x27;i&#x27;);
+        putchar(&#x27;o&#x27;);
+        putchar(&#x27; &#x27;);
+        putchar(&#x27;#&#x27;);
+        write(++cases);
+        putchar(&#x27;\n&#x27;);
+        //-input&amp;init
+        while(command=read_judge()){
+            if(command==1){
+                Num=read();
+                if(sub.size()==0){
+                    sub.push_back(Num);
+                }else{
+                    for(int i=sub.size()-1;i&gt;=0;i--){
+                        if(dat[sub[i]]==dat[Num]){
+                            sub.insert(sub.begin()+i+1,Num);
+                            break;
+                        }else if(i==0){sub.push_back(Num);}
+                    }
+                }
+            }else{
+                write(sub[0]);
+                putchar(&#x27;\n&#x27;);
+                sub.erase(sub.begin());
+            }
+        }
+        vector&lt;int&gt;sv;swap(sub,sv);
+        unordered_map&lt;int,int&gt;smp;swap(dat,smp);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="f166-2019APCS.html" class="problem-link">f166 2019APCS</a> <a href="CSES1754.html" class="problem-link">CSES1754</a> <a href="uva12160.html" class="problem-link">uva12160</a> <a href="a519-uva12459.html" class="problem-link">a519 uva12459</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

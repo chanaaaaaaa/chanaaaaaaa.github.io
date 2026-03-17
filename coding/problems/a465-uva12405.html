@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a465 uva12405 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a465 uva12405</h1>
+        <p class="subtitle">題目編號：a465 uva12405</p>
+        <p><a href="https://vjudge.net/problem/UVA-12405" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    cin&gt;&gt;N;
+    cin.ignore();
+    for(int i=1;i&lt;=N;i++){
+        int cou=0,k;
+        string K;
+        cin&gt;&gt;k&gt;&gt;K;
+
+        for(int j=0;j&lt;k;j++){
+            if(K[j]==&#x27;.&#x27;){
+                j+=2;
+                cou++;
+            }
+        }
+
+        cout&lt;&lt;&quot;Case &quot;&lt;&lt;i&lt;&lt;&quot;: &quot;&lt;&lt;cou&lt;&lt;&quot;\n&quot;;
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="CSES1085.html" class="problem-link">CSES1085</a> <a href="a006.html" class="problem-link">a006</a> <a href="a466-uva12289.html" class="problem-link">a466 uva12289</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="a536-uva11689.html" class="problem-link">a536 uva11689</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

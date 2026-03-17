@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c044 uva10008 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c044 uva10008</h1>
+        <p class="subtitle">題目編號：c044 uva10008</p>
+        <p><a href="https://vjudge.net/problem/UVA-10008" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int dic[26];
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N,maxx=0;
+    cin&gt;&gt;N;
+    cin.ignore();
+    while(N--){
+        string A;
+        getline(cin,A);
+        for(int i=0;i&lt;A.size();i++){
+            int temp=int(A[i]);
+            if(temp&gt;=65 &amp;&amp; temp&lt;=90){
+               dic[temp-65]++;
+               if(dic[temp-65]&gt;maxx) maxx=dic[temp-65];
+            }else if(temp&gt;=97 &amp;&amp; temp&lt;=122){
+                dic[temp-97]++;
+                if(dic[temp-97]&gt;maxx) maxx=dic[temp-97];
+            }
+        }
+    }
+    for(int i=maxx;i&gt;0;i--){
+        for(int j=0;j&lt;26;j++){
+            if(dic[j]==i){
+                cout&lt;&lt;char(j+65)&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot;\n&quot;;
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="i859-uva10642.html" class="problem-link">i859 uva10642</a> <a href="uva10010.html" class="problem-link">uva10010</a> <a href="Luogu-P2261.html" class="problem-link">Luogu P2261</a> <a href="uva10337.html" class="problem-link">uva10337</a> <a href="uva11504.html" class="problem-link">uva11504</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

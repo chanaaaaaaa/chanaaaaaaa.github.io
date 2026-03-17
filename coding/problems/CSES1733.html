@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSES1733 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>CSES1733</h1>
+        <p class="subtitle">題目編號：CSES1733</p>
+        <p><a href="https://vjudge.net/problem/UVA-1733" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inilne&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+//#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;climits&gt;
+
+#define icc ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+using ull = unsigned long long;
+using namespace std;
+const int MAXN=1000005;
+/*
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+        if(c==-1){return 0;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+c-&#x27;0&#x27;;
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+*/
+//-block
+
+int main(){
+    icc;
+    string s;
+    cin&gt;&gt;s;
+
+    int n=s.size();
+
+    vector&lt;int&gt; pi(n,0);
+    for(int i=1;i&lt;n;++i){
+        int j=pi[i-1];
+        while(j&gt;0 &amp;&amp; s[i]!=s[j]){
+            j=pi[j-1];
+        }
+        if(s[i]==s[j]) ++j;
+        pi[i]=j;
+    }
+
+    vector&lt;int&gt; periods;
+    int len=n;
+    while(len&gt;0){
+        len=pi[len-1];
+        periods.push_back(n-len);
+    }
+
+    for(int i=0;i&lt;periods.size();++i){
+        if(i&gt;0) cout&lt;&lt;&#x27; &#x27;;
+        cout&lt;&lt;periods[i];
+    }
+    cout&lt;&lt;&#x27;\n&#x27;;
+
+    return 0;
+}
+
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10427.html" class="problem-link">uva10427</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="uva11015.html" class="problem-link">uva11015</a> <a href="d275-uva11586.html" class="problem-link">d275 uva11586</a> <a href="c012-uva10062.html" class="problem-link">c012 uva10062</a> <a href="uva10449.html" class="problem-link">uva10449</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

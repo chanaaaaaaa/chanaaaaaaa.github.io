@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d750 uva11321 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d750 uva11321</h1>
+        <p class="subtitle">題目編號：d750 uva11321</p>
+        <p><a href="https://vjudge.net/problem/UVA-11321" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int A,B;
+    while(cin&gt;&gt;A&gt;&gt;B){
+        cout&lt;&lt;A&lt;&lt;&quot; &quot;&lt;&lt;B&lt;&lt;&quot;\n&quot;;
+        if(A+B==0){break;}
+        vector&lt;int&gt;dat;
+        for(int i=0;i&lt;A;i++){
+            int temp;
+            cin&gt;&gt;temp;
+            dat.push_back(temp);
+        }
+        for(int i=0;i&lt;A-1;i++){
+            for(int j=i+1;j&lt;A;j++){
+                if(dat[i]%B &gt; dat[j]%B){
+                    swap(dat[i],dat[j]);
+                }
+            }
+        }
+        for(int i=0;i&lt;A-1;i++){
+            for(int j=i+1;j&lt;A;j++){
+                if(dat[i]%B==dat[j]%B){
+                    if(dat[i]%2+dat[j]%2==0){
+                        if(dat[i]&gt;dat[j]){
+                            swap(dat[i],dat[j]);
+                        }
+                    }else if(dat[i]%2+dat[j]%2==1){
+                        if(dat[j]%2==1){
+                            swap(dat[i],dat[j]);
+                        }
+                    }else{//dat[i]%2+dat[j]%2==2
+                        if(dat[i]&lt;dat[j]){
+                            swap(dat[i],dat[j]);
+                        }
+                    }
+                }
+            }
+        }
+        for(int i=0;i&lt;A;i++){
+            cout&lt;&lt;dat[i]&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="uva10172.html" class="problem-link">uva10172</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="uva10820.html" class="problem-link">uva10820</a> <a href="day-140.html" class="problem-link">day-140</a> <a href="pE.html" class="problem-link">pE</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

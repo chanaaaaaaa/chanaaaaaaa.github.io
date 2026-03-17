@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e287 2019APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e287 2019APCS</h1>
+        <p class="subtitle">題目編號：e287 2019APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2019" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int mx[4]={0,0,-1,1};
+int my[4]={1,-1,0,0};
+int dat[100][100];
+
+int n,m,sx=0,sy=0;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;n;i++){
+        for(int j=0;j&lt;m;j++){
+            cin&gt;&gt;dat[j][i];
+            if(dat[j][i]&lt;dat[sx][sy]){
+                sx=j;
+                sy=i;
+            }
+        }
+    }
+    long long Ans=dat[sx][sy];
+    for(int i=0;i&lt;n*m;i++){
+        int nowx=sx,nowy=sy,maxx=1e6;
+        for(int j=0;j&lt;4;j++){
+            if(nowx+mx[j]&lt;m &amp;&amp; nowx+mx[j]&gt;=0 &amp;&amp; nowy+my[j]&lt;n &amp;&amp; nowy+my[j]&gt;=0){
+                if((dat[nowx+mx[j]][nowy+my[j]]!=-1)&amp;&amp;(dat[nowx+mx[j]][nowy+my[j]]&lt;maxx)){
+                    sx=nowx+mx[j];
+                    sy=nowy+my[j];
+                    maxx=dat[sx][sy];
+                }
+            }
+        }
+        if(sx==nowx &amp;&amp; sy==nowy){
+            break;
+        }else{
+            Ans+=dat[sx][sy];
+            dat[nowx][nowy]=-1;
+        }
+    }
+    cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;/*
+    for(int i=0;i&lt;n;i++){
+        for(int j=0;j&lt;m;j++){
+            cout&lt;&lt;dat[j][i]&lt;&lt;&quot;\t&quot;;
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }*/
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10102.html" class="problem-link">uva10102</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="d674-uva10192.html" class="problem-link">d674 uva10192</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="e606-uva10057.html" class="problem-link">e606 uva10057</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

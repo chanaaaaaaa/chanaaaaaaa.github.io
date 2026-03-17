@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e535 uva11344 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e535 uva11344</h1>
+        <p class="subtitle">題目編號：e535 uva11344</p>
+        <p><a href="https://vjudge.net/problem/UVA-11344" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+inline bool check_mod(const string&amp; S, int m) {
+    int rem = 0;
+    for (char c : S) {
+        rem = (rem * 10 + (c - &#x27;0&#x27;)) % m;
+    }
+    return rem == 0;
+}
+
+inline int get_last_n(const string&amp; S, int n) {
+    int res = 0,p = 1,len = S.length();
+    for (int i = 0; i &lt; n &amp;&amp; i &lt; len; ++i) {
+        res += (S[len - 1 - i] - &#x27;0&#x27;) * p;
+        p *= 10;
+    }
+    return res;
+}
+
+inline void solve() {
+    string S;
+    int N, tmp;
+    if (!(cin &gt;&gt; S &gt;&gt; N)) return;
+
+    bool div[13] = {false};
+    for (int i = 0; i &lt; N; ++i) {
+        cin &gt;&gt; tmp;
+        if (tmp &lt;= 12) div[tmp] = true;
+    }
+
+    if(div[12]){
+        div[6]=false;
+        div[4]=true;
+        div[3]=true;
+    }
+    if(div[6]){
+        div[2]=true;
+        div[3]=true;
+        div[6]=false;
+    }
+    if(div[10]){
+        div[5]=false;
+        div[2]=false;
+    }
+    if(div[9]){
+        div[3]=false;
+    }
+    if(div[8]){
+        div[4]=false;
+        div[2]=false;
+    }
+    if(div[4]){
+        div[2]=false;
+    }
+    if(div[8]&amp;&amp;div[9]){
+        div[6]=false;
+    }
+
+    bool is_wonderful = true;
+
+    for (int i = 2; i &lt;= 12; ++i) {
+        if (!div[i]) continue;
+
+        bool current_ok = true;
+        switch (i) {
+            case 2:  if (get_last_n(S, 1) % 2 != 0) current_ok = false; break;
+            case 3:  if (!check_mod(S, 3)) current_ok = false; break;
+            case 4:  if (get_last_n(S, 2) % 4 != 0) current_ok = false; break;
+            case 5:  if (get_last_n(S, 1) % 5 != 0) current_ok = false; break;
+            case 6:  if (!check_mod(S, 6)) current_ok = false; break;
+            case 7:  if (!check_mod(S, 7)) current_ok = false; break;
+            case 8:  if (get_last_n(S, 3) % 8 != 0) current_ok = false; break;
+            case 9:  if (!check_mod(S, 9)) current_ok = false; break;
+            case 10: if (get_last_n(S, 1) % 10 != 0) current_ok = false; break;
+            case 11: if (!check_mod(S, 11)) current_ok = false; break;
+            case 12: if (!check_mod(S, 12)) current_ok = false; break;
+        }
+
+        if (!current_ok) {
+            is_wonderful = false;
+            break;
+        }
+    }
+
+    cout &lt;&lt; S &lt;&lt; &quot; - &quot; &lt;&lt; (is_wonderful ? &quot;Wonderful.&quot; : &quot;Simple.&quot;) &lt;&lt; &#x27;\n&#x27;;
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int T;
+    cin&gt;&gt;T;
+    while (T--) {
+        solve();
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a> <a href="uva10449.html" class="problem-link">uva10449</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="Luogu-P2580.html" class="problem-link">Luogu P2580</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="uva10427.html" class="problem-link">uva10427</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

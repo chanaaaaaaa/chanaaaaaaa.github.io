@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f444 uva10268 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>f444 uva10268</h1>
+        <p class="subtitle">題目編號：f444 uva10268</p>
+        <p><a href="https://vjudge.net/problem/UVA-10268" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int x;
+    while(cin&gt;&gt;x){
+        string sp,in;
+        getline(cin,sp);
+        getline(cin,in);
+        stringstream read(in);
+
+        int temp;
+        long long Ans=0;
+        vector&lt;int&gt;f;
+        while(read&gt;&gt;temp){
+            f.push_back(temp);
+        }
+        for(int i=0;i&lt;f.size()-1;i++){
+            Ans*=x;
+            Ans+=f[i]*(f.size()-1-i);
+        }
+        cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="d111-uva10110.html" class="problem-link">d111 uva10110</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a> <a href="uva624.html" class="problem-link">uva624</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

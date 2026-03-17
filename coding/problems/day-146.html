@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day-146 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>day-146</h1>
+        <p class="subtitle">題目編號：day-146</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+struct node{
+    bool vis;
+    int val;
+    node *let_n,*rit_n;
+    node() : vis(false),val(0),let_n(NULL),rit_n(NULL){}
+};
+
+node *root=NULL;
+bool die=false;
+
+inline node* newnode() {
+    return new node();
+}
+
+inline void insertnode(int k,char *c){
+    if(!root){root=newnode();}
+    node *p=root;
+
+    while(*c &amp;&amp; *c!=&#x27;)&#x27;){
+        if(*c==&#x27;L&#x27;){
+            if(p-&gt;let_n==NULL){p-&gt;let_n=newnode();}
+            p=p-&gt;let_n;
+        }else if(*c==&#x27;R&#x27;){
+            if(p-&gt;rit_n==NULL){p-&gt;rit_n=newnode();}
+            p=p-&gt;rit_n;
+        }
+        ++c;
+    }
+
+    if(p-&gt;vis){die=true;}
+    p-&gt;val=k;
+    p-&gt;vis=true;
+
+    return;
+}
+
+inline void clean(node *nd){
+    if(nd==NULL){return;}
+    clean(nd-&gt;let_n);
+    clean(nd-&gt;rit_n);
+    delete nd;
+}
+
+inline bool read_input(){
+    char s[1000];
+    die=false;
+    clean(root);
+    root=newnode();
+
+    while(scanf(&quot;%s&quot;,s)==1){
+        if(strcmp(s,&quot;()&quot;)==0){return true;}
+        int val;
+        sscanf(&amp;s[1],&quot;%d&quot;,&amp;val);
+        insertnode(val,strchr(s, &#x27;,&#x27;)+1);
+    }
+    return false;
+}
+
+inline void bfs() {
+    if(die){printf(&quot;not complete\n&quot;);return;}
+
+    vector&lt;int&gt;ans;
+    queue&lt;node*&gt;q;
+    q.push(root);
+
+    while (!q.empty()) {
+        node* curr=q.front();
+        q.pop();
+
+        if(!curr-&gt;vis){
+            printf(&quot;not complete\n&quot;);
+            return;
+        }
+
+        ans.push_back(curr-&gt;val);
+        if(curr-&gt;let_n){q.push(curr-&gt;let_n);}
+        if(curr-&gt;rit_n){q.push(curr-&gt;rit_n);}
+    }
+
+    for(int i=0;i&lt;ans.size();++i){
+        printf(&quot;%d%c&quot;,ans[i],i==ans.size()-1?&#x27;\n&#x27;:&#x27; &#x27;);
+    }
+}
+
+signed main(){
+    while(read_input()){
+        bfs();
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d306-uva10193.html" class="problem-link">d306 uva10193</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="uva12186.html" class="problem-link">uva12186</a> <a href="uva10311.html" class="problem-link">uva10311</a> <a href="e555-uva10170.html" class="problem-link">e555 uva10170</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

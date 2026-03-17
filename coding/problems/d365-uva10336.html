@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d365 uva10336 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d365 uva10336</h1>
+        <p class="subtitle">題目編號：d365 uva10336</p>
+        <p><a href="https://vjudge.net/problem/UVA-10336" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#define int long long
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+// -block
+int dx[4]={0,1,0,-1};
+int dy[4]={1,0,-1,0};
+
+inline int read_char(){
+    char c=0;
+    while(c&lt;&#x27;a&#x27; || c&gt;&#x27;z&#x27;){
+        c=getchar();
+    }
+    return c-&#x27;a&#x27;;
+}
+
+signed main(){
+    int N=read();
+    for(int T=1;T&lt;=N;T++){
+        int H=read(),W=read();
+        int mp[H][W],dat[27]={0};
+        for(int i=0;i&lt;H;i++){
+            for(int j=0;j&lt;W;j++){
+                mp[i][j]=read_char();
+            }
+        }
+        //-init&amp;input
+        //bfs
+        for(int i=0;i&lt;H;i++){
+            for(int j=0;j&lt;W;j++){
+                if(mp[i][j]!=-1){
+                    int target=mp[i][j];
+                    queue&lt;pair&lt;int,int&gt;&gt;wait;
+                    wait.push({i,j});
+                    dat[target]++;
+                    while(!wait.empty()){
+                        /*
+                        //test
+                        for(int ti=0;ti&lt;H;ti++){
+                            for(int tj=0;tj&lt;W;tj++){
+                                putchar(mp[ti][tj]);
+                                putchar(&#x27; &#x27;);
+                            }
+                            putchar(&#x27;\n&#x27;);
+                        }
+                        //-test
+                        */
+                        int y=wait.front().first;
+                        int x=wait.front().second;
+                        wait.pop();
+                        mp[y][x]=-1;
+                        for(int k=0;k&lt;4;k++){
+                            if(y+dy[k]&gt;=0 &amp;&amp; y+dy[k]&lt;H &amp;&amp; x+dx[k]&gt;=0 &amp;&amp; x+dx[k]&lt;W){
+                                if(mp[y+dy[k]][x+dx[k]]==target){
+                                    wait.push({y+dy[k],x+dx[k]});
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //output
+        putchar(&#x27;W&#x27;);
+        putchar(&#x27;o&#x27;);
+        putchar(&#x27;r&#x27;);
+        putchar(&#x27;l&#x27;);
+        putchar(&#x27;d&#x27;);
+        putchar(&#x27; &#x27;);
+        putchar(&#x27;#&#x27;);
+        write(T);
+        putchar(&#x27;\n&#x27;);
+        for(int i=0;i&lt;26;i++){
+            int maxx=26;
+            for(int j=0;j&lt;26;j++){
+                if(dat[j]&gt;dat[maxx]){maxx=j;}
+            }
+            if(maxx==26){break;}
+            putchar(&#x27;a&#x27;+maxx);
+            putchar(&#x27;:&#x27;);
+            putchar(&#x27; &#x27;);
+            write(dat[maxx]);
+            putchar(&#x27;\n&#x27;);
+            dat[maxx]=0;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="Luogu-P2580.html" class="problem-link">Luogu P2580</a> <a href="uva10334.html" class="problem-link">uva10334</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

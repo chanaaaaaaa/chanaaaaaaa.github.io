@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c014 uva10035 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c014 uva10035</h1>
+        <p class="subtitle">題目編號：c014 uva10035</p>
+        <p><a href="https://vjudge.net/problem/UVA-10035" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int a,b,con=0;
+int aa[10],bb[10],cc[11];
+
+int main(){
+
+    while(true){
+        for(int i=10;i&gt;0;i--){
+            cc[i]=0;
+        }
+        con=0;
+
+        cin&gt;&gt;a&gt;&gt;b;
+        if(a+b==0){break;}
+
+        for(int i=9;i&gt;0;i--){
+            int na,nb;
+            na=(a/pow(10,10-1-i));
+            aa[i]=na%10;
+            nb=(b/pow(10,10-1-i));
+            bb[i]=nb%10;
+            cc[i+1]+=aa[i]+bb[i];
+            if(cc[i+1]&gt;=10){
+                cc[i+1]-=10;
+                cc[i]+=1;
+                con++;
+            }
+        }
+        if(con&gt;1){
+            cout&lt;&lt;con&lt;&lt;&quot; carry operations.&quot;&lt;&lt;&quot;\n&quot;;
+        }else if(con&gt;0){
+            cout&lt;&lt;con&lt;&lt;&quot; carry operation.&quot;&lt;&lt;&quot;\n&quot;;
+        }else{
+           cout&lt;&lt;&quot;No carry operation.&quot;&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="pE.html" class="problem-link">pE</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="e288-2019APCS.html" class="problem-link">e288 2019APCS</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="CSES1632.html" class="problem-link">CSES1632</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

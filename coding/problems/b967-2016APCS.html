@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b967 2016APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>b967 2016APCS</h1>
+        <p class="subtitle">題目編號：b967 2016APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2016" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+vector&lt;vector&lt;int&gt;&gt;dic;
+int N,a,b,mi=-1,md=3;
+
+void dfs(int idx,int father,int depth){
+    for(auto i : dic[idx]){
+        if(i!=father){
+            dfs(i,idx,depth+1);
+        }
+    }
+    if(depth&gt;md){
+        md=depth;
+        mi=idx;
+    }
+}
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    cin&gt;&gt;N;
+    dic.assign(N,{});
+    for(int i=1;i&lt;N;i++){
+        cin&gt;&gt;a&gt;&gt;b;
+        dic[a].push_back(b);
+        dic[b].push_back(a);
+    }
+    dfs(0,-1,0);
+    dfs(mi,-1,0);
+    cout&lt;&lt;md&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="e289-2019APCS.html" class="problem-link">e289 2019APCS</a> <a href="day-152.html" class="problem-link">day-152</a> <a href="d898-uva10128.html" class="problem-link">!d898 uva10128</a> <a href="uva507.html" class="problem-link">uva507</a> <a href="c462-2017APCS.html" class="problem-link">c462 2017APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

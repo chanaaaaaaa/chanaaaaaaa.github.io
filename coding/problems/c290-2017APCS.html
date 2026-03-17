@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c290 2017APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c290 2017APCS</h1>
+        <p class="subtitle">題目編號：c290 2017APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2017" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    string IN;
+    int Ans;
+    cin&gt;&gt;IN;
+    for(int i=0;i&lt;IN.size();i++){
+        if((i&amp;1)==0)Ans+=IN[i]-48;
+        else Ans-=IN[i]-48;
+    }
+    cout&lt;&lt;abs(Ans)&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10527.html" class="problem-link">uva10527</a> <a href="uva10172.html" class="problem-link">uva10172</a> <a href="e512-uva10242.html" class="problem-link">e512 uva10242</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="day-153.html" class="problem-link">day-153</a> <a href="d443-uva10497.html" class="problem-link">d443 uva10497</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

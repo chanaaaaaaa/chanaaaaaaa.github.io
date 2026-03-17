@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c295 2016APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c295 2016APCS</h1>
+        <p class="subtitle">題目編號：c295 2016APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2016" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    vector&lt;int&gt;dat;
+    int a,b,sum=0;
+    cin&gt;&gt;a&gt;&gt;b;
+    while(a--){
+        int maxx=0;
+        for(int i=0;i&lt;b;i++){
+            int temp;
+            cin&gt;&gt;temp;
+            maxx=max(maxx,temp);
+        }
+        sum+=maxx;
+        dat.push_back(maxx);
+    }
+    bool flag=true;
+    cout&lt;&lt;sum&lt;&lt;&quot;\n&quot;;
+    int maxx=dat.size()-1;
+    for(;maxx&gt;=0;maxx--){
+        if(sum%dat[maxx]==0)break;
+    }
+    for(int i=0;i&lt;=maxx;i++){
+        if(sum%dat[i]==0){
+            cout&lt;&lt;dat[i];
+            flag=false;
+            if(i!=maxx)cout&lt;&lt;&quot; &quot;;
+        }
+    }
+    if(flag)cout&lt;&lt;&quot;-1&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="pA.html" class="problem-link">pA</a> <a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="e561-uva00299.html" class="problem-link">e561 uva00299</a> <a href="scpp.html" class="problem-link">s.cpp</a> <a href="b265-uva11286.html" class="problem-link">b265 uva11286</a> <a href="uva10563.html" class="problem-link">uva10563</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

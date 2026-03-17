@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSES 1753 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>CSES 1753</h1>
+        <p class="subtitle">題目編號：CSES 1753</p>
+        <p><a href="https://vjudge.net/problem/UVA-1753" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+vector&lt;int&gt;nxt;
+inline void makenxt(string &amp;give){
+    nxt.assign(give.size(),0);
+    for(int i=1,now=0;i&lt;give.size();i++){
+        while(now&gt;0 &amp;&amp; give[i]!=give[now]){
+            now=nxt[now-1];
+        }
+        if(give[i]==give[now]){
+            now++;
+        }
+        nxt[i]=now;
+    }
+}
+
+inline void kmp(string &amp;give,string &amp;want){
+    long long cnt=0;
+    for(int i=0,now=0;i&lt;give.size();i++){
+        while(now&gt;0 &amp;&amp; give[i]!=want[now]){
+            now=nxt[now-1];
+        }
+        if(give[i]==want[now]){now++;}
+        if(now==want.size()){
+            cnt++;
+            now=nxt[now-1];
+        }
+    }
+    cout&lt;&lt;cnt&lt;&lt;&#x27;\n&#x27;;
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+    string A,B;
+    while(cin&gt;&gt;A&gt;&gt;B){
+        makenxt(B);
+        kmp(A,B);
+        nxt.clear();
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="uva11951.html" class="problem-link">uva11951</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva10673.html" class="problem-link">uva10673</a> <a href="d226-uva10071.html" class="problem-link">d226 uva10071</a> <a href="uva796.html" class="problem-link">uva796</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

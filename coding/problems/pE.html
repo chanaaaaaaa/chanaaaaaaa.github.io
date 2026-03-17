@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pE - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>pE</h1>
+        <p class="subtitle">題目編號：pE</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast&quot;)
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;algorithm&gt;
+#define int long long
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return 0;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+
+signed main(){
+    int N=read(),K=read();
+    vector&lt;int&gt;dat;
+    dat.reserve(N);
+    for(int i=0;i&lt;N;++i){
+        dat.emplace_back(read());
+    }
+
+    multiset&lt;int&gt;st;
+    int cnt=0,L=0;
+
+    for(int R=0;R&lt;N;++R){
+        while(true){
+            auto it=st.lower_bound(dat[R]-K+1);
+
+            if(it!=st.end() &amp;&amp; *it&lt;dat[R]+K){
+                st.erase(st.find(dat[L]));
+                ++L;
+            }else{
+                break;
+            }
+        }
+
+        st.insert(dat[R]);
+
+        cnt+=(R-L+1);
+    }
+
+    write(cnt);
+    putchar(&#x27;\n&#x27;);
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="a176.html" class="problem-link">a176</a> <a href="copy.html" class="problem-link">!copy</a> <a href="uva10930.html" class="problem-link">uva10930</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

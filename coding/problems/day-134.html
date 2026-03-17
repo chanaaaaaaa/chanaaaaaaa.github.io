@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day-134 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>day-134</h1>
+        <p class="subtitle">題目編號：day-134</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return 0;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+
+signed main(){
+    int T=read();
+    while(T--){
+        int N=read(),M=read();
+
+        if(!N || !M){
+            putchar(&#x27;Y&#x27;);
+            putchar(&#x27;e&#x27;);
+            putchar(&#x27;s&#x27;);
+            putchar(&#x27;\n&#x27;);
+            continue;
+        }
+
+        int dat[N+1][M]={0};
+        bool f=false;
+        vector&lt;set&lt;int&gt;&gt;mp(M,set&lt;int&gt;());
+
+        for(int i=0;i&lt;N;++i){
+            for(int j=0;j&lt;M;++j){
+                if(read()){
+                    ++dat[N][j];
+                    mp[j].emplace(i);
+                }
+            }
+        }
+
+        for(int i=1;i&lt;M;++i){
+            if(mp[i]==mp[i-1]){
+                f=true;
+                break;
+            }
+        }
+
+        if(N&gt;=2 &amp;&amp; !f){
+            for(int j=0;j&lt;M;++j){
+                if(dat[N][j]!=2){
+                    f=true;
+                    break;
+                }
+            }
+        }
+
+        if(f){
+            putchar(&#x27;N&#x27;);
+            putchar(&#x27;o&#x27;);
+        }else{
+            putchar(&#x27;Y&#x27;);
+            putchar(&#x27;e&#x27;);
+            putchar(&#x27;s&#x27;);
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="e287-2019APCS.html" class="problem-link">e287 2019APCS</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a> <a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="CSES1754.html" class="problem-link">CSES1754</a> <a href="CSES1073.html" class="problem-link">CSES1073</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

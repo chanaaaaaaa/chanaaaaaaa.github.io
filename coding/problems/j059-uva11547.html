@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j059 uva11547 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>j059 uva11547</h1>
+        <p class="subtitle">題目編號：j059 uva11547</p>
+        <p><a href="https://vjudge.net/problem/UVA-11547" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){x=-x;}
+    putchar(x+&#x27;0&#x27;);
+    putchar(&#x27;\n&#x27;);
+}
+//--block
+
+signed main(){
+    int T=read();
+    while(T--) write(((read()*315+36962)%100)/10);
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="AtCoder-098C.html" class="problem-link">AtCoder 098.C</a> <a href="e584-uva11094.html" class="problem-link">e584 uva11094</a> <a href="e578-uva10222.html" class="problem-link">e578 uva10222</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a> <a href="uva10312.html" class="problem-link">uva10312</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

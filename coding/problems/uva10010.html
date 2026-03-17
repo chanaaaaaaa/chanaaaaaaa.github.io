@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10010 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10010</h1>
+        <p class="subtitle">題目編號：uva10010</p>
+        <p><a href="https://vjudge.net/problem/UVA-10010" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+using namespace std;
+
+//--block
+int T,N,M,K,
+    dx[8]={1,-1,0,0,1,1,-1,-1},
+    dy[8]={0,0,1,-1,1,-1,1,-1};
+string in;
+vector&lt;string&gt;mp(50);
+inline bool check(int r,int l,int f){
+    for(int i=1;i&lt;in.size();i++){
+        l+=dx[f];
+        r+=dy[f];
+        if(l&lt;0 || r&lt;0 || l&gt;=M || r&gt;=N){return false;}
+        if(mp[r][l]&gt;=&#x27;a&#x27; &amp;&amp; mp[r][l]&lt;=&#x27;z&#x27;){
+            if(in[i]&gt;=&#x27;a&#x27; &amp;&amp; in[i]&lt;=&#x27;z&#x27;){
+                if(mp[r][l]!=in[i]){return false;}
+            }else if(in[i]&gt;=&#x27;A&#x27; &amp;&amp; in[i]&lt;=&#x27;Z&#x27;){
+                if(mp[r][l]!=in[i]-&#x27;A&#x27;+&#x27;a&#x27;){return false;}
+            }else{return false;}
+        }else if(mp[r][l]&gt;=&#x27;A&#x27; &amp;&amp; mp[r][l]&lt;=&#x27;Z&#x27;){
+            if(in[i]&gt;=&#x27;a&#x27; &amp;&amp; in[i]&lt;=&#x27;z&#x27;){
+                if(mp[r][l]!=in[i]-&#x27;a&#x27;+&#x27;A&#x27;){return false;}
+            }else if(in[i]&gt;=&#x27;A&#x27; &amp;&amp; in[i]&lt;=&#x27;Z&#x27;){
+                if(mp[r][l]!=in[i]){return false;}
+            }else{return false;}
+        }else{return false;}
+    }
+    return true;
+}
+
+inline void solve(){
+    for(int j=0;j&lt;M;j++){
+        for(int i=0;i&lt;N;i++){
+            if(mp[i][j]==in[0] || mp[i][j]==in[0]-&#x27;a&#x27;+&#x27;A&#x27; || mp[i][j]==in[0]-&#x27;A&#x27;+&#x27;a&#x27;){
+                for(int f=0;f&lt;8;f++){
+                    if(check(i,j,f)){
+                        cout&lt;&lt;i+1&lt;&lt;&#x27; &#x27;&lt;&lt;j+1&lt;&lt;&quot;\n&quot;;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    cout&lt;&lt;&quot;-1\n&quot;;
+    return;
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    cin&gt;&gt;T;
+    while(T--){
+        cin.ignore();
+        cin&gt;&gt;N&gt;&gt;M;
+
+        for(int i=0;i&lt;N;i++){
+            cin&gt;&gt;mp[i];
+        }
+        cin&gt;&gt;K;
+        while(K--){
+            cin&gt;&gt;in;
+            solve();
+        }
+        if(T)cout&lt;&lt;&#x27;\n&#x27;;
+    }
+    return 0;
+}
+/*
+1
+
+8 11
+abcDEFGhigg
+hEbkWalDork
+FtyAwaldORm
+FtsimrLqsrc
+byoArBeDeyv
+Klcbqwikomk
+strEBGadhrb
+yUiqlxcnBjf
+4
+Waldorf
+Bambi
+Betty
+Dagbert
+*/
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="pA.html" class="problem-link">pA</a> <a href="d195-uva11495.html" class="problem-link">d195 uva11495</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="uva10916.html" class="problem-link">uva10916</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

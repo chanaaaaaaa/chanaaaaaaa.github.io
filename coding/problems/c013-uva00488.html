@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c013 uva00488 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c013 uva00488</h1>
+        <p class="subtitle">題目編號：c013 uva00488</p>
+        <p><a href="https://vjudge.net/problem/UVA-00488" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n;
+    cin&gt;&gt;n;
+    while(n--){
+        int A,F;
+        cin&gt;&gt;A&gt;&gt;F;
+        while(F--){
+            for(int i=1;i&lt;=A;i++){
+                int temp=i;
+                while(temp--){cout&lt;&lt;i;}
+                cout&lt;&lt;&quot;\n&quot;;
+            }
+            for(int i=A-1;i&gt;0;i--){
+                int temp=i;
+                while(temp--){cout&lt;&lt;i;}
+                cout&lt;&lt;&quot;\n&quot;;
+            }
+            cout&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="uva10125.html" class="problem-link">uva10125</a> <a href="a004.html" class="problem-link">a004</a> <a href="uva11015.html" class="problem-link">uva11015</a> <a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="e289-2019APCS.html" class="problem-link">e289 2019APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

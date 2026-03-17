@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e575 uva10908 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e575 uva10908</h1>
+        <p class="subtitle">題目編號：e575 uva10908</p>
+        <p><a href="https://vjudge.net/problem/UVA-10908" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+string A[100];
+int dir[4][2]={{0,1},{1,0},{0,-1},{-1,0}};
+int T,M,N,Q,r,c;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    cin&gt;&gt;T;
+    while(T--){
+        cin&gt;&gt;M&gt;&gt;N&gt;&gt;Q;
+        cout&lt;&lt;M&lt;&lt;&quot; &quot;&lt;&lt;N&lt;&lt;&quot; &quot;&lt;&lt;Q&lt;&lt;&quot;\n&quot;;
+        for(int i=0;i&lt;M;i++){
+            cin&gt;&gt;A[i];
+        }
+        for(int g=0;g&lt;Q;g++){
+            cin&gt;&gt;r&gt;&gt;c;
+            int Ans=-10,limit=min(M,N);
+
+            for(int i=1;i&lt;=limit;i++){
+                int rex=r-i,rey=c-i;
+                for(int j=0;j&lt;4;j++){
+                    for(int k=0;k&lt;i*2;k++){
+                        rex+=dir[j][0];
+                        rey+=dir[j][1];
+                        if(rex&lt;0 || rex&gt;=M || rey&lt;0 || rey&gt;=N || A[rex][rey]!=A[r][c]){
+                            Ans=i;
+                            break;
+                        }
+                    }
+                    if(Ans!=-10){break;}
+                }
+                if(Ans!=-10){break;}
+            }
+        cout&lt;&lt;Ans*2-1&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="i959-uva11078.html" class="problem-link">i959 uva11078</a> <a href="c007-uva00272.html" class="problem-link">c007 uva00272</a> <a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="uva11287.html" class="problem-link">uva11287</a> <a href="e512-uva10242.html" class="problem-link">e512 uva10242</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

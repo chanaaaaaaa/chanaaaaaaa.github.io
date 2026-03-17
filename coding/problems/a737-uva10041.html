@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a737 uva10041 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a737 uva10041</h1>
+        <p class="subtitle">題目編號：a737 uva10041</p>
+        <p><a href="https://vjudge.net/problem/UVA-10041" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int t, n;
+    cin &gt;&gt; t;
+
+    while(t--){
+        cin &gt;&gt; n;
+        vector&lt;int&gt; vec(n);
+        for(int &amp;i : vec)
+            cin &gt;&gt; i;
+
+        sort(vec.begin(), vec.end());
+        int mid = vec[n / 2], ans = 0;
+
+        for(int &amp;i : vec)
+            ans += abs(mid - i);
+
+        cout &lt;&lt; ans &lt;&lt; &#x27;\n&#x27;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="f166-2019APCS.html" class="problem-link">f166 2019APCS</a> <a href="c024-uva10079.html" class="problem-link">c024 uva10079</a> <a href="CSES1140.html" class="problem-link">CSES1140</a> <a href="b967-2016APCS.html" class="problem-link">b967 2016APCS</a> <a href="uva10912.html" class="problem-link">uva10912</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

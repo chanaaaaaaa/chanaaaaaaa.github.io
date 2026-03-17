@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10006 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10006</h1>
+        <p class="subtitle">題目編號：uva10006</p>
+        <p><a href="https://vjudge.net/problem/UVA-10006" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;stdio.h&gt;
+#include&lt;vector&gt;
+#include&lt;set&gt;
+using namespace std;
+
+//--block
+set&lt;int&gt;primes;
+bool isprime[65001];
+inline void primef(){
+    for(int i=2;i&lt;=65000;i++){
+        if(!isprime[i]){primes.insert(i);}
+        for(auto it=primes.cbegin();it!=primes.cend();it++){
+            if(*it*i&gt;65000){break;}
+            isprime[*it*i]=true;
+            if(i%*it==0){break;}
+        }
+    }
+}
+inline int solve(int a,int n,int m){
+    if(n==1){return a%m;}
+
+    long long tmp=solve(a,n/2,m);
+    tmp=(tmp*tmp)%m;
+    if(n%2){tmp=(tmp*a)%m;}
+    return tmp;
+}
+set&lt;int&gt;res;
+inline void form(){
+    primef();
+    for(int i=2;i&lt;=65000;i++){
+        if(primes.count(i)){continue;}
+        int now;
+        for(now=2;now&lt;i;now++){
+            printf(&quot;%d-%d\n&quot;,i,now);
+            if(solve(now,i,i)!=now){break;}
+        }
+
+        if(now==i){res.insert(i);}
+    }
+}
+signed main(){
+    /*
+    form();
+    for(auto it=res.cbegin();it!=res.cend();it++){
+        printf(&quot;%d,&quot;,*it);
+    }*/
+    //get 561,1105,1729,2465,2821,6601,8911,10585,15841,29341,41041,46657,52633,62745,63973
+    set&lt;int&gt;ans={561,1105,1729,2465,2821,6601,8911,10585,15841,29341,41041,46657,52633,62745,63973};
+    int N=0;
+    while(scanf(&quot;%d&quot;,&amp;N)&amp;&amp;N){
+        if(ans.count(N)){
+            printf(&quot;The number %d is a Carmichael number.\n&quot;,N);
+        }else{
+            printf(&quot;%d is normal.\n&quot;,N);
+        }
+    }
+    return 0;
+}
+
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="CSES-1646.html" class="problem-link">CSES 1646</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="c295-2016APCS.html" class="problem-link">c295 2016APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

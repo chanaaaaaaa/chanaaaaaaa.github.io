@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!copy - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>!copy</h1>
+        <p class="subtitle">題目編號：!copy</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+struct job{
+  int x,y;
+  int step;
+};
+int dx[]={3,3,1,-1,-3,-3,1,-1};
+int dy[]={1,-1,3,3,1,-1,-3,-3};
+int mind=999999;
+bool ta[105][105];
+bool ta1[105][105];
+int jx[]={1,0,-1,0};
+int jy[]={0,1,0,-1};
+deque&lt;job&gt;now;
+int main(){
+  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+  int sx,sy;
+  int gp,gk;
+  int ex,ey;
+  int n;
+  job next,num;
+  while(cin &gt;&gt; n){
+    now.clear();
+    memset(ta,0,sizeof(ta));
+    memset(ta1,0,sizeof(ta1));
+    mind=999999;
+      for(int x=0;x&lt;n;x++){
+      cin &gt;&gt; gp &gt;&gt; gk;
+      ta[gp][gk]=true;
+    }
+    cin &gt;&gt; sx &gt;&gt; sy;
+    cin &gt;&gt; ex &gt;&gt; ey;
+    next.x=sx;
+    next.y=sy;
+    next.step=0;
+    ta1[sx][sy]=true;
+    int kx,ky;
+    now.push_back(next);
+    bool ta2=false;
+    while(!now.empty()){
+      next=now.front();
+      now.pop_front();
+      for(int z=0;z&lt;4;z++){
+        if(ta2){
+          break;
+        }
+        kx=next.x+jx[z];
+        ky=next.y+jy[z];
+        if(!ta[kx][ky] &amp;&amp; (kx&gt;=0 &amp;&amp; kx&lt;=99) &amp;&amp; (ky&gt;=0 &amp;&amp; ky&lt;=99)){
+          for(int g=2*z;g&lt;=(2*z)+1;g++){
+            kx=next.x+dx[g];
+            ky=next.y+dy[g];
+            num.step=next.step+1;
+            num.x=kx;
+            num.y=ky;
+            if(!ta[kx][ky] &amp;&amp; !ta1[kx][ky] &amp;&amp; (kx&gt;=0 &amp;&amp; kx&lt;=99) &amp;&amp; (ky&gt;=0 &amp;&amp; ky&lt;=99) &amp;&amp; (kx!=(ex) or ky!=(ey))){
+              ta1[num.x][num.y]=true;
+              now.push_back(num);
+            }
+            else if(!ta[kx][ky] &amp;&amp; !ta1[kx][ky] &amp;&amp; (kx&gt;=0 &amp;&amp; kx&lt;=99) &amp;&amp; (ky&gt;=0 &amp;&amp; ky&lt;=99) &amp;&amp; (kx==(ex) &amp;&amp; ky==(ey))){
+              mind=num.step;
+              now.clear();
+              ta2=true;
+              break;
+            }
+          }
+        }
+      }
+    }
+    if(mind!=999999)
+    cout &lt;&lt; mind &lt;&lt; endl;
+    else{
+      cout &lt;&lt; &quot;impossible&quot; &lt;&lt; endl;
+    }
+  }
+
+  return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="n693-uva10721.html" class="problem-link">n693 uva10721</a> <a href="f580-2020APCS.html" class="problem-link">f580 2020APCS</a> <a href="uva11480.html" class="problem-link">uva11480</a> <a href="d380-uva10106.html" class="problem-link">d380 uva10106</a> <a href="uva1235.html" class="problem-link">uva1235</a> <a href="a004.html" class="problem-link">a004</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

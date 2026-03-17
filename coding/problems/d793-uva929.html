@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d793 uva929 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d793 uva929</h1>
+        <p class="subtitle">題目編號：d793 uva929</p>
+        <p><a href="https://vjudge.net/problem/UVA-929" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O((V + E) log V)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;utility&gt;
+#include&lt;memory.h&gt;
+
+#define INF 100000000
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+int T,N,M,
+    mp[1001][1001],
+    vals[1001][1001],
+    d[2][4]={{1,-1,0,0},{0,0,1,-1}};
+bool vis[1001][1001];
+priority_queue&lt;pair&lt;int,pair&lt;int,int&gt;&gt;,vector&lt;pair&lt;int,pair&lt;int,int&gt;&gt;&gt;,greater&lt;pair&lt;int,pair&lt;int,int&gt;&gt;&gt;&gt;pq;
+inline void solve(){
+    vals[0][0]=mp[0][0];
+    pq.push({mp[0][0],{0,0}});
+
+    while(!pq.empty()){
+        int val=pq.top().first,
+            x=pq.top().second.first,
+            y=pq.top().second.second;
+
+        pq.pop();
+        vis[x][y]=true;
+
+        for(int f=0;f&lt;4;++f){
+            int nx=x+d[0][f];
+            int ny=y+d[1][f];
+
+            if(nx&gt;=0 &amp;&amp; nx&lt;N &amp;&amp; ny&gt;=0 &amp;&amp; ny&lt;M &amp;&amp; !vis[nx][ny]){
+                int nv=mp[nx][ny]+val;
+                if(vals[nx][ny]&gt;nv || vals[nx][ny]==-1){
+                    vals[nx][ny]=nv;
+                    pq.push({nv,{nx,ny}});
+                }
+            }
+        }
+    }
+}
+
+
+signed main(){
+    T=read();
+    while(T--){
+        N=read(),M=read();
+        memset(mp,0,sizeof(mp));
+        memset(vis,false,sizeof(vis));
+        memset(vals,-1,sizeof(vals));
+        for(int i=0;i&lt;N;++i){
+            for(int j=0;j&lt;M;++j){
+                mp[i][j]=read();
+            }
+        }
+
+        solve();
+        write(vals[N-1][M-1]);
+        putchar(&#x27;\n&#x27;);
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="f581-2020APCS.html" class="problem-link">f581 2020APCS</a> <a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="e183-uva10940.html" class="problem-link">e183 uva10940</a> <a href="uva10596.html" class="problem-link">uva10596</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

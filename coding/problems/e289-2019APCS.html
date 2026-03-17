@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e289 2019APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e289 2019APCS</h1>
+        <p class="subtitle">題目編號：e289 2019APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2019" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int m,n,type=0,Ans=0;
+    vector&lt;string&gt;v;
+    unordered_map&lt;string,int&gt;mp;
+
+    cin&gt;&gt;m&gt;&gt;n;
+    v.reserve(n+1);
+    for(int i=0;i&lt;n;i++){
+        string x;
+        cin&gt;&gt;x;
+        v.push_back(x);
+    }
+    for(int i=0;i&lt;m;i++){
+        if(mp[v[i]]==0){
+            type++;
+        }
+        mp[v[i]]++;
+    }
+    if(type==m)Ans++;
+
+    for(int i=m;i&lt;n;i++){
+        mp[v[i-m]]--;
+        if(mp[v[i-m]]==0)type--;
+        if(mp[v[i]]==0)type++;
+        mp[v[i]]++;
+        if(type==m)Ans++;
+    }
+    cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva12783.html" class="problem-link">uva12783</a> <a href="CSES-1753.html" class="problem-link">CSES 1753</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="CSES1140.html" class="problem-link">CSES1140</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

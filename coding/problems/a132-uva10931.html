@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a132 uva10931 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a132 uva10931</h1>
+        <p class="subtitle">題目編號：a132 uva10931</p>
+        <p><a href="https://vjudge.net/problem/UVA-10931" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>將十進位轉二進位，同時計算 1 的個數（parity）。</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+inline int pow2(int depth){
+    if(depth==0){return 1;}
+    return 2*pow2(depth-1);
+}
+
+int main(){
+    int num;
+    while(cin&gt;&gt;num &amp;&amp; num){
+        string out=&quot;&quot;;
+        int cnt=0;
+        for(int i=30;i&gt;=0;i--){
+            int tmp=pow2(i);
+            if(num&gt;=tmp){
+                out+=&#x27;1&#x27;;
+                cnt+=1;
+                num-=tmp;
+            }else if(cnt&gt;0){out+=&#x27;0&#x27;;}
+        }
+        cout&lt;&lt;&quot;The parity of &quot;&lt;&lt;out&lt;&lt;&quot; is &quot;&lt;&lt;cnt&lt;&lt;&quot; (mod 2).\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="c290-2017APCS.html" class="problem-link">c290 2017APCS</a> <a href="day-152.html" class="problem-link">day-152</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="d898-uva10128.html" class="problem-link">!d898 uva10128</a> <a href="c014-uva10035.html" class="problem-link">c014 uva10035</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

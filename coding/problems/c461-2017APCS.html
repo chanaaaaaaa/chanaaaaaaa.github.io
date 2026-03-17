@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c461 2017APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c461 2017APCS</h1>
+        <p class="subtitle">題目編號：c461 2017APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2017" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int a1,a2,c;
+    while(cin&gt;&gt;a1&gt;&gt;a2&gt;&gt;c){
+        bool flag=true;
+        if((a1!=0 &amp;&amp; a2!=0 &amp;&amp; c==1) || ((a1==0 || a2==0) &amp;&amp; c==0)){
+            cout&lt;&lt;&quot;AND\n&quot;;
+            flag=false;
+        }
+        if(((a1!=0 || a2!=0) &amp;&amp; c==1)||(a1==0 &amp;&amp; a2==0 &amp;&amp; c==0)){
+            cout&lt;&lt;&quot;OR\n&quot;;
+            flag=false;
+        }
+        if(((a1!=0 &amp;&amp; a2==0)||(a1==0 &amp;&amp; a2!=0))&amp;&amp;(c==1)||((a1==0 &amp;&amp; a2==0)||(a1!=0 &amp;&amp; a2!=0))&amp;&amp;(c==0)){
+            cout&lt;&lt;&quot;XOR\n&quot;;
+            flag=false;
+        }
+        if(flag){
+            cout&lt;&lt;&quot;IMPOSSIBLE\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="e465-2018APCS.html" class="problem-link">e465 2018APCS</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="uva11480.html" class="problem-link">uva11480</a> <a href="uva10312.html" class="problem-link">uva10312</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

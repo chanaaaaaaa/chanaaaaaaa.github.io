@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c462 2017APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c462 2017APCS</h1>
+        <p class="subtitle">題目編號：c462 2017APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2017" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    string A;
+
+    cin&gt;&gt;N&gt;&gt;A;
+    if(N==1 &amp;&amp; A.size()==1){
+        cout&lt;&lt;&quot;1\n&quot;;
+        return 0;
+    }
+    vector&lt;int&gt;dat;
+    int tmp=1;
+    for(int i=1;i&lt;A.size();i++){
+        if(isupper(A[i])==isupper(A[i-1])){
+            tmp++;
+        }else{
+            dat.push_back(tmp);
+            tmp=1;
+        }
+    }
+    if(tmp&gt;1)dat.push_back(tmp);
+    int Ans=0,now=0,head=-1;
+    for(int i=0;i&lt;dat.size();i++){
+        if(dat[i]==N){
+            now++;
+            if(head==-1){head=i;}
+        }else if(dat[i]&gt;N){
+            if(head==-1){
+                now++;
+                head=i;
+            }else{
+                now++;
+                Ans=max(Ans,now);
+                now=0;
+                i--;
+                head=-1;
+            }
+        }else{
+            now=0;
+        }
+        //cout&lt;&lt;now&lt;&lt;&quot; &quot;;
+        Ans=max(Ans,now);
+    }
+    cout&lt;&lt;Ans*N&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="e512-uva10242.html" class="problem-link">e512 uva10242</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="e555-uva10170.html" class="problem-link">e555 uva10170</a> <a href="uva10223.html" class="problem-link">uva10223</a> <a href="day-149.html" class="problem-link">day-149</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a158 uva11827 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a158 uva11827</h1>
+        <p class="subtitle">題目編號：a158 uva11827</p>
+        <p><a href="https://vjudge.net/problem/UVA-11827" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int myGCD(int x,int y){
+    while((x%=y)&amp;&amp;(y%=x));
+    return x+y;
+}
+
+int main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int N,x,mx;
+    string s;
+    cin&gt;&gt;N;
+    cin.ignore();
+    while(N--){
+        getline(cin,s);
+        stringstream ss(s);
+        vector&lt;int&gt;v;
+
+        mx=0;
+        while(ss&gt;&gt;x){
+            v.push_back(x);
+            for(int i=0;i&lt;v.size()-1;i++){
+                mx=max(mx,myGCD(x,v[i]));
+            }
+        }
+        cout&lt;&lt;mx&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d188-uva11342.html" class="problem-link">d188 uva11342</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="d111-uva10110.html" class="problem-link">d111 uva10110</a> <a href="uva12783.html" class="problem-link">uva12783</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

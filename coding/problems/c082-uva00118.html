@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c082 uva00118 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c082 uva00118</h1>
+        <p class="subtitle">題目編號：c082 uva00118</p>
+        <p><a href="https://vjudge.net/problem/UVA-00118" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+using namespace std;
+
+set&lt;int&gt;out;
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int X,Y;
+    cin&gt;&gt;X&gt;&gt;Y;
+
+    int x,y,f;//N=0,E=1,S=2,W=3
+    char face;
+    while(cin&gt;&gt;x&gt;&gt;y&gt;&gt;face){
+        string go;
+        cin&gt;&gt;go;
+        if(face==&#x27;N&#x27;){
+            f=0;
+        }else if(face==&#x27;E&#x27;){
+            f=1;
+        }else if(face==&#x27;S&#x27;){
+            f=2;
+        }else if(face==&#x27;W&#x27;){
+            f=3;
+        }
+        for(int i=0;i&lt;go.size();i++){
+            char temp=go[i];
+            if(temp==&#x27;R&#x27;){
+                f++;
+                if(f&gt;3){f-=4;}
+            }else if(temp==&#x27;L&#x27;){
+                f--;
+                if(f&lt;0){f+=4;}
+            }else if(temp==&#x27;F&#x27;){
+                //important
+                if(f==0){
+                    if(out.count(x*100+y+1)){
+                        continue;
+                    }else{y++;}
+                }else if(f==1){
+                    if(out.count((x+1)*100+y)){
+                        continue;
+                    }else{x++;}
+                }else if(f==2){
+                    if(out.count(x*100+y-1)){
+                        continue;
+                    }else{y--;}
+                }else if(f==3){
+                    if(out.count((x-1)*100+y)){
+                        continue;
+                    }else{x--;}
+                }
+
+                if(x&lt;0 || y&lt;0 || y&gt;Y || x&gt;X){
+                    char temp;
+                    if(f==0){
+                        temp=&#x27;N&#x27;;
+                    }else if(f==1){
+                        temp=&#x27;E&#x27;;
+                    }else if(f==2){
+                        temp=&#x27;S&#x27;;
+                    }else if(f==3){
+                        temp=&#x27;W&#x27;;
+                    }
+                    if(x&lt;0){
+                        cout&lt;&lt;x+1&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;&quot; LOST&quot;&lt;&lt;&quot;\n&quot;;
+                    }else if(x&gt;X){
+                        cout&lt;&lt;x-1&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;&quot; LOST&quot;&lt;&lt;&quot;\n&quot;;
+                    }else if(y&lt;0){
+                        cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y+1&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;&quot; LOST&quot;&lt;&lt;&quot;\n&quot;;
+                    }else if(y&gt;Y){
+                        cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y-1&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;&quot; LOST&quot;&lt;&lt;&quot;\n&quot;;
+                    }
+                    if(x==-1){
+                       if(y==0){
+                            out.insert(-100);//x=-1,y=0
+                            out.insert(-1);//x=0,y=-1
+                       }else if(y==Y){
+                            out.insert(-100+y);//x=-1,y=Y
+                            out.insert(Y+1);//x=0,y=Y+1
+                       }
+                    }else if(x==X+1){
+                        if(y==0){
+                            out.insert(x*100);//x=X+1,y=0
+                            out.insert(X*100-1);//x=X,y=-1
+                       }else if(y==Y){
+                            out.insert(x*100+Y);//x=X+1,y=Y
+                            out.insert(X*100+Y+1);//x=X,y=Y+1
+                       }
+                    }else if(y==-1){
+                        if(x==0){
+                            out.insert(-1);//x=0,y=-1
+                            out.insert(-100);//x=-1,y=0
+                       }else if(x==X){
+                            out.insert(x*100-1);//x=X,y=-1
+                            out.insert((X+1)*100);//x=X+1,y=0
+                       }
+                    }else if(y==Y+1){
+                        if(x==0){
+                            out.insert(y);//x=0,y=Y+1
+                            out.insert(Y-100);//x=-1,y=Y
+                       }else if(x==X){
+                            out.insert(x*100+y);//x=X,y=Y+1
+                            out.insert((X+1)*100+Y);//x=X+1,y=Y
+                       }
+                    }
+                    out.insert(x*100+y);
+                    break;
+                }
+            }
+            if(i==go.size()-1){
+                char temp;
+                if(f==0){
+                    temp=&#x27;N&#x27;;
+                }else if(f==1){
+                    temp=&#x27;E&#x27;;
+                }else if(f==2){
+                    temp=&#x27;S&#x27;;
+                }else if(f==3){
+                    temp=&#x27;W&#x27;;
+                }
+                cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;&quot;\n&quot;;
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a001.html" class="problem-link">a001</a> <a href="uva10673.html" class="problem-link">uva10673</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="e564-uva540.html" class="problem-link">e564 uva540</a> <a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="d686-uva10003.html" class="problem-link">d686 uva10003</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

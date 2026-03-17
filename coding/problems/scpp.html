@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s.cpp - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>s.cpp</h1>
+        <p class="subtitle">題目編號：s.cpp</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+//#define int long long
+using namespace std;
+
+pair&lt;int,int&gt;routes[1000000];
+int N,M,a,b,c,goods[1999999],Ques[10000];
+
+int init(int id){
+    if(id&gt;=N) return goods[id];
+    goods[id]=init(routes[id].first)+init(routes[id].second);
+    return goods[id];
+}
+
+signed main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    cin&gt;&gt;N&gt;&gt;M;
+    for(int i=N;i&lt;N*2;i++){
+        cin&gt;&gt;goods[i];
+    }
+    for(int i=0;i&lt;M;i++){
+        cin&gt;&gt;Ques[i];
+    }
+    for(int i=1;i&lt;N;i++){
+        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+        routes[a]={b,c};
+    }
+    a=init(1);
+
+    for(int i=0;i&lt;M;i++){
+        int np=1;
+        while(np&lt;N){
+            if(goods[routes[np].first]&gt;goods[routes[np].second]){
+                np=routes[np].second;
+            }else{np=routes[np].first;}
+            goods[np]+=Ques[i];
+        }
+        cout&lt;&lt;np&lt;&lt;&quot; &quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e564-uva540.html" class="problem-link">e564 uva540</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="a176.html" class="problem-link">a176</a> <a href="uva624.html" class="problem-link">uva624</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

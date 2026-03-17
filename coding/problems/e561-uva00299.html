@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e561 uva00299 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e561 uva00299</h1>
+        <p class="subtitle">題目編號：e561 uva00299</p>
+        <p><a href="https://vjudge.net/problem/UVA-00299" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+
+int main(){
+
+    int cycle;
+    cin &gt;&gt; cycle;
+    for(int i=0;i&lt;cycle;i++){
+        int ron,con=0;
+        int t[51];
+        cin &gt;&gt; ron;
+        for(int j=0;j&lt;ron;j++){
+            cin &gt;&gt; t[j];
+        }
+        for(int j=0;j&lt;ron;j++){
+            for(int g=j+1;g&lt;ron;g++){
+                if(t[j]&gt;t[g]){
+                    swap(t[j],t[g]);
+                    con++;
+                }
+            }
+        }
+        cout &lt;&lt;&quot;Optimal train swapping takes &quot;&lt;&lt; con &lt;&lt;&quot; swaps.&quot;&lt;&lt; &quot;\n&quot;;
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d186-uva11461.html" class="problem-link">d186 uva11461</a> <a href="uva1235.html" class="problem-link">uva1235</a> <a href="d189-uva11150.html" class="problem-link">d189 uva11150</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="e581-uva11067.html" class="problem-link">e581 uva11067</a> <a href="c708-uva11538.html" class="problem-link">c708 uva11538</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

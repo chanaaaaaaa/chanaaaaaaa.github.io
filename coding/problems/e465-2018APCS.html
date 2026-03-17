@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e465 2018APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e465 2018APCS</h1>
+        <p class="subtitle">題目編號：e465 2018APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2018" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int v[100000];
+    int M,S,N,now=0;
+    cin&gt;&gt;M&gt;&gt;S&gt;&gt;N;
+    for(int i=0;i&lt;N;i++){
+        cin&gt;&gt;v[i];
+        now+=v[i];
+    }
+    int target=S-M+now;
+    if(target&lt;=0){cout&lt;&lt;&quot;0\n&quot;;return 0;}
+
+    map&lt;int,int&gt;mp;
+    for(int i=0;i&lt;N;i++){
+        now=v[i];
+        for(int j=target;j&gt;0;j--){
+            if(mp[j]&gt;0){
+                mp[j+now]++;
+                if(now+j==target){
+                    cout&lt;&lt;target&lt;&lt;&quot;\n&quot;;
+                    return 0;
+                }
+            }
+        }
+        mp[now]++;
+    }
+    for(auto it:mp){
+        if(it.first&gt;=target &amp;&amp; it.second&gt;0){
+            cout&lt;&lt;it.first&lt;&lt;&quot;\n&quot;;
+            break;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a007.html" class="problem-link">a007</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="d793-uva929.html" class="problem-link">d793 uva929</a> <a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="d111-uva10110.html" class="problem-link">d111 uva10110</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

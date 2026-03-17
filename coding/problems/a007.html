@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a007 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a007</h1>
+        <p class="subtitle">題目編號：a007</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=A007" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    vector&lt;int&gt;ze;
+    for(int i=2;i&lt;65535;i++){
+        bool flag=true;
+        for(int j=2;j&lt;=sqrt(i);j++){
+            if(i%j==0){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
+            ze.push_back(i);
+        }
+    }
+    int A;
+    while(cin&gt;&gt;A){
+        bool flag=true;
+        int maxx=sqrt(A);
+        for(int i=0;i&lt;ze.size();i++){
+            if(ze[i]&gt;maxx){
+                break;
+            }
+            if(A%ze[i]==0){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){cout&lt;&lt;&quot;\n&quot;;}
+        else{cout&lt;&lt;&quot;D\n&quot;;}
+    }
+
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c004-uva10812.html" class="problem-link">c004 uva10812</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="a884-uva11448.html" class="problem-link">a884 uva11448</a> <a href="c463-2017APCS.html" class="problem-link">c463 2017APCS</a> <a href="uva10449.html" class="problem-link">uva10449</a> <a href="d226-uva10071.html" class="problem-link">d226 uva10071</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

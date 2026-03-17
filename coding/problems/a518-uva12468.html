@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a518 uva12468 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a518 uva12468</h1>
+        <p class="subtitle">題目編號：a518 uva12468</p>
+        <p><a href="https://vjudge.net/problem/UVA-12468" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int a,b;
+    while(cin&gt;&gt;a&gt;&gt;b){
+        if(a+b==-2){break;}
+        a=abs(a-b);
+        b=100-a;
+        if(b&gt;a){
+            cout&lt;&lt;a&lt;&lt;&quot;\n&quot;;
+        }else{
+            cout&lt;&lt;b&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="day-158.html" class="problem-link">day-158</a> <a href="c012-uva10062.html" class="problem-link">c012 uva10062</a> <a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e545 uva10019 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e545 uva10019</h1>
+        <p class="subtitle">題目編號：e545 uva10019</p>
+        <p><a href="https://vjudge.net/problem/UVA-10019" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n;
+    cin&gt;&gt;n;
+    while(n--){
+        int N,b1=0,b2=0;
+        cin&gt;&gt;N;
+        int N_c=N;
+        for(int i=13;i&gt;=0;i--){
+            if(N&gt;=pow(2,i)){
+                N-=pow(2,i);
+                b1++;
+            }
+        }
+        for(int i=5;i&gt;=0;i--){
+            if(N_c&gt;=pow(10,i)){
+                int temp=N_c/pow(10,i);
+                if(temp==7) b2+=3;
+                else if(temp==1 || temp==2 || temp==4 || temp==8) b2+=1;
+                else b2+=2;
+                N_c-=temp*pow(10,i);
+            }
+        }
+        cout&lt;&lt;b1&lt;&lt;&quot; &quot;&lt;&lt;b2&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES-1646.html" class="problem-link">CSES 1646</a> <a href="Luogu-P2580.html" class="problem-link">Luogu P2580</a> <a href="c001-uva10405.html" class="problem-link">c001 uva10405</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="uva11934.html" class="problem-link">uva11934</a> <a href="ytp-races.html" class="problem-link">ytp races</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

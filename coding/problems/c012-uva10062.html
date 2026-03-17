@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c012 uva10062 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c012 uva10062</h1>
+        <p class="subtitle">題目編號：c012 uva10062</p>
+        <p><a href="https://vjudge.net/problem/UVA-10062" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int co[96];
+string A;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+
+    while(getline(cin,A)){
+
+        for(int i=0;i&lt;A.size();i++){
+            co[int(A[i])-32]++;
+        }
+        for(int i=1;i&lt;A.size();i++){
+            for(int j=95;j&gt;=0;j--){
+                if(co[j]==i){
+                    cout&lt;&lt;j+32&lt;&lt;&quot; &quot;&lt;&lt;co[j]&lt;&lt;&quot;\n&quot;;
+                    co[j]=0;
+                }
+            }
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="e603-uva10104.html" class="problem-link">e603 uva10104</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a> <a href="m371-2023APCS.html" class="problem-link">m371 2023APCS</a> <a href="d275-uva11586.html" class="problem-link">d275 uva11586</a> <a href="zj601-uva255.html" class="problem-link">zj.601 uva255</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

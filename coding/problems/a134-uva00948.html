@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a134 uva00948 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a134 uva00948</h1>
+        <p class="subtitle">題目編號：a134 uva00948</p>
+        <p><a href="https://vjudge.net/problem/UVA-00948" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main (){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+
+	int n,a,
+		f[40]={0,1};
+
+	for(int i=2;i&lt;40;i++){f[i]=f[i-1]+f[i-2];}
+
+	cin&gt;&gt;n;
+	while(n--){
+		cin&gt;&gt;a;
+        cout&lt;&lt;a;
+
+		string s=&quot;&quot;;
+		for (int j=39;j&gt;=2;j--) {
+			if(a&gt;=f[j]){
+				s+=&#x27;1&#x27;;
+				a-=f[j];
+			}else if(s.size()!=0){s+=&#x27;0&#x27;;}
+		}
+		cout&lt;&lt;&quot; = &quot;&lt;&lt;s&lt;&lt;&quot; (fib)\n&quot;;
+	}
+	return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="uva11951.html" class="problem-link">uva11951</a> <a href="uva10010.html" class="problem-link">uva10010</a> <a href="d898-uva10128.html" class="problem-link">d898 uva10128</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="a520-uva12416.html" class="problem-link">a520 uva12416</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

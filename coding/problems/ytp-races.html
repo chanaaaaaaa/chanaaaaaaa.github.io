@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ytp races - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ytp races</h1>
+        <p class="subtitle">題目編號：ytp races</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;stdio.h&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+int q,t,l,r,A;
+vector&lt;int&gt;d;
+
+int main(){
+
+    scanf(&quot;%d %d&quot;,&amp;t,&amp;q);
+    d.reserve(t+1);
+    while(t--){
+        scanf(&quot;%d&quot;,&amp;A);
+        d.push_back(A);
+    }
+
+    while(q--){
+        scanf(&quot;%d %d %d&quot;,&amp;t,&amp;l,&amp;r);
+        if(t==1){
+            for(l--;l&lt;r;l++){
+                if((d[l]&amp;1)==1){
+                    d[l]=d[l]*3+1;
+                }else{
+                    d[l]/=2;
+                }
+            }
+        }else{
+            A=0;
+            for(l--;l&lt;r;l++){
+                A+=d[l];
+            }
+            printf(&quot;%d\n&quot;,A);
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a001.html" class="problem-link">a001</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="uva10199.html" class="problem-link">uva10199</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="e581-uva11067.html" class="problem-link">e581 uva11067</a> <a href="e601-uva255.html" class="problem-link">!e601 uva255</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

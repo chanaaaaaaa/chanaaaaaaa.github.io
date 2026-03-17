@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva247 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva247</h1>
+        <p class="subtitle">題目編號：uva247</p>
+        <p><a href="https://vjudge.net/problem/UVA-247" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inilne&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;iostream&gt;
+//#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;vector&gt;
+#include&lt;stack&gt;
+#include&lt;algorithm&gt;
+#define int long long
+#define icc ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+using namespace std;
+
+//-block
+vector&lt;int&gt;dfn;
+vector&lt;int&gt;low;
+vector&lt;vector&lt;int&gt;&gt;grid;
+vector&lt;bool&gt;instack;
+
+stack&lt;int&gt;s;
+map&lt;string,int&gt;mp;
+map&lt;int,string&gt;demp;
+
+int dfstime,cnt;
+
+inline void tarjan(int u){
+    dfn[u]=low[u]=++dfstime;
+    s.push(u);
+    instack[u]=true;
+
+    for(auto &amp;v:grid[u]){
+        if(!dfn[v]){
+            tarjan(v);
+            low[u]=min(low[u],low[v]);
+        }else if(instack[v]){
+            low[u]=min(low[u],dfn[v]);
+        }
+    }
+    if(low[u]==dfn[u]){
+        int a=-1;
+        do{
+            if(a!=-1){cout&lt;&lt;&quot;, &quot;;}
+            a=s.top();
+            s.pop();
+            instack[a]=false;
+            cout&lt;&lt;demp[a];
+        }while(a!=u);
+        cout&lt;&lt;&#x27;\n&#x27;;
+    }
+}
+signed main(){
+    int N,M,cases=0;
+    while(cin&gt;&gt;N&gt;&gt;M &amp;&amp; (N || M)){
+        cin.ignore();
+        dfn.clear();
+        low.clear();
+        grid.clear();
+        instack.clear();
+        mp.clear();
+        demp.clear();
+        while(!s.empty()){s.pop();}
+
+        dfn.assign(N+1,0);
+        low.assign(N+1,0);
+        instack.assign(N+1,false);
+        grid.assign(N+1,vector&lt;int&gt;());
+        dfstime=0;cnt=0;
+
+        for(int i=0;i&lt;M;++i){
+            string s1,s2;
+            int n1,n2;
+            cin&gt;&gt;s1&gt;&gt;s2;
+            if(mp[s1]==0){
+                mp[s1]=++cnt;
+                demp[cnt]=s1;
+                n1=cnt;
+            }else{n1=mp[s1];}
+
+            if(mp[s2]==0){
+                mp[s2]=++cnt;
+                demp[cnt]=s2;
+                n2=cnt;
+            }else{n2=mp[s2];}
+
+            grid[n1].push_back(n2);
+        }
+
+        if(cases){cout&lt;&lt;&#x27;\n&#x27;;}
+        cout&lt;&lt;&quot;Calling circles for data set &quot;&lt;&lt;++cases&lt;&lt;&quot;:\n&quot;;
+        for(int i=1;i&lt;=cnt;++i){
+            if(!dfn[i]){
+                tarjan(i);
+            }
+        }
+    }
+}
+/*
+5 6
+Ben Alexander
+Alexander Dolly
+Dolly Ben
+Dolly Benedict
+Benedict Dolly
+Alexander Aaron
+14 34
+John Aaron
+Aaron Benedict
+Betsy John
+Betsy Ringo
+Ringo Dolly
+Benedict Paul
+John Betsy
+John Aaron
+Benedict George
+Dolly Ringo
+Paul Martha
+George Ben
+Alexander George
+Betsy Ringo
+Alexander Stephen
+Martha Stephen
+Benedict Alexander
+Stephen Paul
+Betsy Ringo
+Quincy Martha
+Ben Patrick
+Betsy Ringo
+Patrick Stephen
+Paul Alexander
+Patrick Ben
+Stephen Quincy
+Ringo Betsy
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Quincy Martha
+0 0
+*/
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="j059-uva11547.html" class="problem-link">j059 uva11547</a> <a href="pE.html" class="problem-link">pE</a> <a href="c124-uva532.html" class="problem-link">c124 uva532</a> <a href="day-140.html" class="problem-link">day-140</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

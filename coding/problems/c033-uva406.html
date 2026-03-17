@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c033 uva406 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c033 uva406</h1>
+        <p class="subtitle">題目編號：c033 uva406</p>
+        <p><a href="https://vjudge.net/problem/UVA-406" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+
+#define MAXP 1000
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+// -block
+bool isprime[MAXP+1];
+vector&lt;int&gt;primes;
+inline void form(){
+    for(int i=2;i&lt;=MAXP;i++){
+        if(!isprime[i]){primes.emplace_back(i);}
+        for(auto &amp;p:primes){
+            if(i*p&gt;MAXP){break;}
+            isprime[i*p]=true;
+            if(i%p==0){break;}
+        }
+    }
+    primes.insert(primes.begin(),1);//
+}
+
+int C,N;
+inline void slove(int N,int C){
+    write(N);
+    putchar(&#x27; &#x27;);
+    write(C);
+    putchar(&#x27;:&#x27;);
+
+    int cnt=0;
+    while(primes[cnt]&lt;=N){cnt++;}
+    //write(cnt);
+    //putchar(&#x27; &#x27;);
+    if(C*2-1&gt;=cnt){
+        for(int i=0;i&lt;cnt;i++){
+            if(primes[i]==0){break;}
+            putchar(&#x27; &#x27;);
+            write(primes[i]);
+        }
+    }else if(cnt%2==0){
+        int s=(cnt-(C*2))/2;
+        for(int i=0;i&lt;C*2;i++){
+            putchar(&#x27; &#x27;);
+            write(primes[s+i]);
+        }
+    }else{
+        int s=(cnt-(C*2-1))/2;
+        for(int i=0;i&lt;C*2-1;i++){
+            putchar(&#x27; &#x27;);
+            write(primes[s+i]);
+        }
+    }
+    putchar(&#x27;\n&#x27;);
+    putchar(&#x27;\n&#x27;);
+}
+signed main(void){
+    form();/*
+    for(auto &amp;i:primes){
+        write(i);
+        putchar(&#x27; &#x27;);
+    }*/
+    //input
+    while(N=read()){
+        if(N==-1){break;}
+        C=read();
+        slove(N,C);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva11480.html" class="problem-link">uva11480</a> <a href="n786-uva10093.html" class="problem-link">n786 uva10093</a> <a href="f163-2020APCS.html" class="problem-link">f163 2020APCS</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f580 2020APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>f580 2020APCS</h1>
+        <p class="subtitle">題目編號：f580 2020APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2020" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+vector&lt;int&gt;f={4,1,2};
+
+vector&lt;vector&lt;int&gt;&gt;dat;
+int N,M,A,B;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        if(c==&#x27;-&#x27;) w=-1;
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){
+        putchar(&#x27;-&#x27;);
+        x=-x;
+    }
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+
+signed main(){
+
+    N=read();
+    M=read();
+    dat.reserve(N+1);
+    dat.assign(N,f);
+    while(M--){
+        A=read()-1;
+        B=read();
+        if(B==-1){
+            dat[A]={dat[A][1],7-dat[A][0],dat[A][2]};
+        }else if(B==-2){
+            dat[A]={dat[A][0],7-dat[A][2],dat[A][1]};
+        }else{
+            B--;
+            swap(dat[A],dat[B]);
+        }
+    }
+    for(int i=0;i&lt;N;i++){
+        write(dat[i][1]);
+        putchar(&#x27; &#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10959.html" class="problem-link">uva10959</a> <a href="c119-uva10220.html" class="problem-link">c119 uva10220</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva10887.html" class="problem-link">uva10887</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

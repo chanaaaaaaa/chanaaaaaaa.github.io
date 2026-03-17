@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e579 uva10050 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e579 uva10050</h1>
+        <p class="subtitle">題目編號：e579 uva10050</p>
+        <p><a href="https://vjudge.net/problem/UVA-10050" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    cin&gt;&gt;N;
+    while(N--){
+        int don[100];
+        int day,party,Ans=0;
+        cin&gt;&gt;day&gt;&gt;party;
+        for(int i=0;i&lt;party;i++){
+            cin&gt;&gt;don[i];
+        }
+        for(int i=1;i&lt;=day;i++){
+            if(!(i%7==6 || i%7==0)){
+                for(int j=0;j&lt;party;j++){
+                    if(i%don[j]==0){
+                        Ans++;
+                        break;
+                    }
+                }
+            }
+        }
+        cout&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d188-uva11342.html" class="problem-link">d188 uva11342</a> <a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="d672-uva10922.html" class="problem-link">d672 uva10922</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

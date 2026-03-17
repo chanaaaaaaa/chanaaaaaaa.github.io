@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e578 uva10222 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e578 uva10222</h1>
+        <p class="subtitle">題目編號：e578 uva10222</p>
+        <p><a href="https://vjudge.net/problem/UVA-10222" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int in[41]={92,93,91,112,111,105,117,121,116,114,101,39,59,108,107,106,104,103,102,100,47,46,44,109,110,98,118,63,61,45,48,57,56,55,54,53,52,51,50,99};
+int ou[41]={91,112,111,105,117,121,116,114,101,119,113,108,107,106,104,103,102,100,115,97,44,109,110,98,118,99,120,122,48,57,56,55,54,53,52,51,50,49,96,122};
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    string A;
+    while(getline(cin,A)){
+        for(int i=0;i&lt;A.size();i++){
+            if(int(A[i])==32){
+                cout&lt;&lt;char(32);
+                continue;
+            }
+            int pos=0;
+            for(;pos&lt;41;pos++){
+                if(int(A[i])==in[pos]){
+                    cout&lt;&lt;char(ou[pos]);
+                }
+            }
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d793-uva929.html" class="problem-link">d793 uva929</a> <a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="uva10125.html" class="problem-link">uva10125</a> <a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="uva12160.html" class="problem-link">uva12160</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

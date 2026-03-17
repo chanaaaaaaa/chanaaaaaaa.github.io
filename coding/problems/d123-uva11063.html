@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d123 uva11063 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d123 uva11063</h1>
+        <p class="subtitle">題目編號：d123 uva11063</p>
+        <p><a href="https://vjudge.net/problem/UVA-11063" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N,Case=1;
+    while(cin&gt;&gt;N){
+        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;Case&lt;&lt;&quot;: &quot;;
+        vector&lt;int&gt;dat;
+        for(int i=0;i&lt;N;i++){
+            int temp;
+            cin&gt;&gt;temp;
+            dat.push_back(temp);
+        }
+        set&lt;int&gt;check;
+        int flag=0;
+        for(int i=0;i&lt;N;i++){
+            for(int j=i;j&lt;N;j++){
+                int temp=dat[i]+dat[j];
+                if(check.count(temp)){
+                    cout&lt;&lt;&quot;It is not a B2-Sequence.\n\n&quot;;
+                    flag=1;
+                    break;
+                }else{
+                    check.insert(temp);
+                }
+                if(i==N-1 &amp;&amp; j==N-1){
+                    cout&lt;&lt;&quot;It is a B2-Sequence.\n\n&quot;;
+                }
+            }
+            if(flag){break;}
+        }
+        Case++;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="a176.html" class="problem-link">a176</a> <a href="j059-uva11547.html" class="problem-link">j059 uva11547</a> <a href="e289-2019APCS.html" class="problem-link">e289 2019APCS</a> <a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

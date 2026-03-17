@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c123 uva514 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c123 uva514</h1>
+        <p class="subtitle">題目編號：c123 uva514</p>
+        <p><a href="https://vjudge.net/problem/UVA-514" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+// -block
+int N,temp;
+queue&lt;int&gt;dat;
+stack&lt;int&gt;wait;
+inline bool solve(){
+    for(int i=1;i&lt;=N;i++){
+        if(dat.front()==i){
+            dat.pop();
+        }else{
+            while(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
+                dat.pop();
+                wait.pop();
+            }
+            wait.push(i);
+        }
+    }
+    while(!dat.empty() &amp;&amp; !wait.empty() &amp;&amp; dat.front()==wait.top()){
+        dat.pop();
+        wait.pop();
+    }
+    return (dat.empty() &amp;&amp; wait.empty());
+}
+signed main(void){
+    while(true){
+        N=read(),temp;
+        if(N==0){break;}
+        while(true){
+            for(int i=0;i&lt;N;i++){
+                temp=read();
+                if(temp==0){break;}
+                dat.push(temp);
+            }
+            if(temp==0){break;}
+            //do
+            if(solve()){
+                putchar(&#x27;Y&#x27;);
+                putchar(&#x27;e&#x27;);
+                putchar(&#x27;s&#x27;);
+            }else{
+                putchar(&#x27;N&#x27;);
+                putchar(&#x27;o&#x27;);
+            }
+            queue&lt;int&gt;empq;swap(empq,dat);
+            stack&lt;int&gt;emps;swap(emps,wait);
+            putchar(&#x27;\n&#x27;);
+            //-do
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="d253-uva674.html" class="problem-link">d253 uva674</a> <a href="d123-uva11063.html" class="problem-link">d123 uva11063</a> <a href="a133-uva10066.html" class="problem-link">a133 uva10066</a> <a href="uva10125.html" class="problem-link">uva10125</a> <a href="uva11504.html" class="problem-link">uva11504</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

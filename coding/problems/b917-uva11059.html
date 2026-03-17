@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b917 uva11059 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>b917 uva11059</h1>
+        <p class="subtitle">題目編號：b917 uva11059</p>
+        <p><a href="https://vjudge.net/problem/UVA-11059" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(false);
+
+    int N,con=1;
+    while(cin&gt;&gt;N){
+        long long maxx=0;
+        int aa[N];
+        for(int i=0;i&lt;N;i++){
+            cin&gt;&gt;aa[i];
+        }
+        for(int i=0;i&lt;N;i++){
+            long long temp=1;
+            for(int j=i;j&lt;N;j++){
+                temp*=aa[j];
+                if(temp&gt;maxx){maxx=temp;}
+            }
+        }
+        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;con&lt;&lt;&quot;: The maximum product is &quot;&lt;&lt;maxx&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;&lt;&lt;&quot;\n&quot;;
+        con++;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="uva247.html" class="problem-link">uva247</a> <a href="uva11517.html" class="problem-link">uva11517</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

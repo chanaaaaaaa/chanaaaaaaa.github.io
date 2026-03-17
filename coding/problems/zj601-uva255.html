@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zj.601 uva255 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>zj.601 uva255</h1>
+        <p class="subtitle">題目編號：zj.601 uva255</p>
+        <p><a href="https://vjudge.net/problem/UVA-255" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int k,q1,q2;
+
+inline bool is_illegal_move(){
+    if(k==q2 || q1==q2){return true;}
+    if(q1/8!=q2/8 &amp;&amp; q1%8!=q2%8){return true;}
+    if((((q1/8&lt;k/8 &amp;&amp; k/8&lt;q2/8)||(q1/8&gt;k/8 &amp;&amp; k/8&gt;q2/8)) &amp;&amp; q1%8==k%8 )||(((q1%8&lt;k%8 &amp;&amp; k%8&lt;q2%8)||(q1%8&gt;k%8 &amp;&amp; k%8&gt;q2%8)) &amp;&amp; q1/8==k/8)){
+        return true;
+    }
+    return false;
+}
+
+inline bool is_move_not_allow(){
+    if((k+1==q2 &amp;&amp; q2%8!=0)||(k-1==q2 &amp;&amp; q2%8!=7)||(k-8==q2)|| k+8==q2){
+        return true;
+    }
+    return false;
+}
+
+inline bool is_stop(){
+    if((k==0 &amp;&amp; q2==9)||(k==7 &amp;&amp; q2==14)||(k==56 &amp;&amp; q2==49)||(k==63)&amp;&amp;(q2==54)){
+        return true;
+    }
+    return false;
+}
+
+signed main(){
+    while(~scanf(&quot;%d %d %d&quot;,&amp;k,&amp;q1,&amp;q2)){
+        if(k==q1){
+            printf(&quot;Illegal state\n&quot;);
+        }else if(is_illegal_move()){
+            printf(&quot;Illegal move\n&quot;);
+        }else if(is_move_not_allow()){
+            printf(&quot;Move not allowed\n&quot;);
+        }else if(is_stop()){
+            printf(&quot;Stop\n&quot;);
+        }else{
+            printf(&quot;Continue\n&quot;);
+        }
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10368.html" class="problem-link">uva10368</a> <a href="uva10199.html" class="problem-link">uva10199</a> <a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="uva10596.html" class="problem-link">uva10596</a> <a href="d307-uva686.html" class="problem-link">d307 uva686</a> <a href="uva10015.html" class="problem-link">uva10015</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

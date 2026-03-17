@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c001 uva10405 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c001 uva10405</h1>
+        <p class="subtitle">題目編號：c001 uva10405</p>
+        <p><a href="https://vjudge.net/problem/UVA-10405" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+//#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;string&gt;
+using namespace std;
+/*
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+	}
+	while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=x*10+c-&#x27;0&#x27;;
+        c=getchar();
+	}
+	return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+*/
+int LCS[1001][1001];
+string s1,s2;
+inline int Flcs(int i,int j){
+    if(i==0 || j==0){return 0;}
+    if(LCS[i][j]!=-1){return LCS[i][j];}
+    if(s1[i]==s2[j]){
+        return LCS[i][j]=Flcs(i-1,j-1)+1;
+    }else{
+        return LCS[i][j]=max(Flcs(i-1,j),Flcs(i,j-1));
+    }
+}
+/*
+bcacbcabbaccbab
+bccabccbbabacbc
+a1b2c3d4e
+zz1yy2xx3ww4vv
+abcdgh
+aedfhr
+abcdefghijklmnopqrstuvwxyz
+a0b0c0d0e0f0g0h0i0j0k0l0m0n0o0p0q0r0s0t0u0v0w0x0y0z0
+abcdefghijklmnzyxwvutsrqpo
+opqrstuvwxyzabcdefghijklmn
+
+11
+4
+3
+26
+14
+*/
+signed main() {
+    while(getline(cin,s1)){
+        getline(cin,s2);
+        fill(LCS[0],LCS[0]+1001*1001,-1);
+        s1.insert(s1.begin(),&#x27;\0&#x27;);
+        s2.insert(s2.begin(),&#x27;\0&#x27;);
+
+        cout&lt;&lt;Flcs(s1.size(),s2.size())-1&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="a001.html" class="problem-link">a001</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

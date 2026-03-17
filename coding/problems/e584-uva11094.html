@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e584 uva11094 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e584 uva11094</h1>
+        <p class="subtitle">題目編號：e584 uva11094</p>
+        <p><a href="https://vjudge.net/problem/UVA-11094" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;iostream&gt;
+using namespace std;
+//-block
+int d[2][4]={
+    {1,-1,0,0},
+    {0,0,1,-1}
+};
+int N,M,X,Y;
+char mp[20][20],target;
+
+inline int dfs(int nowy,int nowx){
+    int tmp=1;
+
+    for(int f=0;f&lt;4;++f){
+        if(nowy+d[0][f]&lt;0 || nowy+d[0][f]&gt;=N){continue;}
+        if(nowx+d[1][f]&gt;=M){
+            if(mp[nowy+d[0][f]][nowx+d[1][f]-M]==target){
+               mp[nowy+d[0][f]][nowx+d[1][f]-M]=&#x27; &#x27;;
+               tmp+=dfs(nowy+d[0][f],nowx+d[1][f]-M);
+            }
+        }else if(nowx+d[1][f]&lt;0){
+            if(mp[nowy+d[0][f]][nowx+d[1][f]+M]==target){
+               mp[nowy+d[0][f]][nowx+d[1][f]+M]=&#x27; &#x27;;
+               tmp+=dfs(nowy+d[0][f],nowx+d[1][f]+M);
+            }
+        }else{
+            if(mp[nowy+d[0][f]][nowx+d[1][f]]==target){
+               mp[nowy+d[0][f]][nowx+d[1][f]]=&#x27; &#x27;;
+               tmp+=dfs(nowy+d[0][f],nowx+d[1][f]);
+            }
+        }
+    }
+    return tmp;
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+    while(cin&gt;&gt;N&gt;&gt;M &amp;&amp; (N&amp;&amp;M)){
+        for(int i=0;i&lt;N;++i){//Y
+            for(int j=0;j&lt;M;++j){//X
+                cin&gt;&gt;mp[i][j];
+            }
+        }
+        cin&gt;&gt;Y&gt;&gt;X;
+        target=mp[Y][X];
+        mp[Y][X]=&#x27; &#x27;;
+        dfs(Y,X);
+
+        int maxx=0;
+        for(int i=0;i&lt;N;++i){//Y
+            for(int j=0;j&lt;M;++j){//X
+                if(mp[i][j]==target){
+                    mp[i][j]=&#x27; &#x27;;
+                    maxx=max(maxx,dfs(i,j));
+                }
+            }
+        }
+        cout&lt;&lt;maxx&lt;&lt;&#x27;\n&#x27;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="AtCode212.html" class="problem-link">AtCode212</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="d674-uva10192.html" class="problem-link">d674 uva10192</a> <a href="uva11005.html" class="problem-link">uva11005</a> <a href="uva10368.html" class="problem-link">uva10368</a> <a href="e286-2019APCS.html" class="problem-link">e286 2019APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

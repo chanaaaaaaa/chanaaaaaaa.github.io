@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva11951 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva11951</h1>
+        <p class="subtitle">題目編號：uva11951</p>
+        <p><a href="https://vjudge.net/problem/UVA-11951" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;memory.h&gt;
+#include&lt;algorithm&gt;
+
+#define int long long
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+        if(c==-1){return 0;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+
+signed main(){
+    int T=read();
+    for(int cases=1;cases&lt;=T;++cases){
+        int N=read(),M=read(),K=read();
+        int lib[N+1][M+1];
+        int dat[N+1][M+1];
+
+        memset(dat,0,sizeof(dat));
+
+        for(int i=1;i&lt;=N;++i){
+            for(int j=1;j&lt;=M;++j){
+                lib[i][j]=read();
+            }
+        }
+        for(int i=1;i&lt;=N;++i){
+            for(int j=1;j&lt;=M;++j){
+                dat[i][j]=dat[i-1][j]+dat[i][j-1]+lib[i][j]-dat[i-1][j-1];
+            }
+        }
+        //-2D primix sum &amp;&amp; init
+        //search
+        int max_size=0,min_prc=0;
+        for(int si=1;si&lt;=N;++si){//start-i
+            for(int sj=1;sj&lt;=M;++sj){//start-j
+                for(int ei=si;ei&lt;=N;++ei){//end-i
+                    for(int ej=sj;ej&lt;=M;++ej){//end-j
+                        int room_cnt=(ei-si+1)*(ej-sj+1);
+                        int room_prc=dat[ei][ej]+dat[si-1][sj-1]-dat[si-1][ej]-dat[ei][sj-1];
+
+                        if(room_prc&lt;=K){
+                            if(room_cnt&gt;max_size){
+                                max_size=room_cnt;
+                                min_prc=room_prc;
+                                /*
+                                write(si);putchar(&#x27;-&#x27;);
+                                write(sj);putchar(&#x27;-&#x27;);
+                                write(ei);putchar(&#x27;-&#x27;);
+                                write(ej);putchar(&#x27;=&#x27;);
+                                write(max_size);putchar(&#x27;-&#x27;);
+                                write(min_prc);putchar(&#x27;\n&#x27;);
+                                */
+                            }else if(room_cnt==max_size){
+                                min_prc=min(min_prc,room_prc);
+                                /*
+                                write(si);putchar(&#x27;-&#x27;);
+                                write(sj);putchar(&#x27;-&#x27;);
+                                write(ei);putchar(&#x27;-&#x27;);
+                                write(ej);putchar(&#x27;=&#x27;);
+                                write(max_size);putchar(&#x27;-&#x27;);
+                                write(min_prc);putchar(&#x27;\n&#x27;);
+                                */
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        putchar(&#x27;C&#x27;);putchar(&#x27;a&#x27;);putchar(&#x27;s&#x27;);putchar(&#x27;e&#x27;);putchar(&#x27; &#x27;);putchar(&#x27;#&#x27;);
+        write(cases);putchar(&#x27;:&#x27;);putchar(&#x27; &#x27;);
+        write(max_size);putchar(&#x27; &#x27;);
+        write(min_prc);
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+/*
+1
+5 6 15
+10 1 10 20 10 10
+30 1 1 5 1 1
+50 1 1 20 1 1
+10 5 5 10 5 1
+40 10 90 1 10 10
+*/
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10174.html" class="problem-link">uva10174</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="uva10125.html" class="problem-link">uva10125</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="day-151.html" class="problem-link">day-151</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

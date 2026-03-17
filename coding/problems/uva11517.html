@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva11517 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva11517</h1>
+        <p class="subtitle">題目編號：uva11517</p>
+        <p><a href="https://vjudge.net/problem/UVA-11517" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;stdio.h&gt;
+#include&lt;vector&gt;
+#include&lt;climits&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+//-block
+int T,t,n,sum;
+
+signed main(){
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--){
+        scanf(&quot;%d%d&quot;,&amp;t,&amp;n);
+        vector&lt;int&gt;dp(20001,INT_MAX/2);
+        vector&lt;int&gt;coin(n);
+        dp[0]=0;
+        for(int i=0;i&lt;n;i++){
+            scanf(&quot;%d&quot;,&amp;coin[i]);
+            if(sum&lt;t){sum+=coin[i];}
+        }
+
+        for(int i=0;i&lt;n;i++){
+            for(int j=sum;j&gt;=coin[i];j--){
+                dp[j]=min(dp[j],dp[j-coin[i]]+1);
+            }
+        }
+        while(dp[t]==INT_MAX/2){t++;}
+        printf(&quot;%d %d\n&quot;,t,dp[t]);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d387-uva10235.html" class="problem-link">d387 uva10235</a> <a href="f607-2021APCS.html" class="problem-link">f607 2021APCS</a> <a href="e513-uva11349.html" class="problem-link">e513 uva11349</a> <a href="f163-2020APCS.html" class="problem-link">f163 2020APCS</a> <a href="b966-2016APCS.html" class="problem-link">b966 2016APCS</a> <a href="a519-uva12459.html" class="problem-link">a519 uva12459</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

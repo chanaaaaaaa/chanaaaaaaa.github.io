@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c007 uva00272 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c007 uva00272</h1>
+        <p class="subtitle">題目編號：c007 uva00272</p>
+        <p><a href="https://vjudge.net/problem/UVA-00272" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    string A;
+    int check=0;
+    while(getline(cin,A)){
+
+        for(int i=0;i&lt;A.size();i++){
+            if(A[i]==&#x27;&quot;&#x27;){
+                if(check==0){
+                    check=1;
+                    cout&lt;&lt;&quot;``&quot;;
+                }else{
+                    check=0;
+                    cout&lt;&lt;&quot;&#x27;&#x27;&quot;;
+                }
+            }else{cout&lt;&lt;A[i];}
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10535.html" class="problem-link">uva10535</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="d492-uva10226.html" class="problem-link">d492 uva10226</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="uva10858.html" class="problem-link">uva10858</a> <a href="copy.html" class="problem-link">!copy</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

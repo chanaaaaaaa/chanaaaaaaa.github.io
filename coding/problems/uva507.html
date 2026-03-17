@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva507 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva507</h1>
+        <p class="subtitle">題目編號：uva507</p>
+        <p><a href="https://vjudge.net/problem/UVA-507" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+//-block
+
+signed main(){
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    for(int cases=1;cases&lt;=T;cases++){
+        int N,pos=-1,maxStart=0,maxEnd=0,num=-1,
+                        Start=0,   End=0,Max=-1;
+        scanf(&quot;%d&quot;,&amp;N);
+        int dat[N],maxx[N];
+
+        for(int i=1;i&lt;=N-1;i++){
+            scanf(&quot;%d&quot;,&amp;dat[i]);
+
+            if(num&gt;=0){
+                num+=dat[i];
+                End=i+1;
+            }else{
+                num=dat[i];
+                Start=i;
+                End=i+1;
+            }
+
+            if(num&gt;Max || (num==Max &amp;&amp; End-Start&gt;maxEnd-maxStart)){
+                maxStart=Start;
+                maxEnd=End;
+                Max=num;
+            }
+        }
+        if(Max!=-1){
+            printf(&quot;The nicest part of route %d is between stops %d and %d\n&quot;,cases,maxStart,maxEnd);
+        }else{printf(&quot;Route %d has no nice parts\n&quot;,cases);}
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="uva10449.html" class="problem-link">uva10449</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="c575-2017APCS.html" class="problem-link">c575 2017APCS</a> <a href="uva11517.html" class="problem-link">uva11517</a> <a href="CSES1734.html" class="problem-link">CSES1734</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b343 uva11518 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>b343 uva11518</h1>
+        <p class="subtitle">題目編號：b343 uva11518</p>
+        <p><a href="https://vjudge.net/problem/UVA-11518" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(false);
+
+    int N;
+    cin&gt;&gt;N;
+    while(N--){
+        int n,m,l;
+        int route[10000][2];
+        cin&gt;&gt;n&gt;&gt;m&gt;&gt;l;
+        for(int i=0;i&lt;m;i++){
+            cin&gt;&gt;route[i][0]&gt;&gt;route[i][1];
+        }
+
+        set&lt;int&gt;ed;
+        for(int i=0;i&lt;l;i++){
+            int head;
+            cin&gt;&gt;head;
+            ed.insert(head);
+        }
+
+        int cou=0;
+        int check=1;
+        while(check!=cou){
+            check=cou;
+            for(int i=0;i&lt;m;i++){
+                if((ed.count(route[i][0]))&amp;&amp;(!ed.count(route[i][1]))){
+                    //cout&lt;&lt;route[i][0]&lt;&lt;&quot;-&gt;&quot;&lt;&lt;route[i][1]&lt;&lt;&quot;\n&quot;;
+                    ed.insert(route[i][1]);
+                    cou++;
+                    route[i][0]=-1;
+                    route[i][1]=-1;
+                }
+            }
+        }
+        cout&lt;&lt;cou+l&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="c296-2016APCS.html" class="problem-link">c296 2016APCS</a> <a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="e530-uva1644.html" class="problem-link">e530 uva1644</a> <a href="a012-uva10055.html" class="problem-link">a012 uva10055</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

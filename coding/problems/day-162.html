@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day-162 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>day-162</h1>
+        <p class="subtitle">題目編號：day-162</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+
+using namespace std;
+
+/* I/O Optimize */
+inline int min(int a,int b){
+    return a&lt;b?a:b;
+}
+
+const int INF =1e9;
+const int coin[6]={5,10,20,50,100,200};
+
+int have[6],tot,tmp,res,prc;
+
+inline int cus(int N){
+    int rem=0;
+    for(int i=5;i&gt;=0;--i){
+        tmp=min(have[i],N/coin[i]);
+        rem+=tmp;
+        N-=tmp*coin[i];
+        if(N==0){return rem;}
+    }
+    return INF;
+}
+inline int sel(int N){
+    int rem=0;
+    for(int i=5;i&gt;=0;--i){
+        rem+=N/coin[i];
+        N%=coin[i];
+    }
+    return rem;
+}
+inline void solve(){
+    //-table
+    while(true){
+        tot=0;res=INF;
+        for(int i=0;i&lt;6;++i){
+            scanf(&quot;%d&quot;,&amp;have[i]);
+            tot+=have[i]*coin[i];
+        }
+        if(tot==0){break;}
+        double dprc;
+        scanf(&quot;%lf&quot;,&amp;dprc);
+        prc=(int)(dprc*100+0.5);
+
+        for(int i=0;i+prc&lt;=tot &amp;&amp; i&lt;=600;++i){
+            res=min(res,cus(i+prc)+sel(i));
+        }
+        printf(&quot;%3d\n&quot;,res);
+    }
+}
+
+/* Programing area*/
+signed main(){
+    solve();
+    system(&quot;pause&quot;);
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="j123-2022APCS.html" class="problem-link">j123 2022APCS</a> <a href="f434-uva458.html" class="problem-link">f434 uva458</a> <a href="a743-uva10420.html" class="problem-link">a743 uva10420</a> <a href="a159-uva11743.html" class="problem-link">a159 uva11743</a> <a href="CSES1631.html" class="problem-link">CSES1631</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

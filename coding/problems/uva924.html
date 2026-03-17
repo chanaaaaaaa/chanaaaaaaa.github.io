@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva924 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva924</h1>
+        <p class="subtitle">題目編號：uva924</p>
+        <p><a href="https://vjudge.net/problem/UVA-924" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int E;
+vector&lt;vector&lt;int&gt;&gt;dat;
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+
+void bfs(int S){
+    queue&lt;int&gt;wait;
+    vector&lt;int&gt;con(E,-1);
+    vector&lt;int&gt;day(E,0);
+    int maxx=0,d=0;
+    wait.emplace(S);
+    con[S]=0;
+    while(!wait.empty()){
+        if(dat[wait.front()].size()){
+            for(auto &amp;v :dat[wait.front()]){
+                if(con[v]==-1){
+                    con[v]=con[wait.front()]+1;
+                    wait.emplace(v);
+                    day[con[v]]++;
+                }
+            }
+        }
+        wait.pop();
+    }
+    for(int i=0;i&lt;day.size();i++){
+        if(day[i]&gt;maxx){maxx=day[i];d=i;}
+    }
+
+    if(maxx==0){
+        putchar(&#x27;0&#x27;);
+    }else{
+        write(maxx);
+        putchar(&#x27; &#x27;);
+        write(d);
+    }
+    putchar(&#x27;\n&#x27;);
+}
+signed main(){
+    E=read();
+
+    dat.assign(E, vector&lt;int&gt;());
+    for(int i=0;i&lt;E;i++){
+        int t=read();
+        while(t--){
+            dat[i].emplace_back(read());
+        }
+    }
+    int T=read();
+    while(T--){
+        bfs(read());
+        //write(bfs(s));
+        //putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva11057.html" class="problem-link">uva11057</a> <a href="CSES1650.html" class="problem-link">CSES1650</a> <a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="d275-uva11586.html" class="problem-link">d275 uva11586</a> <a href="uva12186.html" class="problem-link">uva12186</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

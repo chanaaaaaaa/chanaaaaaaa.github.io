@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c009 uva10473 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c009 uva10473</h1>
+        <p class="subtitle">題目編號：c009 uva10473</p>
+        <p><a href="https://vjudge.net/problem/UVA-10473" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    string A;
+    while(cin&gt;&gt;A){
+        if(A==&quot;-1&quot;){break;}
+        if(A[0]==&#x27;0&#x27; &amp;&amp; A[1]==&#x27;x&#x27;){
+            unsigned long long Ans=0;
+            for(int i=2;i&lt;A.size();i++){
+                if(int(A[i])&gt;=65 &amp;&amp; int(A[i])&lt;=90){
+                    Ans+=(int(A[i])-55)*pow(16,A.size()-1-i);
+                }else{
+                    Ans+=(int(A[i])-48)*pow(16,A.size()-1-i);
+                }
+            }
+            cout&lt;&lt;Ans;
+        }else{
+            cout&lt;&lt;&quot;0x&quot;;
+            int temp=0;
+            for(int i=0;i&lt;A.size();i++){
+                temp+=(int(A[A.size()-i-1])-48)*(pow(10,i));
+            }
+            int check=1;
+            for(int i=8;i&gt;=0;i--){
+                int cls=floor(temp/pow(16,i));
+                if(cls&gt;=10){
+                    check=0;
+                    cout&lt;&lt;char(55+cls);
+                    temp-=floor(temp/pow(16,i))*pow(16,i);
+                }else if(cls&gt;=1){
+                    check=0;
+                    cout&lt;&lt;char(48+cls);
+                    temp-=floor(temp/pow(16,i))*pow(16,i);
+                }
+                else if(check==0){
+                    cout&lt;&lt;&quot;0&quot;;
+                }
+
+            }
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10910.html" class="problem-link">uva10910</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a> <a href="c013-uva00488.html" class="problem-link">c013 uva00488</a> <a href="a176.html" class="problem-link">a176</a> <a href="d052-uva11456.html" class="problem-link">d052 uva11456</a> <a href="uva624.html" class="problem-link">uva624</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

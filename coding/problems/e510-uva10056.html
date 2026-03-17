@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e510 uva10056 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e510 uva10056</h1>
+        <p class="subtitle">題目編號：e510 uva10056</p>
+        <p><a href="https://vjudge.net/problem/UVA-10056" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int S;
+    cin&gt;&gt;S;
+    while(S--){
+        int N,i;
+        double p,Ans;
+        cin&gt;&gt;N&gt;&gt;p&gt;&gt;i;
+        if(p==0.0){
+            cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;&quot;0.0000&quot;&lt;&lt;&quot;\n&quot;;
+            continue;
+        }
+        Ans=(p*pow(1-p,i-1))/(1-pow(1-p,N));
+        cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;Ans&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10887.html" class="problem-link">uva10887</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="uva10227.html" class="problem-link">uva10227</a> <a href="CSES1632.html" class="problem-link">CSES1632</a> <a href="uva1208.html" class="problem-link">uva1208</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c074 uva441 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c074 uva441</h1>
+        <p class="subtitle">題目編號：c074 uva441</p>
+        <p><a href="https://vjudge.net/problem/UVA-441" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&gt;&#x27;9&#x27; || c&lt;&#x27;0&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+
+// -block
+int N;
+bool flag;
+inline void write_arr(vector&lt;int&gt;arr){
+    if(flag){putchar(&#x27;\n&#x27;);}else{flag=true;}
+    for(int i=0;i&lt;arr.size();i++){
+        if(i!=0){putchar(&#x27; &#x27;);}
+        write(arr[i]);
+    }
+}
+
+inline void solve(vector&lt;int&gt;dat,vector&lt;int&gt;pri,int now){
+    pri.push_back(dat[now]);
+    if(pri.size()==6){write_arr(pri);return;}
+    for(int i=now+1;i&lt;N;i++){
+        solve(dat,pri,i);
+    }
+}
+signed main(){
+    while(N=read()){
+        vector&lt;int&gt;dat(N);
+        vector&lt;int&gt;pri;
+        for(int i=0;i&lt;N;i++){
+            dat[i]=read();
+        }
+        for(int i=0;i&lt;=N-6;i++){
+            solve(dat,pri,i);
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10172.html" class="problem-link">uva10172</a> <a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="e566-uva10190.html" class="problem-link">e566 uva10190</a> <a href="e465-2018APCS.html" class="problem-link">e465 2018APCS</a> <a href="a539-uva10327.html" class="problem-link">a539 uva10327</a> <a href="p497-uva497.html" class="problem-link">p497 uva497</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

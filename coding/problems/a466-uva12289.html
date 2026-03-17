@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a466 uva12289 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a466 uva12289</h1>
+        <p class="subtitle">題目編號：a466 uva12289</p>
+        <p><a href="https://vjudge.net/problem/UVA-12289" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int N;
+    cin&gt;&gt;N;
+    for(int i=0;i&lt;N;i++){
+        string K;
+        cin&gt;&gt;K;
+        if(K.size()==5){
+            cout&lt;&lt;&quot;3&quot;&lt;&lt;&quot;\n&quot;;
+        }else{
+            string one=&quot;one&quot;;
+            string two=&quot;two&quot;;
+            int a=0,b=0;
+            for(int j=0;j&lt;3;j++){
+                if(K[j]==one[j]){
+                    a++;
+                }else if(K[j]==two[j]){
+                    b++;
+                }
+            }
+            if(a&gt;=2){
+                cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
+            }else if(b&gt;=2){
+                cout&lt;&lt;&quot;2&quot;&lt;&lt;&quot;\n&quot;;
+            }
+        }
+
+
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES-1753.html" class="problem-link">CSES 1753</a> <a href="c462-2017APCS.html" class="problem-link">c462 2017APCS</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a> <a href="day-149.html" class="problem-link">day-149</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="c463-2017APCS.html" class="problem-link">c463 2017APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

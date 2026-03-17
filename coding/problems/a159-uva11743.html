@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a159 uva11743 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a159 uva11743</h1>
+        <p class="subtitle">題目編號：a159 uva11743</p>
+        <p><a href="https://vjudge.net/problem/UVA-11743" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    int N;
+    cin&gt;&gt;N;
+    cin.ignore();
+    while(N--){
+        string s;
+        int cnt=0;
+        for(int i=0;i&lt;4;i++){
+            cin&gt;&gt;s;
+            for(int j=0;j&lt;4;j++){
+                int n=s[j]-&#x27;0&#x27;;
+                if(j%2==0){
+                    if(n&gt;=5){
+                        cnt+=n*2-9;
+                    }else{
+                        cnt+=n*2;
+                    }
+                }else{
+                    cnt+=n;
+                }
+            }
+        }
+        if(cnt%10==0){
+            cout&lt;&lt;&quot;Valid\n&quot;;
+        }else{
+            cout&lt;&lt;&quot;Invalid\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="uva11015.html" class="problem-link">uva11015</a> <a href="uva10926.html" class="problem-link">uva10926</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

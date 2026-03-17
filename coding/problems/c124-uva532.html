@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c124 uva532 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c124 uva532</h1>
+        <p class="subtitle">題目編號：c124 uva532</p>
+        <p><a href="https://vjudge.net/problem/UVA-532" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;utility&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+// -block
+int dx[6]={1,-1,0,0,0,0};
+int dy[6]={0,0,1,-1,0,0};
+int dz[6]={0,0,0,0,1,-1};
+
+inline int read_char(){//S-&gt;1 End-&gt;-8 #-&gt;-1 .-&gt;0; if negative cant go
+    char c=0;
+    while(c!=&#x27;S&#x27; &amp;&amp; c!=&#x27;E&#x27; &amp;&amp; c!=&#x27;#&#x27; &amp;&amp; c!=&#x27;.&#x27;){
+        c=getchar();
+    }
+    if(c==&#x27;S&#x27;){
+        return 1;
+    }if(c==&#x27;E&#x27;){
+        return -8;
+    }if(c==&#x27;#&#x27;){
+        return -1;
+    }if(c==&#x27;.&#x27;){
+        return 0;
+    }
+}
+
+signed main(){
+    int L,R,C;
+    while(L=read(),R=read(),C=read()){
+        if(L+R+C==0){break;}
+        //init&amp;&amp;input
+        queue&lt;pair&lt;pair&lt;int,int&gt;,int&gt;&gt;wait;
+        int mp[L][R][C];
+        for(int i=0;i&lt;L;i++){
+            for(int j=0;j&lt;R;j++){
+                for(int k=0;k&lt;C;k++){
+                    int temp=read_char();
+                    if(temp==1){wait.push({{i,j},k});temp--;}
+                    mp[i][j][k]=temp;
+                }
+            }
+        }
+        //-init&amp;input
+        //bfs
+        int flag=0;
+        while(!wait.empty()){
+            int x=wait.front().first.first;
+            int y=wait.front().first.second;
+            int z=wait.front().second;
+            wait.pop();
+            for(int f=0;f&lt;6;f++){
+                if(x+dx[f]&gt;=0 &amp;&amp; x+dx[f]&lt;L &amp;&amp; y+dy[f]&gt;=0 &amp;&amp; y+dy[f]&lt;R &amp;&amp; z+dz[f]&gt;=0 &amp;&amp; z+dz[f]&lt;C){
+                    if(mp[x+dx[f]][y+dy[f]][z+dz[f]]==0){
+                        mp[x+dx[f]][y+dy[f]][z+dz[f]]=mp[x][y][z]+1;
+                        wait.push({{x+dx[f],y+dy[f]},z+dz[f]});
+                    }else if(mp[x+dx[f]][y+dy[f]][z+dz[f]]==-8){
+                        flag=mp[x][y][z]+1;
+                    }
+                }
+                if(flag){break;}
+            }
+            if(flag){break;}
+        }
+        //-bfs
+        //output
+        if(flag){
+            putchar(&#x27;E&#x27;);
+            putchar(&#x27;s&#x27;);
+            putchar(&#x27;c&#x27;);
+            putchar(&#x27;a&#x27;);
+            putchar(&#x27;p&#x27;);
+            putchar(&#x27;e&#x27;);
+            putchar(&#x27;d&#x27;);
+            putchar(&#x27; &#x27;);
+            putchar(&#x27;i&#x27;);
+            putchar(&#x27;n&#x27;);
+            putchar(&#x27; &#x27;);
+            write(flag);
+            putchar(&#x27; &#x27;);
+            putchar(&#x27;m&#x27;);
+            putchar(&#x27;i&#x27;);
+            putchar(&#x27;n&#x27;);
+            putchar(&#x27;u&#x27;);
+            putchar(&#x27;t&#x27;);
+            putchar(&#x27;e&#x27;);
+            putchar(&#x27;(&#x27;);
+            putchar(&#x27;s&#x27;);
+            putchar(&#x27;)&#x27;);
+            putchar(&#x27;.&#x27;);
+        }else{
+            putchar(&#x27;T&#x27;);
+            putchar(&#x27;r&#x27;);
+            putchar(&#x27;a&#x27;);
+            putchar(&#x27;p&#x27;);
+            putchar(&#x27;p&#x27;);
+            putchar(&#x27;e&#x27;);
+            putchar(&#x27;d&#x27;);
+            putchar(&#x27;!&#x27;);
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="AtCoder-429-D.html" class="problem-link">AtCoder 429 D</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

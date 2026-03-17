@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q981 uva151 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>q981 uva151</h1>
+        <p class="subtitle">題目編號：q981 uva151</p>
+        <p><a href="https://vjudge.net/problem/UVA-151" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+// -block
+inline int slove(int N,int m){
+    int ans=1;
+    for(int i=2;i&lt;=N;i++){
+        ans=(ans+(m-1))%i+1;
+    }
+    return ans;
+}
+signed main(void){
+    int N;
+    while(N=read()){
+        if(N==0){break;}
+        if(N==13){
+            write(1);
+            putchar(&#x27;\n&#x27;);
+            continue;
+        }
+        int m=2;
+        while(slove(N-1,m)!=12){m++;}
+        write(m);
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva657.html" class="problem-link">uva657</a> <a href="d418-uva993.html" class="problem-link">d418 uva993</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="uva11504.html" class="problem-link">uva11504</a> <a href="day-151.html" class="problem-link">day-151</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

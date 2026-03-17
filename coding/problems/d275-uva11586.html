@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d275 uva11586 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d275 uva11586</h1>
+        <p class="subtitle">題目編號：d275 uva11586</p>
+        <p><a href="https://vjudge.net/problem/UVA-11586" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+#include&lt;iostream&gt;
+#include&lt;sstream&gt;
+
+using namespace std;
+
+signed main() {
+    int t;
+    cin&gt;&gt;t;
+    cin.ignore();
+    while(t--){
+        string A;
+        stringstream AA;
+        getline(cin,A);
+        AA&lt;&lt;A;
+
+        int check=0,con=0;
+        while(AA&gt;&gt;A){
+            con++;
+            if(A==&quot;MM&quot;){check++;}
+            else if(A==&quot;FF&quot;){check--;}
+        }
+        if(!check &amp;&amp; con&gt;1){cout&lt;&lt;&quot;LOOP\n&quot;;}
+        else{cout&lt;&lt;&quot;NO LOOP\n&quot;;}
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="uva10174.html" class="problem-link">uva10174</a> <a href="c082-uva00118.html" class="problem-link">c082 uva00118</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

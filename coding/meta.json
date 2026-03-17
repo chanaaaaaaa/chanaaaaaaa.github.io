@@ -1,0 +1,1022 @@
+{
+  "_說明": "在此補充各題的題解與時間複雜度，key 為題目 ID",
+  "_範例": {},
+  "!a470 uva12406": {
+    "complexity": "O(n³)"
+  },
+  "!copy": {
+    "complexity": "O(n²)"
+  },
+  "!d898 uva10128": {
+    "complexity": "O(n²)"
+  },
+  "!e601 uva255": {
+    "complexity": "O(n²)"
+  },
+  "AtCode212": {
+    "complexity": "O(n²)"
+  },
+  "AtCoder 098.C": {
+    "complexity": "O(n³)"
+  },
+  "AtCoder 212.C": {
+    "complexity": "O(n²)"
+  },
+  "AtCoder 429 D": {
+    "complexity": "O(n³)"
+  },
+  "CSES 1074": {
+    "complexity": "O(n log n)"
+  },
+  "CSES 1646": {
+    "complexity": "O(n³)"
+  },
+  "CSES 1753": {
+    "complexity": "O(n²)"
+  },
+  "CSES1073": {
+    "complexity": "O(n²)"
+  },
+  "CSES1074": {
+    "complexity": "O(n²)"
+  },
+  "CSES1084": {
+    "complexity": "O(n²)"
+  },
+  "CSES1085": {
+    "complexity": "O(n²)"
+  },
+  "CSES1090": {
+    "complexity": "O(n²)"
+  },
+  "CSES1140": {
+    "complexity": "O(n³)"
+  },
+  "CSES1619": {
+    "complexity": "O(n²)"
+  },
+  "CSES1620": {
+    "complexity": "O(n²)"
+  },
+  "CSES1621": {
+    "complexity": "O(n²)"
+  },
+  "CSES1629": {
+    "complexity": "O(n²)"
+  },
+  "CSES1630": {
+    "complexity": "O(n²)"
+  },
+  "CSES1631": {
+    "complexity": "O(n²)"
+  },
+  "CSES1632": {
+    "complexity": "O(n²)"
+  },
+  "CSES1640": {
+    "complexity": "O(n²)"
+  },
+  "CSES1641": {
+    "complexity": "O(n²)"
+  },
+  "CSES1643": {
+    "complexity": "O(n²)"
+  },
+  "CSES1650": {
+    "complexity": "O(n²)"
+  },
+  "CSES1733": {
+    "complexity": "O(n²)"
+  },
+  "CSES1734": {
+    "complexity": "O(n³)"
+  },
+  "CSES1745": {
+    "complexity": "O(n²)"
+  },
+  "CSES1753": {
+    "complexity": "O(n²)"
+  },
+  "CSES1754": {
+    "complexity": "O(n²)"
+  },
+  "LibreOJ 2185": {
+    "complexity": "O(n³)"
+  },
+  "Luogu P2261": {
+    "complexity": "O(n²)"
+  },
+  "Luogu P2522": {
+    "complexity": "O(n³)"
+  },
+  "Luogu P2580": {
+    "complexity": "O(n²)"
+  },
+  "a001": {
+    "complexity": "O(1)"
+  },
+  "a003": {
+    "complexity": "O(1)"
+  },
+  "a004": {
+    "complexity": "O(n)"
+  },
+  "a005": {
+    "complexity": "O(n)"
+  },
+  "a006": {
+    "complexity": "O(1)"
+  },
+  "a007": {
+    "complexity": "O(n²)"
+  },
+  "a011 uva00494": {
+    "complexity": "O(n²)"
+  },
+  "a012 uva10055": {
+    "complexity": "O(n)"
+  },
+  "a111 uva12149": {
+    "complexity": "O(n)"
+  },
+  "a130 uva12015": {
+    "complexity": "O(n²)"
+  },
+  "a132 uva10931": {
+    "complexity": "O(n²)",
+    "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。"
+  },
+  "a133 uva10066": {
+    "complexity": "O(n³)"
+  },
+  "a134 uva00948": {
+    "complexity": "O(n²)"
+  },
+  "a135 uva12250": {
+    "complexity": "O(n)"
+  },
+  "a158 uva11827": {
+    "complexity": "O(n²)"
+  },
+  "a159 uva11743": {
+    "complexity": "O(n²)"
+  },
+  "a176": {
+    "complexity": "O(V + E)"
+  },
+  "a221 uva11734": {
+    "complexity": "O(n²)"
+  },
+  "a223 uva10298": {
+    "complexity": "O(n²)"
+  },
+  "a465 uva12405": {
+    "complexity": "O(n²)"
+  },
+  "a466 uva12289": {
+    "complexity": "O(n²)"
+  },
+  "a467 uva11398": {
+    "complexity": "O(n²)"
+  },
+  "a518 uva12468": {
+    "complexity": "O(n)"
+  },
+  "a519 uva12459": {
+    "complexity": "O(n²)"
+  },
+  "a520 uva12416": {
+    "complexity": "O(n²)"
+  },
+  "a536 uva11689": {
+    "complexity": "O(n²)"
+  },
+  "a539 uva10327": {
+    "complexity": "O(n²)"
+  },
+  "a540 uva10684": {
+    "complexity": "O(n²)"
+  },
+  "a737 uva10041": {
+    "complexity": "O(n²)"
+  },
+  "a741 uva10101": {
+    "complexity": "O(n²)"
+  },
+  "a743 uva10420": {
+    "complexity": "O(n log n)"
+  },
+  "a884 uva11448": {
+    "complexity": "O(n²)"
+  },
+  "a993 uva10127": {
+    "complexity": "O(n²)"
+  },
+  "b059": {
+    "complexity": "O(n²)"
+  },
+  "b265 uva11286": {
+    "complexity": "O(n³)"
+  },
+  "b266 2016APCS": {
+    "complexity": "O(n³)"
+  },
+  "b343 uva11518": {
+    "complexity": "O(n²)"
+  },
+  "b437 uva11476": {
+    "complexity": "O(n²)"
+  },
+  "b917 uva11059": {
+    "complexity": "O(n²)"
+  },
+  "b964 2016APCS": {
+    "complexity": "O(n log n)"
+  },
+  "b965 2016APCS": {
+    "complexity": "O(n³)"
+  },
+  "b966 2016APCS": {
+    "complexity": "O(n²)"
+  },
+  "b967 2016APCS": {
+    "complexity": "O(V + E)"
+  },
+  "c001 uva10405": {
+    "complexity": "O(n)"
+  },
+  "c002 uva10696": {
+    "complexity": "O(n)"
+  },
+  "c004 uva10812": {
+    "complexity": "O(n)"
+  },
+  "c005 uva10300": {
+    "complexity": "O(n²)"
+  },
+  "c006 uva10550": {
+    "complexity": "O(n)"
+  },
+  "c007 uva00272": {
+    "complexity": "O(n²)"
+  },
+  "c009 uva10473": {
+    "complexity": "O(n²)"
+  },
+  "c010 uva10107": {
+    "complexity": "O(n²)"
+  },
+  "c012 uva10062": {
+    "complexity": "O(n²)"
+  },
+  "c013 uva00488": {
+    "complexity": "O(n³)"
+  },
+  "c014 uva10035": {
+    "complexity": "O(n²)"
+  },
+  "c022 uva10783": {
+    "complexity": "O(n)"
+  },
+  "c024 uva10079": {
+    "complexity": "O(n)"
+  },
+  "c033 uva406": {
+    "complexity": "O(n³)"
+  },
+  "c039 uva00100": {
+    "complexity": "O(n²)"
+  },
+  "c044 uva10008": {
+    "complexity": "O(n²)"
+  },
+  "c045 uva00490": {
+    "complexity": "O(n²)"
+  },
+  "c060 uva00392": {
+    "complexity": "O(n²)"
+  },
+  "c067 uva00591": {
+    "complexity": "O(n²)"
+  },
+  "c074 uva441": {
+    "complexity": "O(n³)"
+  },
+  "c082 uva00118": {
+    "complexity": "O(n²)"
+  },
+  "c088 uva516": {
+    "complexity": "O(n³)"
+  },
+  "c119 uva10220": {
+    "complexity": "O(n³)"
+  },
+  "c123 uva514": {
+    "complexity": "O(V + E)"
+  },
+  "c124 uva532": {
+    "complexity": "O(V + E)"
+  },
+  "c125 uva534": {
+    "complexity": "O(n³)"
+  },
+  "c129 uva572": {
+    "complexity": "O(V + E)"
+  },
+  "c203 uva13185": {
+    "complexity": "O(n²)"
+  },
+  "c290 2017APCS": {
+    "complexity": "O(n)"
+  },
+  "c292 2017APCS": {
+    "complexity": "O(n³)"
+  },
+  "c294 2016APCS": {
+    "complexity": "O(n log n)"
+  },
+  "c295 2016APCS": {
+    "complexity": "O(n²)"
+  },
+  "c296 2016APCS": {
+    "complexity": "O(n²)"
+  },
+  "c297 2016APCS": {
+    "complexity": "O(n³)"
+  },
+  "c461 2017APCS": {
+    "complexity": "O(n)"
+  },
+  "c462 2017APCS": {
+    "complexity": "O(n²)"
+  },
+  "c463 2017APCS": {
+    "complexity": "O(V + E)"
+  },
+  "c471 2017APCS": {
+    "complexity": "O(n²)"
+  },
+  "c575 2017APCS": {
+    "complexity": "O(n²)"
+  },
+  "c708 uva11538": {
+    "complexity": "O(n²)"
+  },
+  "c813 uva11332": {
+    "complexity": "O(n²)"
+  },
+  "d038 uva900": {
+    "complexity": "O(n²)"
+  },
+  "d042 uva11420": {
+    "complexity": "O(n²)"
+  },
+  "d047 uva10070": {
+    "complexity": "O(n³)"
+  },
+  "d052 uva11456": {
+    "complexity": "O(n³)"
+  },
+  "d056 uva10013": {
+    "complexity": "O(n³)"
+  },
+  "d057 uva11491": {
+    "complexity": "O(n²)"
+  },
+  "d097 uva10038": {
+    "complexity": "O(n²)"
+  },
+  "d111 uva10110": {
+    "complexity": "O(n²)"
+  },
+  "d117 uva10924": {
+    "complexity": "O(n²)"
+  },
+  "d123 uva11063": {
+    "complexity": "O(n²)"
+  },
+  "d143 uva11172": {
+    "complexity": "O(n)"
+  },
+  "d150 uva11369": {
+    "complexity": "O(n²)"
+  },
+  "d186 uva11461": {
+    "complexity": "O(n)"
+  },
+  "d187 uva11530": {
+    "complexity": "O(n²)"
+  },
+  "d188 uva11342": {
+    "complexity": "O(n²)"
+  },
+  "d189 uva11150": {
+    "complexity": "O(n²)"
+  },
+  "d190 uva11462": {
+    "complexity": "O(n²)"
+  },
+  "d191 uva11352": {
+    "complexity": "O(V + E)"
+  },
+  "d192 uva11351": {
+    "complexity": "O(n²)"
+  },
+  "d194 d716 uva11572": {
+    "complexity": "O(n³)"
+  },
+  "d195 uva11495": {
+    "complexity": "O(n³)"
+  },
+  "d206 uva108": {
+    "complexity": "O(n³)"
+  },
+  "d219 uva374": {
+    "complexity": "O(n²)"
+  },
+  "d226 uva10071": {
+    "complexity": "O(n)"
+  },
+  "d253 uva674": {
+    "complexity": "O(n²)"
+  },
+  "d255 uva11417": {
+    "complexity": "O(n²)"
+  },
+  "d260 uva11455": {
+    "complexity": "O(n²)"
+  },
+  "d267 uva11577": {
+    "complexity": "O(n²)"
+  },
+  "d275 uva11586": {
+    "complexity": "O(n²)"
+  },
+  "d306 uva10193": {
+    "complexity": "O(n²)"
+  },
+  "d307 uva686": {
+    "complexity": "O(n³)"
+  },
+  "d365 uva10336": {
+    "complexity": "O(V + E)"
+  },
+  "d366 uva294": {
+    "complexity": "O(n³)"
+  },
+  "d380 uva10106": {
+    "complexity": "O(n³)"
+  },
+  "d387 uva10235": {
+    "complexity": "O(n²)"
+  },
+  "d418 uva993": {
+    "complexity": "O(n²)"
+  },
+  "d440 uva10299": {
+    "complexity": "O(n²)"
+  },
+  "d443 uva10497": {
+    "complexity": "O(n³)"
+  },
+  "d492 uva10226": {
+    "complexity": "O(n²)"
+  },
+  "d658 uva11636": {
+    "complexity": "O(n²)"
+  },
+  "d659 uva11727": {
+    "complexity": "O(n²)"
+  },
+  "d669 uva11677": {
+    "complexity": "O(n²)"
+  },
+  "d671 uva11716": {
+    "complexity": "O(n²)"
+  },
+  "d672 uva10922": {
+    "complexity": "O(n²)"
+  },
+  "d673 uva11608": {
+    "complexity": "O(n³)"
+  },
+  "d674 uva10192": {
+    "complexity": "O(n²)"
+  },
+  "d686 uva10003": {
+    "complexity": "O(n³)"
+  },
+  "d731 uva11039": {
+    "complexity": "O(n²)"
+  },
+  "d750 uva11321": {
+    "complexity": "O(n³)"
+  },
+  "d762 uva10344": {
+    "complexity": "O(n²)"
+  },
+  "d793 uva929": {
+    "complexity": "O((V + E) log V)"
+  },
+  "d813 uva10583": {
+    "complexity": "O(n²)"
+  },
+  "d898 uva10128": {
+    "complexity": "O(n³)"
+  },
+  "d980 uva11479": {
+    "complexity": "O(n²)"
+  },
+  "day-134": {
+    "complexity": "O(n³)"
+  },
+  "day-135": {
+    "complexity": "O(n²)"
+  },
+  "day-140": {
+    "complexity": "O(V + E)"
+  },
+  "day-146": {
+    "complexity": "O(V + E)"
+  },
+  "day-148": {
+    "complexity": "O((V + E) log V)"
+  },
+  "day-149": {
+    "complexity": "O(n³)"
+  },
+  "day-150": {
+    "complexity": "O(n³)"
+  },
+  "day-151": {
+    "complexity": "O(V + E)"
+  },
+  "day-152": {
+    "complexity": "O(V + E)"
+  },
+  "day-153": {
+    "complexity": "O(V + E)"
+  },
+  "day-155": {
+    "complexity": "O(n³)"
+  },
+  "day-158": {
+    "complexity": "O(V + E)"
+  },
+  "day-160": {
+    "complexity": "O(n³)"
+  },
+  "day-161": {
+    "complexity": "O(n²)"
+  },
+  "day-162": {
+    "complexity": "O(n²)"
+  },
+  "e183 uva10940": {
+    "complexity": "O(n²)"
+  },
+  "e286 2019APCS": {
+    "complexity": "O(n²)"
+  },
+  "e287 2019APCS": {
+    "complexity": "O(n²)"
+  },
+  "e288 2019APCS": {
+    "complexity": "O(n²)"
+  },
+  "e289 2019APCS": {
+    "complexity": "O(n²)"
+  },
+  "e313 2018APCS": {
+    "complexity": "O(n log n)"
+  },
+  "e465 2018APCS": {
+    "complexity": "O(n²)"
+  },
+  "e507 uva10252": {
+    "complexity": "O(n²)"
+  },
+  "e510 uva10056": {
+    "complexity": "O(n)"
+  },
+  "e512 uva10242": {
+    "complexity": "O(n²)"
+  },
+  "e513 uva11349": {
+    "complexity": "O(n²)"
+  },
+  "e516 uva10409": {
+    "complexity": "O(n²)"
+  },
+  "e530 uva1644": {
+    "complexity": "O(n³)"
+  },
+  "e531 uva10415": {
+    "complexity": "O(n³)"
+  },
+  "e535 uva11344": {
+    "complexity": "O(n²)"
+  },
+  "e539 uva967": {
+    "complexity": "O(n³)"
+  },
+  "e545 uva10019": {
+    "complexity": "O(n²)"
+  },
+  "e555 uva10170": {
+    "complexity": "O(n²)"
+  },
+  "e561 uva00299": {
+    "complexity": "O(n²)"
+  },
+  "e564 uva540": {
+    "complexity": "O(n³)"
+  },
+  "e565 uva10407": {
+    "complexity": "O(n³)"
+  },
+  "e566 uva10190": {
+    "complexity": "O(n²)"
+  },
+  "e573 uva10700": {
+    "complexity": "O(n³)"
+  },
+  "e575 uva10908": {
+    "complexity": "O(n³)"
+  },
+  "e578 uva10222": {
+    "complexity": "O(n²)"
+  },
+  "e579 uva10050": {
+    "complexity": "O(n²)"
+  },
+  "e580 uva696": {
+    "complexity": "O(V + E)"
+  },
+  "e581 uva11067": {
+    "complexity": "O(n³)"
+  },
+  "e583 uva11040": {
+    "complexity": "O(n²)"
+  },
+  "e584 uva11094": {
+    "complexity": "O(V + E)"
+  },
+  "e591 uva11264": {
+    "complexity": "O(n²)"
+  },
+  "e603 uva10104": {
+    "complexity": "O(n²)"
+  },
+  "e605 uva10189": {
+    "complexity": "O(n³)"
+  },
+  "e606 uva10057": {
+    "complexity": "O(n²)"
+  },
+  "e679 uva11115": {
+    "complexity": "O(n³)"
+  },
+  "f163 2020APCS": {
+    "complexity": "O(1)"
+  },
+  "f166 2019APCS": {
+    "complexity": "O(n²)"
+  },
+  "f312 2020APCS": {
+    "complexity": "O(n²)"
+  },
+  "f313 2020APCS": {
+    "complexity": "O(n³)"
+  },
+  "f314 2020APCS": {
+    "complexity": "O(n³)"
+  },
+  "f434 uva458": {
+    "complexity": "O(n²)"
+  },
+  "f444 uva10268": {
+    "complexity": "O(n²)"
+  },
+  "f579 2020APCS": {
+    "complexity": "O(n²)"
+  },
+  "f580 2020APCS": {
+    "complexity": "O(n²)"
+  },
+  "f581 2020APCS": {
+    "complexity": "O(n²)"
+  },
+  "f605 2021APCS": {
+    "complexity": "O(n²)"
+  },
+  "f606 2021APCS": {
+    "complexity": "O(n³)"
+  },
+  "f607 2021APCS": {
+    "complexity": "O(n²)"
+  },
+  "f637 2018APCS": {
+    "complexity": "O(n²)"
+  },
+  "f709 uva12019": {
+    "complexity": "O(n)"
+  },
+  "i859 uva10642": {
+    "complexity": "O(n)"
+  },
+  "i959 uva11078": {
+    "complexity": "O(n²)"
+  },
+  "inclass": {
+    "complexity": "O(n)"
+  },
+  "j059 uva11547": {
+    "complexity": "O(n²)"
+  },
+  "j123 2022APCS": {
+    "complexity": "O(n²)"
+  },
+  "m371 2023APCS": {
+    "complexity": "O(V³)"
+  },
+  "n693 uva10721": {
+    "complexity": "O(n²)"
+  },
+  "n773 uva10424": {
+    "complexity": "O(n³)"
+  },
+  "n786 uva10093": {
+    "complexity": "O(n²)"
+  },
+  "p497 uva497": {
+    "complexity": "O(n³)"
+  },
+  "pA": {
+    "complexity": "O(n²)"
+  },
+  "pB": {
+    "complexity": "O(n²)"
+  },
+  "pC": {
+    "complexity": "O(n³)"
+  },
+  "pD": {
+    "complexity": "O(n²)"
+  },
+  "pE": {
+    "complexity": "O(n²)"
+  },
+  "q837 2025APCS": {
+    "complexity": "O(n³)"
+  },
+  "q981 uva151": {
+    "complexity": "O(n²)"
+  },
+  "s.cpp": {
+    "complexity": "O(n²)"
+  },
+  "uva10006": {
+    "complexity": "O(n²)"
+  },
+  "uva10010": {
+    "complexity": "O(n³)"
+  },
+  "uva10015": {
+    "complexity": "O(n³)"
+  },
+  "uva10102": {
+    "complexity": "O(V + E)"
+  },
+  "uva10125": {
+    "complexity": "O(n³)"
+  },
+  "uva10161": {
+    "complexity": "O(n²)"
+  },
+  "uva10172": {
+    "complexity": "O(V + E)"
+  },
+  "uva10174": {
+    "complexity": "O(n²)"
+  },
+  "uva10199": {
+    "complexity": "O(V + E)"
+  },
+  "uva10223": {
+    "complexity": "O(n²)"
+  },
+  "uva10227": {
+    "complexity": "O(n²)"
+  },
+  "uva10236": {
+    "complexity": "O(n³)"
+  },
+  "uva10302": {
+    "complexity": "O(n²)"
+  },
+  "uva10305": {
+    "complexity": "O(V + E)"
+  },
+  "uva10311": {
+    "complexity": "O(n³)"
+  },
+  "uva10312": {
+    "complexity": "O(n²)"
+  },
+  "uva10325": {
+    "complexity": "O(n³)"
+  },
+  "uva10334": {
+    "complexity": "O(n³)"
+  },
+  "uva10337": {
+    "complexity": "O(n³)"
+  },
+  "uva10348": {
+    "complexity": "O(n²)"
+  },
+  "uva10368": {
+    "complexity": "O(n²)"
+  },
+  "uva10427": {
+    "complexity": "O(n²)"
+  },
+  "uva10449": {
+    "complexity": "O(n³)"
+  },
+  "uva10523": {
+    "complexity": "O(n²)"
+  },
+  "uva10527": {
+    "complexity": "O(n³)"
+  },
+  "uva10535": {
+    "complexity": "O(n²)"
+  },
+  "uva10563": {
+    "complexity": "O(n³)"
+  },
+  "uva10579": {
+    "complexity": "O(n³)"
+  },
+  "uva10596": {
+    "complexity": "O(n³)"
+  },
+  "uva10611": {
+    "complexity": "O(n²)"
+  },
+  "uva10653": {
+    "complexity": "O(V + E)"
+  },
+  "uva10673": {
+    "complexity": "O(n²)"
+  },
+  "uva10730": {
+    "complexity": "O(n³)"
+  },
+  "uva10763": {
+    "complexity": "O(n³)"
+  },
+  "uva10820": {
+    "complexity": "O(n³)"
+  },
+  "uva10827": {
+    "complexity": "O(n³)"
+  },
+  "uva10858": {
+    "complexity": "O(V + E)"
+  },
+  "uva10887": {
+    "complexity": "O(n³)"
+  },
+  "uva10910": {
+    "complexity": "O(n³)"
+  },
+  "uva10912": {
+    "complexity": "O(n³)"
+  },
+  "uva10916": {
+    "complexity": "O(n²)"
+  },
+  "uva10920": {
+    "complexity": "O(n²)"
+  },
+  "uva10926": {
+    "complexity": "O(V + E)"
+  },
+  "uva10930": {
+    "complexity": "O(n³)"
+  },
+  "uva10943": {
+    "complexity": "O(n²)"
+  },
+  "uva10959": {
+    "complexity": "O(V + E)"
+  },
+  "uva11005": {
+    "complexity": "O(n³)"
+  },
+  "uva11015": {
+    "complexity": "O(n³)"
+  },
+  "uva11057": {
+    "complexity": "O(n²)"
+  },
+  "uva11076": {
+    "complexity": "O(n³)"
+  },
+  "uva11086": {
+    "complexity": "O(n³)"
+  },
+  "uva11093": {
+    "complexity": "O(n³)"
+  },
+  "uva11121": {
+    "complexity": "O(n²)"
+  },
+  "uva11287": {
+    "complexity": "O(n²)"
+  },
+  "uva11396": {
+    "complexity": "O(n²)"
+  },
+  "uva11480": {
+    "complexity": "O(n²)"
+  },
+  "uva11504": {
+    "complexity": "O(V + E)"
+  },
+  "uva11517": {
+    "complexity": "O(n²)"
+  },
+  "uva11566": {
+    "complexity": "O(n³)"
+  },
+  "uva11709": {
+    "complexity": "O(V + E)"
+  },
+  "uva11770": {
+    "complexity": "O(V + E)"
+  },
+  "uva11934": {
+    "complexity": "O(n²)"
+  },
+  "uva11951": {
+    "complexity": "O(n³)"
+  },
+  "uva1208": {
+    "complexity": "O(n³)"
+  },
+  "uva1210": {
+    "complexity": "O(n³)"
+  },
+  "uva1213": {
+    "complexity": "O(n³)"
+  },
+  "uva12160": {
+    "complexity": "O(V + E)"
+  },
+  "uva12186": {
+    "complexity": "O((V + E) log V)"
+  },
+  "uva1235": {
+    "complexity": "O(n³)"
+  },
+  "uva12783": {
+    "complexity": "O(V + E)"
+  },
+  "uva13249": {
+    "complexity": "O(n³)"
+  },
+  "uva247": {
+    "complexity": "O(V + E)"
+  },
+  "uva507": {
+    "complexity": "O(n²)"
+  },
+  "uva624": {
+    "complexity": "O(n³)"
+  },
+  "uva657": {
+    "complexity": "O(V + E)"
+  },
+  "uva796": {
+    "complexity": "O((V + E) log V)"
+  },
+  "uva834": {
+    "complexity": "O(n²)"
+  },
+  "uva907": {
+    "complexity": "O(n³)"
+  },
+  "uva924": {
+    "complexity": "O(V + E)"
+  },
+  "ytp races": {
+    "complexity": "O(n²)"
+  },
+  "zj.601 uva255": {
+    "complexity": "O(n)"
+  }
+}

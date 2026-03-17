@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c575 2017APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c575 2017APCS</h1>
+        <p class="subtitle">題目編號：c575 2017APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2017" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int N,K,x;
+set&lt;int&gt;dat;
+
+bool check(int ran){
+    int now=0,times=0;
+    for(auto &amp;s : dat){
+        if(s&gt;now){
+            now=s+ran;
+            times++;
+            if(times&gt;K){break;}
+        }
+    }
+    return times&lt;=K;
+}
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    //init
+    cin&gt;&gt;N&gt;&gt;K;
+    for(int i=0;i&lt;N;i++){
+        cin&gt;&gt;x;
+        dat.insert(x);
+    }
+    //doing
+    int l=1,r=1e9;
+    while(l&lt;r){
+        if(r==l+1){
+            if(!check(l))l=r;
+            break;
+        }else{
+            x=(l+r)/2;
+            if(check(x))r=x;
+            else l=x+1;
+        }
+    }
+    cout&lt;&lt;l&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva11517.html" class="problem-link">uva11517</a> <a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="d492-uva10226.html" class="problem-link">d492 uva10226</a> <a href="d731-uva11039.html" class="problem-link">d731 uva11039</a> <a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

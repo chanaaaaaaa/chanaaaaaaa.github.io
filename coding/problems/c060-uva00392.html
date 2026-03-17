@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c060 uva00392 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c060 uva00392</h1>
+        <p class="subtitle">題目編號：c060 uva00392</p>
+        <p><a href="https://vjudge.net/problem/UVA-00392" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    int A[9];
+    int nz=-1;
+    while(cin&gt;&gt;A[8]){
+        if(A[8]!=0){nz=8;}
+        for(int i=7;i&gt;=0;i--){
+            cin&gt;&gt;A[i];
+            if(A[i]!=0 &amp;&amp; nz==-1){nz=i;}
+            else if(i==0 &amp;&amp; nz==-1){nz=i;}
+        }
+        for(int i=nz;i&gt;=0;i--){
+            if(i!=nz){//if first num?
+                if(A[i]!=0){
+                    if(A[i]&gt;0){
+                        cout&lt;&lt;&quot; + &quot;;
+                    }else{
+                        cout&lt;&lt;&quot; - &quot;;
+                    }
+                }
+            }else{
+                if(A[i]&lt;0){
+                    cout&lt;&lt;&quot;-&quot;;
+                }
+            }
+            if(i!=nz){
+                if(A[i]!=0){
+                    if(A[i]&gt;0){
+                        if(A[i]!=1 || i==0){
+                            cout&lt;&lt;A[i];
+                        }
+                    }else{
+                        if(A[i]!=-1 || i==0){
+                            cout&lt;&lt;-A[i];
+                        }
+                    }
+                }
+            }else{
+                if(A[i]&gt;0){
+                    if(A[i]!=1){
+                        cout&lt;&lt;A[i];
+                    }
+                }else{
+                    if(A[i]!=-1){
+                        cout&lt;&lt;-A[i];
+                    }
+                }/*
+                if(nz==0 &amp;&amp; A[i]==0){
+                    cout&lt;&lt;&quot;0&quot;;
+                }*/
+            }
+            if(A[i]!=0){
+                if(i==1){
+                    cout&lt;&lt;&quot;x&quot;;
+                }else if(i&gt;1){
+                    cout&lt;&lt;&quot;x^&quot;&lt;&lt;i;
+                }
+            }
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+        nz=-1;
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva624.html" class="problem-link">uva624</a> <a href="e584-uva11094.html" class="problem-link">e584 uva11094</a> <a href="c203-uva13185.html" class="problem-link">c203 uva13185</a> <a href="b917-uva11059.html" class="problem-link">b917 uva11059</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a> <a href="uva10305.html" class="problem-link">uva10305</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

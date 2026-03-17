@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a221 uva11734 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a221 uva11734</h1>
+        <p class="subtitle">題目編號：a221 uva11734</p>
+        <p><a href="https://vjudge.net/problem/UVA-11734" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+inline bool check(string A,string B){
+    string AA=&quot;&quot;,BB=&quot;&quot;;
+    for(int i=0;i&lt;A.size();i++){if(A[i]!=&#x27; &#x27;){AA+=A[i];}}
+    for(int i=0;i&lt;B.size();i++){if(B[i]!=&#x27; &#x27;){BB+=B[i];}}
+
+    return AA==BB;
+}
+
+int main(){
+    int N;
+    cin&gt;&gt;N;
+    cin.ignore();
+    for(int i=1;i&lt;=N;i++){
+        string team,judge;
+        getline(cin,team);
+        getline(cin,judge);
+
+        if(team==judge){cout&lt;&lt;&quot;Case &quot;&lt;&lt;i&lt;&lt;&quot;: Yes\n&quot;;}
+        else if(check(team,judge)){cout&lt;&lt;&quot;Case &quot;&lt;&lt;i&lt;&lt;&quot;: Output Format Error\n&quot;;}
+        else{cout&lt;&lt;&quot;Case &quot;&lt;&lt;i&lt;&lt;&quot;: Wrong Answer\n&quot;;}
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c060-uva00392.html" class="problem-link">c060 uva00392</a> <a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="f444-uva10268.html" class="problem-link">f444 uva10268</a> <a href="e583-uva11040.html" class="problem-link">e583 uva11040</a> <a href="d813-uva10583.html" class="problem-link">d813 uva10583</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a130 uva12015 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a130 uva12015</h1>
+        <p class="subtitle">題目編號：a130 uva12015</p>
+        <p><a href="https://vjudge.net/problem/UVA-12015" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int T,cases=0;
+    cin&gt;&gt;T;
+    while(T--){
+        string IN;
+        int num,mx=0;
+        vector&lt;pair&lt;string,int&gt;&gt;mp;
+        for(int i=0;i&lt;10;i++){
+            cin&gt;&gt;IN&gt;&gt;num;
+            mp.push_back({IN,num});
+            if(num&gt;mx){mx=num;}
+        }
+        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;++cases&lt;&lt;&quot;:\n&quot;;
+        for(auto it:mp){
+            if(it.second==mx){
+                cout&lt;&lt;it.first&lt;&lt;&quot;\n&quot;;
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="uva11015.html" class="problem-link">uva11015</a> <a href="c007-uva00272.html" class="problem-link">c007 uva00272</a> <a href="b343-uva11518.html" class="problem-link">b343 uva11518</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

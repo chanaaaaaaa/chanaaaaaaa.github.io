@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10563 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10563</h1>
+        <p class="subtitle">題目編號：uva10563</p>
+        <p><a href="https://vjudge.net/problem/UVA-10563" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+vector&lt;string&gt;grid;
+inline char minC(int m,int i,int j){
+    for(char c=&#x27;A&#x27;;c&lt;=&#x27;Z&#x27;;++c){
+        bool v=true;
+        if(i&gt;0 &amp;&amp; grid[i-1][j]==c){v=false;}
+        if(j&gt;0 &amp;&amp; grid[i][j-1]==c){v=false;}
+        if(j+1&lt;m &amp;&amp; grid[i][j+1]==c){v=false;}
+
+        if(v){return c;}
+    }
+    return &#x27;A&#x27;;
+}
+inline bool moreSquare(int n,int m,int i,int j,int sz,char c){
+    if(i+sz&gt;=n || j+sz&gt;=m){return false;}
+
+    for(int ii=i;ii&lt;=i+sz;++ii){
+        if(grid[ii][j+sz]!=&#x27;?&#x27;){return false;}
+    }
+    for(int jj=j;jj&lt;=j+sz;++jj){
+        if(grid[i+sz][jj]!=&#x27;?&#x27;){return false;}
+    }
+
+    if(j+sz+1&lt;m){
+        for(int ii=i;ii&lt;=i+sz;++ii){
+            if(grid[ii][j+sz+1]==c){return false;}
+        }
+    }
+    if(i&gt;0){
+        for(int jj=j;jj&lt;=j+sz;++jj){
+            if(grid[i-1][jj]==c){return false;}
+        }
+    }
+    return true;
+}
+inline void editSquare(int i,int j,int sz,char c){
+    for(int ii=i;ii&lt;=i+sz;++ii){
+        grid[ii][j+sz]=c;
+    }
+    for(int jj=j;jj&lt;=j+sz;++jj){
+        grid[i+sz][jj]=c;
+    }
+    return;
+}
+inline void solve(int n,int m){
+    for(int i=0;i&lt;n;++i){
+        for(int j=0;j&lt;m;++j){
+            if(grid[i][j]==&#x27;?&#x27;){
+                char baseC=minC(m,i,j);
+                grid[i][j]=baseC;
+
+                int nowsz=0;
+                while(true){
+                    if(j+nowsz+1&gt;m || grid[i][j+nowsz+1]==&#x27;.&#x27;){
+                        break;
+                    }
+
+                    char extC=minC(m,i,j+nowsz+1);
+                    if(extC&lt;baseC){
+                        break;
+                    }
+
+                    if(moreSquare(n,m,i,j,nowsz+1,baseC)){
+                        ++nowsz;
+                        editSquare(i,j,nowsz,baseC);
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+signed main(){
+    int n,m;
+    bool f=false;
+    while(cin&gt;&gt;n&gt;&gt;m &amp;&amp; n+m){
+        grid.assign(n,&quot;&quot;);
+        for(int i=0;i&lt;n;++i){
+            cin&gt;&gt;grid[i];
+        }
+        //alg
+        solve(n,m);
+
+        if(f){
+            cout&lt;&lt;&#x27;\n&#x27;;
+        }else{f=true;}
+        for(int i=0;i&lt;n;++i){
+            cout&lt;&lt;grid[i]&lt;&lt;&#x27;\n&#x27;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="uva10006.html" class="problem-link">uva10006</a> <a href="e575-uva10908.html" class="problem-link">e575 uva10908</a> <a href="d195-uva11495.html" class="problem-link">d195 uva11495</a> <a href="d226-uva10071.html" class="problem-link">d226 uva10071</a> <a href="uva1235.html" class="problem-link">uva1235</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

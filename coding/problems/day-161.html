@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day-161 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>day-161</h1>
+        <p class="subtitle">題目編號：day-161</p>
+        
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+/* Pragma GCC */
+
+#define IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define MEM(_A, _V) memset(_A, _V, sizeof(_A))
+#define ALL(_A) _A.begin(), _A.end()
+#define LB(_A, _V) lower_bound(ALL(_A), _V)
+#define UB(_A, _V) upper_bound(ALL(_A), _V)
+#define AS(_A, _V) assign(_A, _V)
+#define PII pair&lt;int, int&gt;
+#define SZ size()
+#define CR clear()
+#define RZ resize
+#define PB push_back
+//#define pb emplace_back
+#define F first
+#define S second
+#define LL long long
+#define ULL unsigned long long
+/* Self define */
+
+const int  d[4][2] = {{1, 0}, {0, 1},  {-1, 0}, {0, -1}};
+const int     MAXN = 1e7 + 50;
+const int      Mod = 1e9 + 7;
+const int      INF = 0x7FFFFFFF;
+const LL     LLINF = 0x7FFFFFFFFFFFFFFF;
+const LL  MEMLLINF = 0x3F3F3F3F3F3F3F3F;
+/* Self Define Const */
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return 0;}
+        if(c==&#x27;-&#x27;){w=-1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+c-&#x27;0&#x27;;
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+/* I/O Optimize */
+inline int abs(int a){
+    return a&lt;0?-a:a;
+}
+inline int min(int a,int b){
+    return a&lt;b?a:b;
+}
+inline void getpos(int n,int &amp;x,int &amp;y){
+    int h=1;
+    while(true){
+        if(h*h&gt;=n){break;}
+        ++h;
+    }
+    x=h;
+    y=n-(x-1)*(x-1);
+    return;
+}
+inline int routing(int ai,int aj,int bi,int bj){
+    return abs(ai-bi)
+        +abs((ai-aj/2)-(bi-bj/2))
+        +abs((aj+1)/2-(bj+1)/2);
+}
+inline void solve(){
+    int T=read(),N,M;
+    while(T--){
+        N=read();M=read();
+        if(N&gt;M){
+            int tmp=N;
+            N=M;
+            M=tmp;
+        }
+        int sx,sy,ex,ey;
+        getpos(N,sx,sy);
+        getpos(M,ex,ey);
+    
+        write(routing(sx,sy,ex,ey));
+        putchar(&#x27;\n&#x27;);
+        if(T){putchar(&#x27;\n&#x27;);}
+    }
+}
+
+/* Programing area*/
+signed main(){
+    solve();
+    system(&quot;pause&quot;);
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="Luogu-P2522.html" class="problem-link">Luogu P2522</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="c039-uva00100.html" class="problem-link">c039 uva00100</a> <a href="uva10579.html" class="problem-link">uva10579</a> <a href="CSES1643.html" class="problem-link">CSES1643</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

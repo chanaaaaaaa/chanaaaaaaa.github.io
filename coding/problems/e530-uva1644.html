@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e530 uva1644 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e530 uva1644</h1>
+        <p class="subtitle">題目編號：e530 uva1644</p>
+        <p><a href="https://vjudge.net/problem/UVA-1644" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;set&gt;
+
+#define MAXN 1299709
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(long long x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+set&lt;int&gt;primes;
+bool isprime[MAXN];
+int N;
+inline void form(){
+    for(int i=2;i&lt;=MAXN;i++){
+        if(!isprime[i]){primes.insert(i);}
+        for(auto it=primes.cbegin();it!=primes.cend();it++){
+            if(*it*i&gt;MAXN){break;}
+            isprime[*it*i]=true;
+            if(i%*it==0){break;}
+        }
+    }
+}
+
+inline int solve(int x){
+    if(primes.count(x)){return 0;}
+    int left=x,right=x;
+    while(left&gt;=0 &amp;&amp; !primes.count(left)){left--;}
+    while(right&lt;=MAXN &amp;&amp; !primes.count(right)){right++;}
+    return right-left;
+}
+
+signed main(){
+    form();
+    while(N=read()){
+        write(solve(N));
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c060-uva00392.html" class="problem-link">c060 uva00392</a> <a href="f637-2018APCS.html" class="problem-link">f637 2018APCS</a> <a href="c575-2017APCS.html" class="problem-link">c575 2017APCS</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="d047-uva10070.html" class="problem-link">d047 uva10070</a> <a href="e606-uva10057.html" class="problem-link">e606 uva10057</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

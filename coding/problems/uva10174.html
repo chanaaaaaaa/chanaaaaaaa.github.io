@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10174 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10174</h1>
+        <p class="subtitle">題目編號：uva10174</p>
+        <p><a href="https://vjudge.net/problem/UVA-10174" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inilne&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;iostream&gt;
+//#include&lt;cstdio&gt;
+#include&lt;sstream&gt;
+#define int long long
+#define icc ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+using namespace std;
+
+//-block
+
+signed main(){
+    icc;
+    string s;
+    while(getline(cin,s)){
+        bool flag=false;
+        for(int i=0;i&lt;s.size();++i){
+            if(!isdigit(s[i]) &amp;&amp; s[i]!=&#x27;-&#x27;){
+                flag=true;
+                break;
+            }
+        }
+
+        int x,y;
+        stringstream sxy(s);
+        if(flag){
+            int cnt=0;
+            sxy&gt;&gt;x&gt;&gt;y;
+            for(int i=x+(x&amp;1);i&lt;=y;i+=2){
+                if(i%4){++cnt;}
+            }
+            cout&lt;&lt;cnt&lt;&lt;&#x27;\n&#x27;;
+        }else{
+            sxy&gt;&gt;x;
+            if(x==0){
+                cout&lt;&lt;&quot;2 2\n&quot;;
+            }else if(x&amp;1){
+                cout&lt;&lt;abs((x+1)/2)&lt;&lt;&#x27; &#x27;&lt;&lt;abs((x+1)/2-1)&lt;&lt;&#x27;\n&#x27;;
+            }else{
+                if((x/2)&amp;1){
+                    cout&lt;&lt;&quot;Bachelor Number.\n&quot;;
+                }else{
+                    cout&lt;&lt;abs(x/4+1)&lt;&lt;&#x27; &#x27;&lt;&lt;abs(x/4-1)&lt;&lt;&#x27;\n&#x27;;
+                }
+            }
+        }
+    }
+	return 0;
+}
+/*
+6
+12
+3
+*/
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="q981-uva151.html" class="problem-link">q981 uva151</a> <a href="a111-uva12149.html" class="problem-link">a111 uva12149</a> <a href="e575-uva10908.html" class="problem-link">e575 uva10908</a> <a href="uva624.html" class="problem-link">uva624</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="uva10199.html" class="problem-link">uva10199</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a536 uva11689 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a536 uva11689</h1>
+        <p class="subtitle">題目編號：a536 uva11689</p>
+        <p><a href="https://vjudge.net/problem/UVA-11689" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int N;
+    cin&gt;&gt;N;
+    for(int i=0;i&lt;N;i++){
+        int pre,get,sol,drunk=0;
+        cin&gt;&gt;pre&gt;&gt;get&gt;&gt;sol;
+        get+=pre;
+        while(get&gt;=sol){
+            int temp=floor(get/sol);
+            get-=sol*temp;
+            drunk+=temp;
+            get+=temp;
+        }
+        cout&lt;&lt;drunk&lt;&lt;&quot;\n&quot;;
+    }
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="a223-uva10298.html" class="problem-link">a223 uva10298</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

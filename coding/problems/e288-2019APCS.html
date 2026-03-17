@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e288 2019APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e288 2019APCS</h1>
+        <p class="subtitle">題目編號：e288 2019APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2019" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int m,n;
+long long Ans=0;
+string IN;
+unordered_map&lt;long long,long long&gt;dat;
+
+int dtm (char a){
+    return a&lt;=&#x27;Z&#x27;?a-&#x27;A&#x27;:a-&#x27;a&#x27;+26;
+}
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    cin&gt;&gt;m&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;IN;
+        long long temp=0;
+        for(char c:IN)temp|=(long long)1&lt;&lt;(dtm(c));
+        dat[temp]++;
+    }
+    auto it=dat.begin();
+    while(it!=dat.end()){
+        long long temp=(((long long)1&lt;&lt;m)-1)^(it-&gt;first);
+        if(dat.find(temp)!=dat.end())Ans+=(it-&gt;second)*dat[temp];
+        it++;
+    }
+    cout&lt;&lt;Ans/2&lt;&lt;&quot;\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d672-uva10922.html" class="problem-link">d672 uva10922</a> <a href="c297-2016APCS.html" class="problem-link">c297 2016APCS</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="e579-uva10050.html" class="problem-link">e579 uva10050</a> <a href="uva10916.html" class="problem-link">uva10916</a> <a href="f434-uva458.html" class="problem-link">f434 uva458</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

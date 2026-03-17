@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n786 uva10093 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>n786 uva10093</h1>
+        <p class="subtitle">題目編號：n786 uva10093</p>
+        <p><a href="https://vjudge.net/problem/UVA-10093" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//x0 x1
+//
+//0=0,9=9,A=10,Z=35,a=36,z=61
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    char input[100];
+    while(scanf(&quot;%s&quot;,input)!=EOF){
+            //printf(&quot;%s&quot;,input);
+            int sum=0,t,max=1;
+        for(int i=0;i&lt;strlen(input);i++){
+            if(input[i]&lt;=&#x27;9&#x27; &amp;&amp; input[i]&gt;=&#x27;0&#x27;){
+                t=(input[i]-&#x27;0&#x27;);
+            }
+            else if(input[i]&lt;=&#x27;Z&#x27; &amp;&amp; input[i]&gt;=&#x27;A&#x27;){
+                t=(input[i]-&#x27;A&#x27;+10);
+            }
+            else if(input[i]&lt;=&#x27;z&#x27; &amp;&amp; input[i]&gt;=&#x27;a&#x27;){
+                t=(input[i]-&#x27;a&#x27;+36);
+            }
+            else continue;
+            if(max&lt;t){ max=t; }
+            sum+=t;
+        }
+        //printf(&quot;%d %d&quot;,sum,max);
+        for(int i=max;i&lt;62;i++){
+            if(!(sum%i)){
+                printf(&quot;%d\n&quot;,i+1);
+                break;
+            }
+            if(sum%i!=0 &amp;&amp; i==61){
+                printf(&quot;such number is impossible!\n&quot;);
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="day-153.html" class="problem-link">day-153</a> <a href="CSES1640.html" class="problem-link">CSES1640</a> <a href="a004.html" class="problem-link">a004</a> <a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="Luogu-P2580.html" class="problem-link">Luogu P2580</a> <a href="day-151.html" class="problem-link">day-151</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

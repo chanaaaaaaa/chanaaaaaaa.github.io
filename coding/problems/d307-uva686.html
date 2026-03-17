@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d307 uva686 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d307 uva686</h1>
+        <p class="subtitle">題目編號：d307 uva686</p>
+        <p><a href="https://vjudge.net/problem/UVA-686" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;set&gt;
+#include&lt;unordered_map&gt;
+#define MAXN 32768
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+bool isprimes[MAXN+1];
+set&lt;int&gt;primes;
+unordered_map&lt;int,int&gt;mp;
+int N;
+inline void form(){
+    for(int i=2;i&lt;MAXN;i++){
+        if(!isprimes[i]){
+            primes.insert(i);
+            for(auto p = primes.cbegin(); p!=primes.cend();p++){
+                if(*p+i&gt;MAXN){break;}
+                mp[i+*p]++;
+            }
+        }
+        for(auto p = primes.cbegin(); p!=primes.cend();p++){
+            if(*p*i&gt;MAXN){break;}
+            isprimes[*p*i]=true;
+            if(*p%i==0){break;}
+        }
+    }
+}
+
+int main(){
+    form();/*
+    for(auto &amp;it:mp){
+        write(it.first);
+        putchar(&#x27; &#x27;);
+        write(it.second);
+        putchar(&#x27;\n&#x27;);
+    }*/
+
+    while(N=read()){
+        write(mp[N]);
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d898-uva10128.html" class="problem-link">!d898 uva10128</a> <a href="CSES1733.html" class="problem-link">CSES1733</a> <a href="pD.html" class="problem-link">pD</a> <a href="e603-uva10104.html" class="problem-link">e603 uva10104</a> <a href="uva10730.html" class="problem-link">uva10730</a> <a href="CSES1630.html" class="problem-link">CSES1630</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

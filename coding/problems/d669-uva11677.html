@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d669 uva11677 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d669 uva11677</h1>
+        <p class="subtitle">題目編號：d669 uva11677</p>
+        <p><a href="https://vjudge.net/problem/UVA-11677" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+#include&lt;cstdio&gt;
+using namespace std;
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+	}
+	while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=x*10+c-&#x27;0&#x27;;
+        c=getchar();
+	}
+	return x*w;
+}
+inline void write(long x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+
+signed main() {
+    while(true){
+        int h1=read(),m1=read(),h2=read(),m2=read(),Ans;
+        if(h1+m1+h2+m2==0){break;}
+
+        if(h1&gt;h2){
+            if(m1&gt;m2){
+                Ans=60*(23-h1+h2)+(60+m2-m1);
+            }else if(m1&lt;m2){
+                Ans=60*(24-h1+h2)+(m2-m1);
+            }
+        }else if(h1&lt;h2){
+            if(m1&gt;m2){
+                Ans=60*(h2-h1-1)+(60+m2-m1);
+            }else{
+                Ans=60*(h2-h1)+(m2-m1);
+            }
+        }else{
+            if(m1&gt;m2){
+                Ans=(1440-m1+m2);
+            }else{
+                Ans=(m2-m1);
+            }
+        }
+
+        write(Ans);
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a466-uva12289.html" class="problem-link">a466 uva12289</a> <a href="scpp.html" class="problem-link">s.cpp</a> <a href="day-134.html" class="problem-link">day-134</a> <a href="c044-uva10008.html" class="problem-link">c044 uva10008</a> <a href="uva10673.html" class="problem-link">uva10673</a> <a href="uva247.html" class="problem-link">uva247</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

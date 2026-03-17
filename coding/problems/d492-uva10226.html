@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d492 uva10226 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d492 uva10226</h1>
+        <p class="subtitle">題目編號：d492 uva10226</p>
+        <p><a href="https://vjudge.net/problem/UVA-10226" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    cin&gt;&gt;N;
+    cin.ignore();
+    cin.ignore();
+    while(N--){
+
+        vector&lt;string&gt;li;
+
+        string A;
+        while(getline(cin,A)){
+            if(A.empty()){break;}
+            else{li.push_back(A);}
+        }
+        sort(li.begin(),li.end());
+
+        if(li.size()==1){
+            cout&lt;&lt;li[0]&lt;&lt;&quot; &quot;&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)1/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+        }
+
+        int same=1;
+        for(int i=0;i&lt;li.size()-1;i++){
+            if(same==1){
+                cout&lt;&lt;li[i]&lt;&lt;&quot; &quot;;
+            }
+            if(li[i]==li[i+1]){
+                same++;
+            }else{
+                cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)same/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+                same=1;
+            }
+            if(i==li.size()-2){
+                if(same==1){
+                    cout&lt;&lt;li[i+1]&lt;&lt;&quot; &quot;&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;(((double)same/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+                }else{
+                    cout&lt;&lt;fixed&lt;&lt;setprecision(4)&lt;&lt;((((double)same)/(double)li.size())*100)&lt;&lt;&quot;\n&quot;;
+                }
+            }
+        }
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d255-uva11417.html" class="problem-link">d255 uva11417</a> <a href="n773-uva10424.html" class="problem-link">n773 uva10424</a> <a href="a470-uva12406.html" class="problem-link">!a470 uva12406</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="e512-uva10242.html" class="problem-link">e512 uva10242</a> <a href="uva10611.html" class="problem-link">uva10611</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

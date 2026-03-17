@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d366 uva294 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d366 uva294</h1>
+        <p class="subtitle">題目編號：d366 uva294</p>
+        <p><a href="https://vjudge.net/problem/UVA-294" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+
+#define MAXN 1000000000
+#define MAXP 31623
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}/*
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}*/
+// -block
+bool isprime[MAXP+1];
+int primes[3401],pt=-1;
+inline void form(){
+    for(int i=2;i&lt;=MAXP;i++){
+        if(!isprime[i]){primes[++pt]=i;}
+        for(int j=0;j&lt;=pt;++j){
+            if(i*primes[j]&gt;MAXP){break;}
+            isprime[i*primes[j]]=true;
+            if(i%primes[j]==0){break;}
+        }
+    }
+}
+
+inline int slove(int x){
+    int res=1,cnt;
+    for(int i=0;i&lt;=pt;++i){
+        cnt=1;
+        while(x%primes[i]==0){
+            x/=primes[i];
+            ++cnt;
+        }
+        if(cnt){
+            res*=cnt;
+        }
+        if(x==1){break;}
+    }
+    return res;
+}
+
+signed main(void){
+    form();
+    //-sum primes
+    int T=read(),L,U,maxx,om,tm;
+    while(T--){
+        L=read();U=read();maxx=0;
+
+        for(int i=L;i&lt;=U;++i){
+            tm=slove(i);
+            if(tm&gt;maxx){maxx=tm;om=i;}
+        }
+        printf(&quot;Between %d and %d, %d has a maximum of %d divisors.\n&quot;,L,U,om,maxx);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="uva10305.html" class="problem-link">uva10305</a> <a href="ytp-races.html" class="problem-link">ytp races</a> <a href="e507-uva10252.html" class="problem-link">e507 uva10252</a> <a href="e510-uva10056.html" class="problem-link">e510 uva10056</a> <a href="uva834.html" class="problem-link">uva834</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

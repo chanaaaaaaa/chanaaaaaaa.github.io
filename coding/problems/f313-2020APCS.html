@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f313 2020APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>f313 2020APCS</h1>
+        <p class="subtitle">題目編號：f313 2020APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2020" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+using namespace std;
+
+int R,C,K,M,d,maxx=0,minn=0x7fffffff;
+int dx[4]={1,0,-1,0};
+int dy[4]={0,1,0,-1};
+
+inline int read(){
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        if(c==&#x27;-&#x27;) w=-1;
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(int x){
+    if(x&lt;0){
+        putchar(&#x27;-&#x27;);
+        x=-x;
+    }
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+signed main(){
+
+    R=read();
+    C=read();
+    K=read();
+    M=read();
+    //scanf(&quot;%d %d %d %d&quot;,&amp;R,&amp;C,&amp;K,&amp;M);
+    int now[R][C];
+    int nex[R][C];
+    for(int i=0;i&lt;R;i++){
+        for(int j=0;j&lt;C;j++){
+            //scanf(&quot;%d&quot;,&amp;nex[i][j]);
+            nex[i][j]=read();
+        }
+    }
+    while(M--){
+        for(int i=0;i&lt;R;i++){
+            for(int j=0;j&lt;C;j++){
+                now[i][j]=nex[i][j];
+            }
+        }
+        for(int i=0;i&lt;R;i++){
+            for(int j=0;j&lt;C;j++){
+                d=now[i][j]/K;
+                if(now[i][j]==-1 || d==0)continue;
+                for(int k=0;k&lt;4;k++){
+                    if(i+dy[k]&gt;=0 &amp;&amp; i+dy[k]&lt;R &amp;&amp; j+dx[k]&gt;=0 &amp;&amp; j+dx[k]&lt;C){
+                        if(now[i+dy[k]][j+dx[k]]==-1)continue;
+                        nex[i+dy[k]][j+dx[k]]+=d;
+                        nex[i][j]-=d;
+                    }
+                }
+            }
+        }
+    }
+    for(int i=0;i&lt;R;i++){
+        for(int j=0;j&lt;C;j++){
+            if(nex[i][j]&gt;=0){
+                if(nex[i][j]&gt;maxx)maxx=nex[i][j];
+                if(nex[i][j]&lt;minn)minn=nex[i][j];
+            }
+        }
+    }
+    write(minn);
+    putchar(&#x27;\n&#x27;);
+    write(maxx);
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="inclass.html" class="problem-link">inclass</a> <a href="CSES1745.html" class="problem-link">CSES1745</a> <a href="uva796.html" class="problem-link">uva796</a> <a href="b059.html" class="problem-link">b059</a> <a href="a158-uva11827.html" class="problem-link">a158 uva11827</a> <a href="c005-uva10300.html" class="problem-link">c005 uva10300</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

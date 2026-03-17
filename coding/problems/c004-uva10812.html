@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c004 uva10812 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c004 uva10812</h1>
+        <p class="subtitle">題目編號：c004 uva10812</p>
+        <p><a href="https://vjudge.net/problem/UVA-10812" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    cin&gt;&gt;N;
+    while(N--){
+        int s,d;
+        cin&gt;&gt;s&gt;&gt;d;
+        if(((((s&amp;1)==1)&amp;&amp;((d&amp;1)==1))||(((s&amp;1)==0)&amp;&amp;((d&amp;1)==0)))&amp;&amp;(s&gt;=d)){
+            cout&lt;&lt;(s+d)/2&lt;&lt;&quot; &quot;&lt;&lt;(s-d)/2&lt;&lt;&quot;\n&quot;;
+        }else{
+            cout&lt;&lt;&quot;impossible&quot;&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="uva10174.html" class="problem-link">uva10174</a> <a href="d750-uva11321.html" class="problem-link">d750 uva11321</a> <a href="day-161.html" class="problem-link">day-161</a> <a href="c010-uva10107.html" class="problem-link">c010 uva10107</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

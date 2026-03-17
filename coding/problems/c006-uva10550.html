@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c006 uva10550 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c006 uva10550</h1>
+        <p class="subtitle">題目編號：c006 uva10550</p>
+        <p><a href="https://vjudge.net/problem/UVA-10550" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int a,b,c,d;
+    while(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d){
+        int deg=0;
+        if(a+b+c+d==0){break;}
+        deg+=40*3;
+
+        if(b&gt;=a){deg+=40-(b-a);}
+        else{deg+=(a-b);}
+
+        if(b&gt;=c){deg+=40-(b-c);}
+        else{deg+=(c-b);}
+
+        if(d&gt;=c){deg+=40-(d-c);}
+        else{deg+=(c-d);}
+
+        cout&lt;&lt;deg*9&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="day-149.html" class="problem-link">day-149</a> <a href="e679-uva11115.html" class="problem-link">e679 uva11115</a> <a href="pA.html" class="problem-link">pA</a> <a href="c124-uva532.html" class="problem-link">c124 uva532</a> <a href="CSES1620.html" class="problem-link">CSES1620</a> <a href="c708-uva11538.html" class="problem-link">c708 uva11538</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

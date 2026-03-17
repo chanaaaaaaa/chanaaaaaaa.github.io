@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c067 uva00591 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c067 uva00591</h1>
+        <p class="subtitle">題目編號：c067 uva00591</p>
+        <p><a href="https://vjudge.net/problem/UVA-00591" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;iostream&gt;
+using namespace std;
+
+int N,con=1;
+int A[50];
+int main(){
+
+
+    while(cin&gt;&gt;N){
+        if(N==0){break;}
+        int tol=0;
+        for(int i=0;i&lt;N;i++){
+            cin&gt;&gt;A[i];
+            tol+=A[i];
+        }
+        tol/=N;
+        int Ans=0;
+        for(int i=0;i&lt;N;i++){
+            if(A[i]&gt;tol){
+                Ans+=A[i]-tol;
+            }
+        }
+        cout&lt;&lt;&quot;Set #&quot;&lt;&lt;con&lt;&lt;&quot;\n&quot;&lt;&lt;&quot;The minimum number of moves is &quot;&lt;&lt;Ans&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;;
+        con++;
+    }
+    return 0;
+}
+
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e286-2019APCS.html" class="problem-link">e286 2019APCS</a> <a href="uva10763.html" class="problem-link">uva10763</a> <a href="uva1235.html" class="problem-link">uva1235</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="uva10312.html" class="problem-link">uva10312</a> <a href="uva10523.html" class="problem-link">uva10523</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

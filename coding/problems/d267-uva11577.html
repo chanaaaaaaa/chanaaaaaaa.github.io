@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d267 uva11577 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d267 uva11577</h1>
+        <p class="subtitle">題目編號：d267 uva11577</p>
+        <p><a href="https://vjudge.net/problem/UVA-11577" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+
+#include&lt;iostream&gt;
+#include&lt;math.h&gt;
+
+using namespace std;
+
+signed main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t;
+    cin&gt;&gt;t;
+    cin.ignore();
+    while(t--){
+        int dic[26]={0};
+        string A;
+        getline(cin,A);
+        for(int i=0;i&lt;A.size();i++){
+            if(A[i]&lt;=&#x27;z&#x27; &amp;&amp; A[i]&gt;=&#x27;a&#x27;){
+                dic[A[i]-&#x27;a&#x27;]++;
+            }else if(A[i]&lt;=&#x27;Z&#x27; &amp;&amp; A[i]&gt;=&#x27;A&#x27;){
+                dic[A[i]-&#x27;A&#x27;]++;
+            }
+        }
+
+        int maxx=-1;
+        for(int i=0;i&lt;26;i++){
+            if(dic[i]&gt;maxx){maxx=dic[i];}
+        }
+        for(int i=0;i&lt;26;i++){
+            if(dic[i]==maxx){cout&lt;&lt;char(&#x27;a&#x27;+i);}
+        }
+        cout&lt;&lt;&#x27;\n&#x27;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="e581-uva11067.html" class="problem-link">e581 uva11067</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="c002-uva10696.html" class="problem-link">c002 uva10696</a> <a href="c471-2017APCS.html" class="problem-link">c471 2017APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

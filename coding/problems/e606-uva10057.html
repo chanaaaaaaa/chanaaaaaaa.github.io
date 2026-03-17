@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e606 uva10057 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e606 uva10057</h1>
+        <p class="subtitle">題目編號：e606 uva10057</p>
+        <p><a href="https://vjudge.net/problem/UVA-10057" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int N;
+    while(cin&gt;&gt;N){
+        set&lt;int&gt;mid;
+        vector&lt;int&gt;data;
+        while(N--){
+            int temp;
+            cin&gt;&gt;temp;
+            data.push_back(temp);
+        }
+        sort(data.begin(),data.end());
+        //Q1
+        int Ans;
+        if((data.size() &amp; 1)==1){
+            Ans=data[(data.size()-1)/2];
+            mid.insert(Ans);
+        }else{
+            Ans=data[data.size()/2-1];
+            mid.insert(Ans);
+            mid.insert(data[data.size()/2]);
+        }
+        cout&lt;&lt;Ans&lt;&lt;&quot; &quot;;
+        //Q2
+        Ans=0;
+        for(int i=0;i&lt;data.size();i++){
+            if(mid.count(data[i])){
+                Ans++;
+            }
+        }
+        cout&lt;&lt;Ans&lt;&lt;&quot; &quot;;
+        //Q3
+        if((data.size() &amp; 1)==1){
+            cout&lt;&lt;&quot;1&quot;&lt;&lt;&quot;\n&quot;;
+        }else{
+            cout&lt;&lt;data[data.size()/2]-data[data.size()/2-1]+1&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva247.html" class="problem-link">uva247</a> <a href="d194-d716-uva11572.html" class="problem-link">d194 d716 uva11572</a> <a href="day-150.html" class="problem-link">day-150</a> <a href="CSES1631.html" class="problem-link">CSES1631</a> <a href="day-152.html" class="problem-link">day-152</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

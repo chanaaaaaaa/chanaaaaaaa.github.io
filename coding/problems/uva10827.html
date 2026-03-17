@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10827 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10827</h1>
+        <p class="subtitle">題目編號：uva10827</p>
+        <p><a href="https://vjudge.net/problem/UVA-10827" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;climits&gt;
+#include&lt;memory.h&gt;
+using namespace std;
+
+inline int read(){
+    bool check=false;
+    int x=0,w=1;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==&#x27;-&#x27;){w=-1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x*w;
+}
+inline void write(long long x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+int T,N,num[160][160],sum[160],he,Max;
+
+inline void solve(){
+    for(int i=0;i&lt;N;i++){
+        for(int j=0;j&lt;N;j++){
+            memset(sum,0,sizeof(sum));
+            for(int k=i;k&lt;N+i;k++){
+                he=0;
+                for(int l=j;l&lt;N+j;l++){
+                    sum[l]+=num[k][l];
+                    he+=sum[l];
+                    if(Max&lt;he){
+                        Max=he;
+                    }
+                }
+            }
+        }
+    }
+}
+
+signed main(){
+    T=read();
+    while(T--){
+        N=read();
+        Max=-INT_MAX;
+        for(int i=0;i&lt;N;i++){
+            for(int j=0;j&lt;N;j++){
+                num[i][j]=num[i+N][j]=num[i][j+N]=num[i+N][j+N]=read();
+                if(num[i][j]&gt;Max){Max=num[i][j];}
+            }
+        }
+        //-init
+        solve();
+        write(Max);
+        putchar(&#x27;\n&#x27;);
+    }
+
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva12783.html" class="problem-link">uva12783</a> <a href="uva11951.html" class="problem-link">uva11951</a> <a href="CSES1073.html" class="problem-link">CSES1073</a> <a href="c461-2017APCS.html" class="problem-link">c461 2017APCS</a> <a href="e539-uva967.html" class="problem-link">e539 uva967</a> <a href="CSES1085.html" class="problem-link">CSES1085</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

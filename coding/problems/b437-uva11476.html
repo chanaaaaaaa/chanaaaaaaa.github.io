@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b437 uva11476 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>b437 uva11476</h1>
+        <p class="subtitle">題目編號：b437 uva11476</p>
+        <p><a href="https://vjudge.net/problem/UVA-11476" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+
+#include&lt;stdio.h&gt;
+#include&lt;cmath&gt;
+using namespace std;
+
+int main(){
+    int c;
+    while(scanf(&quot;%d&quot;,&amp;c)){
+        if(c==0){break;}
+        int cal=c*4-3,Ans=1,cou=1,zu=3;
+
+        while(cal!=1){
+            if(cal%zu==0){
+                cal/=zu;
+                cou++;
+                printf(&quot;%d &quot;,zu);
+            }else{
+                Ans*=cou;
+                cou=1;
+                zu+=2;
+            }
+        }
+        printf(&quot;%d %d\n&quot;,c,Ans*2);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10730.html" class="problem-link">uva10730</a> <a href="d192-uva11351.html" class="problem-link">d192 uva11351</a> <a href="uva10959.html" class="problem-link">uva10959</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="uva10926.html" class="problem-link">uva10926</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

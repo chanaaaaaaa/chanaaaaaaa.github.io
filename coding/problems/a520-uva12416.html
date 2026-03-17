@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a520 uva12416 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a520 uva12416</h1>
+        <p class="subtitle">題目編號：a520 uva12416</p>
+        <p><a href="https://vjudge.net/problem/UVA-12416" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    string a;
+    while(getline(cin,a)){
+        int maxx=0,cou=0;
+        for(int i=0;i&lt;a.size();i++){
+            if(a[i]==&#x27; &#x27;){
+                cou++;
+            }else{
+                if(cou&gt;maxx){maxx=cou;}
+                cou=0;
+            }
+        }
+        int time=0;
+        while(maxx&gt;1){
+            if(maxx%2==0){
+                maxx/=2;
+            }else{
+                maxx-=1;
+                maxx/=2;
+                maxx+=1;
+            }
+            time++;
+        }
+        cout&lt;&lt;time&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="AtCode212.html" class="problem-link">AtCode212</a> <a href="f606-2021APCS.html" class="problem-link">f606 2021APCS</a> <a href="a540-uva10684.html" class="problem-link">a540 uva10684</a> <a href="uva10730.html" class="problem-link">uva10730</a> <a href="inclass.html" class="problem-link">inclass</a> <a href="uva10887.html" class="problem-link">uva10887</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

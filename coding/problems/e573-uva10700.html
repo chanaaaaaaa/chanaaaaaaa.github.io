@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e573 uva10700 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e573 uva10700</h1>
+        <p class="subtitle">題目編號：e573 uva10700</p>
+        <p><a href="https://vjudge.net/problem/UVA-10700" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+#define int long long
+using namespace std;
+/*
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27;||c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return 0;}
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}*/
+//-block
+
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+    int T;
+    while(cin&gt;&gt;T){
+        while(T--){
+            string s;
+            cin&gt;&gt;s;
+
+            vector&lt;int&gt;dat;
+            int pin=0;
+            int num=0;
+            while(pin&lt;s.size()){
+                if(s[pin]==&#x27;+&#x27;){
+                    if(num!=0){
+                        dat.emplace_back(num);
+                        num=0;
+                    }
+                    dat.emplace_back(-1);
+                }else if(s[pin]==&#x27;*&#x27;){
+                    if(num!=0){
+                        dat.emplace_back(num);
+                        num=0;
+                    }
+                    dat.emplace_back(-2);
+                }else{
+                    num=num*10+s[pin]-&#x27;0&#x27;;
+                }
+                ++pin;
+            }
+            if(num!=0){dat.emplace_back(num);num=0;}
+
+            vector&lt;int&gt;maxx=dat;
+            for(int i=0;i&lt;maxx.size();++i){
+                if(maxx[i]==-1){
+                    maxx[i]=maxx[i-1]+maxx[i+1];
+                    maxx.erase(maxx.begin()+i+1);
+                    maxx.erase(maxx.begin()+i-1);
+                    --i;
+                }
+            }
+            for(int i=0;i&lt;maxx.size();++i){
+                if(maxx[i]==-2){
+                    maxx[i]=maxx[i-1]*maxx[i+1];
+                    maxx.erase(maxx.begin()+i+1);
+                    maxx.erase(maxx.begin()+i-1);
+                    --i;
+                }
+            }
+            vector&lt;int&gt;minn=dat;
+            for(int i=0;i&lt;minn.size();++i){
+                if(minn[i]==-2){
+                    minn[i]=minn[i-1]*minn[i+1];
+                    minn.erase(minn.begin()+i+1);
+                    minn.erase(minn.begin()+i-1);
+                    --i;
+                }
+            }
+            for(int i=0;i&lt;minn.size();++i){
+                if(minn[i]==-1){
+                    minn[i]=minn[i-1]+minn[i+1];
+                    minn.erase(minn.begin()+i+1);
+                    minn.erase(minn.begin()+i-1);
+                    --i;
+                }
+            }
+
+            cout&lt;&lt;&quot;The maximum and minimum are &quot;&lt;&lt;maxx[0]&lt;&lt;&quot; and &quot;&lt;&lt;minn[0]&lt;&lt;&quot;.\n&quot;;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c022-uva10783.html" class="problem-link">c022 uva10783</a> <a href="uva11093.html" class="problem-link">uva11093</a> <a href="f434-uva458.html" class="problem-link">f434 uva458</a> <a href="e583-uva11040.html" class="problem-link">e583 uva11040</a> <a href="e581-uva11067.html" class="problem-link">e581 uva11067</a> <a href="c033-uva406.html" class="problem-link">c033 uva406</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

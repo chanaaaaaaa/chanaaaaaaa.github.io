@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d191 uva11352 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d191 uva11352</h1>
+        <p class="subtitle">題目編號：d191 uva11352</p>
+        <p><a href="https://vjudge.net/problem/UVA-11352" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;utility&gt;
+#include&lt;string&gt;
+using namespace std;
+
+inline int read_num(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=x*10+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline int read_block(){//dic-&gt; 0=space / 1=A / -8=B / -1=Z / -2=X
+    char c=0;
+    while(c!=&#x27;.&#x27; &amp;&amp; c!=&#x27;B&#x27; &amp;&amp; c!=&#x27;A&#x27; &amp;&amp; c!=&#x27;Z&#x27;){
+        c=getchar();
+    }
+    if(c==&#x27;.&#x27;){return 0;}
+    if(c==&#x27;A&#x27;){return 1;}
+    if(c==&#x27;B&#x27;){return -8;}
+    if(c==&#x27;Z&#x27;){return -1;}
+    return 9;
+}
+inline void write(int x){
+    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+inline void say(string x){
+    for(int i=0;i&lt;x.size();i++){
+        putchar(x[i]);
+    }
+}
+// -block
+
+int hx[8]={1,-1,2,-2,2,-2,1,-1};
+int hy[8]={2,2,1,1,-1,-1,-2,-2};
+
+int px[8]={1,0,-1,1,-1,1,0,-1};
+int py[8]={1,1,1,0,0,-1,-1,-1};
+signed main(){
+    int t=read_num();
+    while(t--){
+        //init
+        queue&lt;pair&lt;int,int&gt;&gt;wait;
+        int m=read_num(),n=read_num();
+        int mp[m][n];
+        for(int i=0;i&lt;m;i++){
+            for(int j=0;j&lt;n;j++){
+                mp[i][j]=read_block();
+                if(mp[i][j]==1){wait.push({i,j});}
+            }
+        }
+        //-input
+        //mention X
+        //dic-&gt; 0=space / 1=A / -8=B / -1=Z / -2=X
+        for(int i=0;i&lt;m;i++){//y
+            for(int j=0;j&lt;n;j++){//x
+                if(mp[i][j]==-1){
+                    for(int k=0;k&lt;8;k++){
+                        if(j+hx[k]&gt;=0 &amp;&amp; j+hx[k]&lt;n &amp;&amp; i+hy[k]&gt;=0 &amp;&amp; i+hy[k]&lt;m){
+                            if(mp[i+hy[k]][j+hx[k]]==0){
+                                mp[i+hy[k]][j+hx[k]]=-2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //-X
+        //p
+        int ans=0;
+        while(!wait.empty()){
+            int y=wait.front().first;
+            int x=wait.front().second;
+            wait.pop();
+            for(int k=0;k&lt;8;k++){
+                if(x+px[k]&gt;=0 &amp;&amp; x+px[k]&lt;n &amp;&amp; y+py[k]&gt;=0 &amp;&amp; y+py[k]&lt;m){
+                    if(mp[y+py[k]][x+px[k]]==0){
+                        mp[y+py[k]][x+px[k]]=mp[y][x]+1;
+                        wait.push({y+py[k],x+px[k]});
+                    }else if(mp[y+py[k]][x+px[k]]==-8){
+                        ans=mp[y][x];
+                    }
+                }
+            }
+            if(ans){break;}
+        }/*
+        for(int i=0;i&lt;m;i++){
+            for(int j=0;j&lt;n;j++){
+                write(mp[i][j]);
+                putchar(&#x27; &#x27;);
+            }
+            putchar(&#x27;\n&#x27;);
+        }*/
+        if(ans){
+            say(&quot;Minimal possible length of a trip is &quot;);
+            write(ans);
+        }else{
+            say(&quot;King Peter, you can&#x27;t go now!&quot;);
+        }
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva1208.html" class="problem-link">uva1208</a> <a href="e575-uva10908.html" class="problem-link">e575 uva10908</a> <a href="d443-uva10497.html" class="problem-link">d443 uva10497</a> <a href="a993-uva10127.html" class="problem-link">a993 uva10127</a> <a href="uva10337.html" class="problem-link">uva10337</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

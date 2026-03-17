@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c294 2016APCS - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c294 2016APCS</h1>
+        <p class="subtitle">題目編號：c294 2016APCS</p>
+        <p><a href="https://vjudge.net/problem/UVA-2016" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n log n)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    vector&lt;int&gt;dat;
+    for(int i=0;i&lt;3;i++){
+        int x;
+        cin&gt;&gt;x;
+        dat.push_back(x);
+    }
+    sort(dat.begin(),dat.end());
+    cout&lt;&lt;dat[0]&lt;&lt;&quot; &quot;&lt;&lt;dat[1]&lt;&lt;&quot; &quot;&lt;&lt;dat[2]&lt;&lt;&quot;\n&quot;;
+    if(dat[0]+dat[1]&lt;=dat[2]){
+        cout&lt;&lt;&quot;No\n&quot;;
+        return 0;
+    }
+
+    dat[2]*=dat[2];
+    dat[0]=dat[0]*dat[0]+dat[1]*dat[1];
+    if(dat[2]&gt;dat[0])cout&lt;&lt;&quot;Obtuse\n&quot;;
+    else if(dat[2]&lt;dat[0])cout&lt;&lt;&quot;Acute\n&quot;;
+    else cout&lt;&lt;&quot;Right\n&quot;;
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c014-uva10035.html" class="problem-link">c014 uva10035</a> <a href="d189-uva11150.html" class="problem-link">d189 uva11150</a> <a href="uva834.html" class="problem-link">uva834</a> <a href="d143-uva11172.html" class="problem-link">d143 uva11172</a> <a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="d260-uva11455.html" class="problem-link">d260 uva11455</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

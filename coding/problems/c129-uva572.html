@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c129 uva572 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c129 uva572</h1>
+        <p class="subtitle">題目編號：c129 uva572</p>
+        <p><a href="https://vjudge.net/problem/UVA-572" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(V + E)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;utility&gt;
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+        if(c==-1){return -1;}
+    }
+    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+inline void write(int x){
+    if(x&gt;=10){write(x/10);}
+    putchar(x%10+&#x27;0&#x27;);
+}
+//-block
+inline int read_char(){
+    int x=0;
+    char c=0;
+    while(c!=&#x27;*&#x27;&amp;&amp;c!=&#x27;@&#x27;){
+        c=getchar();
+    }
+    if(c==&#x27;@&#x27;){return 1;}
+    else{return 0;}
+}
+int dx[8]={0,0,1,-1,1,1,-1,-1},
+    dy[8]={1,-1,0,0,1,-1,-1,1},
+    n,m,cnt,x,y;
+queue&lt;pair&lt;int,int&gt;&gt;wait;
+
+int main(){
+    while(n=read(),m=read()){
+        //if(n+m==0){break;}
+        int mp[n][m];
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;m;j++){
+                mp[i][j]=read_char();
+            }
+        }
+        cnt=0;
+        for(int i=0;i&lt;n;i++){//y
+            for(int j=0;j&lt;m;j++){//x
+                if(mp[i][j]){
+                    cnt++;
+                    wait.push({i,j});
+                    while(!wait.empty()){
+                        y=wait.front().first;
+                        x=wait.front().second;
+                        mp[y][x]=0;
+                        wait.pop();
+                        for(int f=0;f&lt;8;f++){
+                            if(x+dx[f]&gt;=0 &amp;&amp; x+dx[f]&lt;m &amp;&amp; y+dy[f]&gt;=0 &amp;&amp; y+dy[f]&lt;n){
+                                if(mp[y+dy[f]][x+dx[f]]){
+                                    wait.push({y+dy[f],x+dx[f]});
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        write(cnt);
+        putchar(&#x27;\n&#x27;);
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="j059-uva11547.html" class="problem-link">j059 uva11547</a> <a href="uva10223.html" class="problem-link">uva10223</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="pA.html" class="problem-link">pA</a> <a href="b964-2016APCS.html" class="problem-link">b964 2016APCS</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

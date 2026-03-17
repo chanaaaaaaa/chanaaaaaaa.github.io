@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d672 uva10922 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d672 uva10922</h1>
+        <p class="subtitle">題目編號：d672 uva10922</p>
+        <p><a href="https://vjudge.net/problem/UVA-10922" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    string A;
+    while(cin&gt;&gt;A){
+        if(A==&quot;0&quot;){break;}
+
+        stringstream doi(A);
+        char temp;
+        int first=0,deg=1;
+        while(doi&gt;&gt;temp){
+            first+=int(temp)-48;
+        }
+        if(first%9!=0){
+            cout&lt;&lt;A&lt;&lt;&quot; is not a multiple of 9.&quot;&lt;&lt;&quot;\n&quot;;
+            continue;
+        }
+        while(first&gt;9){
+            deg++;
+            int next=0,now=0;
+            while(first&gt;0){
+                int cal=first/pow(10,now);
+                next+=cal%10;
+                first-=(cal%10)*pow(10,now);
+                now++;
+            }
+            first=next;
+        }
+        cout&lt;&lt;A&lt;&lt;&quot; is a multiple of 9 and has 9-degree &quot;&lt;&lt;deg&lt;&lt;&quot;.&quot;&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c125-uva534.html" class="problem-link">c125 uva534</a> <a href="day-148.html" class="problem-link">day-148</a> <a href="CSES1745.html" class="problem-link">CSES1745</a> <a href="uva11076.html" class="problem-link">uva11076</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="uva10910.html" class="problem-link">uva10910</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva10535 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva10535</h1>
+        <p class="subtitle">題目編號：uva10535</p>
+        <p><a href="https://vjudge.net/problem/UVA-10535" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3)
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(&quot;-fgcse&quot;)
+#pragma GCC optimize(&quot;fast-math&quot;)
+#pragma GCC optimize(&quot;-fgcse-lm&quot;)
+#pragma GCC optimize(&quot;-fipa-sra&quot;)
+#pragma GCC optimize(&quot;-ftree-vrp&quot;)
+#pragma GCC optimize(&quot;-fpeephole2&quot;)
+#pragma GCC optimize(&quot;-ffast-math&quot;)
+#pragma GCC optimize(&quot;-fsched-spec&quot;)
+#pragma GCC optimize(&quot;unroll-loops&quot;)
+#pragma GCC optimize(&quot;-falign-labels&quot;)
+#pragma GCC optimize(&quot;-fdevirtualize&quot;)
+#pragma GCC optimize(&quot;-fcaller-saves&quot;)
+#pragma GCC optimize(&quot;-fcrossjumping&quot;)
+#pragma GCC optimize(&quot;-fthread-jumps&quot;)
+#pragma GCC optimize(&quot;-funroll-loops&quot;)
+#pragma GCC optimize(&quot;-fwhole-program&quot;)
+#pragma GCC optimize(&quot;-freorder-blocks&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns&quot;)
+#pragma GCC optimize(&quot;inline-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
+#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
+#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
+#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
+#pragma GCC optimize(&quot;-falign-functions&quot;)
+#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
+#pragma GCC optimize(&quot;-fsched-interblock&quot;)
+#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
+#pragma GCC optimize(&quot;no-stack-protector&quot;)
+#pragma GCC optimize(&quot;-freorder-functions&quot;)
+#pragma GCC optimize(&quot;-findirect-inlining&quot;)
+#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
+#pragma GCC optimize(&quot;inline-small-functions&quot;)
+#pragma GCC optimize(&quot;-finline-small-functions&quot;)
+#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
+#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
+#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
+#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
+#pragma GCC optimize(&quot;inline-function-called-once&quot;)
+#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include &lt;stdio.h&gt;
+#include &lt;algorithm&gt;
+#include &lt;math.h&gt;
+using namespace std;
+
+//-block
+const int N=505;
+const double pi=acos(-1.0);
+
+int n,en;
+double x,y;
+struct seg{
+    double x1,x2,y1,y2;
+}s[N];
+struct E{
+    double t;
+    int v;
+}e[N*4];
+
+inline bool isequal(double &amp;a,double &amp;b){
+    return fabs(a-b)&lt;1e-9;
+}
+inline bool cmp(E &amp;a,E &amp;b){
+    if(!isequal(a.t,b.t)){return a.t&lt;b.t;}
+    return a.v&gt;b.v;
+}
+inline void build(){
+    en=0;
+    for(int i=0;i&lt;n;++i){
+        double r1=atan2(s[i].y1-y,s[i].x1-x);
+        double r2=atan2(s[i].y2-y,s[i].x2-x);
+        if(r1&gt;r2){swap(r1,r2);}
+        if(r2-r1&gt;=pi){
+            e[en].t=-pi;e[en++].v=1;
+            e[en].t=r1;e[en++].v=-1;
+            r1=r2;r2=pi;
+        }
+        e[en].t=r1;e[en++].v=1;
+        e[en].t=r2;e[en++].v=-1;
+    }
+    sort(e,e+en,cmp);
+}
+inline int solve(){
+    int ans=0,num=0;
+    for(int i=0;i&lt;en;++i){
+        num+=e[i].v;
+        ans=max(ans,num);
+    }
+    return ans;
+}
+signed main(){
+    while(~scanf(&quot;%d&quot;,&amp;n) &amp;&amp; n){
+        for(int i=0;i&lt;n;++i){
+            scanf(&quot;%lf%lf%lf%lf&quot;,&amp;s[i].x1,&amp;s[i].y1,&amp;s[i].x2,&amp;s[i].y2);
+        }
+        scanf(&quot;%lf%lf&quot;,&amp;x,&amp;y);
+        build();
+        printf(&quot;%d\n&quot;,solve());
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d052-uva11456.html" class="problem-link">d052 uva11456</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="j059-uva11547.html" class="problem-link">j059 uva11547</a> <a href="d189-uva11150.html" class="problem-link">d189 uva11150</a> <a href="c708-uva11538.html" class="problem-link">c708 uva11538</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

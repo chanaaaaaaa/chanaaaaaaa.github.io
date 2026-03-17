@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e512 uva10242 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>e512 uva10242</h1>
+        <p class="subtitle">題目編號：e512 uva10242</p>
+        <p><a href="https://vjudge.net/problem/UVA-10242" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n²)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    double a[4][2];
+    set&lt;int&gt;check;
+    while(cin&gt;&gt;a[0][0]&gt;&gt;a[0][1]){
+        for(int i=1;i&lt;4;i++){
+            cin&gt;&gt;a[i][0]&gt;&gt;a[i][1];
+            for(int j=0;j&lt;i;j++){
+                if(check.empty()){
+                    if(a[j][0]==a[i][0] &amp;&amp; a[j][1]==a[i][1]){
+                        check.insert(i);
+                        check.insert(j);
+                    }
+                }
+            }
+        }
+        double x=0,y=0;
+        for(int i=0;i&lt;4;i++){
+            if(check.count(i)){
+                x-=a[i][0]/2;
+                y-=a[i][1]/2;
+            }else{
+                x+=a[i][0];
+                y+=a[i][1];
+            }
+        }
+        cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot;\n&quot;;
+        check.clear();
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="day-135.html" class="problem-link">day-135</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="uva11770.html" class="problem-link">uva11770</a> <a href="uva10449.html" class="problem-link">uva10449</a> <a href="copy.html" class="problem-link">!copy</a> <a href="CSES-1074.html" class="problem-link">CSES 1074</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

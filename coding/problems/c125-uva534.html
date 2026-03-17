@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c125 uva534 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c125 uva534</h1>
+        <p class="subtitle">題目編號：c125 uva534</p>
+        <p><a href="https://vjudge.net/problem/UVA-534" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)
+//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)
+//#pragma comment(linker, &quot;/stack:200000000&quot;)
+#include&lt;cstdio&gt;
+#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;vector&gt;
+#include&lt;utility&gt;
+
+using namespace std;
+
+inline int read(){
+    int x=0;
+    char c=0;
+    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
+        c=getchar();
+    }
+    while(c&gt;=&#x27;0&#x27;&amp;&amp; c&lt;=&#x27;9&#x27;){
+        x=(x&lt;&lt;3)+(x&lt;&lt;1)+(c-&#x27;0&#x27;);
+        c=getchar();
+    }
+    return x;
+}
+// -block
+int N,cases=0;
+vector&lt;pair&lt;int,int&gt;&gt;mp;
+double dis[201][201],x,y;
+
+inline void pts(){
+    for(int i=0;i&lt;N;i++){
+        for(int j=0;j&lt;N;j++){
+            printf(&quot;%.3lf &quot;,dis[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
+    printf(&quot;\n&quot;);
+}
+
+signed main(){
+
+    while(N=read()){
+        for(int i=0;i&lt;N;i++){
+            mp.push_back({read(),read()});
+        }
+        //do
+        for(int i=0;i&lt;N;i++){
+            for(int j=0;j&lt;i;j++){
+                y=mp[i].first-mp[j].first;
+                x=mp[i].second-mp[j].second;
+                dis[i][j]=sqrt(x*x+y*y);
+                dis[j][i]=dis[i][j];
+            }
+        }
+        for(int i=0;i&lt;N;i++){
+            for(int j=0;j&lt;N;j++){
+                for(int k=0;k&lt;N;k++){
+                    pts();
+                    double maxx;
+                    if(dis[j][i]&gt;dis[i][k]){
+                        maxx=dis[j][i];
+                    }else{
+                        maxx=dis[i][k];
+                    }
+                    if(dis[j][k]&gt;maxx){dis[j][k]=maxx;}
+                }
+            }
+        }
+        printf(&quot;Scenario #%d\nFrog Distance = %.3lf\n\n&quot;,++cases,dis[0][1]);
+        //-do
+        mp.clear();
+    }
+    return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d365-uva10336.html" class="problem-link">d365 uva10336</a> <a href="e573-uva10700.html" class="problem-link">e573 uva10700</a> <a href="a135-uva12250.html" class="problem-link">a135 uva12250</a> <a href="e183-uva10940.html" class="problem-link">e183 uva10940</a> <a href="i959-uva11078.html" class="problem-link">i959 uva11078</a> <a href="d669-uva11677.html" class="problem-link">d669 uva11677</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>

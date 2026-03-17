@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uva11566 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>uva11566</h1>
+        <p class="subtitle">題目編號：uva11566</p>
+        <p><a href="https://vjudge.net/problem/UVA-11566" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>O(n³)</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block"><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;memory.h&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+int main(){
+	// fast io
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
+	int N, x, T, K;
+	int P;
+	int dp[23][1001];
+
+	while(cin&gt;&gt;N&gt;&gt;x&gt;&gt;T&gt;&gt;K,N+x+T+K){
+		P=(++N*x)/(float)1.1-(N*T);
+
+		vector&lt;pair&lt;int,int&gt;&gt;pf;
+		memset(dp,0,sizeof(dp));
+		int ans=0;
+
+		for(int i=0;i&lt;K;++i){
+			int a,b=0,tmp;
+
+			cin&gt;&gt;a;
+			for(int j=0;j&lt;N;++j)cin&gt;&gt;tmp,b+=tmp;
+
+			pf.push_back({a,b});
+			pf.push_back({a,b});
+		}
+
+		for (int k = 0; k &lt; pf.size(); ++k){
+			auto&amp; [price,favour]=pf[k];
+			for(int i=N*2;i&gt;0;--i) for(int j=P;j&gt;=price;--j)
+				dp[i][j]=max(dp[i][j],max(dp[i-1][j],dp[i-1][j-price]+favour));
+		}
+
+		for(int i=0;i&lt;=N*2;++i)ans=max(ans,dp[i][P]);
+		cout&lt;&lt;setprecision(2)&lt;&lt;fixed&lt;&lt;(double)ans/N&lt;&lt;&quot;\n&quot;;
+	}
+
+	return 0;
+}
+</code></pre>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="uva10368.html" class="problem-link">uva10368</a> <a href="uva11086.html" class="problem-link">uva11086</a> <a href="day-151.html" class="problem-link">day-151</a> <a href="a176.html" class="problem-link">a176</a> <a href="d117-uva10924.html" class="problem-link">d117 uva10924</a> <a href="c009-uva10473.html" class="problem-link">c009 uva10473</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+</body>
+</html>
