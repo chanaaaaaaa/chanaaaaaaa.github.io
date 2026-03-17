@@ -72,6 +72,7 @@
 #include &lt;cstdlib&gt;
 
 #include &lt;string&gt;
+#include &lt;vector&gt;
 using namespace std;
 
 inline int read(){
@@ -95,12 +96,27 @@ inline void write(int x){
     return;
 }
 /* I/O Optimize */
+const int LLINF=0x7fffffffffffffffLL;
 int R,N,T;
 int frequency[27],frequensum;
 string codes[27];
 
 long long expval;
 double avgval;
+
+struct node{
+    long long dfn=LLINF;
+    int letter=0;
+    int weight=0;
+    vector&lt;node&gt;nex;
+
+    bool operator &lt; (const node &amp;x)const{
+        if(weight==x.weight){return dfn&gt;x.dfn;}
+        return weight&gt;x.weight;
+    }
+};
+node root;
+
 inline void solve(){
     write(67);
 }
@@ -115,7 +131,7 @@ signed main(){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e530-uva1644.html" class="problem-link">e530 uva1644</a> <a href="e313-2018APCS.html" class="problem-link">e313 2018APCS</a> <a href="d226-uva10071.html" class="problem-link">d226 uva10071</a> <a href="c010-uva10107.html" class="problem-link">c010 uva10107</a> <a href="scpp.html" class="problem-link">s.cpp</a> <a href="d307-uva686.html" class="problem-link">d307 uva686</a></p>
+        <p><a href="uva11005.html" class="problem-link">uva11005</a> <a href="uva1213.html" class="problem-link">uva1213</a> <a href="a465-uva12405.html" class="problem-link">a465 uva12405</a> <a href="a007.html" class="problem-link">a007</a> <a href="e288-2019APCS.html" class="problem-link">e288 2019APCS</a> <a href="a132-uva10931.html" class="problem-link">a132 uva10931</a></p>
     </div>
 
     <footer>
