@@ -92,6 +92,38 @@ def extract_from_code(code: str, problem_id: str) -> tuple:
     return solution or "（請自行補充）", complexity or "（請自行補充）"
 
 
+def format_problem_source(problem_id: str) -> str:
+    """將題目 ID 轉為「網站與編號」顯示字串"""
+    pid = problem_id.strip()
+    parts = []
+    # ZeroJudge 格式：a001, b059, c123
+    zj_match = re.findall(r'\b([a-z]\d+)\b', pid, re.I)
+    for m in zj_match:
+        parts.append(f"ZeroJudge {m.upper()}")
+    # UVa 格式：uva924, uva 10931
+    uva_match = re.findall(r'uva\s*(\d+)', pid, re.I)
+    for m in uva_match:
+        parts.append(f"UVa {m}")
+    # CSES
+    if re.search(r'cses', pid, re.I):
+        num = re.search(r'\d+', pid)
+        if num:
+            parts.append(f"CSES {num.group(0)}")
+    # APCS
+    if re.search(r'apcs', pid, re.I):
+        year = re.search(r'20\d{2}', pid)
+        parts.append(f"APCS {year.group(0) if year else ''}".strip())
+    # AtCoder
+    if re.search(r'atcoder|atcode', pid, re.I):
+        parts.append("AtCoder")
+    # day-xxx
+    if re.match(r'day-\d+', pid, re.I):
+        parts.append(pid)
+    if not parts:
+        return pid
+    return " · ".join(parts)
+
+
 def find_problem_link(problem_id: str) -> str:
     """根據題目 ID 推測 VJudge / ZeroJudge 連結"""
     problem_id = problem_id.strip().lower()
@@ -294,7 +326,8 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
             index_html += f'        <h2 class="section-title">{html.escape(current_type)}</h2>\n'
             index_html += f'        <ul class="problem-list">\n'
         diff_label = DIFFICULTY_ORDER.get(pl["difficulty"], str(pl["difficulty"]))
-        index_html += f'            <li><a href="{pl["url"]}">{html.escape(pl["title"])}</a><span class="problem-id">{html.escape(pl["id"])}</span><span class="difficulty-badge">{html.escape(diff_label)}</span></li>\n'
+        source_str = format_problem_source(pl["id"])
+        index_html += f'            <li><a href="{pl["url"]}" class="problem-title">{html.escape(pl["title"])}</a><span class="problem-source">{html.escape(source_str)}</span><span class="difficulty-badge">{html.escape(diff_label)}</span></li>\n'
     index_html += '''        </ul>
     </section>
     <footer>
