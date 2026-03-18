@@ -27,6 +27,15 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <title>{title} - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
     <div class="page-wrapper">
@@ -39,7 +48,7 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>{summary_html}</p>
 
     <h2>題解</h2>
     <p>{solution_html}</p>
@@ -252,6 +261,13 @@ def find_problem_link(problem_id: str) -> str:
     return ''
 
 
+def format_text_for_display(text: str) -> str:
+    """將純文字轉為 HTML 安全顯示（含換行與 MathJax 支援）"""
+    if not text or not text.strip():
+        return ""
+    return html.escape(text).replace('\n', '<br>')
+
+
 def load_meta(meta_path: Path) -> dict:
     """載入 meta.json（題解、時間複雜度）"""
     if not meta_path.exists():
@@ -331,8 +347,10 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         problem_list.append({"id": p["id"], "title": p["title"], "url": url})
 
         # 優先使用 meta.json 的內容
-        solution = meta.get(p["id"], {}).get("solution") or meta.get(p["safe_id"], {}).get("solution") or p["solution"]
-        complexity = meta.get(p["id"], {}).get("complexity") or meta.get(p["safe_id"], {}).get("complexity") or p["complexity"]
+        m = meta.get(p["id"], {}) or meta.get(p["safe_id"], {})
+        summary = m.get("summary") or m.get("description") or ""
+        solution = m.get("solution") or p["solution"]
+        complexity = m.get("complexity") or p["complexity"]
 
         others = [x for j, x in enumerate(problems) if j != i]
         random.shuffle(others)
@@ -347,7 +365,8 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         if p["link"]:
             problem_link_html = f'<p><a href="{p["link"]}" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>'
 
-        solution_html = html.escape(solution).replace('\n', '<br>')
+        summary_html = format_text_for_display(summary) or "（請自行查閱題目描述）"
+        solution_html = format_text_for_display(solution) or "（請自行補充）"
         complexity_html = html.escape(complexity)
 
         code_html = highlight_cpp(p["code"])
@@ -355,6 +374,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
             title=html.escape(p["title"]),
             problem_id=html.escape(p["id"]),
             problem_link_html=problem_link_html,
+            summary_html=summary_html,
             solution_html=solution_html,
             complexity_html=complexity_html,
             code_html=code_html,
@@ -486,7 +506,7 @@ def main():
     count = build_pages(problems, output_dir, meta, args.links)
     print(f"已產生 {count} 個題目頁面與 index.html")
     print(f"輸出目錄：{output_dir}")
-    print(f"提示：可編輯 meta.json 補充各題的「題解」與「時間複雜度」")
+    print(f"提示：可編輯 meta.json 補充各題的「題目大意(summary)」、「題解(solution)」與「時間複雜度」")
     return 0
 
 

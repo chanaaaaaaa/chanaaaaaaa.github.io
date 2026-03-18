@@ -23,11 +23,12 @@ python build.py --code-dir "C:\path\to\CodeLib\code" --output "." --seed 42
 
 ## 補充或覆寫 meta
 
-編輯 `meta.json` 可手動設定題解、複雜度、類型、難度：
+編輯 `meta.json` 可手動設定**題目大意**、**題解**、複雜度、類型、難度：
 
 ```json
 {
   "a132 uva10931": {
+    "summary": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。",
     "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。",
     "complexity": "O(log n)",
     "type": "數學",
@@ -36,4 +37,22 @@ python build.py --code-dir "C:\path\to\CodeLib\code" --output "." --seed 42
 }
 ```
 
+- **summary**：題目大意（若未填則顯示「請自行查閱題目描述」）
+- **solution**：題解（若未填則顯示「請自行補充」或從程式碼註解擷取）
+
 重新執行 `build.py` 即可更新頁面。
+
+## MathJax 數學式
+
+題目大意與題解支援 LaTeX 數學式，使用 MathJax 渲染：
+
+| 用途 | 語法 | 範例 |
+|------|------|------|
+| 行內數學 | `\( ... \)` | `給定 \(n\)，求 \(\sum_{i=1}^n i\)` |
+| 區塊數學 | `\[ ... \]` | `\[ \frac{n(n+1)}{2} \]` |
+
+在 `meta.json` 中需將反斜線寫成 `\\`，例如：
+
+```json
+"solution": "時間複雜度為 \\(O(n \\log n)\\)，使用 \\(\\sum_{i=1}^n i = \\frac{n(n+1)}{2}\\)。"
+```
