@@ -288,13 +288,6 @@
       "difficulty": 3
     },
     {
-      "id": "day-163",
-      "title": "day-163",
-      "url": "problems/day-163.html",
-      "type": "DP",
-      "difficulty": 3
-    },
-    {
       "id": "n693 uva10721",
       "title": "n693 uva10721",
       "url": "problems/n693-uva10721.html",
@@ -1943,6 +1936,13 @@
       "id": "day-135",
       "title": "day-135",
       "url": "problems/day-135.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "day-164",
+      "title": "day-164",
+      "url": "problems/day-164.html",
       "type": "其他",
       "difficulty": 3
     },

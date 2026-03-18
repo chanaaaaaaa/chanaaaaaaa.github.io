@@ -1,9 +1,10 @@
 /* 背景圖 + 霧面效果 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* 背景放在 html，覆蓋整個視窗（body 有 max-width 會限制寬度） */
 html {
     min-height: 100%;
-    background: #1a2332;
+    background: #1a2332 url('/coding/back-g.jpg') center center / cover no-repeat fixed;
 }
 
 body {
@@ -11,7 +12,6 @@ body {
     line-height: 1.7;
     color: #333;
     min-height: 100vh;
-    background: #1a2332 url('/coding/back-g.jpg') center center / cover no-repeat fixed;
     position: relative;
     max-width: 920px;
     margin: 0 auto;
