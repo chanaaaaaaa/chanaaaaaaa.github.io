@@ -1,10 +1,23 @@
 /* 背景圖 + 霧面效果 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* 背景放在 html，覆蓋整個視窗（body 有 max-width 會限制寬度） */
 html {
-    min-height: 100%;
-    background: #1a2332 url('/coding/back-g.jpg') center center / cover no-repeat fixed;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* 使用固定層確保背景圖填滿整個視窗 */
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1a2332 url('/coding/back-g.jpg') center center / cover no-repeat;
+    z-index: -2;
 }
 
 body {
@@ -18,15 +31,20 @@ body {
     padding: 2rem 1.5rem;
 }
 
-/* 霧面遮罩：降低不透明度，讓背景圖更明顯 */
+/* 霧面遮罩：固定層覆蓋整個視窗 */
 body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(255, 255, 255, 0.42);
     backdrop-filter: blur(8px) saturate(1.1);
     -webkit-backdrop-filter: blur(8px) saturate(1.1);
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
 }
 
