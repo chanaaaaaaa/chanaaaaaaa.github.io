@@ -531,7 +531,8 @@
     "difficulty": 3
   },
   "c124 uva532": {
-    "complexity": "O(V + E)",
+    "content": "3D 地牢最短路。給定 \\(L \\times R \\times C\\) 的立體迷宮，從 S 走到 E，每次可往上下左右前後六方向移動一格（每步 1 分鐘），\\(#\\) 為牆不可通過。求最短逃脫時間，無法則輸出 Trapped!。\n---\n使用 BFS。以 queue 儲存 \\((l,r,c)\\) 座標，六方向位移陣列 \\((\\pm 1,0,0),(0,\\pm 1,0),(0,0,\\pm 1)\\)。將距離記錄在 mp 陣列，遇到 E 即回傳。",
+    "complexity": "O(L × R × C)",
     "type": "圖論",
     "difficulty": 3
   },
