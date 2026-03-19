@@ -2,9 +2,9 @@
   "problems": [
     {
       "id": "a176",
-      "title": "a176",
+      "title": "ZeroJudge. a176",
       "url": "problems/a176.html",
-      "type": "圖論",
+      "type": "枚舉",
       "difficulty": 3
     },
     {
