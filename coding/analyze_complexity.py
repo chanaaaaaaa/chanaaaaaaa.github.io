@@ -190,13 +190,16 @@ def main():
     script_dir = Path(__file__).parent
     meta_path = script_dir / "meta.json"
 
-    # 載入現有 meta
+    # 載入現有 meta（保留 _說明、_範例）
     meta = {}
+    doc_fields = {}
     if meta_path.exists():
         with open(meta_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         for k, v in data.items():
-            if not k.startswith("_"):
+            if k.startswith("_"):
+                doc_fields[k] = v
+            else:
                 meta[k] = v
 
     problems = collect_problems(code_dir)
@@ -217,9 +220,9 @@ def main():
         if "difficulty" not in meta[pid]:
             meta[pid]["difficulty"] = difficulty
 
-    # 保留 _說明 與 _範例
-    output = {
-        "_說明": "在此補充各題的題解、時間複雜度、類型(type)、難度(difficulty 1-5)。",
+    # 保留原有 _說明、_範例
+    output = dict(doc_fields) if doc_fields else {
+        "_說明": "在此補充各題的題目內容(content)、時間複雜度、類型、難度。",
         "_範例": {},
     }
     for k, v in sorted(meta.items()):

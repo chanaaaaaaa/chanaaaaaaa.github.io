@@ -23,13 +23,12 @@ python build.py --code-dir "C:\path\to\CodeLib\code" --output "." --seed 42
 
 ## 補充或覆寫 meta
 
-編輯 `meta.json` 可手動設定**題目大意**、**題解**、複雜度、類型、難度：
+編輯 `meta.json` 可手動設定**題目內容**、複雜度、類型、難度。使用單一 `content` 欄位，以 `---` 分隔題目大意與題解：
 
 ```json
 {
   "a132 uva10931": {
-    "summary": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。",
-    "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。",
+    "content": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。\n---\n將十進位轉二進位，同時計算 1 的個數（parity）。",
     "complexity": "O(log n)",
     "type": "數學",
     "difficulty": 2
@@ -37,14 +36,14 @@ python build.py --code-dir "C:\path\to\CodeLib\code" --output "." --seed 42
 }
 ```
 
-- **summary**：題目大意（若未填則顯示「請自行查閱題目描述」）
-- **solution**：題解（若未填則顯示「請自行補充」或從程式碼註解擷取）
+- **content**：題目大意與題解，用 `\n---\n` 分隔；前半為題目大意，後半為題解（無分隔時題解沿用程式碼註解）
+- 仍支援舊格式 `summary`、`solution` 分開填寫
 
 重新執行 `build.py` 即可更新頁面。
 
 ## MathJax 數學式
 
-題目大意與題解支援 LaTeX 數學式，使用 MathJax 渲染：
+`content` 欄位支援 LaTeX 數學式，使用 MathJax 渲染：
 
 | 用途 | 語法 | 範例 |
 |------|------|------|
@@ -54,5 +53,5 @@ python build.py --code-dir "C:\path\to\CodeLib\code" --output "." --seed 42
 在 `meta.json` 中需將反斜線寫成 `\\`，例如：
 
 ```json
-"solution": "時間複雜度為 \\(O(n \\log n)\\)，使用 \\(\\sum_{i=1}^n i = \\frac{n(n+1)}{2}\\)。"
+"content": "給定 \\(n\\)。\n---\n時間複雜度 \\(O(n \\log n)\\)，使用 \\(\\sum_{i=1}^n i = \\frac{n(n+1)}{2}\\)。"
 ```

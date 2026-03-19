@@ -1,8 +1,7 @@
 {
-  "_說明": "在此補充各題的題目大意(summary)、題解(solution)、時間複雜度(complexity)、類型(type)、難度(difficulty 1-5)。支援 MathJax 數學式，使用 \\( \\) 行內、\\[ \\] 區塊。",
+  "_說明": "在此補充各題的題目內容(content)、時間複雜度(complexity)、類型(type)、難度(difficulty 1-5)。content 用 --- 分隔題目大意與題解。支援 MathJax：\\( \\) 行內、\\[ \\] 區塊。",
   "_範例": {
-    "summary": "給定 n，求 \\(\\sum_{i=1}^n i\\)。",
-    "solution": "使用公式 \\(\\frac{n(n+1)}{2}\\)。",
+    "content": "給定 n，求 \\(\\sum_{i=1}^n i\\)。\n---\n使用公式 \\(\\frac{n(n+1)}{2}\\)。",
     "complexity": "O(1)",
     "type": "數學",
     "difficulty": 1
@@ -243,8 +242,7 @@
     "difficulty": 3
   },
   "a132 uva10931": {
-    "summary": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。",
-    "solution": "將十進位轉二進位，同時計算 1 的個數（parity）。",
+    "content": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。\n---\n將十進位轉二進位，同時計算 1 的個數（parity）。",
     "complexity": "O(n²)",
     "type": "數學",
     "difficulty": 3

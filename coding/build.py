@@ -348,8 +348,15 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
 
         # 優先使用 meta.json 的內容
         m = meta.get(p["id"], {}) or meta.get(p["safe_id"], {})
-        summary = m.get("summary") or m.get("description") or ""
-        solution = m.get("solution") or p["solution"]
+        content = m.get("content") or ""
+        if content:
+            # content 格式：題目大意\n---\n題解（用 --- 分隔，無分隔時題解沿用程式碼註解）
+            parts = content.split("\n---\n", 1)
+            summary = parts[0].strip() if parts[0].strip() else ""
+            solution = parts[1].strip() if len(parts) > 1 and parts[1].strip() else p["solution"]
+        else:
+            summary = m.get("summary") or m.get("description") or ""
+            solution = m.get("solution") or p["solution"]
         complexity = m.get("complexity") or p["complexity"]
 
         others = [x for j, x in enumerate(problems) if j != i]
@@ -506,7 +513,7 @@ def main():
     count = build_pages(problems, output_dir, meta, args.links)
     print(f"已產生 {count} 個題目頁面與 index.html")
     print(f"輸出目錄：{output_dir}")
-    print(f"提示：可編輯 meta.json 補充各題的「題目大意(summary)」、「題解(solution)」與「時間複雜度」")
+    print(f"提示：可編輯 meta.json 補充各題的「題目內容(content)」與「時間複雜度」")
     return 0
 
 
