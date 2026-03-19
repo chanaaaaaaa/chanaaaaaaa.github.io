@@ -27,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>給定 \(N\) 個節點與 \(N-1\) 條邊構成的樹（家族圖譜，每條邊表示親子關係），求樹的直徑，即任意兩節點間的最長路徑長度（邊數）。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>使用兩次 DFS：從任意節點（如 0）出發找到最遠節點 \(u\)，再從 \(u\) 出發找到最遠節點 \(v\)，\(u\) 到 \(v\) 的距離即為直徑。以鄰接表建圖，dfs 時記錄深度並維護最遠節點與距離。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(N)</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -41,7 +41,7 @@
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dic;
-<span class="token keyword">int</span> N,a,b,mi=-<span class="token number">1</span>,md=<span class="token number">3</span>;
+<span class="token keyword">int</span> N,a,b,mi=-<span class="token number">1</span>,md=-<span class="token number">1</span>;
 
 <span class="token keyword">void</span> dfs(<span class="token keyword">int</span> idx,<span class="token keyword">int</span> father,<span class="token keyword">int</span> depth){
     <span class="token keyword">for</span>(<span class="token keyword">auto</span> i : dic[idx]){
@@ -77,7 +77,7 @@ vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dic;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d226-uva10071.html" class="problem-link">d226 uva10071</a> <a href="c004-uva10812.html" class="problem-link">c004 uva10812</a> <a href="CSES1753.html" class="problem-link">CSES1753</a> <a href="uva10653.html" class="problem-link">uva10653</a> <a href="d253-uva674.html" class="problem-link">d253 uva674</a> <a href="b059.html" class="problem-link">b059</a></p>
+        <p><a href="d307-uva686.html" class="problem-link">d307 uva686</a> <a href="c067-uva00591.html" class="problem-link">c067 uva00591</a> <a href="d191-uva11352.html" class="problem-link">d191 uva11352</a> <a href="CSES1745.html" class="problem-link">CSES1745</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="uva10930.html" class="problem-link">uva10930</a></p>
     </div>
 
     <footer>

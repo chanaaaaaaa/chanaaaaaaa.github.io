@@ -27,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>經典堆疊（Stack）應用。火車編號 \(1 \sim N\) 依序從 A 進入，車站為死胡同（LIFO）。給定 B 方向的目標出站序列，判斷是否能透過車站達成。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>用 stack 模擬車站、queue 存目標序列。依序處理每輛車 \(i\)：若目標前端等於 \(i\) 則直接「輸出」；否則先盡量將 stack 頂端與目標比對並彈出，再將 \(i\) 推入 stack。每輛車最多進棧、出棧各一次。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(N)</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -118,7 +118,7 @@ stack&lt;<span class="token keyword">int</span>&gt;wait;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES1745.html" class="problem-link">CSES1745</a> <a href="a221-uva11734.html" class="problem-link">a221 uva11734</a> <a href="uva11057.html" class="problem-link">uva11057</a> <a href="c294-2016APCS.html" class="problem-link">c294 2016APCS</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a> <a href="b437-uva11476.html" class="problem-link">b437 uva11476</a></p>
+        <p><a href="day-150.html" class="problem-link">day-150</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a> <a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="CSES-1646.html" class="problem-link">CSES 1646</a> <a href="uva11396.html" class="problem-link">uva11396</a> <a href="c295-2016APCS.html" class="problem-link">c295 2016APCS</a></p>
     </div>
 
     <footer>

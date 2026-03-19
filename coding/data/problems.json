@@ -8,13 +8,6 @@
       "difficulty": 3
     },
     {
-      "id": "c123 uva514",
-      "title": "c123 uva514",
-      "url": "problems/c123-uva514.html",
-      "type": "圖論",
-      "difficulty": 3
-    },
-    {
       "id": "c124 uva532",
       "title": "c124 uva532",
       "url": "problems/c124-uva532.html",
@@ -1534,6 +1527,13 @@
       "difficulty": 3
     },
     {
+      "id": "c123 uva514",
+      "title": "c123 uva514",
+      "url": "problems/c123-uva514.html",
+      "type": "資料結構",
+      "difficulty": 3
+    },
+    {
       "id": "d097 uva10038",
       "title": "d097 uva10038",
       "url": "problems/d097-uva10038.html",
@@ -1929,13 +1929,6 @@
       "id": "day-135",
       "title": "day-135",
       "url": "problems/day-135.html",
-      "type": "其他",
-      "difficulty": 3
-    },
-    {
-      "id": "day-164",
-      "title": "day-164",
-      "url": "problems/day-164.html",
       "type": "其他",
       "difficulty": 3
     },
