@@ -28,12 +28,12 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
     <script>
-      MathJax = {
-        tex: {
+      MathJax = {{
+        tex: {{
           inlineMath: [['\\(', '\\)']],
           displayMath: [['\\[', '\\]']]
-        }
-      };
+        }}
+      }};
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>

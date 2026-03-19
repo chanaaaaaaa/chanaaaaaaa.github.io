@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uva10730 - CodeLib 題解</title>
+    <title>day-165 - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
     <script>
@@ -20,9 +20,9 @@
     <div class="page-wrapper">
     <header>
         <a href="../index.html" class="back-link">← 返回題目列表</a>
-        <h1>uva10730</h1>
-        <p class="subtitle">題目編號：uva10730</p>
-        <p><a href="https://vjudge.net/problem/UVA-10730" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+        <h1>day-165</h1>
+        <p class="subtitle">題目編號：day-165</p>
+        
     </header>
 
     <div class="content-card">
@@ -33,7 +33,7 @@
     <p>（請自行補充）</p>
 
     <h2>時間複雜度</h2>
-    <p>O(n³)</p>
+    <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token number">1</span>)
@@ -42,9 +42,7 @@
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;fast-math&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse-lm&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fipa-sra&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-vrp&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpeephole2&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ffast-math&quot;</span>)
@@ -80,57 +78,94 @@
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funsafe-loop-optimizations&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-function-called-once&quot;</span>)
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
-<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
-<span class="token directive">#include</span> &lt;cstdio&gt;
-<span class="token directive">#include</span> &lt;vector&gt;
+
+<span class="token comment">/* Self Define Const */</span>
+
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#include</span> &lt;unordered_map&gt;
+
+<span class="token directive">#define</span> LL <span class="token keyword">long</span> <span class="token keyword">long</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>;
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span>||c&gt;<span class="token string">&#x27;9&#x27;</span>){
-        c=getchar();
-        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
-    }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
-        c=getchar();
-    }
-    <span class="token keyword">return</span> x;
-}
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
-    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
-    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
-}
-<span class="token comment">//-block</span>
+<span class="token comment">/* Programing area */</span>
 
-<span class="token keyword">signed</span> main(){
-    <span class="token keyword">int</span> N;
-    <span class="token keyword">while</span>(N=read()){
-        vector&lt;<span class="token keyword">int</span>&gt;dat(N,<span class="token number">0</span>);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
-            dat[read()]=i;
-        }
+<span class="token comment">// ABC 208 E - Digit Products</span>
 
-        <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N &amp;&amp; flag;++i){
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;i+<span class="token number">2</span>*j&lt;N &amp;&amp; flag;++j){
-                <span class="token keyword">if</span>((dat[i]&lt;dat[i+j] &amp;&amp; dat[i+j]&lt;dat[i+<span class="token number">2</span>*j])||(dat[i]&gt;dat[i+j] &amp;&amp; dat[i+j]&gt;dat[i+<span class="token number">2</span>*j])){
-                    flag=<span class="token keyword">false</span>;
-                }
+<span class="token comment">// opt：mul is only 0 or 2^a*3^b*5^c*7^d, act.num = O((log K)^4)</span>
+<span class="token comment">// dp[start][small][prod]=cnt</span>
+
+<span class="token comment">//N=123456789</span>
+
+<span class="token keyword">void</span> solve() {
+    string N;
+    LL K;
+    cin &gt;&gt; N &gt;&gt; K;
+
+    LL INF = K + <span class="token number">1</span>;
+    unordered_map&lt;LL, LL&gt; dp;  <span class="token comment">// product , count</span>
+    LL eq_prod = <span class="token number">1</span>;            <span class="token comment">// the product of all digits(char &amp;c:s)</span>
+
+    <span class="token keyword">bool</span> f=<span class="token keyword">true</span>;        <span class="token comment">//isfirst digit ?</span>
+    <span class="token keyword">for</span> (<span class="token keyword">char</span> &amp;c:N) {
+        <span class="token keyword">int</span> digit = c - <span class="token string">&#x27;0&#x27;</span>;
+        unordered_map&lt;LL, LL&gt; nxt;
+
+        <span class="token comment">// (1) less -&gt; less: 已小於 N 的前綴，可選 0~9</span>
+        <span class="token comment">//                   曾在某項出現過 ${d} &lt; ${digit}</span>
+        <span class="token keyword">for</span> (<span class="token keyword">auto</span>&amp; [prod, val] : dp) {
+            <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">0</span>; d &lt;= <span class="token number">9</span>; d++) {
+                LL nxt_prod = min(INF, prod * d);
+                nxt[nxt_prod] += val;
             }
         }
-        <span class="token keyword">if</span>(flag){
-            putchar(<span class="token string">&#x27;y&#x27;</span>);
-            putchar(<span class="token string">&#x27;e&#x27;</span>);
-            putchar(<span class="token string">&#x27;s&#x27;</span>);
-        }<span class="token keyword">else</span>{
-            putchar(<span class="token string">&#x27;n&#x27;</span>);
-            putchar(<span class="token string">&#x27;o&#x27;</span>);
+
+        <span class="token comment">// (2) equal -&gt; less: 前綴等於 N，此位選小於 digit 的數</span>
+        <span class="token comment">//                    before this step for all ${d} == ${digit}</span>
+        <span class="token comment">//                    in this step get the ${d} &lt; ${digit}</span>
+        <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">0</span>; d &lt; digit; d++) {
+            <span class="token keyword">if</span> (f &amp;&amp; d == <span class="token number">0</span>) <span class="token keyword">continue</span>;  <span class="token comment">//the first digit can&#x27;t be 0</span>
+            LL nxt_prod = min(INF, eq_prod * d);
+            nxt[nxt_prod] += <span class="token number">1</span>;         <span class="token comment">//eq_prod.cnt always 1</span>
         }
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        
+        <span class="token comment">// (3) equal -&gt; equal: 繼續匹配 N</span>
+        <span class="token comment">//                     only need to make next eq_prod</span>
+        <span class="token comment">//                     if eq_prod is a sol. for K </span>
+        <span class="token comment">//                        res++ after the result counting</span>
+        eq_prod = min(INF, eq_prod * digit);
+
+        <span class="token comment">// (4) 0...0d 形式：前 i 位全 0，此位選 1~9（單一位數等）</span>
+        <span class="token comment">//                 get [all zero] -&gt; [less]</span>
+        <span class="token comment">//                 the count of [all zero] is 0</span>
+        <span class="token comment">//                 but the act of {less} is special ,so make the count of {less} +1</span>
+        <span class="token keyword">if</span> (!f) {
+            <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">1</span>; d &lt;= <span class="token number">9</span>; d++) {
+                LL nxt_prod = min(INF, (LL)d);
+                nxt[nxt_prod] += <span class="token number">1</span>;
+            }
+        }
+        <span class="token comment">// (5) no need to discuss any {all zero} -&gt; {all zero}</span>
+
+        dp = move(nxt);
+        f=<span class="token keyword">false</span>;
     }
+
+    LL answer = <span class="token number">0</span>;
+
+    <span class="token comment">// 統計乘積 &lt;= K 的數量</span>
+    <span class="token keyword">for</span> (<span class="token keyword">auto</span>&amp; [prod, val] : dp) {
+        <span class="token keyword">if</span> (prod &lt;= K) answer += val;
+    }
+    <span class="token keyword">if</span> (eq_prod &lt;= K) answer += <span class="token number">1</span>;
+
+    cout &lt;&lt; answer &lt;&lt; <span class="token string">&#x27;\n&#x27;</span>;
+}
+
+<span class="token keyword">signed</span> main() {
+    <span class="token comment">//IO</span>
+    solve();
+    system(<span class="token string">&quot;pause&quot;</span>);
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -138,7 +173,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10527.html" class="problem-link">uva10527</a> <a href="uva1235.html" class="problem-link">uva1235</a> <a href="e601-uva255.html" class="problem-link">!e601 uva255</a> <a href="uva11504.html" class="problem-link">uva11504</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="c045-uva00490.html" class="problem-link">c045 uva00490</a></p>
+        <p><a href="uva10926.html" class="problem-link">uva10926</a> <a href="uva10199.html" class="problem-link">uva10199</a> <a href="e287-2019APCS.html" class="problem-link">e287 2019APCS</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="a467-uva11398.html" class="problem-link">a467 uva11398</a> <a href="j059-uva11547.html" class="problem-link">j059 uva11547</a></p>
     </div>
 
     <footer>

@@ -1,13 +1,6 @@
 {
   "problems": [
     {
-      "id": "a176",
-      "title": "ZeroJudge. a176",
-      "url": "problems/a176.html",
-      "type": "枚舉",
-      "difficulty": 3
-    },
-    {
       "id": "b967 2016APCS",
       "title": "b967 2016APCS",
       "url": "problems/b967-2016APCS.html",
@@ -1947,6 +1940,13 @@
       "difficulty": 3
     },
     {
+      "id": "day-165",
+      "title": "day-165",
+      "url": "problems/day-165.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "e183 uva10940",
       "title": "e183 uva10940",
       "url": "problems/e183-uva10940.html",
@@ -2379,6 +2379,13 @@
       "url": "problems/uva13249.html",
       "type": "其他",
       "difficulty": 4
+    },
+    {
+      "id": "a176",
+      "title": "a176",
+      "url": "problems/a176.html",
+      "type": "枚舉",
+      "difficulty": 3
     }
   ]
 }

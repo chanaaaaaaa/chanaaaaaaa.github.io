@@ -6,6 +6,15 @@
     <title>a176 - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\(', '\)']],
+          displayMath: [['\[', '\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
     <div class="page-wrapper">
@@ -18,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>給定 n、m，輸出所有合法的俄羅斯方塊排列方式（以 ASCII 圖示）及總數。有五種方塊，每種大小 2×4；限制：(1) 相同形狀不能連續出現，(2) 每種方塊最多用 m 次。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>使用回溯法（DFS）枚舉。維護 dat_cnt 記錄每種方塊已用次數，遞迴時只選與前一個不同的方塊且未達上限的類型。lib 陣列預存五種方塊的 ASCII 表示，每種排列輸出兩行。狀態數約 \(5 \times 4^{n-1}\)（首位 5 選 1，其後每位 4 選 1）。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(5 × 4^(n-1))</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -112,7 +121,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="b965-2016APCS.html" class="problem-link">b965 2016APCS</a> <a href="uva924.html" class="problem-link">uva924</a> <a href="uva11121.html" class="problem-link">uva11121</a> <a href="e605-uva10189.html" class="problem-link">e605 uva10189</a> <a href="f312-2020APCS.html" class="problem-link">f312 2020APCS</a> <a href="d186-uva11461.html" class="problem-link">d186 uva11461</a></p>
+        <p><a href="CSES1621.html" class="problem-link">CSES1621</a> <a href="d440-uva10299.html" class="problem-link">d440 uva10299</a> <a href="a004.html" class="problem-link">a004</a> <a href="Luogu-P2580.html" class="problem-link">Luogu P2580</a> <a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="e516-uva10409.html" class="problem-link">e516 uva10409</a></p>
     </div>
 
     <footer>
