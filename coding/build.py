@@ -30,8 +30,8 @@ PAGE_TEMPLATE = '''<!DOCTYPE html>
     <script>
       MathJax = {{
         tex: {{
-          inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
+          inlineMath: [['\\\\(' , '\\\\\\)']],
+          displayMath: [['\\\\[', '\\\\\\]']]
         }}
       }};
     </script>
