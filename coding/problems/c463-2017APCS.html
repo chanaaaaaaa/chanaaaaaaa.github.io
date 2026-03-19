@@ -27,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>給定 \(n\) 個節點的有根樹，第 \(i\) 行描述節點 \(i\) 的子節點。求 (1) 根節點編號（從未出現在任何子節點列表的節點），(2) 所有節點高度總和 \(H(T)\)。節點高度 \(h(v)\) 定義為 \(v\) 到其最遠葉子的距離，葉子 \(h=0\)。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>用 set 記錄所有節點，讀入時將出現過的子節點移除，剩餘即根。DFS 後序遍歷：葉子 \(far[v]=\) 深度，內部節點 \(far[v]=\max(far[child])\)，高度 \(h(v)=far[v]-depth\)。總和用 long long 儲存。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(n)</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -82,7 +82,7 @@ unordered_set&lt;<span class="token keyword">int</span>&gt;st;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="c074-uva441.html" class="problem-link">c074 uva441</a> <a href="AtCoder-098C.html" class="problem-link">AtCoder 098.C</a> <a href="zj601-uva255.html" class="problem-link">zj.601 uva255</a> <a href="uva10930.html" class="problem-link">uva10930</a> <a href="a743-uva10420.html" class="problem-link">a743 uva10420</a></p>
+        <p><a href="uva1213.html" class="problem-link">uva1213</a> <a href="q837-2025APCS.html" class="problem-link">q837 2025APCS</a> <a href="inclass.html" class="problem-link">inclass</a> <a href="a006.html" class="problem-link">a006</a> <a href="e579-uva10050.html" class="problem-link">e579 uva10050</a> <a href="pD.html" class="problem-link">pD</a></p>
     </div>
 
     <footer>

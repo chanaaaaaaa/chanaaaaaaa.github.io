@@ -27,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>給定 \(m \times n\) 網格，@ 表示有油的格子、* 表示無油。相鄰（含上下左右及四對角，共 8 方向）的 @ 屬於同一油藏。求油藏總數。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>對每個未拜訪的 \(@\) 做 BFS 或 DFS，將同一連通塊全部標記為已拜訪。每找到一個新起點就 cnt++。使用 8 方向位移陣列 \((\pm 1,0),(0,\pm 1),(\pm 1,\pm 1)\)。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(m × n)</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -117,7 +117,7 @@ queue&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keywo
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="e580-uva696.html" class="problem-link">e580 uva696</a> <a href="d042-uva11420.html" class="problem-link">d042 uva11420</a> <a href="uva11517.html" class="problem-link">uva11517</a> <a href="uva657.html" class="problem-link">uva657</a> <a href="p497-uva497.html" class="problem-link">p497 uva497</a> <a href="f314-2020APCS.html" class="problem-link">f314 2020APCS</a></p>
+        <p><a href="uva1235.html" class="problem-link">uva1235</a> <a href="a134-uva00948.html" class="problem-link">a134 uva00948</a> <a href="c813-uva11332.html" class="problem-link">c813 uva11332</a> <a href="e535-uva11344.html" class="problem-link">e535 uva11344</a> <a href="d187-uva11530.html" class="problem-link">d187 uva11530</a> <a href="c012-uva10062.html" class="problem-link">c012 uva10062</a></p>
     </div>
 
     <footer>
