@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c</h1>
+        <p class="subtitle">題目編號：c</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token directive">#include</span>&lt;iomanip&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">signed</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    string A,B;
+    <span class="token keyword">while</span>(getline(cin,A)){
+        getline(cin,B);
+
+        <span class="token keyword">int</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
+            }
+        }
+        <span class="token keyword">while</span>(a&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(a){
+                temp+=a%<span class="token number">10</span>;
+                a/=<span class="token number">10</span>;
+            }
+            a=temp;
+        }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;B.size();i++){
+            <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
+            }
+        }
+        <span class="token keyword">while</span>(b&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(b){
+                temp+=b%<span class="token number">10</span>;
+                b/=<span class="token number">10</span>;
+            }
+            b=temp;
+        }
+        <span class="token keyword">double</span> ans=(<span class="token keyword">double</span>)a/(<span class="token keyword">double</span>)b;
+        <span class="token keyword">if</span>(ans&gt;<span class="token number">1</span>){ans=<span class="token number">1.0</span>/ans;}
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">2</span>)&lt;&lt;ans*<span class="token number">100</span>&lt;&lt;<span class="token string">&quot; %\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="cla-13.html" class="problem-link">cla</a> <a href="class-10.html" class="problem-link">class</a> <a href="class-31.html" class="problem-link">class</a> <a href="class-47.html" class="problem-link">class</a> <a href="c-36.html" class="problem-link">c</a> <a href="a-33.html" class="problem-link">a</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

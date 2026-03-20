@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>certificateG - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>certificateG</h1>
+        <p class="subtitle">題目編號：certificateG</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+vector&lt;<span class="token keyword">int</span>&gt;nxt;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> makenxt(string &amp;give){
+    nxt.assign(give.size(),<span class="token number">0</span>);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>,now=<span class="token number">0</span>;i&lt;give.size();i++){
+        <span class="token keyword">while</span>(now&gt;<span class="token number">0</span> &amp;&amp; give[i]!=give[now]){
+            now=nxt[now-<span class="token number">1</span>];
+        }
+        <span class="token keyword">if</span>(give[i]==give[now]){
+            now++;
+        }
+        nxt[i]=now;
+    }
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> kmp(string &amp;give,string &amp;want){
+    <span class="token keyword">long</span> <span class="token keyword">long</span> cnt=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>,now=<span class="token number">0</span>;i&lt;give.size();i++){
+        <span class="token keyword">while</span>(now&gt;<span class="token number">0</span> &amp;&amp; give[i]!=want[now]){
+            now=nxt[now-<span class="token number">1</span>];
+        }
+        <span class="token keyword">if</span>(give[i]==want[now]){now++;}
+        <span class="token keyword">if</span>(now==want.size()){
+            cnt++;
+            now=nxt[now-<span class="token number">1</span>];
+        }
+    }
+    cout&lt;&lt;cnt&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+}
+
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+
+    string A,B;
+    <span class="token keyword">while</span>(cin&gt;&gt;A&gt;&gt;B){
+        makenxt(B);
+        kmp(A,B);
+        nxt.clear();
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="class-65.html" class="problem-link">class</a> <a href="class-64.html" class="problem-link">class</a> <a href="a-30.html" class="problem-link">a</a> <a href="a-12.html" class="problem-link">a</a> <a href="cla-44.html" class="problem-link">cla</a> <a href="class-5.html" class="problem-link">class</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

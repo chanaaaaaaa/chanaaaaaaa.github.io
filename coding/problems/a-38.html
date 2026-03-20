@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a</h1>
+        <p class="subtitle">題目編號：a</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;set&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+set&lt;<span class="token keyword">int</span>&gt;out;
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    <span class="token keyword">int</span> X,Y;
+    cin&gt;&gt;X&gt;&gt;Y;
+
+    <span class="token keyword">int</span> x,y,f;<span class="token comment">//N=0,E=1,S=2,W=3</span>
+    <span class="token keyword">char</span> face;
+    <span class="token keyword">while</span>(cin&gt;&gt;x&gt;&gt;y&gt;&gt;face){
+        string go;
+        cin&gt;&gt;go;
+        <span class="token keyword">if</span>(face==<span class="token string">&#x27;N&#x27;</span>){
+            f=<span class="token number">0</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(face==<span class="token string">&#x27;E&#x27;</span>){
+            f=<span class="token number">1</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(face==<span class="token string">&#x27;S&#x27;</span>){
+            f=<span class="token number">2</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(face==<span class="token string">&#x27;W&#x27;</span>){
+            f=<span class="token number">3</span>;
+        }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;go.size();i++){
+            <span class="token keyword">char</span> temp=go[i];
+            <span class="token keyword">if</span>(temp==<span class="token string">&#x27;R&#x27;</span>){
+                f++;
+                <span class="token keyword">if</span>(f&gt;<span class="token number">3</span>){f-=<span class="token number">4</span>;}
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(temp==<span class="token string">&#x27;L&#x27;</span>){
+                f--;
+                <span class="token keyword">if</span>(f&lt;<span class="token number">0</span>){f+=<span class="token number">4</span>;}
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(temp==<span class="token string">&#x27;F&#x27;</span>){
+                <span class="token comment">//important</span>
+                <span class="token keyword">if</span>(f==<span class="token number">0</span>){
+                    <span class="token keyword">if</span>(out.count(x*<span class="token number">100</span>+y+<span class="token number">1</span>)){
+                        <span class="token keyword">continue</span>;
+                    }<span class="token keyword">else</span>{y++;}
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">1</span>){
+                    <span class="token keyword">if</span>(out.count((x+<span class="token number">1</span>)*<span class="token number">100</span>+y)){
+                        <span class="token keyword">continue</span>;
+                    }<span class="token keyword">else</span>{x++;}
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">2</span>){
+                    <span class="token keyword">if</span>(out.count(x*<span class="token number">100</span>+y-<span class="token number">1</span>)){
+                        <span class="token keyword">continue</span>;
+                    }<span class="token keyword">else</span>{y--;}
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">3</span>){
+                    <span class="token keyword">if</span>(out.count((x-<span class="token number">1</span>)*<span class="token number">100</span>+y)){
+                        <span class="token keyword">continue</span>;
+                    }<span class="token keyword">else</span>{x--;}
+                }
+
+                <span class="token keyword">if</span>(x&lt;<span class="token number">0</span> || y&lt;<span class="token number">0</span> || y&gt;Y || x&gt;X){
+                    <span class="token keyword">char</span> temp;
+                    <span class="token keyword">if</span>(f==<span class="token number">0</span>){
+                        temp=<span class="token string">&#x27;N&#x27;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">1</span>){
+                        temp=<span class="token string">&#x27;E&#x27;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">2</span>){
+                        temp=<span class="token string">&#x27;S&#x27;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">3</span>){
+                        temp=<span class="token string">&#x27;W&#x27;</span>;
+                    }
+                    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){
+                        cout&lt;&lt;x+<span class="token number">1</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;temp&lt;&lt;<span class="token string">&quot; LOST&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(x&gt;X){
+                        cout&lt;&lt;x-<span class="token number">1</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;temp&lt;&lt;<span class="token string">&quot; LOST&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(y&lt;<span class="token number">0</span>){
+                        cout&lt;&lt;x&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y+<span class="token number">1</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;temp&lt;&lt;<span class="token string">&quot; LOST&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(y&gt;Y){
+                        cout&lt;&lt;x&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y-<span class="token number">1</span>&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;temp&lt;&lt;<span class="token string">&quot; LOST&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+                    }
+                    <span class="token keyword">if</span>(x==-<span class="token number">1</span>){
+                       <span class="token keyword">if</span>(y==<span class="token number">0</span>){
+                            out.insert(-<span class="token number">100</span>);<span class="token comment">//x=-1,y=0</span>
+                            out.insert(-<span class="token number">1</span>);<span class="token comment">//x=0,y=-1</span>
+                       }<span class="token keyword">else</span> <span class="token keyword">if</span>(y==Y){
+                            out.insert(-<span class="token number">100</span>+y);<span class="token comment">//x=-1,y=Y</span>
+                            out.insert(Y+<span class="token number">1</span>);<span class="token comment">//x=0,y=Y+1</span>
+                       }
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(x==X+<span class="token number">1</span>){
+                        <span class="token keyword">if</span>(y==<span class="token number">0</span>){
+                            out.insert(x*<span class="token number">100</span>);<span class="token comment">//x=X+1,y=0</span>
+                            out.insert(X*<span class="token number">100</span>-<span class="token number">1</span>);<span class="token comment">//x=X,y=-1</span>
+                       }<span class="token keyword">else</span> <span class="token keyword">if</span>(y==Y){
+                            out.insert(x*<span class="token number">100</span>+Y);<span class="token comment">//x=X+1,y=Y</span>
+                            out.insert(X*<span class="token number">100</span>+Y+<span class="token number">1</span>);<span class="token comment">//x=X,y=Y+1</span>
+                       }
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(y==-<span class="token number">1</span>){
+                        <span class="token keyword">if</span>(x==<span class="token number">0</span>){
+                            out.insert(-<span class="token number">1</span>);<span class="token comment">//x=0,y=-1</span>
+                            out.insert(-<span class="token number">100</span>);<span class="token comment">//x=-1,y=0</span>
+                       }<span class="token keyword">else</span> <span class="token keyword">if</span>(x==X){
+                            out.insert(x*<span class="token number">100</span>-<span class="token number">1</span>);<span class="token comment">//x=X,y=-1</span>
+                            out.insert((X+<span class="token number">1</span>)*<span class="token number">100</span>);<span class="token comment">//x=X+1,y=0</span>
+                       }
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(y==Y+<span class="token number">1</span>){
+                        <span class="token keyword">if</span>(x==<span class="token number">0</span>){
+                            out.insert(y);<span class="token comment">//x=0,y=Y+1</span>
+                            out.insert(Y-<span class="token number">100</span>);<span class="token comment">//x=-1,y=Y</span>
+                       }<span class="token keyword">else</span> <span class="token keyword">if</span>(x==X){
+                            out.insert(x*<span class="token number">100</span>+y);<span class="token comment">//x=X,y=Y+1</span>
+                            out.insert((X+<span class="token number">1</span>)*<span class="token number">100</span>+Y);<span class="token comment">//x=X+1,y=Y</span>
+                       }
+                    }
+                    out.insert(x*<span class="token number">100</span>+y);
+                    <span class="token keyword">break</span>;
+                }
+            }
+            <span class="token keyword">if</span>(i==go.size()-<span class="token number">1</span>){
+                <span class="token keyword">char</span> temp;
+                <span class="token keyword">if</span>(f==<span class="token number">0</span>){
+                    temp=<span class="token string">&#x27;N&#x27;</span>;
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">1</span>){
+                    temp=<span class="token string">&#x27;E&#x27;</span>;
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">2</span>){
+                    temp=<span class="token string">&#x27;S&#x27;</span>;
+                }<span class="token keyword">else</span> <span class="token keyword">if</span>(f==<span class="token number">3</span>){
+                    temp=<span class="token string">&#x27;W&#x27;</span>;
+                }
+                cout&lt;&lt;x&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;temp&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+            }
+        }
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c-36.html" class="problem-link">c</a> <a href="s-20.html" class="problem-link">s</a> <a href="s1143338-uva834.html" class="problem-link">s1143338-uva834</a> <a href="cla-21.html" class="problem-link">cla</a> <a href="d-2.html" class="problem-link">d</a> <a href="class-48.html" class="problem-link">class</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>class</h1>
+        <p class="subtitle">題目編號：class</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;set&gt;
+
+<span class="token directive">#define</span> MAXN <span class="token number">1000005</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+set&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">bool</span> isprime[MAXN];
+<span class="token keyword">int</span> ns,ne,cnt;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=MAXN;i++){
+        <span class="token keyword">if</span>(!isprime[i]){primes.insert(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span> it=primes.cbegin();it!=primes.cend();it++){
+            <span class="token keyword">if</span>(*it*i&gt;MAXN){<span class="token keyword">break</span>;}
+            isprime[*it*i]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%*it==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        }
+    }
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> solve(<span class="token keyword">int</span> x){
+    <span class="token keyword">int</span> judge=<span class="token number">1</span>,co=x;
+    <span class="token keyword">while</span>(judge&lt;x){judge*=<span class="token number">10</span>;}
+    judge/=<span class="token number">10</span>;
+
+    <span class="token keyword">do</span>{
+        <span class="token keyword">int</span> temp=co%<span class="token number">10</span>;
+        co=co/<span class="token number">10</span>+temp*judge;
+        <span class="token keyword">if</span>(!primes.count(co)){<span class="token keyword">return</span> <span class="token keyword">false</span>;}
+    }<span class="token keyword">while</span>(co!=x);
+    <span class="token keyword">return</span> <span class="token keyword">true</span>;
+}
+
+<span class="token keyword">signed</span> main(){
+    form();
+    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+        ns=read();
+        <span class="token keyword">if</span>(ns==-<span class="token number">1</span>){<span class="token keyword">break</span>;}
+        ne=read();
+
+        cnt=<span class="token number">0</span>;
+        <span class="token comment">/*normal ans
+        while(ns&lt;=ne){
+            if(solve(ns++)){cnt++;}
+        }*/</span>
+        <span class="token comment">//stange but fast ans</span>
+        set&lt;<span class="token keyword">int</span>&gt;hehehe{<span class="token number">113</span>,<span class="token number">131</span>,<span class="token number">197</span>,<span class="token number">199</span>,<span class="token number">311</span>,<span class="token number">337</span>,<span class="token number">373</span>,<span class="token number">719</span>,<span class="token number">733</span>,<span class="token number">919</span>,<span class="token number">971</span>,<span class="token number">991</span>,
+                    <span class="token number">1193</span>,<span class="token number">1931</span>,<span class="token number">3119</span>,<span class="token number">3779</span>,<span class="token number">7793</span>,<span class="token number">7937</span>,<span class="token number">9311</span>,<span class="token number">9377</span>,<span class="token number">11939</span>,<span class="token number">19391</span>,
+                    <span class="token number">19937</span>,<span class="token number">37199</span>,<span class="token number">39119</span>,<span class="token number">71993</span>,<span class="token number">91193</span>,<span class="token number">93719</span>,<span class="token number">93911</span>,<span class="token number">99371</span>,<span class="token number">193939</span>,
+                    <span class="token number">199933</span>,<span class="token number">319993</span>,<span class="token number">331999</span>,<span class="token number">391939</span>,<span class="token number">393919</span>,<span class="token number">919393</span>,
+                    <span class="token number">933199</span>,<span class="token number">939193</span>,<span class="token number">939391</span>,<span class="token number">993319</span>,<span class="token number">999331</span>};
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span> it=hehehe.cbegin();it!=hehehe.cend();it++){
+            <span class="token keyword">if</span>(*it&gt;=ns){
+                <span class="token keyword">if</span>(*it&lt;=ne){cnt++;}
+                <span class="token keyword">else</span>{<span class="token keyword">break</span>;}
+            }
+        }
+        <span class="token comment">//</span>
+        <span class="token keyword">if</span>(cnt){
+            write(cnt);
+        }<span class="token keyword">else</span>{
+            putchar(<span class="token string">&#x27;N&#x27;</span>);
+            putchar(<span class="token string">&#x27;o&#x27;</span>);
+        }
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;C&#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;r&#x27;</span>);
+        putchar(<span class="token string">&#x27;c&#x27;</span>);
+        putchar(<span class="token string">&#x27;u&#x27;</span>);
+        putchar(<span class="token string">&#x27;l&#x27;</span>);
+        putchar(<span class="token string">&#x27;a&#x27;</span>);
+        putchar(<span class="token string">&#x27;r&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        putchar(<span class="token string">&#x27;P&#x27;</span>);
+        putchar(<span class="token string">&#x27;r&#x27;</span>);
+        putchar(<span class="token string">&#x27;i&#x27;</span>);
+        putchar(<span class="token string">&#x27;m&#x27;</span>);
+        putchar(<span class="token string">&#x27;e&#x27;</span>);
+        <span class="token keyword">if</span>(cnt!=<span class="token number">1</span>){putchar(<span class="token string">&#x27;s&#x27;</span>);}
+        putchar(<span class="token string">&#x27;.&#x27;</span>);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="class-83.html" class="problem-link">class</a> <a href="class-23.html" class="problem-link">class</a> <a href="d-2.html" class="problem-link">d</a> <a href="a-21.html" class="problem-link">a</a> <a href="s-29.html" class="problem-link">s</a> <a href="class-19.html" class="problem-link">class</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

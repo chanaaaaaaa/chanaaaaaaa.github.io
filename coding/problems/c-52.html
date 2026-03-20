@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>c</h1>
+        <p class="subtitle">題目編號：c</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
+<span class="token comment">//prf do the any one or two cut between cut and cut and return the min cost</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+<span class="token keyword">int</span> dat[<span class="token number">27</span>][<span class="token number">27</span>][<span class="token number">352</span>];
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+<span class="token keyword">signed</span> main(){
+
+    memset(dat,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(dat));
+    dat[<span class="token number">0</span>][<span class="token number">0</span>][<span class="token number">0</span>]=<span class="token number">1</span>;
+    <span class="token keyword">int</span> L,S,cases=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=<span class="token number">26</span>;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;=i;j++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;=<span class="token number">351</span>;k++){
+                dat[i][j][k]=dat[i-<span class="token number">1</span>][j][k];
+                <span class="token keyword">if</span>(j &amp;&amp; k&gt;=i){dat[i][j][k] += dat[i-<span class="token number">1</span>][j-<span class="token number">1</span>][k-i];}
+            }
+        }
+    }
+    <span class="token keyword">while</span>(L=read(),S=read(), L&amp;&amp;S){
+        putchar(<span class="token string">&#x27;C&#x27;</span>);
+        putchar(<span class="token string">&#x27;a&#x27;</span>);
+        putchar(<span class="token string">&#x27;s&#x27;</span>);
+        putchar(<span class="token string">&#x27;e&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        write(++cases);
+        putchar(<span class="token string">&#x27;:&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        <span class="token keyword">if</span>(L&lt;=<span class="token number">26</span> &amp;&amp; S&lt;=<span class="token number">351</span>){
+            write(dat[<span class="token number">26</span>][L][S]);
+        }<span class="token keyword">else</span>{putchar(<span class="token string">&#x27;0&#x27;</span>);}
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+
+
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="s-25.html" class="problem-link">s</a> <a href="cla-57.html" class="problem-link">cla</a> <a href="cla-4.html" class="problem-link">cla</a> <a href="uva11550.html" class="problem-link">uva11550</a> <a href="class-52.html" class="problem-link">class</a> <a href="c-45.html" class="problem-link">c</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>class</h1>
+        <p class="subtitle">題目編號：class</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;fstream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">signed</span> main(){
+
+    ofstream dataFile;
+    dataFile.open(<span class="token string">&quot;test.csv&quot;</span>, ios::out | ios::trunc);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">26</span>;i++){
+        dataFile&lt;&lt;i+<span class="token number">1</span>&lt;&lt;<span class="token string">&quot; .&quot;</span>&lt;&lt;<span class="token keyword">char</span>(<span class="token string">&#x27;A&#x27;</span>+i)&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+    }
+    dataFile.close();
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a737.html" class="problem-link">a737</a> <a href="c117-uva439.html" class="problem-link">c117 uva439</a> <a href="c-2.html" class="problem-link">c</a> <a href="a-4.html" class="problem-link">a</a> <a href="a-22.html" class="problem-link">a</a> <a href="class-52.html" class="problem-link">class</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

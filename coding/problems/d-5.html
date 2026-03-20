@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>d</h1>
+        <p class="subtitle">題目編號：d</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> gc(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
+    <span class="token keyword">return</span> a ? gc(b%a,a) : b;
+}
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    <span class="token keyword">int</span> N;
+    cin&gt;&gt;N;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;j&lt;=N;j++){
+        cout&lt;&lt;<span class="token string">&quot;Pair #&quot;</span>&lt;&lt;j&lt;&lt;<span class="token string">&quot;: &quot;</span>;
+
+        string temp;
+        <span class="token keyword">long</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+        <span class="token comment">//input</span>
+        cin&gt;&gt;temp;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;temp.size();i++){
+            a*=<span class="token number">2</span>;
+            <span class="token keyword">if</span>(temp[i]==<span class="token string">&#x27;1&#x27;</span>){
+                a++;
+            }
+        }
+        cin&gt;&gt;temp;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;temp.size();i++){
+            b*=<span class="token number">2</span>;
+            <span class="token keyword">if</span>(temp[i]==<span class="token string">&#x27;1&#x27;</span>){
+                b++;
+            }
+        }
+        <span class="token comment">//doing</span>
+        <span class="token keyword">if</span>(gc(a,b)==<span class="token number">1</span>){
+            cout&lt;&lt;<span class="token string">&quot;Love is not all you need!&quot;</span>;
+        }<span class="token keyword">else</span>{cout&lt;&lt;<span class="token string">&quot;All you need is love!&quot;</span>;}
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="d-4.html" class="problem-link">d</a> <a href="a-3.html" class="problem-link">a</a> <a href="class-28.html" class="problem-link">class</a> <a href="c-38.html" class="problem-link">c</a> <a href="class-53.html" class="problem-link">class</a> <a href="uva798.html" class="problem-link">uva798</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -236,9 +236,6 @@ def format_problem_source(problem_id: str) -> str:
     # AtCoder
     if re.search(r'atcoder|atcode', pid, re.I):
         parts.append("AtCoder")
-    # day-xxx
-    if re.match(r'day-\d+', pid, re.I):
-        parts.append(pid)
     if not parts:
         return pid
     return " · ".join(parts)
@@ -280,32 +277,20 @@ def load_meta(meta_path: Path) -> dict:
 
 
 def collect_problems(code_dir: str) -> list:
-    """掃描 code 目錄，收集所有題目"""
+    """掃描 code 目錄內所有 .cpp 檔，每個檔案以檔名（不含 .cpp）作為題目 ID 建立一題"""
     code_path = Path(code_dir)
     if not code_path.exists():
         return []
 
     problems = []
-    seen = set()
+    seen_safe_ids = {}
 
-    for cpp_file in code_path.rglob("*.cpp"):
+    for cpp_file in sorted(code_path.rglob("*.cpp")):
         if cpp_file.name.endswith('.o') or 'obj' in str(cpp_file).lower():
             continue
-        rel = cpp_file.relative_to(code_path)
-        parts = rel.parts
-        folder_name = parts[-2] if len(parts) >= 2 else (parts[0] if parts else str(rel.parent))
 
-        if folder_name in seen:
-            continue
-
-        folder = cpp_file.parent
-        preferred = folder / "c.cpp"
-        if preferred.exists():
-            cpp_file = preferred
-        else:
-            cpp_files = list(folder.glob("*.cpp"))
-            if cpp_files:
-                cpp_file = sorted(cpp_files)[0]
+        # 題目 ID = 檔名（不含 .cpp）
+        problem_id = cpp_file.stem
 
         try:
             with open(cpp_file, "r", encoding="utf-8", errors="ignore") as f:
@@ -313,23 +298,28 @@ def collect_problems(code_dir: str) -> list:
         except Exception:
             code = "// 無法讀取程式碼"
 
-        safe_id = re.sub(r'[^\w\s-]', '', folder_name).strip().replace(' ', '-')
-        if not safe_id:
-            safe_id = f"p{len(problems)}"
-        safe_id = safe_id[:50]
+        base_safe = re.sub(r'[^\w\s-]', '', problem_id).strip().replace(' ', '-')
+        if not base_safe:
+            base_safe = "p"
+        base_safe = base_safe[:50]
 
-        solution, complexity = extract_from_code(code, folder_name)
+        # 檔名可能重複（如多個 c.cpp），需確保 safe_id 唯一
+        if base_safe not in seen_safe_ids:
+            seen_safe_ids[base_safe] = 0
+        seen_safe_ids[base_safe] += 1
+        safe_id = base_safe if seen_safe_ids[base_safe] == 1 else f"{base_safe}-{seen_safe_ids[base_safe]}"
+
+        solution, complexity = extract_from_code(code, problem_id)
 
         problems.append({
-            "id": folder_name,
+            "id": problem_id,
             "safe_id": safe_id,
-            "title": folder_name,
+            "title": problem_id,
             "code": code,
-            "link": find_problem_link(folder_name),
+            "link": find_problem_link(problem_id),
             "solution": solution,
             "complexity": complexity,
         })
-        seen.add(folder_name)
 
     return problems
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>a</h1>
+        <p class="subtitle">題目編號：a</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> pow2(<span class="token keyword">int</span> depth){
+    <span class="token keyword">if</span>(depth==<span class="token number">0</span>){<span class="token keyword">return</span> <span class="token number">1</span>;}
+    <span class="token keyword">return</span> <span class="token number">2</span>*pow2(depth-<span class="token number">1</span>);
+}
+
+<span class="token keyword">int</span> main(){
+    <span class="token keyword">int</span> num;
+    <span class="token keyword">while</span>(cin&gt;&gt;num &amp;&amp; num){
+        string out=<span class="token string">&quot;&quot;</span>;
+        <span class="token keyword">int</span> cnt=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">30</span>;i&gt;=<span class="token number">0</span>;i--){
+            <span class="token keyword">int</span> tmp=pow2(i);
+            <span class="token keyword">if</span>(num&gt;=tmp){
+                out+=<span class="token string">&#x27;1&#x27;</span>;
+                cnt+=<span class="token number">1</span>;
+                num-=tmp;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(cnt&gt;<span class="token number">0</span>){out+=<span class="token string">&#x27;0&#x27;</span>;}
+        }
+        cout&lt;&lt;<span class="token string">&quot;The parity of &quot;</span>&lt;&lt;out&lt;&lt;<span class="token string">&quot; is &quot;</span>&lt;&lt;cnt&lt;&lt;<span class="token string">&quot; (mod 2).\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="cla-44.html" class="problem-link">cla</a> <a href="cla-46.html" class="problem-link">cla</a> <a href="uva11614.html" class="problem-link">uva11614</a> <a href="c-9.html" class="problem-link">c</a> <a href="10101.html" class="problem-link">10101</a> <a href="s-14.html" class="problem-link">s</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

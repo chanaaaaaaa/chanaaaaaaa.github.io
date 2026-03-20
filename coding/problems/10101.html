@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10101 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>10101</h1>
+        <p class="subtitle">題目編號：10101</p>
+        <p><a href="https://vjudge.net/problem/UVA-10101" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> main(){
+
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+
+    <span class="token keyword">long</span> <span class="token keyword">long</span> a;
+    <span class="token keyword">int</span> ton,con=<span class="token number">1</span>;
+
+    <span class="token keyword">while</span>(cin &gt;&gt; a){
+        <span class="token keyword">long</span> <span class="token keyword">long</span> re=a;
+        <span class="token keyword">int</span> head=<span class="token number">0</span>;
+        <span class="token keyword">if</span>(a&gt;<span class="token number">100000000</span>){
+            ton=<span class="token number">2</span>;
+        }<span class="token keyword">else</span>{
+            ton=<span class="token number">1</span>;
+        }
+        <span class="token keyword">if</span>(con&gt;=<span class="token number">1000</span>){
+            cout &lt;&lt; con &lt;&lt;<span class="token string">&quot;. &quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(con&gt;=<span class="token number">100</span>){
+            cout &lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt; con &lt;&lt;<span class="token string">&quot;. &quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(con&gt;=<span class="token number">10</span>){
+            cout &lt;&lt;<span class="token string">&quot;  &quot;</span>&lt;&lt; con &lt;&lt;<span class="token string">&quot;. &quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(con&gt;=<span class="token number">1</span>){
+            cout &lt;&lt;<span class="token string">&quot;   &quot;</span>&lt;&lt; con &lt;&lt;<span class="token string">&quot;. &quot;</span>;
+        }
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=ton;i&gt;<span class="token number">0</span>;i--){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">if</span>(a&gt;=pow(<span class="token number">10</span>,<span class="token number">7</span>*i)){
+                head=<span class="token number">1</span>;
+                temp=a/pow(<span class="token number">10</span>,<span class="token number">7</span>*i);
+                a-=temp*pow(<span class="token number">10</span>,<span class="token number">7</span>*i);
+                cout &lt;&lt; temp &lt;&lt; <span class="token string">&quot; kuti &quot;</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(head==<span class="token number">1</span>){cout &lt;&lt; <span class="token string">&quot;kuti &quot;</span>;}
+            <span class="token keyword">if</span>(a&gt;=pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">2</span>)){
+                head=<span class="token number">1</span>;
+                temp=a/pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">2</span>);
+                a-=temp*pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">2</span>);
+                cout &lt;&lt; temp &lt;&lt; <span class="token string">&quot; lakh &quot;</span>;
+            }
+            <span class="token keyword">if</span>(a&gt;=pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">4</span>)){
+                head=<span class="token number">1</span>;
+                temp=a/pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">4</span>);
+                a-=temp*pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">4</span>);
+                cout &lt;&lt; temp &lt;&lt; <span class="token string">&quot; hajar &quot;</span>;
+            }
+            <span class="token keyword">if</span>(a&gt;=pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">5</span>)){
+                head=<span class="token number">1</span>;
+                temp=a/pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">5</span>);
+                a-=temp*pow(<span class="token number">10</span>,<span class="token number">7</span>*i-<span class="token number">5</span>);
+                cout &lt;&lt; temp &lt;&lt; <span class="token string">&quot; shata &quot;</span>;
+            }
+        }
+        <span class="token keyword">if</span>(a&gt;<span class="token number">0</span>){
+            cout &lt;&lt; a &lt;&lt; <span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(re==<span class="token number">0</span>){
+            cout &lt;&lt; re &lt;&lt; <span class="token string">&quot;\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout &lt;&lt; <span class="token string">&quot;\n&quot;</span>;
+        }
+        con++;
+    }
+
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="a-29.html" class="problem-link">a</a> <a href="cla-59.html" class="problem-link">cla</a> <a href="a-31.html" class="problem-link">a</a> <a href="s-2.html" class="problem-link">s</a> <a href="c-45.html" class="problem-link">c</a> <a href="class-57.html" class="problem-link">class</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

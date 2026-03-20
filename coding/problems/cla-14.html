@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cla - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>cla</h1>
+        <p class="subtitle">題目編號：cla</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token number">1</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">2</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">3</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse-lm&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fipa-sra&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-vrp&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpeephole2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ffast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-spec&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;unroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-labels&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdevirtualize&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcaller-saves&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcrossjumping&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fthread-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fwhole-program&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-blocks&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-tail-merge&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-aliasing&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-overflow&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcse-follow-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-interblock&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpartial-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;no-stack-protector&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-findirect-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ferun-cse-after-loop&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-finline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-switch-conversion&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-foptimize-sibling-calls&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fexpensive-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funsafe-loop-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-function-called-once&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">bool</span> stop;
+
+<span class="token keyword">int</span> big_divide(string &amp;n,<span class="token keyword">int</span> d) {
+    string quotient;
+    quotient.reserve(n.size());
+    <span class="token keyword">int</span> remainder=<span class="token number">0</span>;
+
+    <span class="token keyword">for</span>(<span class="token keyword">char</span> &amp;c:n){
+        <span class="token keyword">int</span> current=remainder*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+        quotient+=(current/d)+<span class="token string">&#x27;0&#x27;</span>;
+        remainder=current%d;
+    }
+
+    size_t start_pos=quotient.find_first_not_of(<span class="token string">&#x27;0&#x27;</span>);
+    <span class="token keyword">if</span>(start_pos!=string::npos){
+        n=quotient.substr(start_pos);
+    }<span class="token keyword">else</span>{
+        n=<span class="token string">&quot;0&quot;</span>;
+    }
+    <span class="token keyword">return</span> remainder;
+}
+
+<span class="token keyword">void</span> solve(string n) {
+    <span class="token keyword">if</span>(n==<span class="token string">&quot;-1&quot;</span>){
+        stop=<span class="token keyword">true</span>;
+        <span class="token keyword">return</span>;
+    }
+    <span class="token keyword">if</span>(n.size()==<span class="token number">1</span>){
+        cout&lt;&lt;<span class="token string">&#x27;1&#x27;</span>&lt;&lt;n;
+        <span class="token keyword">return</span>;
+    }
+
+    vector&lt;<span class="token keyword">int</span>&gt;result_digits;
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">9</span>; i&gt;=<span class="token number">2</span>;--i){
+        <span class="token keyword">while</span>(n!=<span class="token string">&quot;1&quot;</span>){
+            string tempN=n;
+            <span class="token keyword">int</span> r=big_divide(tempN,i);
+
+            <span class="token keyword">if</span>(r==<span class="token number">0</span>){
+                n=tempN;
+                result_digits.push_back(i);
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">break</span>;
+            }
+        }
+    }
+
+    <span class="token keyword">if</span>(n!=<span class="token string">&quot;1&quot;</span>) {
+        cout &lt;&lt; <span class="token string">&quot;There is no such number.&quot;</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=result_digits.size()-<span class="token number">1</span>;i&gt;= <span class="token number">0</span>;--i){
+            cout&lt;&lt;result_digits[i];
+        }
+    }
+    <span class="token keyword">return</span>;
+}
+
+<span class="token keyword">signed</span> main() {
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+    string N;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        solve(N);
+        <span class="token keyword">if</span>(stop){<span class="token keyword">break</span>;}
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="c-13.html" class="problem-link">c</a> <a href="a737.html" class="problem-link">a737</a> <a href="a-38.html" class="problem-link">a</a> <a href="cla-3.html" class="problem-link">cla</a> <a href="cla-24.html" class="problem-link">cla</a> <a href="a-16.html" class="problem-link">a</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

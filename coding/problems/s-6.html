@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>s</h1>
+        <p class="subtitle">題目編號：s</p>
+        
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> dat[<span class="token number">49</span>][<span class="token number">49</span>];
+<span class="token keyword">int</span> mx[<span class="token number">4</span>]={<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">1</span>};
+<span class="token keyword">int</span> my[<span class="token number">4</span>]={-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>};
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    <span class="token keyword">int</span> N,F;
+    cin&gt;&gt;N&gt;&gt;F;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;N;j++){
+            cin&gt;&gt;dat[i][j];
+        }
+    }
+    <span class="token keyword">int</span> x=(N-<span class="token number">1</span>)/<span class="token number">2</span>,y=x;
+    cout&lt;&lt;dat[x][y];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;i++){<span class="token comment">//_move_num</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">2</span>;j++){<span class="token comment">//move2t per num</span>
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> g=<span class="token number">0</span>;g&lt;i;g++){
+                x+=mx[F%<span class="token number">4</span>];
+                y+=my[F%<span class="token number">4</span>];
+                cout&lt;&lt;dat[x][y];
+            }
+            F++;
+        }
+        <span class="token keyword">if</span>(i==N-<span class="token number">1</span>){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> g=<span class="token number">0</span>;g&lt;i;g++){
+                x+=mx[F%<span class="token number">4</span>];
+                y+=my[F%<span class="token number">4</span>];
+                cout&lt;&lt;dat[x][y];
+            }
+        }
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="class-70.html" class="problem-link">class</a> <a href="s-18.html" class="problem-link">s</a> <a href="c-9.html" class="problem-link">c</a> <a href="cla-57.html" class="problem-link">cla</a> <a href="c-42.html" class="problem-link">c</a> <a href="uva11703.html" class="problem-link">uva11703</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
