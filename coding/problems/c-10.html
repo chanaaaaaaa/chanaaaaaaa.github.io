@@ -37,12 +37,11 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
 <span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;vector&gt;
-<span class="token directive">#include</span>&lt;algorithm&gt;
-
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;cmath&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -57,37 +56,22 @@
     }
     <span class="token keyword">return</span> x;
 }
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
-    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
-    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
-}
-<span class="token comment">// -block</span>
-
 <span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
     <span class="token keyword">int</span> t=read();
     <span class="token keyword">while</span>(t--){
-        <span class="token comment">//input</span>
-        <span class="token keyword">int</span> n=read(),maxx=<span class="token number">0</span>;
-        vector&lt;<span class="token keyword">int</span>&gt;dat(n*<span class="token number">2</span>);
-        vector&lt;<span class="token keyword">int</span>&gt;res(n*<span class="token number">2</span>);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
-            dat[n+i]=dat[n-i-<span class="token number">1</span>]=read();
-        }
-        <span class="token comment">//-input</span>
-
-        <span class="token comment">//LIS</span>
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n*<span class="token number">2</span>;i++){
-            res[i]=<span class="token number">1</span>;
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;i;j++){
-                <span class="token keyword">if</span>(dat[i]&gt;dat[j]){
-                    res[i]=max(res[i],res[j]+<span class="token number">1</span>);
-                }
+        <span class="token keyword">int</span> IN=read(),su=<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;sqrt(IN);i++){
+            <span class="token keyword">if</span>(IN%i==<span class="token number">0</span>){
+                su+=i;
+                su+=IN/i;
             }
-            maxx=max(maxx,res[i]);
         }
-        <span class="token comment">//output</span>
-        write(maxx);
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        <span class="token keyword">if</span>(su==IN){cout&lt;&lt;<span class="token string">&quot;perfect\n&quot;</span>;}
+        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&lt;IN){cout&lt;&lt;<span class="token string">&quot;deficient\n&quot;</span>;}
+        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&gt;IN){cout&lt;&lt;<span class="token string">&quot;abundant\n&quot;</span>;}
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -96,7 +80,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-25.html" class="problem-link">c</a> <a href="s-18.html" class="problem-link">s</a> <a href="class-27.html" class="problem-link">class</a> <a href="uva10007.html" class="problem-link">uva10007</a> <a href="a-2.html" class="problem-link">a</a> <a href="c-20.html" class="problem-link">c</a></p>
+        <p><a href="CSES-1074.html" class="problem-link">CSES 1074</a> <a href="s1143338-uva11934.html" class="problem-link">s1143338-uva11934</a> <a href="s-37.html" class="problem-link">s</a> <a href="c-12.html" class="problem-link">c</a> <a href="cla-26.html" class="problem-link">cla</a> <a href="cla-13.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

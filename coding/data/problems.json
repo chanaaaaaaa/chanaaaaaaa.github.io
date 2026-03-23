@@ -1,6 +1,132 @@
 {
   "problems": [
     {
+      "id": "d253 uva674",
+      "title": "d253 uva674",
+      "url": "problems/d253-uva674.html",
+      "type": "DP",
+      "difficulty": 3
+    },
+    {
+      "id": "d195 uva11495",
+      "title": "d195 uva11495",
+      "url": "problems/d195-uva11495.html",
+      "type": "DP",
+      "difficulty": 4
+    },
+    {
+      "id": "d150 uva11369",
+      "title": "d150 uva11369",
+      "url": "problems/d150-uva11369.html",
+      "type": "排序",
+      "difficulty": 3
+    },
+    {
+      "id": "d190 uva11462",
+      "title": "d190 uva11462",
+      "url": "problems/d190-uva11462.html",
+      "type": "排序",
+      "difficulty": 3
+    },
+    {
+      "id": "d219 uva374",
+      "title": "d219 uva374",
+      "url": "problems/d219-uva374.html",
+      "type": "數學",
+      "difficulty": 3
+    },
+    {
+      "id": "c088 uva516",
+      "title": "c088 uva516",
+      "url": "problems/c088-uva516.html",
+      "type": "數學",
+      "difficulty": 4
+    },
+    {
+      "id": "d307 uva686",
+      "title": "d307 uva686",
+      "url": "problems/d307-uva686.html",
+      "type": "數學",
+      "difficulty": 4
+    },
+    {
+      "id": "CSES 1074",
+      "title": "CSES 1074",
+      "url": "problems/CSES-1074.html",
+      "type": "字串",
+      "difficulty": 2
+    },
+    {
+      "id": "d187 uva11530",
+      "title": "d187 uva11530",
+      "url": "problems/d187-uva11530.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "d260 uva11455",
+      "title": "d260 uva11455",
+      "url": "problems/d260-uva11455.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "d267 uva11577",
+      "title": "d267 uva11577",
+      "url": "problems/d267-uva11577.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "d275 uva11586",
+      "title": "d275 uva11586",
+      "url": "problems/d275-uva11586.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "d671 uva11716",
+      "title": "d671 uva11716",
+      "url": "problems/d671-uva11716.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "d980 uva11479",
+      "title": "d980 uva11479",
+      "url": "problems/d980-uva11479.html",
+      "type": "字串",
+      "difficulty": 3
+    },
+    {
+      "id": "c123 uva514",
+      "title": "c123 uva514",
+      "url": "problems/c123-uva514.html",
+      "type": "資料結構",
+      "difficulty": 3
+    },
+    {
+      "id": "d194 d716 uva11572",
+      "title": "d194 d716 uva11572",
+      "url": "problems/d194-d716-uva11572.html",
+      "type": "資料結構",
+      "difficulty": 4
+    },
+    {
+      "id": "e564 uva540",
+      "title": "e564 uva540",
+      "url": "problems/e564-uva540.html",
+      "type": "資料結構",
+      "difficulty": 4
+    },
+    {
+      "id": "uva907",
+      "title": "uva907",
+      "url": "problems/uva907.html",
+      "type": "模擬",
+      "difficulty": 4
+    },
+    {
       "id": "10101",
       "title": "10101",
       "url": "problems/10101.html",
@@ -15,9 +141,9 @@
       "difficulty": 3
     },
     {
-      "id": "7_Range_Collatz_Operation",
-      "title": "7_Range_Collatz_Operation",
-      "url": "problems/7_Range_Collatz_Operation.html",
+      "id": "AtCode212C",
+      "title": "AtCode212C",
+      "url": "problems/AtCode212C.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -67,6 +193,13 @@
       "id": "BS-C",
       "title": "BS-C",
       "url": "problems/BS-C-4.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "CSES1085",
+      "title": "CSES1085",
+      "url": "problems/CSES1085.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -1863,13 +1996,6 @@
       "difficulty": 3
     },
     {
-      "id": "copy",
-      "title": "copy",
-      "url": "problems/copy.html",
-      "type": "其他",
-      "difficulty": 3
-    },
-    {
       "id": "cses1131",
       "title": "cses1131",
       "url": "problems/cses1131.html",
@@ -1947,9 +2073,51 @@
       "difficulty": 3
     },
     {
+      "id": "d038 uva900",
+      "title": "d038 uva900",
+      "url": "problems/d038-uva900.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "d057 uva11491",
+      "title": "d057 uva11491",
+      "url": "problems/d057-uva11491.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "d097",
       "title": "d097",
       "url": "problems/d097.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "d188 uva11342",
+      "title": "d188 uva11342",
+      "url": "problems/d188-uva11342.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "d192 uva11351",
+      "title": "d192 uva11351",
+      "url": "problems/d192-uva11351.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "d658 uva11636",
+      "title": "d658 uva11636",
+      "url": "problems/d658-uva11636.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "d669 uva11677",
+      "title": "d669 uva11677",
+      "url": "problems/d669-uva11677.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -1971,6 +2139,13 @@
       "id": "e586 uva1208",
       "title": "e586 uva1208",
       "url": "problems/e586-uva1208.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "j059 uva11547",
+      "title": "j059 uva11547",
+      "url": "problems/j059-uva11547.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -2532,6 +2707,69 @@
       "title": "uva928",
       "url": "problems/uva928.html",
       "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "c074 uva441",
+      "title": "c074 uva441",
+      "url": "problems/c074-uva441.html",
+      "type": "其他",
+      "difficulty": 4
+    },
+    {
+      "id": "c125 uva534",
+      "title": "c125 uva534",
+      "url": "problems/c125-uva534.html",
+      "type": "其他",
+      "difficulty": 4
+    },
+    {
+      "id": "d052 uva11456",
+      "title": "d052 uva11456",
+      "url": "problems/d052-uva11456.html",
+      "type": "其他",
+      "difficulty": 4
+    },
+    {
+      "id": "d206 uva108",
+      "title": "d206 uva108",
+      "url": "problems/d206-uva108.html",
+      "type": "其他",
+      "difficulty": 4
+    },
+    {
+      "id": "d673 uva11608",
+      "title": "d673 uva11608",
+      "url": "problems/d673-uva11608.html",
+      "type": "其他",
+      "difficulty": 4
+    },
+    {
+      "id": "c124 uva532",
+      "title": "c124 uva532",
+      "url": "problems/c124-uva532.html",
+      "type": "最短路",
+      "difficulty": 3
+    },
+    {
+      "id": "d191 uva11352",
+      "title": "d191 uva11352",
+      "url": "problems/d191-uva11352.html",
+      "type": "最短路",
+      "difficulty": 3
+    },
+    {
+      "id": "c129 uva572",
+      "title": "c129 uva572",
+      "url": "problems/c129-uva572.html",
+      "type": "連通塊",
+      "difficulty": 3
+    },
+    {
+      "id": "d365 uva10336",
+      "title": "d365 uva10336",
+      "url": "problems/d365-uva10336.html",
+      "type": "連通塊",
       "difficulty": 3
     }
   ]

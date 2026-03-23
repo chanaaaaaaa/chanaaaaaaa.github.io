@@ -39,76 +39,34 @@
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
 <span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
-<span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;queue&gt;
-<span class="token directive">#include</span>&lt;utility&gt;
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>;
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
-        c=getchar();
-        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
-    }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
-        c=getchar();
-    }
-    <span class="token keyword">return</span> x;
-}
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
-    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
-    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
-}
 <span class="token comment">//-block</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read_char(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>;
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c!=<span class="token string">&#x27;*&#x27;</span>&amp;&amp;c!=<span class="token string">&#x27;@&#x27;</span>){
-        c=getchar();
-    }
-    <span class="token keyword">if</span>(c==<span class="token string">&#x27;@&#x27;</span>){<span class="token keyword">return</span> <span class="token number">1</span>;}
-    <span class="token keyword">else</span>{<span class="token keyword">return</span> <span class="token number">0</span>;}
-}
-<span class="token keyword">int</span> dx[<span class="token number">8</span>]={<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">1</span>,<span class="token number">1</span>,-<span class="token number">1</span>,-<span class="token number">1</span>},
-    dy[<span class="token number">8</span>]={<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,-<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">1</span>},
-    n,m,cnt,x,y;
-queue&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;wait;
+<span class="token keyword">int</span> T,t,n,sum;
 
-<span class="token keyword">int</span> main(){
-    <span class="token keyword">while</span>(n=read(),m=read()){
-        <span class="token comment">//if(n+m==0){break;}</span>
-        <span class="token keyword">int</span> mp[n][m];
+<span class="token keyword">signed</span> main(){
+    scanf(<span class="token string">&quot;%d&quot;</span>,&amp;T);
+    <span class="token keyword">while</span>(T--){
+        scanf(<span class="token string">&quot;%d%d&quot;</span>,&amp;t,&amp;n);
+        vector&lt;<span class="token keyword">int</span>&gt;dp(<span class="token number">20001</span>,INT_MAX/<span class="token number">2</span>);
+        vector&lt;<span class="token keyword">int</span>&gt;coin(n);
+        dp[<span class="token number">0</span>]=<span class="token number">0</span>;
         <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
-                mp[i][j]=read_char();
+            scanf(<span class="token string">&quot;%d&quot;</span>,&amp;coin[i]);
+            <span class="token keyword">if</span>(sum&lt;t){sum+=coin[i];}
+        }
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=sum;j&gt;=coin[i];j--){
+                dp[j]=min(dp[j],dp[j-coin[i]]+<span class="token number">1</span>);
             }
         }
-        cnt=<span class="token number">0</span>;
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){<span class="token comment">//y</span>
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){<span class="token comment">//x</span>
-                <span class="token keyword">if</span>(mp[i][j]){
-                    cnt++;
-                    wait.push({i,j});
-                    <span class="token keyword">while</span>(!wait.empty()){
-                        y=wait.front().first;
-                        x=wait.front().second;
-                        mp[y][x]=<span class="token number">0</span>;
-                        wait.pop();
-                        <span class="token keyword">for</span>(<span class="token keyword">int</span> f=<span class="token number">0</span>;f&lt;<span class="token number">8</span>;f++){
-                            <span class="token keyword">if</span>(x+dx[f]&gt;=<span class="token number">0</span> &amp;&amp; x+dx[f]&lt;m &amp;&amp; y+dy[f]&gt;=<span class="token number">0</span> &amp;&amp; y+dy[f]&lt;n){
-                                <span class="token keyword">if</span>(mp[y+dy[f]][x+dx[f]]){
-                                    wait.push({y+dy[f],x+dx[f]});
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        write(cnt);
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        <span class="token keyword">while</span>(dp[t]==INT_MAX/<span class="token number">2</span>){t++;}
+        printf(<span class="token string">&quot;%d %d\n&quot;</span>,t,dp[t]);
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -117,7 +75,7 @@ queue&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keywo
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva11729.html" class="problem-link">uva11729</a> <a href="uva242.html" class="problem-link">uva242</a> <a href="cla-27.html" class="problem-link">cla</a> <a href="c-16.html" class="problem-link">c</a> <a href="c-7.html" class="problem-link">c</a> <a href="class-78.html" class="problem-link">class</a></p>
+        <p><a href="s-41.html" class="problem-link">s</a> <a href="d253-uva674.html" class="problem-link">d253 uva674</a> <a href="class-30.html" class="problem-link">class</a> <a href="c088-uva516.html" class="problem-link">c088 uva516</a> <a href="a-33.html" class="problem-link">a</a> <a href="j059-uva11547.html" class="problem-link">j059 uva11547</a></p>
     </div>
 
     <footer>

@@ -82,83 +82,151 @@
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
 <span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
-<span class="token comment">//#include&lt;cstdio&gt;</span>
 <span class="token directive">#include</span>&lt;iostream&gt;
-<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token comment">//#include&lt;cstdio&gt;</span>
 <span class="token directive">#include</span>&lt;vector&gt;
-<span class="token directive">#include</span>&lt;climits&gt;
-<span class="token directive">#include</span>&lt;string&gt;
-
+<span class="token directive">#include</span>&lt;map&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;stack&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
 <span class="token directive">#define</span> icc ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
-<span class="token keyword">using</span> ull = <span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span>;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
-<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">1000005</span>;
-<span class="token comment">/*
-inline int read(){
-    int x=0,w=1;
-    char c=0;
-    while(c&lt;&#x27;0&#x27; || c&gt;&#x27;9&#x27;){
-        c=getchar();
-        if(c==&#x27;-&#x27;){w=-1;}
-        if(c==-1){return 0;}
-    }
-    while(c&gt;=&#x27;0&#x27; &amp;&amp; c&lt;=&#x27;9&#x27;){
-        x=(x&lt;&lt;3)+(x&lt;&lt;1)+c-&#x27;0&#x27;;
-        c=getchar();
-    }
-    return x*w;
-}
-inline void write(int x){
-    if(x&lt;0){putchar(&#x27;-&#x27;);x=-x;}
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
-}
-*/</span>
+
 <span class="token comment">//-block</span>
+vector&lt;<span class="token keyword">int</span>&gt;dfn;
+vector&lt;<span class="token keyword">int</span>&gt;low;
+vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;grid;
+vector&lt;<span class="token keyword">bool</span>&gt;instack;
 
-<span class="token keyword">int</span> main(){
-    icc;
-    string A,B;
-    <span class="token keyword">while</span>(cin&gt;&gt;A&gt;&gt;B){
-        <span class="token keyword">int</span> Asz=A.size(),
-            Bsz=B.size();
-        vector&lt;<span class="token keyword">int</span>&gt;Anum(Asz);
-        vector&lt;<span class="token keyword">int</span>&gt;Bnum(Bsz);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Asz;++i){
-            Anum[Asz-i-<span class="token number">1</span>]=A[i]-<span class="token string">&#x27;0&#x27;</span>;
+stack&lt;<span class="token keyword">int</span>&gt;s;
+map&lt;string,<span class="token keyword">int</span>&gt;mp;
+map&lt;<span class="token keyword">int</span>,string&gt;demp;
+
+<span class="token keyword">int</span> dfstime,cnt;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> tarjan(<span class="token keyword">int</span> u){
+    dfn[u]=low[u]=++dfstime;
+    s.push(u);
+    instack[u]=<span class="token keyword">true</span>;
+
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;v:grid[u]){
+        <span class="token keyword">if</span>(!dfn[v]){
+            tarjan(v);
+            low[u]=min(low[u],low[v]);
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(instack[v]){
+            low[u]=min(low[u],dfn[v]);
         }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Bsz;++i){
-            Bnum[Bsz-i-<span class="token number">1</span>]=B[i]-<span class="token string">&#x27;0&#x27;</span>;
+    }
+    <span class="token keyword">if</span>(low[u]==dfn[u]){
+        <span class="token keyword">int</span> a=-<span class="token number">1</span>;
+        <span class="token keyword">do</span>{
+            <span class="token keyword">if</span>(a!=-<span class="token number">1</span>){cout&lt;&lt;<span class="token string">&quot;, &quot;</span>;}
+            a=s.top();
+            s.pop();
+            instack[a]=<span class="token keyword">false</span>;
+            cout&lt;&lt;demp[a];
+        }<span class="token keyword">while</span>(a!=u);
+        cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+    }
+}
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N,M,cases=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(cin&gt;&gt;N&gt;&gt;M &amp;&amp; (N || M)){
+        cin.ignore();
+        dfn.clear();
+        low.clear();
+        grid.clear();
+        instack.clear();
+        mp.clear();
+        demp.clear();
+        <span class="token keyword">while</span>(!s.empty()){s.pop();}
+
+        dfn.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        low.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        instack.assign(N+<span class="token number">1</span>,<span class="token keyword">false</span>);
+        grid.assign(N+<span class="token number">1</span>,vector&lt;<span class="token keyword">int</span>&gt;());
+        dfstime=<span class="token number">0</span>;cnt=<span class="token number">0</span>;
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;++i){
+            string s1,s2;
+            <span class="token keyword">int</span> n1,n2;
+            cin&gt;&gt;s1&gt;&gt;s2;
+            <span class="token keyword">if</span>(mp[s1]==<span class="token number">0</span>){
+                mp[s1]=++cnt;
+                demp[cnt]=s1;
+                n1=cnt;
+            }<span class="token keyword">else</span>{n1=mp[s1];}
+
+            <span class="token keyword">if</span>(mp[s2]==<span class="token number">0</span>){
+                mp[s2]=++cnt;
+                demp[cnt]=s2;
+                n2=cnt;
+            }<span class="token keyword">else</span>{n2=mp[s2];}
+
+            grid[n1].push_back(n2);
         }
 
-        <span class="token keyword">int</span> Msz=Asz+Bsz+<span class="token number">1</span>;
-        vector&lt;<span class="token keyword">int</span>&gt;res(Msz+<span class="token number">1</span>,<span class="token number">0</span>);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Asz;++i){
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;Bsz;++j){
-                res[i+j]+=Anum[i]*Bnum[j];
+        <span class="token keyword">if</span>(cases){cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;}
+        cout&lt;&lt;<span class="token string">&quot;Calling circles for data set &quot;</span>&lt;&lt;++cases&lt;&lt;<span class="token string">&quot;:\n&quot;</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=cnt;++i){
+            <span class="token keyword">if</span>(!dfn[i]){
+                tarjan(i);
             }
         }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;Msz;++i){
-            res[i+<span class="token number">1</span>]+=res[i]/<span class="token number">10</span>;
-            res[i]%=<span class="token number">10</span>;
-        }
-        <span class="token keyword">while</span>(res[Msz]==<span class="token number">0</span> &amp;&amp; Msz&gt;<span class="token number">0</span>){
-            --Msz;
-        }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=Msz;i&gt;=<span class="token number">0</span>;--i){
-            putchar(res[i]+<span class="token string">&#x27;0&#x27;</span>);
-        }
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
-    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
-
+<span class="token comment">/*
+5 6
+Ben Alexander
+Alexander Dolly
+Dolly Ben
+Dolly Benedict
+Benedict Dolly
+Alexander Aaron
+14 34
+John Aaron
+Aaron Benedict
+Betsy John
+Betsy Ringo
+Ringo Dolly
+Benedict Paul
+John Betsy
+John Aaron
+Benedict George
+Dolly Ringo
+Paul Martha
+George Ben
+Alexander George
+Betsy Ringo
+Alexander Stephen
+Martha Stephen
+Benedict Alexander
+Stephen Paul
+Betsy Ringo
+Quincy Martha
+Ben Patrick
+Betsy Ringo
+Patrick Stephen
+Paul Alexander
+Patrick Ben
+Stephen Quincy
+Ringo Betsy
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Betsy Benedict
+Quincy Martha
+0 0
+*/</span>
 </code></pre>
     </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-36.html" class="problem-link">cla</a> <a href="m-2.html" class="problem-link">m</a> <a href="cla-26.html" class="problem-link">cla</a> <a href="cla-2.html" class="problem-link">cla</a> <a href="class-69.html" class="problem-link">class</a> <a href="class-59.html" class="problem-link">class</a></p>
+        <p><a href="c-5.html" class="problem-link">c</a> <a href="class-4.html" class="problem-link">class</a> <a href="s1143338-uva11934.html" class="problem-link">s1143338-uva11934</a> <a href="s-30.html" class="problem-link">s</a> <a href="class-53.html" class="problem-link">class</a> <a href="c-23.html" class="problem-link">c</a></p>
     </div>
 
     <footer>

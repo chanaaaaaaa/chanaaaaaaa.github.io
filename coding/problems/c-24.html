@@ -40,36 +40,20 @@
 <span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dic;
-<span class="token keyword">int</span> N,a,b,mi=-<span class="token number">1</span>,md=-<span class="token number">1</span>;
-
-<span class="token keyword">void</span> dfs(<span class="token keyword">int</span> idx,<span class="token keyword">int</span> father,<span class="token keyword">int</span> depth){
-    <span class="token keyword">for</span>(<span class="token keyword">auto</span> i : dic[idx]){
-        <span class="token keyword">if</span>(i!=father){
-            dfs(i,idx,depth+<span class="token number">1</span>);
-        }
-    }
-    <span class="token keyword">if</span>(depth&gt;md){
-        md=depth;
-        mi=idx;
-    }
-}
-
 <span class="token keyword">int</span> main(){
     cin.tie(<span class="token number">0</span>);
     cout.tie(<span class="token number">0</span>);
     ios_base::sync_with_stdio(<span class="token number">0</span>);
 
+    <span class="token keyword">int</span> N;
     cin&gt;&gt;N;
-    dic.assign(N,{});
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;i++){
-        cin&gt;&gt;a&gt;&gt;b;
-        dic[a].push_back(b);
-        dic[b].push_back(a);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
+        cout&lt;&lt;<span class="token string">&quot;Case &quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;: &quot;</span>;
+        <span class="token keyword">int</span> x0,y0,xn,yn;
+        cin&gt;&gt;x0&gt;&gt;y0&gt;&gt;xn&gt;&gt;yn;
+
+        cout&lt;&lt;(<span class="token keyword">long</span>)(pow(xn+yn,<span class="token number">2</span>)-pow(x0+y0,<span class="token number">2</span>)+yn-y0+xn*<span class="token number">3</span>-x0*<span class="token number">3</span>)/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
-    dfs(<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>);
-    dfs(mi,-<span class="token number">1</span>,<span class="token number">0</span>);
-    cout&lt;&lt;md&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -77,7 +61,7 @@ vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dic;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="class-5.html" class="problem-link">class</a> <a href="c-44.html" class="problem-link">c</a> <a href="a-36.html" class="problem-link">a</a> <a href="a-22.html" class="problem-link">a</a> <a href="a-5.html" class="problem-link">a</a> <a href="uva11683.html" class="problem-link">uva11683</a></p>
+        <p><a href="s-5.html" class="problem-link">s</a> <a href="d038-uva900.html" class="problem-link">d038 uva900</a> <a href="s-2.html" class="problem-link">s</a> <a href="d-6.html" class="problem-link">d</a> <a href="class-62.html" class="problem-link">class</a> <a href="uva11550.html" class="problem-link">uva11550</a></p>
     </div>
 
     <footer>

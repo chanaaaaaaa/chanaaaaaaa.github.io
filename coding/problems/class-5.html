@@ -37,11 +37,12 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
 <span class="token directive">#include</span>&lt;queue&gt;
-<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token directive">#include</span>&lt;utility&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -50,8 +51,8 @@
     <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
     }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
     <span class="token keyword">return</span> x;
@@ -60,96 +61,66 @@
     <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-<span class="token comment">// -block</span>
-<span class="token keyword">int</span> dx[<span class="token number">4</span>]={<span class="token number">0</span>,<span class="token number">1</span>,<span class="token number">0</span>,-<span class="token number">1</span>};
-<span class="token keyword">int</span> dy[<span class="token number">4</span>]={<span class="token number">1</span>,<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>};
-
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read_char(){
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;a&#x27;</span> || c&gt;<span class="token string">&#x27;z&#x27;</span>){
-        c=getchar();
-    }
-    <span class="token keyword">return</span> c-<span class="token string">&#x27;a&#x27;</span>;
-}
-
-<span class="token keyword">signed</span> main(){
-    <span class="token keyword">int</span> N=read();
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> T=<span class="token number">1</span>;T&lt;=N;T++){
-        <span class="token keyword">int</span> H=read(),W=read();
-        <span class="token keyword">int</span> mp[H][W],dat[<span class="token number">27</span>]={<span class="token number">0</span>};
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;H;i++){
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;W;j++){
-                mp[i][j]=read_char();
+<span class="token comment">//-block</span>
+vector&lt;vector&lt;<span class="token keyword">bool</span>&gt;&gt;mp(<span class="token number">99</span>,vector&lt;<span class="token keyword">bool</span>&gt;(<span class="token number">99</span>));
+queue&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;wt;
+<span class="token keyword">int</span> dx[<span class="token number">4</span>]={<span class="token number">1</span>,-<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>},
+    dy[<span class="token number">4</span>]={<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">1</span>,-<span class="token number">1</span>},
+    y,x,nx,my,mx,cnt,N;
+<span class="token keyword">bool</span> check;
+<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
+    N=read();
+    getchar();
+    <span class="token keyword">while</span>(N--){
+        y=read()-<span class="token number">1</span>,x=read()-<span class="token number">1</span>,nx=<span class="token number">0</span>,my=<span class="token number">0</span>,mx=<span class="token number">0</span>,cnt=<span class="token number">0</span>;
+        check=<span class="token keyword">false</span>;
+        <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+            <span class="token keyword">int</span> t=getchar();
+            <span class="token keyword">if</span>(t==<span class="token string">&#x27;1&#x27;</span>){
+                mp[my][nx++]=<span class="token keyword">true</span>;
+                <span class="token keyword">if</span>(check){check=<span class="token keyword">false</span>;}
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(t==<span class="token string">&#x27;0&#x27;</span>){
+                mp[my][nx++]=<span class="token keyword">false</span>;
+                <span class="token keyword">if</span>(check){check=<span class="token keyword">false</span>;}
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">if</span>(!check){
+                    check=<span class="token keyword">true</span>;
+                    <span class="token keyword">if</span>(!mx){mx=nx;}
+                    my++;
+                    nx=<span class="token number">0</span>;
+                }<span class="token keyword">else</span>{<span class="token keyword">break</span>;}
             }
         }
-        <span class="token comment">//-init&amp;input</span>
-        <span class="token comment">//bfs</span>
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;H;i++){
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;W;j++){
-                <span class="token keyword">if</span>(mp[i][j]!=-<span class="token number">1</span>){
-                    <span class="token keyword">int</span> target=mp[i][j];
-                    queue&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;wait;
-                    wait.push({i,j});
-                    dat[target]++;
-                    <span class="token keyword">while</span>(!wait.empty()){
-                        <span class="token comment">/*
-                        //test
-                        for(int ti=0;ti&lt;H;ti++){
-                            for(int tj=0;tj&lt;W;tj++){
-                                putchar(mp[ti][tj]);
-                                putchar(&#x27; &#x27;);
-                            }
-                            putchar(&#x27;\n&#x27;);
-                        }
-                        //-test
-                        */</span>
-                        <span class="token keyword">int</span> y=wait.front().first;
-                        <span class="token keyword">int</span> x=wait.front().second;
-                        wait.pop();
-                        mp[y][x]=-<span class="token number">1</span>;
-                        <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;<span class="token number">4</span>;k++){
-                            <span class="token keyword">if</span>(y+dy[k]&gt;=<span class="token number">0</span> &amp;&amp; y+dy[k]&lt;H &amp;&amp; x+dx[k]&gt;=<span class="token number">0</span> &amp;&amp; x+dx[k]&lt;W){
-                                <span class="token keyword">if</span>(mp[y+dy[k]][x+dx[k]]==target){
-                                    wait.push({y+dy[k],x+dx[k]});
-                                }
-                            }
-                        }
+        <span class="token keyword">if</span>(!mp[y][x]){
+            wt.push({y,x});
+            mp[y][x]=<span class="token keyword">true</span>;
+            cnt++;
+        }
+        <span class="token keyword">while</span>(!wt.empty()){
+            x=wt.front().second;
+            y=wt.front().first;
+            wt.pop();
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> f=<span class="token number">0</span>;f&lt;<span class="token number">4</span>;f++){
+                <span class="token keyword">if</span>(y+dy[f]&gt;=<span class="token number">0</span> &amp;&amp; y+dy[f]&lt;my &amp;&amp; x+dx[f]&gt;=<span class="token number">0</span> &amp;&amp; x+dx[f]&lt;mx){
+                    <span class="token keyword">if</span>(!mp[y+dy[f]][x+dx[f]]){
+                        wt.push({y+dy[f],x+dx[f]});
+                        mp[y+dy[f]][x+dx[f]]=<span class="token keyword">true</span>;
+                        cnt++;
                     }
                 }
             }
         }
-        <span class="token comment">//output</span>
-        putchar(<span class="token string">&#x27;W&#x27;</span>);
-        putchar(<span class="token string">&#x27;o&#x27;</span>);
-        putchar(<span class="token string">&#x27;r&#x27;</span>);
-        putchar(<span class="token string">&#x27;l&#x27;</span>);
-        putchar(<span class="token string">&#x27;d&#x27;</span>);
-        putchar(<span class="token string">&#x27; &#x27;</span>);
-        putchar(<span class="token string">&#x27;#&#x27;</span>);
-        write(T);
+        write(cnt);
         putchar(<span class="token string">&#x27;\n&#x27;</span>);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">26</span>;i++){
-            <span class="token keyword">int</span> maxx=<span class="token number">26</span>;
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;<span class="token number">26</span>;j++){
-                <span class="token keyword">if</span>(dat[j]&gt;dat[maxx]){maxx=j;}
-            }
-            <span class="token keyword">if</span>(maxx==<span class="token number">26</span>){<span class="token keyword">break</span>;}
-            putchar(<span class="token string">&#x27;a&#x27;</span>+maxx);
-            putchar(<span class="token string">&#x27;:&#x27;</span>);
-            putchar(<span class="token string">&#x27; &#x27;</span>);
-            write(dat[maxx]);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
-            dat[maxx]=<span class="token number">0</span>;
-        }
-    }
-    <span class="token keyword">return</span> <span class="token number">0</span>;
-}
+        <span class="token keyword">if</span>(N){putchar(<span class="token string">&#x27;\n&#x27;</span>);}<span class="token comment">//if judge uva need this</span>
+    }                        <span class="token comment">//no use this 1ms</span>
+}                            <span class="token comment">//use this 2ms</span>
 </code></pre>
     </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-12.html" class="problem-link">c</a> <a href="a-20.html" class="problem-link">a</a> <a href="s-32.html" class="problem-link">s</a> <a href="c-5.html" class="problem-link">c</a> <a href="new-2.html" class="problem-link">new</a> <a href="a-32.html" class="problem-link">a</a></p>
+        <p><a href="d980-uva11479.html" class="problem-link">d980 uva11479</a> <a href="class-15.html" class="problem-link">class</a> <a href="class-49.html" class="problem-link">class</a> <a href="class-61.html" class="problem-link">class</a> <a href="d190-uva11462.html" class="problem-link">d190 uva11462</a> <a href="class-27.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

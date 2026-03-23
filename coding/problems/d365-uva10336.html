@@ -27,13 +27,13 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>Rank the Languages：給定 \(H \times W\) 地圖，每格為小寫字母（代表語言）。相鄰（上下左右，不含斜）且同字母的格子屬同一區域。求各語言出現的區域數，依區域數降序、同數則字母升序輸出。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>對每個未拜訪格子做 BFS 或 DFS，將同字元連通塊標記為已拜訪，該語言區域數 +1。用 4 方向位移。輸出時每輪取區域數最大者輸出後歸零，共 26 輪或無剩餘即停。</p>
 
     <h2>時間複雜度</h2>
-    <p>O(V + E)</p>
+    <p>O(H × W)</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
@@ -149,7 +149,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva10325.html" class="problem-link">uva10325</a> <a href="f579-2020APCS.html" class="problem-link">f579 2020APCS</a> <a href="c292-2017APCS.html" class="problem-link">c292 2017APCS</a> <a href="uva10102.html" class="problem-link">uva10102</a> <a href="a741-uva10101.html" class="problem-link">a741 uva10101</a> <a href="day-149.html" class="problem-link">day-149</a></p>
+        <p><a href="class-49.html" class="problem-link">class</a> <a href="cla-51.html" class="problem-link">cla</a> <a href="class-30.html" class="problem-link">class</a> <a href="class-35.html" class="problem-link">class</a> <a href="cla-32.html" class="problem-link">cla</a> <a href="a-19.html" class="problem-link">a</a></p>
     </div>
 
     <footer>

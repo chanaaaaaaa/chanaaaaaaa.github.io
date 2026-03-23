@@ -36,50 +36,66 @@
     <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;</span>)
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;math.h&gt;
-
-<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
+<span class="token directive">#define</span> MAXN <span class="token number">1120</span>
+<span class="token directive">#define</span> MAXK <span class="token number">14</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">bool</span> check=<span class="token keyword">false</span>;
     <span class="token keyword">int</span> x=<span class="token number">0</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
     <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
     }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
         x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
     <span class="token keyword">return</span> x;
 }
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
     <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-<span class="token comment">// -block</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> solve(<span class="token keyword">int</span> x,<span class="token keyword">int</span> y,<span class="token keyword">int</span> mod){
-	<span class="token keyword">if</span>(y==<span class="token number">0</span>){<span class="token keyword">return</span> <span class="token number">1</span>;}
-
-	<span class="token keyword">if</span>(y%<span class="token number">2</span>){<span class="token keyword">return</span> (x*solve(x,y-<span class="token number">1</span>,mod))%mod;}
-	<span class="token keyword">else</span>{
-		<span class="token keyword">int</span> half=solve(x,y/<span class="token number">2</span>,mod);
-		<span class="token keyword">return</span> (half*half)%mod;
-	}
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> n,k;
+<span class="token keyword">bool</span> isprime[MAXN+<span class="token number">1</span>];
+vector&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=MAXN;i++){
+        <span class="token keyword">if</span>(!isprime[i]){primes.emplace_back(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;p:primes){
+            <span class="token keyword">if</span>(p*i&gt;MAXN){<span class="token keyword">break</span>;}
+            isprime[p*i]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%p==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        }
+    }
 }
 
-<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
-    <span class="token keyword">int</span> B,P,M;
-    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
-        B=read();
-        <span class="token keyword">if</span>(B==-<span class="token number">1</span>){<span class="token keyword">break</span>;}
-        P=read();M=read();
-        write(solve(B,P,M));
+<span class="token keyword">long</span> <span class="token keyword">long</span> dp[MAXN+<span class="token number">1</span>][MAXK+<span class="token number">1</span>];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;p:primes){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=MAXN;i&gt;=p;--i){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=MAXK;j&gt;=<span class="token number">1</span>;j--){
+                dp[i][j]+=dp[i-p][j-<span class="token number">1</span>];
+            }
+        }
+    }
+}
+
+<span class="token keyword">signed</span> main(){
+    form();
+    dp[<span class="token number">0</span>][<span class="token number">0</span>]=<span class="token number">1</span>;
+    solve();
+    <span class="token keyword">while</span>(n=read(),k=read()){
+        <span class="token keyword">if</span>(n+k==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        write(dp[n][k]);
         putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
@@ -89,7 +105,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-28.html" class="problem-link">cla</a> <a href="c117-uva439.html" class="problem-link">c117 uva439</a> <a href="class-30.html" class="problem-link">class</a> <a href="c.html" class="problem-link">c</a> <a href="uva926.html" class="problem-link">uva926</a> <a href="a-37.html" class="problem-link">a</a></p>
+        <p><a href="class-66.html" class="problem-link">class</a> <a href="s-6.html" class="problem-link">s</a> <a href="BS-C-2.html" class="problem-link">BS-C</a> <a href="11417.html" class="problem-link">11417</a> <a href="a-40.html" class="problem-link">a</a> <a href="uva10026.html" class="problem-link">uva10026</a></p>
     </div>
 
     <footer>

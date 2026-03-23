@@ -39,41 +39,51 @@
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
 <span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
 <span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;math.h&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
     <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-    }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+	}
+	<span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+c-<span class="token string">&#x27;0&#x27;</span>;
         c=getchar();
-    }
-    <span class="token keyword">return</span> x;
+	}
+	<span class="token keyword">return</span> x*w;
 }
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
     <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 
-<span class="token keyword">signed</span> main(){
-    <span class="token keyword">int</span> a,b,c,d;
-    <span class="token keyword">while</span>(a=read(),b=read(),c=read(),d=read()){
-        <span class="token keyword">if</span>(a+b+c+d==<span class="token number">0</span>){<span class="token keyword">break</span>;}
-        <span class="token keyword">if</span>(a==c &amp;&amp; b==d){
-            putchar(<span class="token string">&#x27;0&#x27;</span>);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
-        }<span class="token keyword">else</span> <span class="token keyword">if</span>(a==c || b==d || abs(a-c)==abs(b-d)){
-            putchar(<span class="token string">&#x27;1&#x27;</span>);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
-        }<span class="token keyword">else</span>{
-            putchar(<span class="token string">&#x27;2&#x27;</span>);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+
+
+<span class="token keyword">long</span> dp[<span class="token number">67</span>][<span class="token number">67</span>][<span class="token number">2</span>];
+
+<span class="token keyword">signed</span> main() {
+    dp[<span class="token number">1</span>][<span class="token number">1</span>][<span class="token number">1</span>]=<span class="token number">1</span>;
+    dp[<span class="token number">1</span>][<span class="token number">0</span>][<span class="token number">0</span>]=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=<span class="token number">65</span>;i++){
+        dp[i][<span class="token number">0</span>][<span class="token number">0</span>]=dp[i-<span class="token number">1</span>][<span class="token number">1</span>][<span class="token number">1</span>]+dp[i-<span class="token number">1</span>][<span class="token number">0</span>][<span class="token number">0</span>];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;j&lt;=i;j++){
+            dp[i][j][<span class="token number">1</span>]=dp[i-<span class="token number">1</span>][j-<span class="token number">1</span>][<span class="token number">0</span>]+dp[i-<span class="token number">1</span>][j-<span class="token number">1</span>][<span class="token number">1</span>];
+            dp[i][j][<span class="token number">0</span>]=dp[i-<span class="token number">1</span>][j+<span class="token number">1</span>][<span class="token number">1</span>]+dp[i-<span class="token number">1</span>][j][<span class="token number">0</span>];
         }
+    }
+
+
+    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+        <span class="token keyword">int</span> n=read(),s=read();
+        <span class="token keyword">if</span>(n+s&lt;<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        write(dp[n][s][<span class="token number">0</span>]+dp[n][s][<span class="token number">1</span>]);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -82,7 +92,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a-20.html" class="problem-link">a</a> <a href="s-23.html" class="problem-link">s</a> <a href="c-28.html" class="problem-link">c</a> <a href="class-68.html" class="problem-link">class</a> <a href="class-58.html" class="problem-link">class</a> <a href="BS-C-4.html" class="problem-link">BS-C</a></p>
+        <p><a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="cla-47.html" class="problem-link">cla</a> <a href="cla-57.html" class="problem-link">cla</a> <a href="class-10.html" class="problem-link">class</a> <a href="uva11714.html" class="problem-link">uva11714</a> <a href="d052-uva11456.html" class="problem-link">d052 uva11456</a></p>
     </div>
 
     <footer>

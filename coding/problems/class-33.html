@@ -37,44 +37,52 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
-<span class="token directive">#include</span>&lt;stdio.h&gt;
-<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
-<span class="token comment">//-block</span>
 
-<span class="token keyword">signed</span> main(){
-    <span class="token keyword">int</span> T;
-    scanf(<span class="token string">&quot;%d&quot;</span>,&amp;T);
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> cases=<span class="token number">1</span>;cases&lt;=T;cases++){
-        <span class="token keyword">int</span> N,pos=-<span class="token number">1</span>,maxStart=<span class="token number">0</span>,maxEnd=<span class="token number">0</span>,num=-<span class="token number">1</span>,
-                        Start=<span class="token number">0</span>,   End=<span class="token number">0</span>,Max=-<span class="token number">1</span>;
-        scanf(<span class="token string">&quot;%d&quot;</span>,&amp;N);
-        <span class="token keyword">int</span> dat[N],maxx[N];
-
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N-<span class="token number">1</span>;i++){
-            scanf(<span class="token string">&quot;%d&quot;</span>,&amp;dat[i]);
-
-            <span class="token keyword">if</span>(num&gt;=<span class="token number">0</span>){
-                num+=dat[i];
-                End=i+<span class="token number">1</span>;
-            }<span class="token keyword">else</span>{
-                num=dat[i];
-                Start=i;
-                End=i+<span class="token number">1</span>;
-            }
-
-            <span class="token keyword">if</span>(num&gt;Max || (num==Max &amp;&amp; End-Start&gt;maxEnd-maxStart)){
-                maxStart=Start;
-                maxEnd=End;
-                Max=num;
-            }
-        }
-        <span class="token keyword">if</span>(Max!=-<span class="token number">1</span>){
-            printf(<span class="token string">&quot;The nicest part of route %d is between stops %d and %d\n&quot;</span>,cases,maxStart,maxEnd);
-        }<span class="token keyword">else</span>{printf(<span class="token string">&quot;Route %d has no nice parts\n&quot;</span>,cases);}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N=read(),maxx;
+    vector&lt;<span class="token keyword">int</span>&gt;dat(N);
+
+    maxx=dat[<span class="token number">0</span>]=read();
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;++i){
+        <span class="token keyword">int</span> tmp=read();
+
+        <span class="token keyword">if</span>(dat[i-<span class="token number">1</span>]&lt;=<span class="token number">0</span>){
+            dat[i]=tmp;
+        }<span class="token keyword">else</span>{dat[i]+=dat[i-<span class="token number">1</span>]+tmp;}
+
+        maxx=max(maxx,dat[i]);
+    }
+    write(maxx);
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -82,7 +90,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="d-3.html" class="problem-link">d</a> <a href="class-87.html" class="problem-link">class</a> <a href="s-5.html" class="problem-link">s</a> <a href="p-3.html" class="problem-link">p</a> <a href="c-47.html" class="problem-link">c</a> <a href="class-67.html" class="problem-link">class</a></p>
+        <p><a href="class-46.html" class="problem-link">class</a> <a href="cla-56.html" class="problem-link">cla</a> <a href="c-18.html" class="problem-link">c</a> <a href="p-3.html" class="problem-link">p</a> <a href="new-2.html" class="problem-link">new</a> <a href="d150-uva11369.html" class="problem-link">d150 uva11369</a></p>
     </div>
 
     <footer>

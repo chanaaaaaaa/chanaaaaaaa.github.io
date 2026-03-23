@@ -36,12 +36,14 @@
     <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;vector&gt;
-
+<span class="token comment">//#include&lt;vector&gt;</span>
+<span class="token directive">#include</span>&lt;set&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token comment">//#define int long long</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -56,49 +58,40 @@
     }
     <span class="token keyword">return</span> x;
 }
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
     <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-<span class="token comment">//-block</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read_o(){
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
-        c=getchar();
-    }
-    <span class="token keyword">return</span> c-<span class="token string">&#x27;0&#x27;</span>;
-}
-<span class="token keyword">signed</span> main(){
-    <span class="token keyword">int</span> T=read();
-    <span class="token keyword">while</span>(T--){
-        <span class="token keyword">int</span> N=read();
 
-        vector&lt;<span class="token keyword">int</span>&gt;res(N+<span class="token number">2</span>,<span class="token number">0</span>);
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
-            res[i]+=read_o();
-            res[i]+=read_o();
-        }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=N;i&gt;<span class="token number">0</span>;i--){
-            <span class="token keyword">if</span>(res[i]&gt;=<span class="token number">10</span>){
-                res[i]-=<span class="token number">10</span>;
-                res[i-<span class="token number">1</span>]++;
-            }
-        }
-        <span class="token keyword">if</span>(res[<span class="token number">0</span>]!=<span class="token number">0</span>){write(res[<span class="token number">0</span>]);}
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
-            write(res[i]);
-        }
-        <span class="token keyword">if</span>(T){putchar(<span class="token string">&#x27;\n&#x27;</span>);}
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
+    <span class="token keyword">int</span> N=read(),P=read(),cnt=<span class="token number">0</span>,a,b;
+    multiset&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;dat;
+    multiset&lt;<span class="token keyword">int</span>&gt;exe;
+    <span class="token keyword">while</span>(N--){
+        a=read(),b=read();
+        dat.insert({b,a});
+        <span class="token keyword">if</span>(P){--P;exe.insert(<span class="token number">0</span>);}
     }
-    <span class="token keyword">return</span> <span class="token number">0</span>;
+    <span class="token keyword">while</span>(P--){exe.insert(<span class="token number">0</span>);}
+
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> c:dat){
+        <span class="token keyword">auto</span> pos=exe.upper_bound(c.second);
+        <span class="token keyword">if</span>(pos==exe.cbegin()){
+            <span class="token keyword">continue</span>;
+        }
+        exe.erase(--pos);
+        exe.insert(c.first);
+        cnt++;
+    }
+
+    write(cnt);
 }
 </code></pre>
     </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-54.html" class="problem-link">cla</a> <a href="cla-24.html" class="problem-link">cla</a> <a href="uva501.html" class="problem-link">uva501</a> <a href="class-21.html" class="problem-link">class</a> <a href="s-27.html" class="problem-link">s</a> <a href="class-6.html" class="problem-link">class</a></p>
+        <p><a href="s-39.html" class="problem-link">s</a> <a href="c-27.html" class="problem-link">c</a> <a href="cla-4.html" class="problem-link">cla</a> <a href="Atcoder208E.html" class="problem-link">Atcoder208E</a> <a href="c129-uva572.html" class="problem-link">c129 uva572</a> <a href="class-36.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

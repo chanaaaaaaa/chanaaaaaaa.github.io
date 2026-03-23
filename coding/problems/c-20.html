@@ -41,7 +41,6 @@
 <span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 <span class="token directive">#include</span>&lt;cstdio&gt;
 <span class="token directive">#include</span>&lt;iostream&gt;
-<span class="token directive">#include</span>&lt;cmath&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -62,39 +61,22 @@
 }
 
 <span class="token keyword">signed</span> main(){
-    ios_base::sync_with_stdio(<span class="token number">0</span>);
-    cout.tie(<span class="token number">0</span>);
-    <span class="token keyword">int</span> t=read();
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=t;i++){
-        <span class="token keyword">long</span> maxx,q,big=-<span class="token number">1</span>;
-        maxx=pow(<span class="token number">10</span>,read());
-        q=pow(<span class="token number">2</span>,read());
-        cout&lt;&lt;<span class="token string">&quot;Case &quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;: &quot;</span>;
-
-        <span class="token keyword">int</span> dq=q,c=<span class="token number">0</span>;
-        <span class="token keyword">while</span>(dq&lt;maxx/<span class="token number">10</span>){
-            dq+=q;
+    <span class="token keyword">int</span> n,d,ans=<span class="token number">0</span>,con=<span class="token number">0</span>;
+    n=read();
+    d=read();
+    <span class="token keyword">while</span>(n--){
+        <span class="token keyword">int</span> a,b,c;
+        a=read();
+        b=read();
+        c=read();
+        <span class="token keyword">if</span>(max(max(a,b),c)-min(min(a,b),c)&gt;=d){
+            ans+=(a+b+c)/<span class="token number">3</span>;
+            con++;
         }
-        <span class="token keyword">while</span>(dq&lt;maxx){
-            <span class="token keyword">int</span> check=dq,flag=<span class="token number">1</span>;
-            <span class="token keyword">while</span>(check){
-                <span class="token keyword">if</span>(check%<span class="token number">10</span>!=<span class="token number">1</span> &amp;&amp; check%<span class="token number">10</span>!=<span class="token number">2</span>){flag=<span class="token number">0</span>;<span class="token keyword">break</span>;}
-                check/=<span class="token number">10</span>;
-            }
-            <span class="token keyword">if</span>(flag){
-                <span class="token keyword">if</span>(big==-<span class="token number">1</span>){
-                    write(dq);
-                }<span class="token keyword">else</span>{c=<span class="token number">1</span>;}
-                big=dq;
-            }
-            dq+=q;
-        }
-        <span class="token keyword">if</span>(c==<span class="token number">1</span>){
-            putchar(<span class="token string">&#x27; &#x27;</span>);
-            write(big);
-        }<span class="token keyword">else</span> <span class="token keyword">if</span>(big==-<span class="token number">1</span>){cout&lt;&lt;<span class="token string">&quot;impossible&quot;</span>;}
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
+    write(con);
+    putchar(<span class="token string">&#x27; &#x27;</span>);
+    write(ans);
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -102,7 +84,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-13.html" class="problem-link">cla</a> <a href="a221.html" class="problem-link">a221</a> <a href="c-47.html" class="problem-link">c</a> <a href="a-19.html" class="problem-link">a</a> <a href="uva10007.html" class="problem-link">uva10007</a> <a href="class-87.html" class="problem-link">class</a></p>
+        <p><a href="class-50.html" class="problem-link">class</a> <a href="cla-57.html" class="problem-link">cla</a> <a href="cla-60.html" class="problem-link">cla</a> <a href="class-53.html" class="problem-link">class</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="cla-43.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

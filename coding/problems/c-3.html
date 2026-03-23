@@ -37,59 +37,39 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
-<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
-
-<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
-    <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
-        c=getchar();
-        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
-	}
-	<span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=x*<span class="token number">10</span>+c-<span class="token string">&#x27;0&#x27;</span>;
-        c=getchar();
-	}
-	<span class="token keyword">return</span> x*w;
-}
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> x){
-    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
-    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
-    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
-}
+vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dic;
+<span class="token keyword">int</span> N,a,b,mi=-<span class="token number">1</span>,md=-<span class="token number">1</span>;
 
-<span class="token keyword">signed</span> main() {
-    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
-        <span class="token keyword">int</span> h1=read(),m1=read(),h2=read(),m2=read(),Ans;
-        <span class="token keyword">if</span>(h1+m1+h2+m2==<span class="token number">0</span>){<span class="token keyword">break</span>;}
-
-        <span class="token keyword">if</span>(h1&gt;h2){
-            <span class="token keyword">if</span>(m1&gt;m2){
-                Ans=<span class="token number">60</span>*(<span class="token number">23</span>-h1+h2)+(<span class="token number">60</span>+m2-m1);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(m1&lt;m2){
-                Ans=<span class="token number">60</span>*(<span class="token number">24</span>-h1+h2)+(m2-m1);
-            }
-        }<span class="token keyword">else</span> <span class="token keyword">if</span>(h1&lt;h2){
-            <span class="token keyword">if</span>(m1&gt;m2){
-                Ans=<span class="token number">60</span>*(h2-h1-<span class="token number">1</span>)+(<span class="token number">60</span>+m2-m1);
-            }<span class="token keyword">else</span>{
-                Ans=<span class="token number">60</span>*(h2-h1)+(m2-m1);
-            }
-        }<span class="token keyword">else</span>{
-            <span class="token keyword">if</span>(m1&gt;m2){
-                Ans=(<span class="token number">1440</span>-m1+m2);
-            }<span class="token keyword">else</span>{
-                Ans=(m2-m1);
-            }
+<span class="token keyword">void</span> dfs(<span class="token keyword">int</span> idx,<span class="token keyword">int</span> father,<span class="token keyword">int</span> depth){
+    <span class="token keyword">for</span>(<span class="token keyword">auto</span> i : dic[idx]){
+        <span class="token keyword">if</span>(i!=father){
+            dfs(i,idx,depth+<span class="token number">1</span>);
         }
-
-        write(Ans);
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
+    <span class="token keyword">if</span>(depth&gt;md){
+        md=depth;
+        mi=idx;
+    }
+}
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    cin&gt;&gt;N;
+    dic.assign(N,{});
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;i++){
+        cin&gt;&gt;a&gt;&gt;b;
+        dic[a].push_back(b);
+        dic[b].push_back(a);
+    }
+    dfs(<span class="token number">0</span>,-<span class="token number">1</span>,<span class="token number">0</span>);
+    dfs(mi,-<span class="token number">1</span>,<span class="token number">0</span>);
+    cout&lt;&lt;md&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -97,7 +77,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="a-25.html" class="problem-link">a</a> <a href="cla-58.html" class="problem-link">cla</a> <a href="BS-B.html" class="problem-link">BS-B</a> <a href="a-14.html" class="problem-link">a</a> <a href="d-6.html" class="problem-link">d</a> <a href="c-10.html" class="problem-link">c</a></p>
+        <p><a href="c-26.html" class="problem-link">c</a> <a href="cla-30.html" class="problem-link">cla</a> <a href="class-16.html" class="problem-link">class</a> <a href="p-4.html" class="problem-link">p</a> <a href="a-10.html" class="problem-link">a</a> <a href="cla-48.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

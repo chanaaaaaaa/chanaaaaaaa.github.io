@@ -37,31 +37,19 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
-<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
-
-<span class="token directive">#include</span>&lt;iostream&gt;
-
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;cmath&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">signed</span> main() {
-    <span class="token keyword">int</span> t;
-    cin&gt;&gt;t;
-    cin.ignore();
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
 
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=t;i++){
-        string A;
-        getline(cin,A);
-
-        <span class="token keyword">int</span> con=<span class="token number">0</span>;
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
-            <span class="token keyword">int</span> n=A[i];
-            <span class="token keyword">if</span>(n==<span class="token string">&#x27; &#x27;</span>){con++;}
-            <span class="token keyword">else</span>{
-                con+=min(n%<span class="token string">&#x27;a&#x27;</span>,min(n%<span class="token string">&#x27;d&#x27;</span>,min(n%<span class="token string">&#x27;g&#x27;</span>,min(n%<span class="token string">&#x27;j&#x27;</span>,min(n%<span class="token string">&#x27;m&#x27;</span>,min(n%<span class="token string">&#x27;p&#x27;</span>,min(n%<span class="token string">&#x27;t&#x27;</span>,n%<span class="token string">&#x27;w&#x27;</span>)))))))+<span class="token number">1</span>;
-            }
-        }
-        cout&lt;&lt;<span class="token string">&quot;Case #&quot;</span>&lt;&lt;i&lt;&lt;<span class="token string">&quot;: &quot;</span>&lt;&lt;con&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    <span class="token keyword">long</span> N;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        <span class="token keyword">if</span>(N&lt;<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        cout&lt;&lt;N*(N+<span class="token number">1</span>)/<span class="token number">2</span>+<span class="token number">1</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -70,7 +58,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="uva798.html" class="problem-link">uva798</a> <a href="class-88.html" class="problem-link">class</a> <a href="c-24.html" class="problem-link">c</a> <a href="a-27.html" class="problem-link">a</a> <a href="c-37.html" class="problem-link">c</a> <a href="cla-12.html" class="problem-link">cla</a></p>
+        <p><a href="c125-uva534.html" class="problem-link">c125 uva534</a> <a href="a-3.html" class="problem-link">a</a> <a href="class-68.html" class="problem-link">class</a> <a href="class-29.html" class="problem-link">class</a> <a href="cla-23.html" class="problem-link">cla</a> <a href="class-26.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

@@ -37,75 +37,80 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#include</span> &lt;iostream&gt;
-<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">int</span> main(){
-    cin.tie(<span class="token number">0</span>);
-    cout.tie(<span class="token number">0</span>);
-    ios_base::sync_with_stdio(<span class="token number">0</span>);
-    <span class="token keyword">int</span> A[<span class="token number">9</span>];
-    <span class="token keyword">int</span> nz=-<span class="token number">1</span>;
-    <span class="token keyword">while</span>(cin&gt;&gt;A[<span class="token number">8</span>]){
-        <span class="token keyword">if</span>(A[<span class="token number">8</span>]!=<span class="token number">0</span>){nz=<span class="token number">8</span>;}
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">7</span>;i&gt;=<span class="token number">0</span>;i--){
-            cin&gt;&gt;A[i];
-            <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span> &amp;&amp; nz==-<span class="token number">1</span>){nz=i;}
-            <span class="token keyword">else</span> <span class="token keyword">if</span>(i==<span class="token number">0</span> &amp;&amp; nz==-<span class="token number">1</span>){nz=i;}
-        }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=nz;i&gt;=<span class="token number">0</span>;i--){
-            <span class="token keyword">if</span>(i!=nz){<span class="token comment">//if first num?</span>
-                <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
-                    <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
-                        cout&lt;&lt;<span class="token string">&quot; + &quot;</span>;
-                    }<span class="token keyword">else</span>{
-                        cout&lt;&lt;<span class="token string">&quot; - &quot;</span>;
-                    }
-                }
-            }<span class="token keyword">else</span>{
-                <span class="token keyword">if</span>(A[i]&lt;<span class="token number">0</span>){
-                    cout&lt;&lt;<span class="token string">&quot;-&quot;</span>;
-                }
-            }
-            <span class="token keyword">if</span>(i!=nz){
-                <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
-                    <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
-                        <span class="token keyword">if</span>(A[i]!=<span class="token number">1</span> || i==<span class="token number">0</span>){
-                            cout&lt;&lt;A[i];
-                        }
-                    }<span class="token keyword">else</span>{
-                        <span class="token keyword">if</span>(A[i]!=-<span class="token number">1</span> || i==<span class="token number">0</span>){
-                            cout&lt;&lt;-A[i];
-                        }
-                    }
-                }
-            }<span class="token keyword">else</span>{
-                <span class="token keyword">if</span>(A[i]&gt;<span class="token number">0</span>){
-                    <span class="token keyword">if</span>(A[i]!=<span class="token number">1</span>){
-                        cout&lt;&lt;A[i];
-                    }
-                }<span class="token keyword">else</span>{
-                    <span class="token keyword">if</span>(A[i]!=-<span class="token number">1</span>){
-                        cout&lt;&lt;-A[i];
-                    }
-                }<span class="token comment">/*
-                if(nz==0 &amp;&amp; A[i]==0){
-                    cout&lt;&lt;&quot;0&quot;;
-                }*/</span>
-            }
-            <span class="token keyword">if</span>(A[i]!=<span class="token number">0</span>){
-                <span class="token keyword">if</span>(i==<span class="token number">1</span>){
-                    cout&lt;&lt;<span class="token string">&quot;x&quot;</span>;
-                }<span class="token keyword">else</span> <span class="token keyword">if</span>(i&gt;<span class="token number">1</span>){
-                    cout&lt;&lt;<span class="token string">&quot;x^&quot;</span>&lt;&lt;i;
-                }
-            }
-        }
-        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-        nz=-<span class="token number">1</span>;
-    }
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+	}
+	<span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+	}
+	<span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
 
+<span class="token keyword">signed</span> main() {
+    <span class="token keyword">int</span> t=read();
+    <span class="token keyword">while</span>(t--){
+        <span class="token keyword">int</span> dis=read()/<span class="token number">100</span>;
+        <span class="token keyword">int</span> wind[<span class="token number">10</span>][dis],dp[<span class="token number">10</span>][dis+<span class="token number">1</span>];
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">9</span>;i&gt;=<span class="token number">0</span>;i--){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;dis;j++){
+                wind[i][j]=read();
+                dp[i][j]=<span class="token number">1000000</span>;
+            }
+        }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">10</span>;i++){
+            dp[i][dis]=<span class="token number">0</span>;
+        }
+        dp[<span class="token number">0</span>][<span class="token number">0</span>]=<span class="token number">0</span>;
+        <span class="token comment">/*.test
+            putchar(&#x27;\n&#x27;);
+            for(int j=0;j&lt;10;j++){
+                for(int k=0;k&lt;dis;k++){
+                    write(dp[j][k]);
+                    putchar(&#x27; &#x27;);
+                }
+                putchar(&#x27;\n&#x27;);
+            }
+            putchar(&#x27;\n&#x27;);
+            //test.*/</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=dis;i++){
+            dp[<span class="token number">0</span>][i]=dp[<span class="token number">1</span>][i-<span class="token number">1</span>]+<span class="token number">20</span>-wind[<span class="token number">1</span>][i-<span class="token number">1</span>];
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">1</span>;j&lt;<span class="token number">9</span>;j++){
+                dp[j][i]=min(dp[j][i-<span class="token number">1</span>]+<span class="token number">30</span>-wind[j][i-<span class="token number">1</span>],min(dp[j-<span class="token number">1</span>][i-<span class="token number">1</span>]+<span class="token number">60</span>-wind[j-<span class="token number">1</span>][i-<span class="token number">1</span>],dp[j+<span class="token number">1</span>][i-<span class="token number">1</span>]+<span class="token number">20</span>-wind[j+<span class="token number">1</span>][i-<span class="token number">1</span>]));
+            }
+            dp[<span class="token number">9</span>][i]=min(dp[<span class="token number">8</span>][i-<span class="token number">1</span>]+<span class="token number">60</span>-wind[<span class="token number">8</span>][i-<span class="token number">1</span>],dp[<span class="token number">9</span>][i-<span class="token number">1</span>]+<span class="token number">30</span>);
+            <span class="token comment">/*.test 
+            putchar(&#x27;\n&#x27;);
+            for(int j=0;j&lt;10;j++){
+                for(int k=0;k&lt;dis;k++){
+                    write(dp[j][k]);
+                    putchar(&#x27; &#x27;);
+                }
+                putchar(&#x27;\n&#x27;);
+            }
+            putchar(&#x27;\n&#x27;);
+            //test.*/</span>
+        }
+        write(dp[<span class="token number">0</span>][dis]);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -113,7 +118,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-10.html" class="problem-link">c</a> <a href="c-18.html" class="problem-link">c</a> <a href="cla-42.html" class="problem-link">cla</a> <a href="s-7.html" class="problem-link">s</a> <a href="class-60.html" class="problem-link">class</a> <a href="uva798.html" class="problem-link">uva798</a></p>
+        <p><a href="d673-uva11608.html" class="problem-link">d673 uva11608</a> <a href="cla-54.html" class="problem-link">cla</a> <a href="c-24.html" class="problem-link">c</a> <a href="class-5.html" class="problem-link">class</a> <a href="c-18.html" class="problem-link">c</a> <a href="cla-63.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

@@ -37,106 +37,119 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
 <span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
+
+<span class="token directive">#define</span> MAXN <span class="token number">500</span>
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">bool</span> check=<span class="token keyword">false</span>;
     <span class="token keyword">int</span> x=<span class="token number">0</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
     <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
-        <span class="token keyword">if</span>(c==<span class="token string">&#x27;\n&#x27;</span> || c==-<span class="token number">1</span>){
-            <span class="token keyword">return</span> <span class="token number">0</span>;
-        }
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
     }
     <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
         x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
+        <span class="token keyword">if</span>(x&gt;=<span class="token number">1000</span>){<span class="token keyword">break</span>;}
         c=getchar();
     }
     <span class="token keyword">return</span> x;
 }
-<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
     <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 <span class="token comment">//-block</span>
-<span class="token keyword">int</span> T,N,cnt,maxx,data[<span class="token number">10000</span>],ft[<span class="token number">10000</span>],dp[<span class="token number">10000</span>];
-<span class="token keyword">inline</span> <span class="token keyword">void</span> out(<span class="token keyword">int</span> d,<span class="token keyword">int</span> s){
-    <span class="token keyword">if</span>(ft[s]&gt;=s){
-        putchar(<span class="token string">&#x27;M&#x27;</span>);
-        putchar(<span class="token string">&#x27;a&#x27;</span>);
-        putchar(<span class="token string">&#x27;x&#x27;</span>);
-        putchar(<span class="token string">&#x27; &#x27;</span>);
-        putchar(<span class="token string">&#x27;h&#x27;</span>);
-        putchar(<span class="token string">&#x27;i&#x27;</span>);
-        putchar(<span class="token string">&#x27;t&#x27;</span>);
-        putchar(<span class="token string">&#x27;s&#x27;</span>);
-        putchar(<span class="token string">&#x27;:&#x27;</span>);
-        putchar(<span class="token string">&#x27; &#x27;</span>);
-        write(d+<span class="token number">1</span>);
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
-    }<span class="token keyword">else</span>{
-        out(d+<span class="token number">1</span>,ft[s]);
+
+<span class="token keyword">int</span> mp[MAXN+<span class="token number">1</span>]={<span class="token number">0</span>};
+<span class="token keyword">inline</span> <span class="token keyword">void</span> init(<span class="token keyword">int</span> a){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=a;++i){
+        mp[i]=i;
     }
-    write(data[s]);
-    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> fd(<span class="token keyword">int</span> a){
+    <span class="token keyword">return</span> a==mp[a] ? a:mp[a]=fd(mp[a]);
+}
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> un(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
+    <span class="token keyword">if</span>((a=fd(a))!=(b=fd(b))){
+        mp[a]=b;
+        <span class="token keyword">return</span> <span class="token keyword">true</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">return</span> <span class="token keyword">false</span>;
+    }
+}
+
+<span class="token keyword">struct</span> node{
+    <span class="token keyword">int</span> start_point,
+        end_point,
+        weight;
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span> &lt; (<span class="token keyword">const</span> node &amp;a) <span class="token keyword">const</span> {<span class="token keyword">return</span> weight&lt;a.weight;}
+}E[MAXN*MAXN];
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> normalize(<span class="token keyword">int</span> n1,<span class="token keyword">int</span> n2){
+    <span class="token keyword">int</span> res=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">4</span>;++i){
+        <span class="token keyword">int</span> a=n1%<span class="token number">10</span>, b=n2%<span class="token number">10</span>;
+
+        <span class="token keyword">if</span>(a&gt;b){swap(a,b);}
+        res+=min(b-a,(a-b+<span class="token number">10</span>)%<span class="token number">10</span>);
+
+        n1/=<span class="token number">10</span>;n2/=<span class="token number">10</span>;
+    }
+    <span class="token keyword">return</span> res;
 }
 
 <span class="token keyword">signed</span> main(){
-    T=read();
-    getchar();
+    <span class="token keyword">int</span> T=read();
     <span class="token keyword">while</span>(T--){
-        maxx=<span class="token number">0</span>;cnt=-<span class="token number">1</span>;
-        <span class="token keyword">while</span>(N=read()){
-            data[++cnt]=N;
+        <span class="token keyword">int</span> N=read();
+        vector&lt;<span class="token keyword">int</span>&gt;dat(N+<span class="token number">1</span>);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            dat[i]=read();
         }
-        <span class="token comment">//LIS</span>
+        <span class="token keyword">int</span> cnt=-<span class="token number">1</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=i+<span class="token number">1</span>;j&lt;N;++j){
+                E[++cnt]={i,j,normalize(dat[i],dat[j])};
+            }
+        }
+        sort(E,E+cnt+<span class="token number">1</span>);
+        init(N);
+        <span class="token keyword">int</span> res=<span class="token number">0</span>,tmp=INT_MAX;
         <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=cnt;++i){
-            dp[i]=<span class="token number">1</span>;
-            ft[i]=i;
-            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;i;++j){
-                <span class="token keyword">if</span>(data[j]&lt;data[i] &amp;&amp; dp[i]&lt;dp[j]+<span class="token number">1</span>){
-                    dp[i]=dp[j]+<span class="token number">1</span>;
-                    ft[i]=j;
-                }
+            <span class="token keyword">if</span>(un(E[i].start_point,E[i].end_point)){
+                res+=E[i].weight;
             }
         }
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=cnt;i++){
-            <span class="token keyword">if</span>(dp[i]&gt;dp[maxx]){
-                maxx=i;
-            }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            tmp=min(tmp,normalize(<span class="token number">0</span>,dat[i]));
         }
-        <span class="token comment">//-LIS</span>
-
-        <span class="token keyword">if</span>(cnt!=-<span class="token number">1</span>){out(<span class="token number">0</span>,maxx);}
-        <span class="token keyword">else</span>{
-            putchar(<span class="token string">&#x27;M&#x27;</span>);
-            putchar(<span class="token string">&#x27;a&#x27;</span>);
-            putchar(<span class="token string">&#x27;x&#x27;</span>);
-            putchar(<span class="token string">&#x27; &#x27;</span>);
-            putchar(<span class="token string">&#x27;h&#x27;</span>);
-            putchar(<span class="token string">&#x27;i&#x27;</span>);
-            putchar(<span class="token string">&#x27;t&#x27;</span>);
-            putchar(<span class="token string">&#x27;s&#x27;</span>);
-            putchar(<span class="token string">&#x27;:&#x27;</span>);
-            putchar(<span class="token string">&#x27; &#x27;</span>);
-            putchar(<span class="token string">&#x27;0&#x27;</span>);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
-        }
-        <span class="token keyword">if</span>(T)putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        write(res+tmp);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
+
+<span class="token comment">/*
+4
+2 1155 2211
+3 1111 1155 5511
+3 1234 5678 9090
+4 2145 0213 9113 8113
+*/</span>
 </code></pre>
     </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-28.html" class="problem-link">c</a> <a href="class-71.html" class="problem-link">class</a> <a href="class-49.html" class="problem-link">class</a> <a href="c-37.html" class="problem-link">c</a> <a href="a-37.html" class="problem-link">a</a> <a href="c-22.html" class="problem-link">c</a></p>
+        <p><a href="class-50.html" class="problem-link">class</a> <a href="cla-33.html" class="problem-link">cla</a> <a href="c117-uva439.html" class="problem-link">c117 uva439</a> <a href="c-4.html" class="problem-link">c</a> <a href="cla-18.html" class="problem-link">cla</a> <a href="cla-27.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

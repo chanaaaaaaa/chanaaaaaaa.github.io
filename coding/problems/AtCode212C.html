@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>class - CodeLib 題解</title>
+    <title>AtCode212C - CodeLib 題解</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
     <script>
@@ -20,9 +20,9 @@
     <div class="page-wrapper">
     <header>
         <a href="../index.html" class="back-link">← 返回題目列表</a>
-        <h1>class</h1>
-        <p class="subtitle">題目編號：class</p>
-        
+        <h1>AtCode212C</h1>
+        <p class="subtitle">題目編號：AtCode212C</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=E212" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>
     </header>
 
     <div class="content-card">
@@ -37,10 +37,12 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;math.h&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token directive">#include</span>&lt;climits&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
@@ -50,7 +52,7 @@
         c=getchar();
     }
     <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
-        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
     <span class="token keyword">return</span> x;
@@ -60,27 +62,39 @@
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 <span class="token comment">// -block</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> slove(<span class="token keyword">int</span> N,<span class="token keyword">int</span> m){
-    <span class="token keyword">int</span> ans=<span class="token number">1</span>;
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=N;i++){
-        ans=(ans+(m-<span class="token number">1</span>))%i+<span class="token number">1</span>;
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N=read(),M=read();
+    <span class="token keyword">int</span> DN[N],DM[M];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;i++){
+        DN[i]=read();
     }
-    <span class="token keyword">return</span> ans;
-}
-<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
-    <span class="token keyword">int</span> N;
-    <span class="token keyword">while</span>(N=read()){
-        <span class="token keyword">if</span>(N==<span class="token number">0</span>){<span class="token keyword">break</span>;}
-        <span class="token keyword">if</span>(N==<span class="token number">13</span>){
-            write(<span class="token number">1</span>);
-            putchar(<span class="token string">&#x27;\n&#x27;</span>);
-            <span class="token keyword">continue</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
+        DM[i]=read();
+    }
+    sort(DN,DN+N);
+    sort(DM,DM+M);
+    <span class="token comment">//-input</span>
+    <span class="token keyword">int</span> idx_N=<span class="token number">0</span>,idx_M=<span class="token number">0</span>,minn=INT_MAX;
+    <span class="token keyword">while</span>(idx_N&lt;N &amp;&amp; idx_M&lt;M){
+        minn=min(minn,abs(DN[idx_N]-DM[idx_M]));
+        <span class="token comment">/*
+        write(DN[idx_N]);
+        putchar(&#x27; &#x27;);
+        write(DM[idx_M]);
+        putchar(&#x27;\n&#x27;);
+        */</span>
+        <span class="token keyword">if</span>(DN[idx_N]==DM[idx_M]){
+            minn=<span class="token number">0</span>;
+            <span class="token keyword">break</span>;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(DN[idx_N]&gt;DM[idx_M]){
+            idx_M++;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(DN[idx_N]&lt;DM[idx_M]){
+            idx_N++;
         }
-        <span class="token keyword">int</span> m=<span class="token number">2</span>;
-        <span class="token keyword">while</span>(slove(N-<span class="token number">1</span>,m)!=<span class="token number">12</span>){m++;}
-        write(m);
-        putchar(<span class="token string">&#x27;\n&#x27;</span>);
     }
+    write(minn);
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -88,7 +102,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-10.html" class="problem-link">c</a> <a href="cla-40.html" class="problem-link">cla</a> <a href="d-9.html" class="problem-link">d</a> <a href="class-40.html" class="problem-link">class</a> <a href="c-5.html" class="problem-link">c</a> <a href="a-40.html" class="problem-link">a</a></p>
+        <p><a href="cla-63.html" class="problem-link">cla</a> <a href="cla-48.html" class="problem-link">cla</a> <a href="cla-14.html" class="problem-link">cla</a> <a href="cla-23.html" class="problem-link">cla</a> <a href="m-2.html" class="problem-link">m</a> <a href="cla-2.html" class="problem-link">cla</a></p>
     </div>
 
     <footer>

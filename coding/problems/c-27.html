@@ -37,39 +37,55 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#include</span> &lt;iostream&gt;
-<span class="token directive">#include</span> &lt;vector&gt;
-<span class="token directive">#include</span> &lt;algorithm&gt;
-
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token directive">#include</span>&lt;iomanip&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-vector&lt;<span class="token keyword">int</span>&gt;al;
-
-<span class="token keyword">int</span> main(){
+<span class="token keyword">signed</span> main(){
     cin.tie(<span class="token number">0</span>);
     cout.tie(<span class="token number">0</span>);
     ios_base::sync_with_stdio(<span class="token number">0</span>);
+    string A,B;
+    <span class="token keyword">while</span>(getline(cin,A)){
+        getline(cin,B);
 
-    <span class="token keyword">int</span> in;
-    cin&gt;&gt;in;
-    al.push_back(in);
-    cout&lt;&lt;al[<span class="token number">0</span>]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-
-    <span class="token keyword">while</span>(cin&gt;&gt;in){
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;al.size();i++){
-            <span class="token keyword">if</span>(in&gt;=al[i]){
-                al.insert(al.begin()+i,in);
-                <span class="token keyword">break</span>;
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(i==al.size()-<span class="token number">1</span>){
-                al.push_back(in);
-                <span class="token keyword">break</span>;
+        <span class="token keyword">int</span> a=<span class="token number">0</span>,b=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;A.size();i++){
+            <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(A[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; A[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                a+=<span class="token keyword">int</span>(A[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
             }
         }
-        <span class="token keyword">if</span>(al.size()%<span class="token number">2</span>==<span class="token number">0</span>){
-            cout&lt;&lt;(al[al.size()/<span class="token number">2</span>]+al[al.size()/<span class="token number">2</span>-<span class="token number">1</span>])/<span class="token number">2</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-        }<span class="token keyword">else</span>{
-            cout&lt;&lt;al[(al.size()-<span class="token number">1</span>)/<span class="token number">2</span>]&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        <span class="token keyword">while</span>(a&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(a){
+                temp+=a%<span class="token number">10</span>;
+                a/=<span class="token number">10</span>;
+            }
+            a=temp;
         }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;B.size();i++){
+            <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;a&#x27;</span>)+<span class="token number">1</span>;
+            }<span class="token keyword">else</span> <span class="token keyword">if</span>(B[i]&gt;=<span class="token string">&#x27;A&#x27;</span> &amp;&amp; B[i]&lt;=<span class="token string">&#x27;Z&#x27;</span>){
+                b+=<span class="token keyword">int</span>(B[i]-<span class="token string">&#x27;A&#x27;</span>)+<span class="token number">1</span>;
+            }
+        }
+        <span class="token keyword">while</span>(b&gt;=<span class="token number">10</span>){
+            <span class="token keyword">int</span> temp=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(b){
+                temp+=b%<span class="token number">10</span>;
+                b/=<span class="token number">10</span>;
+            }
+            b=temp;
+        }
+        <span class="token keyword">double</span> ans=(<span class="token keyword">double</span>)a/(<span class="token keyword">double</span>)b;
+        <span class="token keyword">if</span>(ans&gt;<span class="token number">1</span>){ans=<span class="token number">1.0</span>/ans;}
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">2</span>)&lt;&lt;ans*<span class="token number">100</span>&lt;&lt;<span class="token string">&quot; %\n&quot;</span>;
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -78,7 +94,7 @@ vector&lt;<span class="token keyword">int</span>&gt;al;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="c-39.html" class="problem-link">c</a> <a href="uva242.html" class="problem-link">uva242</a> <a href="cla-31.html" class="problem-link">cla</a> <a href="a-11.html" class="problem-link">a</a> <a href="class-41.html" class="problem-link">class</a> <a href="uva10022.html" class="problem-link">uva10022</a></p>
+        <p><a href="d-9.html" class="problem-link">d</a> <a href="d658-uva11636.html" class="problem-link">d658 uva11636</a> <a href="class-53.html" class="problem-link">class</a> <a href="d057-uva11491.html" class="problem-link">d057 uva11491</a> <a href="cla-40.html" class="problem-link">cla</a> <a href="class-21.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

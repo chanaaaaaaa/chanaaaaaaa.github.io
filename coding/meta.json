@@ -6,26 +6,6 @@
     "type": "數學",
     "difficulty": 1
   },
-  "!a470 uva12406": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "!copy": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "!d898 uva10128": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "!e601 uva255": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
   "AtCode212": {
     "complexity": "O(n²)",
     "type": "排序",
@@ -1714,5 +1694,10 @@
     "complexity": "O(n)",
     "type": "其他",
     "difficulty": 2
+  },
+  "AtCode212C": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
   }
 }

@@ -82,26 +82,35 @@
 <span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
 <span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token comment">//#include&lt;iostream&gt;</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;math.h&gt;
-<span class="token directive">#include</span>&lt;algorithm&gt;
-
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;set&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
 <span class="token directive">#define</span> icc ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
-<span class="token keyword">using</span> ull = <span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span>;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
-<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">37</span>;
 
+
+<span class="token keyword">bool</span> isenter=<span class="token keyword">false</span>;
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
     <span class="token keyword">int</span> x=<span class="token number">0</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
-    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+    <span class="token keyword">while</span>(c&gt;<span class="token string">&#x27;9&#x27;</span> || c&lt;<span class="token string">&#x27;0&#x27;</span>){
         c=getchar();
         <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;\n&#x27;</span>){
+            <span class="token keyword">if</span>(isenter){
+                isenter=<span class="token keyword">false</span>;
+                <span class="token keyword">return</span> <span class="token number">0</span>;
+            }
+        }
     }
     <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
         x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
+    isenter=<span class="token keyword">true</span>;
+
     <span class="token keyword">return</span> x;
 }
 <span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
@@ -109,59 +118,48 @@
     putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
 <span class="token comment">//-block</span>
-<span class="token keyword">int</span> N,cycle;
+
 <span class="token keyword">signed</span> main(){
-    <span class="token keyword">while</span>(N=read()){
-        cycle=sqrt(N);
-        N-=cycle*cycle;
-        <span class="token keyword">if</span>(cycle%<span class="token number">2</span>==<span class="token number">1</span>){
-            <span class="token keyword">if</span>(N==<span class="token number">0</span>){
-                putchar(<span class="token string">&#x27;1&#x27;</span>);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N==cycle+<span class="token number">1</span>){
-                write(cycle+<span class="token number">1</span>);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle+<span class="token number">1</span>);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N&gt;cycle+<span class="token number">1</span>){
-                write(cycle+<span class="token number">1</span>);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle*<span class="token number">2</span>+<span class="token number">2</span>-N);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N&lt;cycle+<span class="token number">1</span>){
-                write(N);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle+<span class="token number">1</span>);
-            }
-        }<span class="token keyword">else</span>{
-            <span class="token keyword">if</span>(N==<span class="token number">0</span>){
-                write(cycle);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                putchar(<span class="token string">&#x27;1&#x27;</span>);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N==cycle+<span class="token number">1</span>){
-                write(cycle+<span class="token number">1</span>);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle+<span class="token number">1</span>);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N&gt;cycle+<span class="token number">1</span>){
-                write(cycle+<span class="token number">1</span>-(N-cycle-<span class="token number">1</span>));
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(cycle+<span class="token number">1</span>);
-            }<span class="token keyword">else</span> <span class="token keyword">if</span>(N&lt;cycle+<span class="token number">1</span>){
-                write(cycle+<span class="token number">1</span>);
-                putchar(<span class="token string">&#x27; &#x27;</span>);
-                write(N);
-            }
+    <span class="token keyword">int</span> N=read();
+    getchar();
+    <span class="token keyword">while</span>(N--){
+        <span class="token keyword">int</span> P=read(),T=read();
+        <span class="token keyword">int</span> i,j;
+        vector&lt;set&lt;<span class="token keyword">int</span>&gt;&gt;dat;
+        dat.assign(P,set&lt;<span class="token keyword">int</span>&gt;());
+        <span class="token keyword">while</span>(i=read()){
+            j=read();
+            dat[i-<span class="token number">1</span>].insert(j);
         }
+
+        set&lt;set&lt;<span class="token keyword">int</span>&gt;&gt; opinions;
+        <span class="token keyword">for</span>(<span class="token keyword">auto</span> &amp;s:dat){
+            opinions.insert(s);
+        }
+        write(opinions.size());
         putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        <span class="token keyword">if</span>(N){putchar(<span class="token string">&#x27;\n&#x27;</span>);}
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
+<span class="token comment">/*
+1
 
+3 4
+1 2
+3 3
+1 3
+2 2
+3 2
+2 4
+
+*/</span>
 </code></pre>
     </div>
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-10.html" class="problem-link">cla</a> <a href="class-25.html" class="problem-link">class</a> <a href="cla-3.html" class="problem-link">cla</a> <a href="cla-31.html" class="problem-link">cla</a> <a href="cla-11.html" class="problem-link">cla</a> <a href="uva11703.html" class="problem-link">uva11703</a></p>
+        <p><a href="s-8.html" class="problem-link">s</a> <a href="c-27.html" class="problem-link">c</a> <a href="s-21.html" class="problem-link">s</a> <a href="class-15.html" class="problem-link">class</a> <a href="class-57.html" class="problem-link">class</a> <a href="d097.html" class="problem-link">d097</a></p>
     </div>
 
     <footer>

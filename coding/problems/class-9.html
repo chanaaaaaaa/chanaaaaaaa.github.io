@@ -36,73 +36,61 @@
     <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+    <pre class="code-block language-cpp"><code><span class="token comment">//#pragma GCC optimize(&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;)</span>
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
 <span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
 <span class="token directive">#include</span>&lt;cstdio&gt;
-
-<span class="token directive">#define</span> MAXN <span class="token number">1000000000</span>
-<span class="token directive">#define</span> MAXP <span class="token number">31623</span>
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
-    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
     <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
         c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
     }
-    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
         x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+(c-<span class="token string">&#x27;0&#x27;</span>);
         c=getchar();
     }
-    <span class="token keyword">return</span> x;
-}<span class="token comment">/*
-inline void write(int x){
-    if(x&gt;=10){write(x/10);}
-    putchar(x%10+&#x27;0&#x27;);
-}*/</span>
-<span class="token comment">// -block</span>
-<span class="token keyword">bool</span> isprime[MAXP+<span class="token number">1</span>];
-<span class="token keyword">int</span> primes[<span class="token number">3401</span>],pt=-<span class="token number">1</span>;
-<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=MAXP;i++){
-        <span class="token keyword">if</span>(!isprime[i]){primes[++pt]=i;}
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;=pt;++j){
-            <span class="token keyword">if</span>(i*primes[j]&gt;MAXP){<span class="token keyword">break</span>;}
-            isprime[i*primes[j]]=<span class="token keyword">true</span>;
-            <span class="token keyword">if</span>(i%primes[j]==<span class="token number">0</span>){<span class="token keyword">break</span>;}
-        }
-    }
+    <span class="token keyword">return</span> x*w;
 }
-
-<span class="token keyword">inline</span> <span class="token keyword">int</span> slove(<span class="token keyword">int</span> x){
-    <span class="token keyword">int</span> res=<span class="token number">1</span>,cnt;
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;=pt;++i){
-        cnt=<span class="token number">1</span>;
-        <span class="token keyword">while</span>(x%primes[i]==<span class="token number">0</span>){
-            x/=primes[i];
-            ++cnt;
-        }
-        <span class="token keyword">if</span>(cnt){
-            res*=cnt;
-        }
-        <span class="token keyword">if</span>(x==<span class="token number">1</span>){<span class="token keyword">break</span>;}
-    }
-    <span class="token keyword">return</span> res;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">long</span> <span class="token keyword">long</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
 }
-
-<span class="token keyword">signed</span> main(<span class="token keyword">void</span>){
-    form();
-    <span class="token comment">//-sum primes</span>
-    <span class="token keyword">int</span> T=read(),L,U,maxx,om,tm;
+<span class="token comment">//-block</span>
+vector&lt;<span class="token keyword">int</span>&gt;num;
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> T=read();
     <span class="token keyword">while</span>(T--){
-        L=read();U=read();maxx=<span class="token number">0</span>;
-
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=L;i&lt;=U;++i){
-            tm=slove(i);
-            <span class="token keyword">if</span>(tm&gt;maxx){maxx=tm;om=i;}
+        <span class="token keyword">int</span> N=read();
+        <span class="token keyword">if</span>(N==<span class="token number">0</span>){
+            putchar(<span class="token string">&#x27;0&#x27;</span>);
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(N==<span class="token number">1</span>){
+            putchar(<span class="token string">&#x27;1&#x27;</span>);
+        }<span class="token keyword">else</span>{
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">9</span>;i&gt;=<span class="token number">2</span>;i--){
+                <span class="token keyword">if</span>(N%i==<span class="token number">0</span>){
+                    num.emplace_back(i);
+                    N/=i;
+                }
+            }
+            <span class="token keyword">if</span>(N!=<span class="token number">1</span>){
+                write(-<span class="token number">1</span>);
+            }<span class="token keyword">else</span>{
+                sort(num.begin(),num.end());
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;p:num){
+                    write(p);
+                }
+            }
         }
-        printf(<span class="token string">&quot;Between %d and %d, %d has a maximum of %d divisors.\n&quot;</span>,L,U,om,maxx);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        num.clear();
     }
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
@@ -111,7 +99,7 @@ inline void write(int x){
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="p-2.html" class="problem-link">p</a> <a href="BS-C.html" class="problem-link">BS-C</a> <a href="a-37.html" class="problem-link">a</a> <a href="class-12.html" class="problem-link">class</a> <a href="class-46.html" class="problem-link">class</a> <a href="cla-58.html" class="problem-link">cla</a></p>
+        <p><a href="c-17.html" class="problem-link">c</a> <a href="d.html" class="problem-link">d</a> <a href="uva793.html" class="problem-link">uva793</a> <a href="cla-8.html" class="problem-link">cla</a> <a href="uva11609.html" class="problem-link">uva11609</a> <a href="a-29.html" class="problem-link">a</a></p>
     </div>
 
     <footer>

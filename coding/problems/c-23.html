@@ -37,44 +37,46 @@
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
-<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)</span>
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;cmath&gt;
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
 
-<span class="token keyword">int</span> main(){
-    cin.tie(<span class="token number">0</span>);
-    cout.tie(<span class="token number">0</span>);
-    ios_base::sync_with_stdio(<span class="token number">0</span>);
+<span class="token keyword">int</span> i=-<span class="token number">1</span>,n;
+string DF;
 
-    vector&lt;string&gt;dat;
-    <span class="token keyword">int</span> N;
-    cin&gt;&gt;N;
-    <span class="token keyword">while</span>(N--){
-        string A;
-        cin&gt;&gt;A;
-        dat.push_back(A);
-        getline(cin,A);
+<span class="token keyword">inline</span> <span class="token keyword">int</span> di(<span class="token keyword">int</span> n){
+    i++;
+    <span class="token keyword">if</span>(DF[i]==<span class="token string">&#x27;0&#x27;</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">else</span> <span class="token keyword">if</span>(DF[i]==<span class="token string">&#x27;1&#x27;</span>){<span class="token keyword">return</span> n*n;}
+    <span class="token keyword">else</span>{
+        <span class="token keyword">return</span> di(n/<span class="token number">2</span>)+di(n/<span class="token number">2</span>)+di(n/<span class="token number">2</span>)+di(n/<span class="token number">2</span>);
     }
-    sort(dat.begin(),dat.end());
-    <span class="token keyword">int</span> same=<span class="token number">1</span>;
-    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;dat.size()-<span class="token number">1</span>;i++){
-        <span class="token keyword">if</span>(same==<span class="token number">1</span>){
-            cout&lt;&lt;dat[i]&lt;&lt;<span class="token string">&quot; &quot;</span>;
-        }
-        <span class="token keyword">if</span>(dat[i]==dat[i+<span class="token number">1</span>]){
-            same++;
-            <span class="token keyword">if</span>(i==dat.size()-<span class="token number">2</span>){
-                cout&lt;&lt;same&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-            }
-        }<span class="token keyword">else</span>{
-            <span class="token keyword">if</span>(i==dat.size()-<span class="token number">2</span> &amp;&amp; same==<span class="token number">1</span>){
-                cout&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>&lt;&lt;dat[i+<span class="token number">1</span>]&lt;&lt;<span class="token string">&quot; &quot;</span>&lt;&lt;<span class="token string">&quot;1&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-            }<span class="token keyword">else</span>{
-                cout&lt;&lt;same&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
-            }
-            same=<span class="token number">1</span>;
-        }
+}
 
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
     }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+<span class="token keyword">signed</span> main(){
+    cin&gt;&gt;DF;
+    n=read();
+    write(di(n));
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -82,7 +84,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="cla-57.html" class="problem-link">cla</a> <a href="new-3.html" class="problem-link">new</a> <a href="s-8.html" class="problem-link">s</a> <a href="class-2.html" class="problem-link">class</a> <a href="class-4.html" class="problem-link">class</a> <a href="class-67.html" class="problem-link">class</a></p>
+        <p><a href="class-32.html" class="problem-link">class</a> <a href="class-6.html" class="problem-link">class</a> <a href="class-13.html" class="problem-link">class</a> <a href="d669-uva11677.html" class="problem-link">d669 uva11677</a> <a href="uva11729.html" class="problem-link">uva11729</a> <a href="class-3.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

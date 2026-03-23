@@ -40,10 +40,10 @@
 <span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
 <span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
 <span class="token directive">#include</span>&lt;cstdio&gt;
-<span class="token directive">#include</span>&lt;iostream&gt;
-<span class="token directive">#include</span>&lt;cmath&gt;
+<span class="token directive">#include</span>&lt;memory.h&gt;
+<span class="token comment">//prf do the any one or two cut between cut and cut and return the min cost</span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
-
+<span class="token keyword">int</span> dat[<span class="token number">27</span>][<span class="token number">27</span>][<span class="token number">352</span>];
 <span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
     <span class="token keyword">int</span> x=<span class="token number">0</span>;
     <span class="token keyword">char</span> c=<span class="token number">0</span>;
@@ -56,23 +56,40 @@
     }
     <span class="token keyword">return</span> x;
 }
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
 <span class="token keyword">signed</span> main(){
-    ios_base::sync_with_stdio(<span class="token number">0</span>);
-    cin.tie(<span class="token number">0</span>);
-    cout.tie(<span class="token number">0</span>);
-    <span class="token keyword">int</span> t=read();
-    <span class="token keyword">while</span>(t--){
-        <span class="token keyword">int</span> IN=read(),su=<span class="token number">1</span>;
-        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;sqrt(IN);i++){
-            <span class="token keyword">if</span>(IN%i==<span class="token number">0</span>){
-                su+=i;
-                su+=IN/i;
+
+    memset(dat,<span class="token number">0</span>,<span class="token keyword">sizeof</span>(dat));
+    dat[<span class="token number">0</span>][<span class="token number">0</span>][<span class="token number">0</span>]=<span class="token number">1</span>;
+    <span class="token keyword">int</span> L,S,cases=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=<span class="token number">26</span>;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;=i;j++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;=<span class="token number">351</span>;k++){
+                dat[i][j][k]=dat[i-<span class="token number">1</span>][j][k];
+                <span class="token keyword">if</span>(j &amp;&amp; k&gt;=i){dat[i][j][k] += dat[i-<span class="token number">1</span>][j-<span class="token number">1</span>][k-i];}
             }
         }
-        <span class="token keyword">if</span>(su==IN){cout&lt;&lt;<span class="token string">&quot;perfect\n&quot;</span>;}
-        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&lt;IN){cout&lt;&lt;<span class="token string">&quot;deficient\n&quot;</span>;}
-        <span class="token keyword">else</span> <span class="token keyword">if</span>(su&gt;IN){cout&lt;&lt;<span class="token string">&quot;abundant\n&quot;</span>;}
     }
+    <span class="token keyword">while</span>(L=read(),S=read(), L&amp;&amp;S){
+        putchar(<span class="token string">&#x27;C&#x27;</span>);
+        putchar(<span class="token string">&#x27;a&#x27;</span>);
+        putchar(<span class="token string">&#x27;s&#x27;</span>);
+        putchar(<span class="token string">&#x27;e&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        write(++cases);
+        putchar(<span class="token string">&#x27;:&#x27;</span>);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        <span class="token keyword">if</span>(L&lt;=<span class="token number">26</span> &amp;&amp; S&lt;=<span class="token number">351</span>){
+            write(dat[<span class="token number">26</span>][L][S]);
+        }<span class="token keyword">else</span>{putchar(<span class="token string">&#x27;0&#x27;</span>);}
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+
+
     <span class="token keyword">return</span> <span class="token number">0</span>;
 }
 </code></pre>
@@ -80,7 +97,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="s1143338-uva11934.html" class="problem-link">s1143338-uva11934</a> <a href="d-9.html" class="problem-link">d</a> <a href="class-86.html" class="problem-link">class</a> <a href="cla-48.html" class="problem-link">cla</a> <a href="uva10026.html" class="problem-link">uva10026</a> <a href="c-26.html" class="problem-link">c</a></p>
+        <p><a href="d-3.html" class="problem-link">d</a> <a href="d219-uva374.html" class="problem-link">d219 uva374</a> <a href="uva11614.html" class="problem-link">uva11614</a> <a href="uva10025.html" class="problem-link">uva10025</a> <a href="cla-3.html" class="problem-link">cla</a> <a href="class-20.html" class="problem-link">class</a></p>
     </div>
 
     <footer>

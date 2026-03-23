@@ -276,6 +276,25 @@ def load_meta(meta_path: Path) -> dict:
         return {}
 
 
+def load_problems(problems_path: Path) -> list:
+    """載入 data/problems.json"""
+    if not problems_path.exists():
+        return []
+    try:
+        with open(problems_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("problems", [])
+    except Exception:
+        return []
+
+
+def safe_id_from_url(url: str) -> str:
+    """從 url（如 problems/Atcoder208E.html）擷取 safe_id"""
+    if "/" in url:
+        url = url.split("/")[-1]
+    return url.replace(".html", "") if url.endswith(".html") else url
+
+
 def collect_problems(code_dir: str) -> list:
     """掃描 code 目錄內所有 .cpp 檔，每個檔案以檔名（不含 .cpp）作為題目 ID 建立一題"""
     code_path = Path(code_dir)
@@ -324,23 +343,88 @@ def collect_problems(code_dir: str) -> list:
     return problems
 
 
-def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6):
-    """產生各題目頁面與 index"""
+def merge_with_existing(
+    scanned_problems: list,
+    existing_problems: list,
+    existing_meta: dict,
+) -> tuple:
+    """
+    比對掃描結果與現有 problems.json、meta.json。
+    - 已出現（id + safe_id 在 problems.json 中）：保留現有資訊，不編輯
+    - 未曾出現：新增至 problems 與 meta
+    回傳 (merged_problems, merged_meta)
+    """
+    # 建立現有題目的索引：(id, safe_id) -> 完整 entry
+    existing_by_key = {}
+    for p in existing_problems:
+        sid = safe_id_from_url(p.get("url", ""))
+        existing_by_key[(p.get("id", ""), sid)] = p
+
+    merged_problems = []
+    merged_meta = dict(existing_meta)
+    new_count = 0
+
+    for p in scanned_problems:
+        key = (p["id"], p["safe_id"])
+        if key in existing_by_key:
+            # 已存在：保留現有 entry，不編輯
+            merged_problems.append(existing_by_key[key])
+        else:
+            # 未曾出現：新增
+            new_entry = {
+                "id": p["id"],
+                "title": p["title"],
+                "url": f"problems/{p['safe_id']}.html",
+                "type": existing_meta.get(p["id"], {}).get("type") or existing_meta.get(p["safe_id"], {}).get("type") or "其他",
+                "difficulty": existing_meta.get(p["id"], {}).get("difficulty") or existing_meta.get(p["safe_id"], {}).get("difficulty") or 3,
+            }
+            if isinstance(new_entry["difficulty"], (float, str)):
+                try:
+                    new_entry["difficulty"] = int(new_entry["difficulty"])
+                except (ValueError, TypeError):
+                    new_entry["difficulty"] = 3
+            merged_problems.append(new_entry)
+            new_count += 1
+
+            # 僅當 meta 中尚無此 id 時才新增（不覆蓋既有 key）
+            if p["id"] not in merged_meta and p["safe_id"] not in merged_meta:
+                merged_meta[p["id"]] = {
+                    "complexity": p.get("complexity", "（請自行補充）"),
+                    "type": "其他",
+                    "difficulty": 3,
+                }
+
+    # 保留孤兒題目（在 problems.json 但無對應 cpp）
+    scanned_keys = {(p["id"], p["safe_id"]) for p in scanned_problems}
+    for p in existing_problems:
+        sid = safe_id_from_url(p.get("url", ""))
+        if (p.get("id", ""), sid) not in scanned_keys:
+            merged_problems.append(p)
+
+    return merged_problems, merged_meta, new_count
+
+
+def build_pages(
+    scanned_problems: list,
+    merged_problems: list,
+    output_dir: str,
+    meta: dict,
+    num_links: int = 6,
+):
+    """產生各題目頁面與 index。scanned 用於 HTML，merged 用於 index 與 problems.json"""
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     (out / "problems").mkdir(exist_ok=True)
     (out / "data").mkdir(exist_ok=True)
 
-    problem_list = []
-    for i, p in enumerate(problems):
-        url = f"problems/{p['safe_id']}.html"
-        problem_list.append({"id": p["id"], "title": p["title"], "url": url})
-
+    # 僅對有程式碼的 scanned 題目產生 HTML
+    for i, p in enumerate(scanned_problems):
         # 優先使用 meta.json 的內容
         m = meta.get(p["id"], {}) or meta.get(p["safe_id"], {})
+        if not isinstance(m, dict):
+            m = {}
         content = m.get("content") or ""
         if content:
-            # content 格式：題目大意\n---\n題解（用 --- 分隔，無分隔時題解沿用程式碼註解）
             parts = content.split("\n---\n", 1)
             summary = parts[0].strip() if parts[0].strip() else ""
             solution = parts[1].strip() if len(parts) > 1 and parts[1].strip() else p["solution"]
@@ -349,7 +433,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
             solution = m.get("solution") or p["solution"]
         complexity = m.get("complexity") or p["complexity"]
 
-        others = [x for j, x in enumerate(problems) if j != i]
+        others = [x for j, x in enumerate(scanned_problems) if j != i]
         random.shuffle(others)
         links = others[:num_links]
 
@@ -359,7 +443,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         )
 
         problem_link_html = ""
-        if p["link"]:
+        if p.get("link"):
             problem_link_html = f'<p><a href="{p["link"]}" target="_blank" rel="noopener">題目連結（VJudge / ZeroJudge）</a></p>'
 
         summary_html = format_text_for_display(summary) or "（請自行查閱題目描述）"
@@ -381,20 +465,27 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
         with open(out / "problems" / f"{p['safe_id']}.html", "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    # 依類型與難度分組排序
+    # 依類型與難度分組排序（merged_problems 已有 type、difficulty）
     TYPE_ORDER = ["圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他"]
     DIFFICULTY_ORDER = {1: "入門", 2: "簡單", 3: "中等", 4: "困難", 5: "進階"}
 
     def get_type(p):
-        t = meta.get(p["id"], {}).get("type") or meta.get(p["safe_id"], {}).get("type") or "其他"
-        return t
+        t = p.get("type")
+        if t:
+            return t
+        m = meta.get(p["id"], {}) or meta.get(safe_id_from_url(p.get("url", "")), {})
+        return m.get("type", "其他") if isinstance(m, dict) else "其他"
 
     def get_difficulty(p):
-        d = meta.get(p["id"], {}).get("difficulty") or meta.get(p["safe_id"], {}).get("difficulty") or 3
+        d = p.get("difficulty")
+        if d is not None:
+            return int(d) if isinstance(d, (int, float)) else 3
+        m = meta.get(p["id"], {}) or meta.get(safe_id_from_url(p.get("url", "")), {})
+        d = m.get("difficulty") if isinstance(m, dict) else None
         return int(d) if isinstance(d, (int, float)) else 3
 
     grouped = {}
-    for p in problems:
+    for p in merged_problems:
         t = get_type(p)
         d = get_difficulty(p)
         if t not in grouped:
@@ -411,7 +502,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
                 problem_list.append({
                     "id": p["id"],
                     "title": p["title"],
-                    "url": f"problems/{p['safe_id']}.html",
+                    "url": p.get("url", ""),
                     "type": t,
                     "difficulty": d,
                 })
@@ -423,7 +514,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
                 problem_list.append({
                     "id": p["id"],
                     "title": p["title"],
-                    "url": f"problems/{p['safe_id']}.html",
+                    "url": p.get("url", ""),
                     "type": t,
                     "difficulty": d,
                 })
@@ -468,7 +559,7 @@ def build_pages(problems: list, output_dir: str, meta: dict, num_links: int = 6)
     with open(out / "index.html", "w", encoding="utf-8") as f:
         f.write(index_html)
 
-    return len(problems)
+    return len(scanned_problems)
 
 
 def main():
@@ -490,17 +581,30 @@ def main():
 
     output_dir = os.path.abspath(args.output)
     meta_path = Path(output_dir) / "meta.json"
-    meta = load_meta(meta_path)
+    problems_path = Path(output_dir) / "data" / "problems.json"
+
+    existing_meta = load_meta(meta_path)
+    existing_problems = load_problems(problems_path)
 
     print(f"掃描目錄：{code_dir}")
-    problems = collect_problems(code_dir)
-    print(f"找到 {len(problems)} 個題目")
+    scanned = collect_problems(code_dir)
+    print(f"找到 {len(scanned)} 個 .cpp 題目")
 
-    if not problems:
+    if not scanned:
         print("沒有找到任何題目")
         return 1
 
-    count = build_pages(problems, output_dir, meta, args.links)
+    merged_problems, merged_meta, new_count = merge_with_existing(
+        scanned, existing_problems, existing_meta
+    )
+    kept = len(merged_problems) - new_count
+    print(f"比對結果：既有 {kept} 筆保留不變，新增 {new_count} 筆，共 {len(merged_problems)} 筆")
+
+    # 寫入 meta.json（僅新增，不覆蓋既有 key）
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(merged_meta, f, ensure_ascii=False, indent=2)
+
+    count = build_pages(scanned, merged_problems, output_dir, merged_meta, args.links)
     print(f"已產生 {count} 個題目頁面與 index.html")
     print(f"輸出目錄：{output_dir}")
     print(f"提示：可編輯 meta.json 補充各題的「題目內容(content)」與「時間複雜度」")
