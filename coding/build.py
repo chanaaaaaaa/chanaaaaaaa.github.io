@@ -447,6 +447,7 @@ def collect_problems(code_dir: str) -> list:
             "safe_id": safe_id,
             "title": problem_id,
             "code": code,
+            "cpp_path": str(cpp_file.resolve()),
             "link": find_problem_link(problem_id),
             "solution": solution,
             "complexity": complexity,
@@ -591,6 +592,9 @@ def build_pages(
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
         written += 1
+        cpp_p = p.get("cpp_path") or ""
+        print(f"來源 .cpp: {cpp_p}")
+        print(f"新建 .html: {html_path.resolve()}")
 
     # 依類型與難度分組排序（merged_problems 已有 type、difficulty）
     TYPE_ORDER = ["圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他"]

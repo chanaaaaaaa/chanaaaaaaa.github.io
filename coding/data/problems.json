@@ -1,13 +1,6 @@
 {
   "problems": [
     {
-      "id": "AtCode212C",
-      "title": "AtCode212C",
-      "url": "problems/AtCode212C.html",
-      "type": "其他",
-      "difficulty": 3
-    },
-    {
       "id": "AtCoder_abc098_C",
       "title": "AtCoder_abc098_C",
       "url": "problems/AtCoder_abc098_C.html",
