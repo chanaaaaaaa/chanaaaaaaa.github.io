@@ -1,14 +1,6 @@
 {
   "problems": [
     {
-      "id": "AtCode212C",
-      "title": "AtCode212C",
-      "url": "problems/AtCode212C.html",
-      "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder。程式未附完整文字題解，請對照原題網站與下列程式碼。"
-    },
-    {
       "id": "AtCoder_abc098_C",
       "title": "AtCoder_abc098_C",
       "url": "problems/AtCoder_abc098_C.html",
