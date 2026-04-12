@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtCoder_abc453_C - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>AtCoder_abc453_C</h1>
+        <p class="subtitle">題目編號：AtCoder_abc453_C</p>
+        <p><a href="https://atcoder.jp/contests/abc453/tasks/abc453_c" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token comment">//#include &lt;utility&gt;</span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,c=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+    <span class="token keyword">return</span>;
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">int</span> res=<span class="token number">0</span>,N;
+vector&lt;<span class="token keyword">long</span> <span class="token keyword">long</span>&gt;dat;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> dfs(<span class="token keyword">int</span> times,<span class="token keyword">int</span> dep,<span class="token keyword">long</span> <span class="token keyword">double</span> pos){
+    <span class="token keyword">if</span>(dep==N){
+        <span class="token keyword">if</span>(times &gt; res){
+            res=times;
+        }
+        <span class="token keyword">return</span>;
+    }
+    <span class="token comment">//dfs(times,dep+1,pos+dat[dep]);</span>
+    <span class="token comment">//dfs(times,dep+1,pos-dat[dep]);</span>
+    <span class="token keyword">if</span>(pos &gt; <span class="token number">0</span>){
+        <span class="token keyword">if</span>(pos - dat[dep] &lt; <span class="token number">0</span>){
+            dfs(times+<span class="token number">1</span>,dep+<span class="token number">1</span>,pos-dat[dep]);
+        }<span class="token keyword">else</span>{
+            dfs(times,dep+<span class="token number">1</span>,pos-dat[dep]);
+        }
+        dfs(times,dep+<span class="token number">1</span>,pos+dat[dep]);
+    }<span class="token keyword">else</span> <span class="token keyword">if</span>(pos &lt; <span class="token number">0</span>){
+        <span class="token keyword">if</span>(pos + dat[dep] &gt; <span class="token number">0</span>){
+            dfs(times+<span class="token number">1</span>,dep+<span class="token number">1</span>,pos+dat[dep]);
+        }<span class="token keyword">else</span>{
+            dfs(times,dep+<span class="token number">1</span>,pos+dat[dep]);
+        }
+        dfs(times,dep+<span class="token number">1</span>,pos-dat[dep]);
+    }
+    <span class="token keyword">return</span>;
+}
+
+<span class="token keyword">signed</span> main(){
+    N=read();
+    dat.assign(N,<span class="token number">0</span>);
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        dat[i]=read();
+    }
+    dfs(<span class="token number">0</span>,<span class="token number">0</span>,<span class="token number">0.5</span>);
+    write(res);
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_e591-UVa_11264.html" class="problem-link">ZeroJudge_e591-UVa_11264</a> <a href="ZeroJudge_d188-UVa_11342.html" class="problem-link">ZeroJudge_d188-UVa_11342</a> <a href="UVa_10527.html" class="problem-link">UVa_10527</a> <a href="UVa_11504.html" class="problem-link">UVa_11504</a> <a href="UVa_11396.html" class="problem-link">UVa_11396</a> <a href="Luogu_P1294.html" class="problem-link">Luogu_P1294</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

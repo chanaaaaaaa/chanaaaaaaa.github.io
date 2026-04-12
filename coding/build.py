@@ -595,6 +595,7 @@ def build_pages(
         cpp_p = p.get("cpp_path") or ""
         print(f"來源 .cpp: {cpp_p}")
         print(f"新建 .html: {html_path.resolve()}")
+        print()
 
     # 依類型與難度分組排序（merged_problems 已有 type、difficulty）
     TYPE_ORDER = ["圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他"]

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtCoder_abc453_E - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>AtCoder_abc453_E</h1>
+        <p class="subtitle">題目編號：AtCoder_abc453_E</p>
+        <p><a href="https://atcoder.jp/contests/abc453/tasks/abc453_e" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+    <span class="token keyword">return</span>;
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MOD=<span class="token number">998244353</span>;
+
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> power(<span class="token keyword">long</span> <span class="token keyword">long</span> base,<span class="token keyword">long</span> <span class="token keyword">long</span> exp) {
+    <span class="token keyword">long</span> <span class="token keyword">long</span> res=<span class="token number">1</span>;
+    base%=MOD;
+    <span class="token keyword">while</span>(exp&gt;<span class="token number">0</span>){
+        <span class="token keyword">if</span>(exp&amp;<span class="token number">1</span>){res=(res*base)%MOD;}
+        base=(base*base)%MOD;
+        exp/=<span class="token number">2</span>;
+    }
+    <span class="token keyword">return</span> res;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> modInverse(<span class="token keyword">long</span> <span class="token keyword">long</span> n) {
+    <span class="token keyword">return</span> power(n,MOD-<span class="token number">2</span>);
+}
+
+vector&lt;<span class="token keyword">long</span> <span class="token keyword">long</span>&gt;fact,invFact;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> precompute(<span class="token keyword">int</span> n){
+    fact.assign(n+<span class="token number">1</span>,<span class="token number">1</span>);
+    invFact.assign(n+<span class="token number">1</span>,<span class="token number">1</span>);
+    <span class="token keyword">for</span> (<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=n;i++){
+        fact[i]=(fact[i-<span class="token number">1</span>]*i)% MOD;
+    }
+    invFact[n]=modInverse(fact[n]);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=n-<span class="token number">1</span>;i&gt;=<span class="token number">0</span>;i--){
+        invFact[i]=(invFact[i+<span class="token number">1</span>]*(i+<span class="token number">1</span>))%MOD;
+    }
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">long</span> <span class="token keyword">long</span> nCr(<span class="token keyword">int</span> n,<span class="token keyword">int</span> r){
+    <span class="token keyword">if</span>(r&lt;<span class="token number">0</span> || r&gt;n){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">return</span> fact[n]*invFact[r]%MOD *invFact[n - r]%MOD;
+}
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N=read();
+
+    vector&lt;<span class="token keyword">int</span>&gt;diff_A(N+<span class="token number">2</span>,<span class="token number">0</span>);
+    vector&lt;<span class="token keyword">int</span>&gt;diff_B(N+<span class="token number">2</span>,<span class="token number">0</span>);
+    vector&lt;<span class="token keyword">int</span>&gt;diff_Both(N+<span class="token number">2</span>,<span class="token number">0</span>);
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        <span class="token keyword">int</span> L=read(),R=read();
+
+        ++diff_A[L];
+        --diff_A[R+<span class="token number">1</span>];
+
+        <span class="token keyword">int</span> bL=N-R;
+        <span class="token keyword">int</span> bR=N-L;
+        <span class="token keyword">if</span>(bL&lt;=bR){
+            ++diff_B[bL];
+            --diff_B[bR+<span class="token number">1</span>];
+        }
+
+        <span class="token keyword">int</span> intL=max(L,bL);
+        <span class="token keyword">int</span> intR=min(R,bR);
+        <span class="token keyword">if</span>(intL&lt;=intR){
+            ++diff_Both[intL];
+            --diff_Both[intR+<span class="token number">1</span>];
+        }
+    }
+
+    precompute(N);
+
+    <span class="token keyword">long</span> <span class="token keyword">long</span> total_ways=<span class="token number">0</span>;
+    <span class="token keyword">int</span> A_count=<span class="token number">0</span>,B_count=<span class="token number">0</span>,Both_count=<span class="token number">0</span>;
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">1</span>;k&lt;N;++k){
+        A_count+=diff_A[k];
+        B_count+=diff_B[k];
+        Both_count+=diff_Both[k];
+
+        <span class="token keyword">int</span> c_both=Both_count;
+        <span class="token keyword">int</span> c_A=A_count-Both_count;
+        <span class="token keyword">int</span> c_B=B_count-Both_count;
+
+
+        <span class="token keyword">int</span> c_none=N-(c_A+c_B+c_both);
+
+        <span class="token keyword">if</span>(c_none==<span class="token number">0</span>){
+            <span class="token keyword">int</span> target=k-c_A;
+            <span class="token keyword">if</span>(target&gt;=<span class="token number">0</span> &amp;&amp; target&lt;=c_both){
+                total_ways=(total_ways+nCr(c_both,target))%MOD;
+            }
+        }
+    }
+
+    write(total_ways);
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_e555-UVa_10170.html" class="problem-link">ZeroJudge_e555-UVa_10170</a> <a href="ZeroJudge_q837.html" class="problem-link">ZeroJudge_q837</a> <a href="UVa_1213.html" class="problem-link">UVa_1213</a> <a href="ZeroJudge_c203-UVa_13185.html" class="problem-link">ZeroJudge_c203-UVa_13185</a> <a href="ZeroJudge_c124-UVa_532.html" class="problem-link">ZeroJudge_c124-UVa_532</a> <a href="UVa_796.html" class="problem-link">UVa_796</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
