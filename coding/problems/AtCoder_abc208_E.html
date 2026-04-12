@@ -27,58 +27,16 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>【題源】AtCoder ABC208 E。程式內含部分中文註解，摘錄如下供參考。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>【註解摘錄】<br>- (1) less -&gt; less: 已小於 N 的前綴，可選 0~9<br>- 曾在某項出現過 ${d} &lt; ${digit}<br>- (2) equal -&gt; less: 前綴等於 N，此位選小於 digit 的數<br>- (3) equal -&gt; equal: 繼續匹配 N<br>- (4) 0...0d 形式：前 i 位全 0，此位選 1~9（單一位數等）<br>- 統計乘積 &lt;= K 的數量</p>
 
     <h2>時間複雜度</h2>
     <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
-    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token number">1</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token number">2</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token number">3</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse-lm&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-vrp&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpeephole2&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ffast-math&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-spec&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;unroll-loops&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-labels&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdevirtualize&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcaller-saves&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcrossjumping&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fthread-jumps&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funroll-loops&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fwhole-program&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-blocks&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-functions&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-tail-merge&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns2&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-aliasing&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-overflow&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-functions&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcse-follow-jumps&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-interblock&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpartial-inlining&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;no-stack-protector&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-functions&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-findirect-inlining&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ferun-cse-after-loop&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-small-functions&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-finline-small-functions&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-switch-conversion&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-foptimize-sibling-calls&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fexpensive-optimizations&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funsafe-loop-optimizations&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-function-called-once&quot;</span>)
-<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
-
+    <pre class="code-block language-cpp"><code>
 <span class="token comment">/* Self Define Const */</span>
 
 <span class="token directive">#include</span> &lt;iostream&gt;
@@ -173,7 +131,7 @@
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="CSES_1074.html" class="problem-link">CSES_1074</a> <a href="ZeroJudge_f580.html" class="problem-link">ZeroJudge_f580</a> <a href="ZeroJudge_e581-UVa_11067.html" class="problem-link">ZeroJudge_e581-UVa_11067</a> <a href="ZeroJudge_b059.html" class="problem-link">ZeroJudge_b059</a> <a href="UVa_11005.html" class="problem-link">UVa_11005</a> <a href="UVa_10959.html" class="problem-link">UVa_10959</a></p>
+        <p><a href="ZeroJudge_c002-UVa_10696.html" class="problem-link">ZeroJudge_c002-UVa_10696</a> <a href="LibreOJ_2185.html" class="problem-link">LibreOJ_2185</a> <a href="UVa_10926.html" class="problem-link">UVa_10926</a> <a href="UVa_10337.html" class="problem-link">UVa_10337</a> <a href="ZeroJudge_c575.html" class="problem-link">ZeroJudge_c575</a> <a href="ZeroJudge_e507-UVa_10252-2.html" class="problem-link">ZeroJudge_e507-UVa_10252</a></p>
     </div>
 
     <footer>

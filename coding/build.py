@@ -112,6 +112,16 @@ def extract_from_code(code: str, problem_id: str) -> tuple:
     return solution or "（請自行補充）", complexity or "（請自行補充）"
 
 
+def strip_pragma_lines(code: str) -> str:
+    """建置 HTML 時略過所有 `#pragma ...` 行（不寫入題解頁程式碼區塊）。"""
+    out = []
+    for line in code.splitlines(keepends=True):
+        if line.lstrip().startswith("#pragma"):
+            continue
+        out.append(line)
+    return "".join(out)
+
+
 def highlight_cpp(code: str) -> str:
     """
     建置時進行 C++ 語法高亮，輸出 Prism 相容的 token class，
@@ -453,7 +463,7 @@ def merge_with_existing(
     """
     比對掃描結果與現有 problems.json、meta.json。
     - 已出現（id + safe_id 在 problems.json 中）：保留現有資訊，不編輯
-    - 未曾出現：新增至 problems 與 meta
+    - 未曾出現：新增至 problems（僅 id/title/url）與 meta（預填 complexity/type/difficulty、summary/content/description 空字串，以及可從註解擷取之 solution）
     回傳 (merged_problems, merged_meta)
     """
     # 建立現有題目的索引：(id, safe_id) -> 完整 entry
@@ -472,29 +482,29 @@ def merge_with_existing(
             # 已存在：保留現有 entry，不編輯
             merged_problems.append(existing_by_key[key])
         else:
-            # 未曾出現：新增
+            # 未曾出現：僅新增列表必要欄位（type/difficulty/description 由 meta 或預設推導，不在此預填）
             new_entry = {
                 "id": p["id"],
                 "title": p["title"],
                 "url": f"problems/{p['safe_id']}.html",
-                "type": existing_meta.get(p["id"], {}).get("type") or existing_meta.get(p["safe_id"], {}).get("type") or "其他",
-                "difficulty": existing_meta.get(p["id"], {}).get("difficulty") or existing_meta.get(p["safe_id"], {}).get("difficulty") or 3,
             }
-            if isinstance(new_entry["difficulty"], (float, str)):
-                try:
-                    new_entry["difficulty"] = int(new_entry["difficulty"])
-                except (ValueError, TypeError):
-                    new_entry["difficulty"] = 3
             merged_problems.append(new_entry)
             new_count += 1
 
-            # 僅當 meta 中尚無此 id 時才新增（不覆蓋既有 key）
+            # 僅當 meta 中尚無此 id 時才新增（預填與掃描結果；summary/content/description 仍由使用者補）
             if p["id"] not in merged_meta and p["safe_id"] not in merged_meta:
-                merged_meta[p["id"]] = {
+                new_meta = {
                     "complexity": p.get("complexity", "（請自行補充）"),
                     "type": "其他",
                     "difficulty": 3,
+                    "summary": "",
+                    "content": "",
+                    "description": "",
                 }
+                sol = (p.get("solution") or "").strip()
+                if sol and sol != "（請自行補充）":
+                    new_meta["solution"] = sol
+                merged_meta[p["id"]] = new_meta
 
     # 保留孤兒題目（在 problems.json 但無對應 cpp）
     scanned_keys = {(p["id"], p["safe_id"]) for p in scanned_problems}
@@ -513,15 +523,25 @@ def build_pages(
     meta: dict,
     num_links: int = 6,
 ):
-    """產生各題目頁面與 index。scanned 用於 HTML，merged 用於 index 與 problems.json"""
+    """
+    產生各題目頁面與 index。
+    - 已存在的 problems/{safe_id}.html 不覆寫；僅新建檔時寫入（程式碼為目前掃描內容）。
+    - 題目大意／題解／複雜度僅來自 meta.json，不從 .cpp 註解自動帶入。
+    回傳本次新建的題目頁數量。
+    """
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     (out / "problems").mkdir(exist_ok=True)
     (out / "data").mkdir(exist_ok=True)
 
-    # 僅對有程式碼的 scanned 題目產生 HTML
+    # 僅對有程式碼的 scanned 題目產生 HTML；已存在的 .html 不覆寫
+    written = 0
     for i, p in enumerate(scanned_problems):
-        # 優先使用 meta.json 的內容
+        html_path = out / "problems" / f"{p['safe_id']}.html"
+        if html_path.is_file():
+            continue
+
+        # 題目文字僅依 meta.json（不從程式註解 extract 回填 summary/solution/complexity）
         m = meta.get(p["id"], {}) or meta.get(p["safe_id"], {})
         if not isinstance(m, dict):
             m = {}
@@ -529,11 +549,15 @@ def build_pages(
         if content:
             parts = content.split("\n---\n", 1)
             summary = parts[0].strip() if parts[0].strip() else ""
-            solution = parts[1].strip() if len(parts) > 1 and parts[1].strip() else p["solution"]
+            solution = (
+                parts[1].strip()
+                if len(parts) > 1 and parts[1].strip()
+                else (m.get("solution") or "")
+            )
         else:
             summary = m.get("summary") or m.get("description") or ""
-            solution = m.get("solution") or p["solution"]
-        complexity = m.get("complexity") or p["complexity"]
+            solution = m.get("solution") or ""
+        complexity = m.get("complexity") or "（請自行補充）"
 
         others = [x for j, x in enumerate(scanned_problems) if j != i]
         random.shuffle(others)
@@ -552,7 +576,7 @@ def build_pages(
         solution_html = format_text_for_display(solution) or "（請自行補充）"
         complexity_html = html.escape(complexity)
 
-        code_html = highlight_cpp(p["code"])
+        code_html = highlight_cpp(strip_pragma_lines(p["code"]))
         html_content = PAGE_TEMPLATE.format(
             title=html.escape(p["title"]),
             problem_id=html.escape(p["id"]),
@@ -564,8 +588,9 @@ def build_pages(
             other_links_html=other_links_html,
         )
 
-        with open(out / "problems" / f"{p['safe_id']}.html", "w", encoding="utf-8") as f:
+        with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
+        written += 1
 
     # 依類型與難度分組排序（merged_problems 已有 type、difficulty）
     TYPE_ORDER = ["圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他"]
@@ -661,7 +686,7 @@ def build_pages(
     with open(out / "index.html", "w", encoding="utf-8") as f:
         f.write(index_html)
 
-    return len(scanned_problems)
+    return written
 
 
 def main():
@@ -707,7 +732,7 @@ def main():
         json.dump(merged_meta, f, ensure_ascii=False, indent=2)
 
     count = build_pages(scanned, merged_problems, output_dir, merged_meta, args.links)
-    print(f"已產生 {count} 個題目頁面與 index.html")
+    print(f"本次新建 {count} 個題目頁面（既有 .html 未覆寫）；已更新 index.html 與 data/problems.json")
     print(f"輸出目錄：{output_dir}")
     print(f"提示：可編輯 meta.json 補充各題的「題目內容(content)」與「時間複雜度」")
     return 0

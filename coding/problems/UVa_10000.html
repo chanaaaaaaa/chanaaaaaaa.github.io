@@ -27,57 +27,16 @@
 
     <div class="content-card">
     <h2>題目大意</h2>
-    <p>（請自行查閱題目描述）</p>
+    <p>【題源】UVa 10000。程式內含部分中文註解，摘錄如下供參考。</p>
 
     <h2>題解</h2>
-    <p>（請自行補充）</p>
+    <p>【註解摘錄】<br>- 初始化所有距離為無限大<br>- 初始化鬆弛次數（用於負環檢測）<br>- 初始化是否在佇列中<br>- 清空佇列（重要！可能有多組測資）<br>- 【修正】!Q.empty() 才對！當佇列「不為空」時繼續<br>- u 離開佇列，標記為不在佇列中<br>- 鬆弛：發現更短的路徑<br>- 經過 n 個點還有更新 → 負環<br>- v 不在佇列中才加入<br>- 清空圖！每組測資要重置<br>- 邊權 -1：最短路 = 最長路（取負）<br>- UVA 10000：找「距離最小」的點（最負 = 路徑最長），同長取編號小</p>
 
     <h2>時間複雜度</h2>
     <p>（請自行補充）</p>
 
     <h2>程式碼</h2>
     <pre class="code-block language-cpp"><code><span class="token comment">/*#pragma GCC optimize(1)
-#pragma GCC optimize(2)
-#pragma GCC optimize(3)
-#pragma GCC optimize(&quot;Ofast&quot;)
-#pragma GCC optimize(&quot;inline&quot;)
-#pragma GCC optimize(&quot;-fgcse&quot;)
-#pragma GCC optimize(&quot;-fgcse-lm&quot;)
-#pragma GCC optimize(&quot;-ftree-vrp&quot;)
-#pragma GCC optimize(&quot;-fpeephole2&quot;)
-#pragma GCC optimize(&quot;-ffast-math&quot;)
-#pragma GCC optimize(&quot;-fsched-spec&quot;)
-#pragma GCC optimize(&quot;unroll-loops&quot;)
-#pragma GCC optimize(&quot;-falign-labels&quot;)
-#pragma GCC optimize(&quot;-fdevirtualize&quot;)
-#pragma GCC optimize(&quot;-fcaller-saves&quot;)
-#pragma GCC optimize(&quot;-fcrossjumping&quot;)
-#pragma GCC optimize(&quot;-fthread-jumps&quot;)
-#pragma GCC optimize(&quot;-funroll-loops&quot;)
-#pragma GCC optimize(&quot;-fwhole-program&quot;)
-#pragma GCC optimize(&quot;-freorder-blocks&quot;)
-#pragma GCC optimize(&quot;-fschedule-insns&quot;)
-#pragma GCC optimize(&quot;inline-functions&quot;)
-#pragma GCC optimize(&quot;-ftree-tail-merge&quot;)
-#pragma GCC optimize(&quot;-fschedule-insns2&quot;)
-#pragma GCC optimize(&quot;-fstrict-aliasing&quot;)
-#pragma GCC optimize(&quot;-fstrict-overflow&quot;)
-#pragma GCC optimize(&quot;-falign-functions&quot;)
-#pragma GCC optimize(&quot;-fcse-follow-jumps&quot;)
-#pragma GCC optimize(&quot;-fsched-interblock&quot;)
-#pragma GCC optimize(&quot;-fpartial-inlining&quot;)
-#pragma GCC optimize(&quot;no-stack-protector&quot;)
-#pragma GCC optimize(&quot;-freorder-functions&quot;)
-#pragma GCC optimize(&quot;-findirect-inlining&quot;)
-#pragma GCC optimize(&quot;-ferun-cse-after-loop&quot;)
-#pragma GCC optimize(&quot;inline-small-functions&quot;)
-#pragma GCC optimize(&quot;-finline-small-functions&quot;)
-#pragma GCC optimize(&quot;-ftree-switch-conversion&quot;)
-#pragma GCC optimize(&quot;-foptimize-sibling-calls&quot;)
-#pragma GCC optimize(&quot;-fexpensive-optimizations&quot;)
-#pragma GCC optimize(&quot;-funsafe-loop-optimizations&quot;)
-#pragma GCC optimize(&quot;inline-function-called-once&quot;)
-#pragma GCC optimize(&quot;-fdelete-null-pointer-checks&quot;)
 //#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
 //#pragma comment(linker, &quot;/stack:200000000&quot;)
 Pragma GCC
@@ -211,7 +170,7 @@ queue&lt;<span class="token keyword">int</span>&gt;Q;
 
     <div class="other-problems">
         <h3>其他題目</h3>
-        <p><a href="ZeroJudge_b059.html" class="problem-link">ZeroJudge_b059</a> <a href="ZeroJudge_d047-UVa_10070.html" class="problem-link">ZeroJudge_d047-UVa_10070</a> <a href="ZeroJudge_d123-UVa_11063.html" class="problem-link">ZeroJudge_d123-UVa_11063</a> <a href="ZeroJudge_c123-UVa_514.html" class="problem-link">ZeroJudge_c123-UVa_514</a> <a href="UVa_11683.html" class="problem-link">UVa_11683</a> <a href="UVa_10337.html" class="problem-link">UVa_10337</a></p>
+        <p><a href="UVa_11609.html" class="problem-link">UVa_11609</a> <a href="ZeroJudge_e591-UVa_11264.html" class="problem-link">ZeroJudge_e591-UVa_11264</a> <a href="UVa_924-2.html" class="problem-link">UVa_924</a> <a href="ZeroJudge_j059-UVa_11547.html" class="problem-link">ZeroJudge_j059-UVa_11547</a> <a href="UVa_10027.html" class="problem-link">UVa_10027</a> <a href="ZeroJudge_d190-UVa_11462.html" class="problem-link">ZeroJudge_d190-UVa_11462</a></p>
     </div>
 
     <footer>

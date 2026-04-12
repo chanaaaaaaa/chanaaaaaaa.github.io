@@ -1,2972 +1,2608 @@
 {
   "problems": [
     {
+      "id": "AtCode212C",
+      "title": "AtCode212C",
+      "url": "problems/AtCode212C.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "AtCoder_abc098_C",
       "title": "AtCoder_abc098_C",
       "url": "problems/AtCoder_abc098_C.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC098 C。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc208_E",
       "title": "AtCoder_abc208_E",
       "url": "problems/AtCoder_abc208_E.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC208 E。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc212_C",
       "title": "AtCoder_abc212_C",
       "url": "problems/AtCoder_abc212_C.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC212 C。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc429_D",
       "title": "AtCoder_abc429_D",
       "url": "problems/AtCoder_abc429_D.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC429 D。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc444_A",
       "title": "AtCoder_abc444_A",
       "url": "problems/AtCoder_abc444_A.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC444 A。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc444_B",
       "title": "AtCoder_abc444_B",
       "url": "problems/AtCoder_abc444_B.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC444 B。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc444_C",
       "title": "AtCoder_abc444_C",
       "url": "problems/AtCoder_abc444_C.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC444 C。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc444_D",
       "title": "AtCoder_abc444_D",
       "url": "problems/AtCoder_abc444_D.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC444 D。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "AtCoder_abc444_E",
       "title": "AtCoder_abc444_E",
       "url": "problems/AtCoder_abc444_E.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】AtCoder ABC444 E。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1073",
       "title": "CSES_1073",
       "url": "problems/CSES_1073.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1073。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1074",
       "title": "CSES_1074",
       "url": "problems/CSES_1074.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1074。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1074",
       "title": "CSES_1074",
       "url": "problems/CSES_1074-2.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1074。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1084",
       "title": "CSES_1084",
       "url": "problems/CSES_1084.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1084。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1085",
       "title": "CSES_1085",
       "url": "problems/CSES_1085.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1085。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1090",
       "title": "CSES_1090",
       "url": "problems/CSES_1090.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1090。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1131",
       "title": "CSES_1131",
       "url": "problems/CSES_1131.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1131。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1140",
       "title": "CSES_1140",
       "url": "problems/CSES_1140.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1140。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1619",
       "title": "CSES_1619",
       "url": "problems/CSES_1619.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1619。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1620",
       "title": "CSES_1620",
       "url": "problems/CSES_1620.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1620。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1621",
       "title": "CSES_1621",
       "url": "problems/CSES_1621.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1621。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1629",
       "title": "CSES_1629",
       "url": "problems/CSES_1629.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1629。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1630",
       "title": "CSES_1630",
       "url": "problems/CSES_1630.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1630。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1631",
       "title": "CSES_1631",
       "url": "problems/CSES_1631.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1631。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1632",
       "title": "CSES_1632",
       "url": "problems/CSES_1632.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1632。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1640",
       "title": "CSES_1640",
       "url": "problems/CSES_1640.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1640。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1641",
       "title": "CSES_1641",
       "url": "problems/CSES_1641.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1641。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1643",
       "title": "CSES_1643",
       "url": "problems/CSES_1643.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1643。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1646",
       "title": "CSES_1646",
       "url": "problems/CSES_1646.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1646。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1650",
       "title": "CSES_1650",
       "url": "problems/CSES_1650.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1650。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1679",
       "title": "CSES_1679",
       "url": "problems/CSES_1679.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1679。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1733",
       "title": "CSES_1733",
       "url": "problems/CSES_1733.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1733。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1734",
       "title": "CSES_1734",
       "url": "problems/CSES_1734.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1734。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1745",
       "title": "CSES_1745",
       "url": "problems/CSES_1745.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1745。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1753",
       "title": "CSES_1753",
       "url": "problems/CSES_1753.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1753。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1753",
       "title": "CSES_1753",
       "url": "problems/CSES_1753-2.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1753。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "CSES_1754",
       "title": "CSES_1754",
       "url": "problems/CSES_1754.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】CSES 1754。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "LibreOJ_2185",
       "title": "LibreOJ_2185",
       "url": "problems/LibreOJ_2185.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】LibreOJ 2185。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P12367",
       "title": "Luogu_P12367",
       "url": "problems/Luogu_P12367.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P12367。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P1294",
       "title": "Luogu_P1294",
       "url": "problems/Luogu_P1294.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P1294。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P1429",
       "title": "Luogu_P1429",
       "url": "problems/Luogu_P1429.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P1429。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P1648",
       "title": "Luogu_P1648",
       "url": "problems/Luogu_P1648.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P1648。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P1886",
       "title": "Luogu_P1886",
       "url": "problems/Luogu_P1886.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P1886。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P2261",
       "title": "Luogu_P2261",
       "url": "problems/Luogu_P2261.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P2261。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P2522",
       "title": "Luogu_P2522",
       "url": "problems/Luogu_P2522.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P2522。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P2580",
       "title": "Luogu_P2580",
       "url": "problems/Luogu_P2580.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P2580。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P2906",
       "title": "Luogu_P2906",
       "url": "problems/Luogu_P2906.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P2906。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P3958",
       "title": "Luogu_P3958",
       "url": "problems/Luogu_P3958.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P3958。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P3964",
       "title": "Luogu_P3964",
       "url": "problems/Luogu_P3964.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P3964。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P4169",
       "title": "Luogu_P4169",
       "url": "problems/Luogu_P4169.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P4169。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P4648",
       "title": "Luogu_P4648",
       "url": "problems/Luogu_P4648.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P4648。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P5098",
       "title": "Luogu_P5098",
       "url": "problems/Luogu_P5098.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P5098。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "Luogu_P9204",
       "title": "Luogu_P9204",
       "url": "problems/Luogu_P9204.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】洛谷 P9204。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10000",
       "title": "UVa_10000",
       "url": "problems/UVa_10000.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10000。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10006",
       "title": "UVa_10006",
       "url": "problems/UVa_10006.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10006。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10007",
       "title": "UVa_10007",
       "url": "problems/UVa_10007.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10007。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10010",
       "title": "UVa_10010",
       "url": "problems/UVa_10010.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10010。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10015",
       "title": "UVa_10015",
       "url": "problems/UVa_10015.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10015。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10022",
       "title": "UVa_10022",
       "url": "problems/UVa_10022.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10022。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10025",
       "title": "UVa_10025",
       "url": "problems/UVa_10025.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10025。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10026",
       "title": "UVa_10026",
       "url": "problems/UVa_10026.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10026。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10027",
       "title": "UVa_10027",
       "url": "problems/UVa_10027.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10027。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10031",
       "title": "UVa_10031",
       "url": "problems/UVa_10031.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10031。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10102",
       "title": "UVa_10102",
       "url": "problems/UVa_10102.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10102。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10125",
       "title": "UVa_10125",
       "url": "problems/UVa_10125.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10125。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10161",
       "title": "UVa_10161",
       "url": "problems/UVa_10161.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10161。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10172",
       "title": "UVa_10172",
       "url": "problems/UVa_10172.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10172。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10174",
       "title": "UVa_10174",
       "url": "problems/UVa_10174.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10174。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10199",
       "title": "UVa_10199",
       "url": "problems/UVa_10199.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10199。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10223",
       "title": "UVa_10223",
       "url": "problems/UVa_10223.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10223。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10227",
       "title": "UVa_10227",
       "url": "problems/UVa_10227.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10227。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10236",
       "title": "UVa_10236",
       "url": "problems/UVa_10236.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10236。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10302",
       "title": "UVa_10302",
       "url": "problems/UVa_10302.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10302。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10305",
       "title": "UVa_10305",
       "url": "problems/UVa_10305.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10305。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10311",
       "title": "UVa_10311",
       "url": "problems/UVa_10311.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10311。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10312",
       "title": "UVa_10312",
       "url": "problems/UVa_10312.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10312。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10325",
       "title": "UVa_10325",
       "url": "problems/UVa_10325.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10325。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10334",
       "title": "UVa_10334",
       "url": "problems/UVa_10334.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10334。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10337",
       "title": "UVa_10337",
       "url": "problems/UVa_10337.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10337。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10341",
       "title": "UVa_10341",
       "url": "problems/UVa_10341.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10341。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10348",
       "title": "UVa_10348",
       "url": "problems/UVa_10348.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10348。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10364",
       "title": "UVa_10364",
       "url": "problems/UVa_10364.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10364。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10368",
       "title": "UVa_10368",
       "url": "problems/UVa_10368.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10368。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10427",
       "title": "UVa_10427",
       "url": "problems/UVa_10427.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10427。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10449",
       "title": "UVa_10449",
       "url": "problems/UVa_10449.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10449。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10523",
       "title": "UVa_10523",
       "url": "problems/UVa_10523.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10523。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10527",
       "title": "UVa_10527",
       "url": "problems/UVa_10527.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10527。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10535",
       "title": "UVa_10535",
       "url": "problems/UVa_10535.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10535。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10563",
       "title": "UVa_10563",
       "url": "problems/UVa_10563.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10563。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10579",
       "title": "UVa_10579",
       "url": "problems/UVa_10579.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10579。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10596",
       "title": "UVa_10596",
       "url": "problems/UVa_10596.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10596。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10611",
       "title": "UVa_10611",
       "url": "problems/UVa_10611.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10611。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10653",
       "title": "UVa_10653",
       "url": "problems/UVa_10653.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10653。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10673",
       "title": "UVa_10673",
       "url": "problems/UVa_10673.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10673。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10730",
       "title": "UVa_10730",
       "url": "problems/UVa_10730.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10730。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10763",
       "title": "UVa_10763",
       "url": "problems/UVa_10763.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10763。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10820",
       "title": "UVa_10820",
       "url": "problems/UVa_10820.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10820。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10827",
       "title": "UVa_10827",
       "url": "problems/UVa_10827.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10827。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10858",
       "title": "UVa_10858",
       "url": "problems/UVa_10858.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10858。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10887",
       "title": "UVa_10887",
       "url": "problems/UVa_10887.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10887。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10910",
       "title": "UVa_10910",
       "url": "problems/UVa_10910.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10910。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10912",
       "title": "UVa_10912",
       "url": "problems/UVa_10912.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10912。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10916",
       "title": "UVa_10916",
       "url": "problems/UVa_10916.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10916。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10920",
       "title": "UVa_10920",
       "url": "problems/UVa_10920.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10920。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10926",
       "title": "UVa_10926",
       "url": "problems/UVa_10926.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10926。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10930",
       "title": "UVa_10930",
       "url": "problems/UVa_10930.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10930。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10943",
       "title": "UVa_10943",
       "url": "problems/UVa_10943.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10943。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_10959",
       "title": "UVa_10959",
       "url": "problems/UVa_10959.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 10959。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11005",
       "title": "UVa_11005",
       "url": "problems/UVa_11005.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11005。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11015",
       "title": "UVa_11015",
       "url": "problems/UVa_11015.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11015。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11057",
       "title": "UVa_11057",
       "url": "problems/UVa_11057.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11057。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11076",
       "title": "UVa_11076",
       "url": "problems/UVa_11076.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11076。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11086",
       "title": "UVa_11086",
       "url": "problems/UVa_11086.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11086。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11093",
       "title": "UVa_11093",
       "url": "problems/UVa_11093.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11093。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_111",
       "title": "UVa_111",
       "url": "problems/UVa_111.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 111。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11121",
       "title": "UVa_11121",
       "url": "problems/UVa_11121.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11121。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11287",
       "title": "UVa_11287",
       "url": "problems/UVa_11287.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11287。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11396",
       "title": "UVa_11396",
       "url": "problems/UVa_11396.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11396。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11413",
       "title": "UVa_11413",
       "url": "problems/UVa_11413.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11413。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11480",
       "title": "UVa_11480",
       "url": "problems/UVa_11480.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11480。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11504",
       "title": "UVa_11504",
       "url": "problems/UVa_11504.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11504。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11517",
       "title": "UVa_11517",
       "url": "problems/UVa_11517.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11517。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11550",
       "title": "UVa_11550",
       "url": "problems/UVa_11550.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11550。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11566",
       "title": "UVa_11566",
       "url": "problems/UVa_11566.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11566。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11583",
       "title": "UVa_11583",
       "url": "problems/UVa_11583.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11583。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11609",
       "title": "UVa_11609",
       "url": "problems/UVa_11609.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11609。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11614",
       "title": "UVa_11614",
       "url": "problems/UVa_11614.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11614。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11683",
       "title": "UVa_11683",
       "url": "problems/UVa_11683.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11683。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11703",
       "title": "UVa_11703",
       "url": "problems/UVa_11703.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11703。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11709",
       "title": "UVa_11709",
       "url": "problems/UVa_11709.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11709。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11714",
       "title": "UVa_11714",
       "url": "problems/UVa_11714.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11714。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11729",
       "title": "UVa_11729",
       "url": "problems/UVa_11729.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11729。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11730",
       "title": "UVa_11730",
       "url": "problems/UVa_11730.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11730。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11742",
       "title": "UVa_11742",
       "url": "problems/UVa_11742.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11742。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11770",
       "title": "UVa_11770",
       "url": "problems/UVa_11770.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11770。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11934",
       "title": "UVa_11934",
       "url": "problems/UVa_11934.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11934。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_11951",
       "title": "UVa_11951",
       "url": "problems/UVa_11951.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 11951。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_1208",
       "title": "UVa_1208",
       "url": "problems/UVa_1208.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 1208。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_1210",
       "title": "UVa_1210",
       "url": "problems/UVa_1210.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 1210。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_1213",
       "title": "UVa_1213",
       "url": "problems/UVa_1213.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 1213。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_12160",
       "title": "UVa_12160",
       "url": "problems/UVa_12160.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 12160。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_12186",
       "title": "UVa_12186",
       "url": "problems/UVa_12186.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 12186。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_1235",
       "title": "UVa_1235",
       "url": "problems/UVa_1235.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 1235。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_12783",
       "title": "UVa_12783",
       "url": "problems/UVa_12783.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 12783。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_13249",
       "title": "UVa_13249",
       "url": "problems/UVa_13249.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 13249。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_160",
       "title": "UVa_160",
       "url": "problems/UVa_160.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 160。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_166",
       "title": "UVa_166",
       "url": "problems/UVa_166.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 166。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_242",
       "title": "UVa_242",
       "url": "problems/UVa_242.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 242。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_247",
       "title": "UVa_247",
       "url": "problems/UVa_247.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 247。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_501",
       "title": "UVa_501",
       "url": "problems/UVa_501.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 501。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_507",
       "title": "UVa_507",
       "url": "problems/UVa_507.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 507。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_624",
       "title": "UVa_624",
       "url": "problems/UVa_624.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 624。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_657",
       "title": "UVa_657",
       "url": "problems/UVa_657.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 657。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_793",
       "title": "UVa_793",
       "url": "problems/UVa_793.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 793。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_796",
       "title": "UVa_796",
       "url": "problems/UVa_796.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 796。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_798",
       "title": "UVa_798",
       "url": "problems/UVa_798.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 798。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_834",
       "title": "UVa_834",
       "url": "problems/UVa_834.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 834。程式內含部分中文註解，摘錄如下供參考。"
+      "difficulty": 3
     },
     {
       "id": "UVa_907",
       "title": "UVa_907",
       "url": "problems/UVa_907.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 907。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_908",
       "title": "UVa_908",
       "url": "problems/UVa_908.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 908。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_924",
       "title": "UVa_924",
       "url": "problems/UVa_924.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 924。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_924",
       "title": "UVa_924",
       "url": "problems/UVa_924-2.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 924。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_926",
       "title": "UVa_926",
       "url": "problems/UVa_926.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 926。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "UVa_928",
       "title": "UVa_928",
       "url": "problems/UVa_928.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】UVa 928。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a001",
       "title": "ZeroJudge_a001",
       "url": "problems/ZeroJudge_a001.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A001。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a003",
       "title": "ZeroJudge_a003",
       "url": "problems/ZeroJudge_a003.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A003。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a004",
       "title": "ZeroJudge_a004",
       "url": "problems/ZeroJudge_a004.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A004。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a005",
       "title": "ZeroJudge_a005",
       "url": "problems/ZeroJudge_a005.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A005。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a006",
       "title": "ZeroJudge_a006",
       "url": "problems/ZeroJudge_a006.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A006。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a007",
       "title": "ZeroJudge_a007",
       "url": "problems/ZeroJudge_a007.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A007。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a011-UVa_00494",
       "title": "ZeroJudge_a011-UVa_00494",
       "url": "problems/ZeroJudge_a011-UVa_00494.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A011 · UVa 00494。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a012-UVa_10055",
       "title": "ZeroJudge_a012-UVa_10055",
       "url": "problems/ZeroJudge_a012-UVa_10055.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A012 · UVa 10055。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a111-UVa_12149",
       "title": "ZeroJudge_a111-UVa_12149",
       "url": "problems/ZeroJudge_a111-UVa_12149.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A111 · UVa 12149。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a130-UVa_12015",
       "title": "ZeroJudge_a130-UVa_12015",
       "url": "problems/ZeroJudge_a130-UVa_12015.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A130 · UVa 12015。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a132-UVa_10931",
       "title": "ZeroJudge_a132-UVa_10931",
       "url": "problems/ZeroJudge_a132-UVa_10931.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A132 · UVa 10931。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a133-UVa_10066",
       "title": "ZeroJudge_a133-UVa_10066",
       "url": "problems/ZeroJudge_a133-UVa_10066.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A133 · UVa 10066。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a134-UVa_00948",
       "title": "ZeroJudge_a134-UVa_00948",
       "url": "problems/ZeroJudge_a134-UVa_00948.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A134 · UVa 00948。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a135-UVa_12250",
       "title": "ZeroJudge_a135-UVa_12250",
       "url": "problems/ZeroJudge_a135-UVa_12250.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A135 · UVa 12250。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a158-UVa_11827",
       "title": "ZeroJudge_a158-UVa_11827",
       "url": "problems/ZeroJudge_a158-UVa_11827.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A158 · UVa 11827。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a159-UVa_11743",
       "title": "ZeroJudge_a159-UVa_11743",
       "url": "problems/ZeroJudge_a159-UVa_11743.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A159 · UVa 11743。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a176",
       "title": "ZeroJudge_a176",
       "url": "problems/ZeroJudge_a176.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A176。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a221-UVa_11734",
       "title": "ZeroJudge_a221-UVa_11734",
       "url": "problems/ZeroJudge_a221-UVa_11734.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A221 · UVa 11734。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a223-UVa_10298",
       "title": "ZeroJudge_a223-UVa_10298",
       "url": "problems/ZeroJudge_a223-UVa_10298.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A223 · UVa 10298。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a465-UVa_12405",
       "title": "ZeroJudge_a465-UVa_12405",
       "url": "problems/ZeroJudge_a465-UVa_12405.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A465 · UVa 12405。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a466-UVa_12289",
       "title": "ZeroJudge_a466-UVa_12289",
       "url": "problems/ZeroJudge_a466-UVa_12289.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A466 · UVa 12289。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a467-UVa_11398",
       "title": "ZeroJudge_a467-UVa_11398",
       "url": "problems/ZeroJudge_a467-UVa_11398.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A467 · UVa 11398。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a518-UVa_12468",
       "title": "ZeroJudge_a518-UVa_12468",
       "url": "problems/ZeroJudge_a518-UVa_12468.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A518 · UVa 12468。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a519-UVa_12459",
       "title": "ZeroJudge_a519-UVa_12459",
       "url": "problems/ZeroJudge_a519-UVa_12459.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A519 · UVa 12459。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a520-UVa_12416",
       "title": "ZeroJudge_a520-UVa_12416",
       "url": "problems/ZeroJudge_a520-UVa_12416.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A520 · UVa 12416。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a536-UVa_11689",
       "title": "ZeroJudge_a536-UVa_11689",
       "url": "problems/ZeroJudge_a536-UVa_11689.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A536 · UVa 11689。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a539-UVa_10327",
       "title": "ZeroJudge_a539-UVa_10327",
       "url": "problems/ZeroJudge_a539-UVa_10327.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A539 · UVa 10327。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a540-UVa_10684",
       "title": "ZeroJudge_a540-UVa_10684",
       "url": "problems/ZeroJudge_a540-UVa_10684.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A540 · UVa 10684。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a737-UVa_10041-a737",
       "title": "ZeroJudge_a737-UVa_10041-a737",
       "url": "problems/ZeroJudge_a737-UVa_10041-a737.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A737 · UVa 10041。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a737-UVa_10041-new",
       "title": "ZeroJudge_a737-UVa_10041-new",
       "url": "problems/ZeroJudge_a737-UVa_10041-new.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A737 · UVa 10041。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a741-UVa_10101",
       "title": "ZeroJudge_a741-UVa_10101",
       "url": "problems/ZeroJudge_a741-UVa_10101.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A741 · UVa 10101。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a743-UVa_10420",
       "title": "ZeroJudge_a743-UVa_10420",
       "url": "problems/ZeroJudge_a743-UVa_10420.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A743 · UVa 10420。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a884-UVa_11448",
       "title": "ZeroJudge_a884-UVa_11448",
       "url": "problems/ZeroJudge_a884-UVa_11448.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A884 · UVa 11448。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_a993-UVa_10127",
       "title": "ZeroJudge_a993-UVa_10127",
       "url": "problems/ZeroJudge_a993-UVa_10127.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge A993 · UVa 10127。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b059",
       "title": "ZeroJudge_b059",
       "url": "problems/ZeroJudge_b059.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B059。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b265-UVa_11286",
       "title": "ZeroJudge_b265-UVa_11286",
       "url": "problems/ZeroJudge_b265-UVa_11286.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B265 · UVa 11286。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b266",
       "title": "ZeroJudge_b266",
       "url": "problems/ZeroJudge_b266.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B266。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b343-UVa_11518",
       "title": "ZeroJudge_b343-UVa_11518",
       "url": "problems/ZeroJudge_b343-UVa_11518.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B343 · UVa 11518。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b437-UVa_11476",
       "title": "ZeroJudge_b437-UVa_11476",
       "url": "problems/ZeroJudge_b437-UVa_11476.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B437 · UVa 11476。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b917-UVa_11059",
       "title": "ZeroJudge_b917-UVa_11059",
       "url": "problems/ZeroJudge_b917-UVa_11059.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B917 · UVa 11059。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b964",
       "title": "ZeroJudge_b964",
       "url": "problems/ZeroJudge_b964.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B964。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b965",
       "title": "ZeroJudge_b965",
       "url": "problems/ZeroJudge_b965.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B965。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b966",
       "title": "ZeroJudge_b966",
       "url": "problems/ZeroJudge_b966.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B966。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_b967",
       "title": "ZeroJudge_b967",
       "url": "problems/ZeroJudge_b967.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge B967。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c001-UVa_10405",
       "title": "ZeroJudge_c001-UVa_10405",
       "url": "problems/ZeroJudge_c001-UVa_10405.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C001 · UVa 10405。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c002-UVa_10696",
       "title": "ZeroJudge_c002-UVa_10696",
       "url": "problems/ZeroJudge_c002-UVa_10696.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C002 · UVa 10696。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c004-UVa_10812",
       "title": "ZeroJudge_c004-UVa_10812",
       "url": "problems/ZeroJudge_c004-UVa_10812.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C004 · UVa 10812。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c005-UVa_10300",
       "title": "ZeroJudge_c005-UVa_10300",
       "url": "problems/ZeroJudge_c005-UVa_10300.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C005 · UVa 10300。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c006-UVa_10550",
       "title": "ZeroJudge_c006-UVa_10550",
       "url": "problems/ZeroJudge_c006-UVa_10550.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C006 · UVa 10550。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c007-UVa_00272",
       "title": "ZeroJudge_c007-UVa_00272",
       "url": "problems/ZeroJudge_c007-UVa_00272.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C007 · UVa 00272。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c009-UVa_10473",
       "title": "ZeroJudge_c009-UVa_10473",
       "url": "problems/ZeroJudge_c009-UVa_10473.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C009 · UVa 10473。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c010-UVa_10107",
       "title": "ZeroJudge_c010-UVa_10107",
       "url": "problems/ZeroJudge_c010-UVa_10107.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C010 · UVa 10107。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c010-UVa_10107",
       "title": "ZeroJudge_c010-UVa_10107",
       "url": "problems/ZeroJudge_c010-UVa_10107-2.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C010 · UVa 10107。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c012-UVa_10062",
       "title": "ZeroJudge_c012-UVa_10062",
       "url": "problems/ZeroJudge_c012-UVa_10062.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C012 · UVa 10062。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c013-UVa_00488",
       "title": "ZeroJudge_c013-UVa_00488",
       "url": "problems/ZeroJudge_c013-UVa_00488.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C013 · UVa 00488。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c014-UVa_10035",
       "title": "ZeroJudge_c014-UVa_10035",
       "url": "problems/ZeroJudge_c014-UVa_10035.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C014 · UVa 10035。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c022-UVa_10783",
       "title": "ZeroJudge_c022-UVa_10783",
       "url": "problems/ZeroJudge_c022-UVa_10783.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C022 · UVa 10783。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c024-UVa_10079",
       "title": "ZeroJudge_c024-UVa_10079",
       "url": "problems/ZeroJudge_c024-UVa_10079.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C024 · UVa 10079。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c033-UVa_406",
       "title": "ZeroJudge_c033-UVa_406",
       "url": "problems/ZeroJudge_c033-UVa_406.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C033 · UVa 406。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c039-UVa_00100",
       "title": "ZeroJudge_c039-UVa_00100",
       "url": "problems/ZeroJudge_c039-UVa_00100.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C039 · UVa 00100。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c044-UVa_10008",
       "title": "ZeroJudge_c044-UVa_10008",
       "url": "problems/ZeroJudge_c044-UVa_10008.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C044 · UVa 10008。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c045-UVa_00490",
       "title": "ZeroJudge_c045-UVa_00490",
       "url": "problems/ZeroJudge_c045-UVa_00490.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C045 · UVa 00490。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c060-UVa_00392",
       "title": "ZeroJudge_c060-UVa_00392",
       "url": "problems/ZeroJudge_c060-UVa_00392.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C060 · UVa 00392。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c067-UVa_00591",
       "title": "ZeroJudge_c067-UVa_00591",
       "url": "problems/ZeroJudge_c067-UVa_00591.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C067 · UVa 00591。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c074-441",
       "title": "ZeroJudge_c074-441",
       "url": "problems/ZeroJudge_c074-441.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C074。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c074-UVa_441",
       "title": "ZeroJudge_c074-UVa_441",
       "url": "problems/ZeroJudge_c074-UVa_441.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C074 · UVa 441。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c082-UVa_00118",
       "title": "ZeroJudge_c082-UVa_00118",
       "url": "problems/ZeroJudge_c082-UVa_00118.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C082 · UVa 00118。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c088-UVa_516",
       "title": "ZeroJudge_c088-UVa_516",
       "url": "problems/ZeroJudge_c088-UVa_516.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C088 · UVa 516。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c101-UVa_122",
       "title": "ZeroJudge_c101-UVa_122",
       "url": "problems/ZeroJudge_c101-UVa_122.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C101 · UVa 122。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c117-UVa_439",
       "title": "ZeroJudge_c117-UVa_439",
       "url": "problems/ZeroJudge_c117-UVa_439.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C117 · UVa 439。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c119-UVa_10220",
       "title": "ZeroJudge_c119-UVa_10220",
       "url": "problems/ZeroJudge_c119-UVa_10220.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C119 · UVa 10220。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c123-UVa_514",
       "title": "ZeroJudge_c123-UVa_514",
       "url": "problems/ZeroJudge_c123-UVa_514.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C123 · UVa 514。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c124-UVa_532",
       "title": "ZeroJudge_c124-UVa_532",
       "url": "problems/ZeroJudge_c124-UVa_532.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C124 · UVa 532。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c125-UVa_534",
       "title": "ZeroJudge_c125-UVa_534",
       "url": "problems/ZeroJudge_c125-UVa_534.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C125 · UVa 534。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c129-UVa_572",
       "title": "ZeroJudge_c129-UVa_572",
       "url": "problems/ZeroJudge_c129-UVa_572.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C129 · UVa 572。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c203-UVa_13185",
       "title": "ZeroJudge_c203-UVa_13185",
       "url": "problems/ZeroJudge_c203-UVa_13185.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C203 · UVa 13185。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c290",
       "title": "ZeroJudge_c290",
       "url": "problems/ZeroJudge_c290.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C290。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c292",
       "title": "ZeroJudge_c292",
       "url": "problems/ZeroJudge_c292.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C292。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c294",
       "title": "ZeroJudge_c294",
       "url": "problems/ZeroJudge_c294.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C294。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c295",
       "title": "ZeroJudge_c295",
       "url": "problems/ZeroJudge_c295.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C295。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c296",
       "title": "ZeroJudge_c296",
       "url": "problems/ZeroJudge_c296.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C296。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c297",
       "title": "ZeroJudge_c297",
       "url": "problems/ZeroJudge_c297.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C297。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c461",
       "title": "ZeroJudge_c461",
       "url": "problems/ZeroJudge_c461.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C461。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c462",
       "title": "ZeroJudge_c462",
       "url": "problems/ZeroJudge_c462.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C462。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c463",
       "title": "ZeroJudge_c463",
       "url": "problems/ZeroJudge_c463.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C463。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c471",
       "title": "ZeroJudge_c471",
       "url": "problems/ZeroJudge_c471.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C471。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c575",
       "title": "ZeroJudge_c575",
       "url": "problems/ZeroJudge_c575.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C575。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c708-UVa_11538",
       "title": "ZeroJudge_c708-UVa_11538",
       "url": "problems/ZeroJudge_c708-UVa_11538.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C708 · UVa 11538。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_c813-UVa_11332",
       "title": "ZeroJudge_c813-UVa_11332",
       "url": "problems/ZeroJudge_c813-UVa_11332.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge C813 · UVa 11332。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d038-UVa_900",
       "title": "ZeroJudge_d038-UVa_900",
       "url": "problems/ZeroJudge_d038-UVa_900.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D038 · UVa 900。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d042-UVa_11420",
       "title": "ZeroJudge_d042-UVa_11420",
       "url": "problems/ZeroJudge_d042-UVa_11420.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D042 · UVa 11420。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d047-UVa_10070",
       "title": "ZeroJudge_d047-UVa_10070",
       "url": "problems/ZeroJudge_d047-UVa_10070.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D047 · UVa 10070。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d052-UVa_11456",
       "title": "ZeroJudge_d052-UVa_11456",
       "url": "problems/ZeroJudge_d052-UVa_11456.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D052 · UVa 11456。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d056-UVa_10013",
       "title": "ZeroJudge_d056-UVa_10013",
       "url": "problems/ZeroJudge_d056-UVa_10013.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D056 · UVa 10013。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d057-UVa_11491",
       "title": "ZeroJudge_d057-UVa_11491",
       "url": "problems/ZeroJudge_d057-UVa_11491.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D057 · UVa 11491。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d097-UVa_10038",
       "title": "ZeroJudge_d097-UVa_10038",
       "url": "problems/ZeroJudge_d097-UVa_10038.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D097 · UVa 10038。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d111-UVa_10110",
       "title": "ZeroJudge_d111-UVa_10110",
       "url": "problems/ZeroJudge_d111-UVa_10110.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D111 · UVa 10110。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d117-UVa_10924",
       "title": "ZeroJudge_d117-UVa_10924",
       "url": "problems/ZeroJudge_d117-UVa_10924.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D117 · UVa 10924。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d123-UVa_11063",
       "title": "ZeroJudge_d123-UVa_11063",
       "url": "problems/ZeroJudge_d123-UVa_11063.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D123 · UVa 11063。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d143-UVa_11172",
       "title": "ZeroJudge_d143-UVa_11172",
       "url": "problems/ZeroJudge_d143-UVa_11172.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D143 · UVa 11172。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d150-UVa_11369",
       "title": "ZeroJudge_d150-UVa_11369",
       "url": "problems/ZeroJudge_d150-UVa_11369.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D150 · UVa 11369。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d186-UVa_11461",
       "title": "ZeroJudge_d186-UVa_11461",
       "url": "problems/ZeroJudge_d186-UVa_11461.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D186 · UVa 11461。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d187-UVa_11530",
       "title": "ZeroJudge_d187-UVa_11530",
       "url": "problems/ZeroJudge_d187-UVa_11530.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D187 · UVa 11530。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d188-UVa_11342",
       "title": "ZeroJudge_d188-UVa_11342",
       "url": "problems/ZeroJudge_d188-UVa_11342.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D188 · UVa 11342。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d189-UVa_11150",
       "title": "ZeroJudge_d189-UVa_11150",
       "url": "problems/ZeroJudge_d189-UVa_11150.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D189 · UVa 11150。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d190-UVa_11462",
       "title": "ZeroJudge_d190-UVa_11462",
       "url": "problems/ZeroJudge_d190-UVa_11462.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D190 · UVa 11462。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d191-UVa_11352",
       "title": "ZeroJudge_d191-UVa_11352",
       "url": "problems/ZeroJudge_d191-UVa_11352.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D191 · UVa 11352。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d192-UVa_11351",
       "title": "ZeroJudge_d192-UVa_11351",
       "url": "problems/ZeroJudge_d192-UVa_11351.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D192 · UVa 11351。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d194-ZeroJudge_d716-UVa_11572",
       "title": "ZeroJudge_d194-ZeroJudge_d716-UVa_11572",
       "url": "problems/ZeroJudge_d194-ZeroJudge_d716-UVa_11572.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D194 · ZeroJudge D716 · UVa 11572。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d195-UVa_11495",
       "title": "ZeroJudge_d195-UVa_11495",
       "url": "problems/ZeroJudge_d195-UVa_11495.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D195 · UVa 11495。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d206-UVa_108",
       "title": "ZeroJudge_d206-UVa_108",
       "url": "problems/ZeroJudge_d206-UVa_108.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D206 · UVa 108。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d219-UVa_374",
       "title": "ZeroJudge_d219-UVa_374",
       "url": "problems/ZeroJudge_d219-UVa_374.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D219 · UVa 374。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d226-UVa_10071",
       "title": "ZeroJudge_d226-UVa_10071",
       "url": "problems/ZeroJudge_d226-UVa_10071.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D226 · UVa 10071。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d253-UVa_674",
       "title": "ZeroJudge_d253-UVa_674",
       "url": "problems/ZeroJudge_d253-UVa_674.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D253 · UVa 674。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d255-UVa_11417",
       "title": "ZeroJudge_d255-UVa_11417",
       "url": "problems/ZeroJudge_d255-UVa_11417.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D255 · UVa 11417。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d260-UVa_11455",
       "title": "ZeroJudge_d260-UVa_11455",
       "url": "problems/ZeroJudge_d260-UVa_11455.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D260 · UVa 11455。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d267-UVa_11577",
       "title": "ZeroJudge_d267-UVa_11577",
       "url": "problems/ZeroJudge_d267-UVa_11577.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D267 · UVa 11577。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d275-UVa_11586",
       "title": "ZeroJudge_d275-UVa_11586",
       "url": "problems/ZeroJudge_d275-UVa_11586.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D275 · UVa 11586。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d306-UVa_10193",
       "title": "ZeroJudge_d306-UVa_10193",
       "url": "problems/ZeroJudge_d306-UVa_10193.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D306 · UVa 10193。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d307-UVa_686",
       "title": "ZeroJudge_d307-UVa_686",
       "url": "problems/ZeroJudge_d307-UVa_686.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D307 · UVa 686。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d365-UVa_10336",
       "title": "ZeroJudge_d365-UVa_10336",
       "url": "problems/ZeroJudge_d365-UVa_10336.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D365 · UVa 10336。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d366-UVa_294",
       "title": "ZeroJudge_d366-UVa_294",
       "url": "problems/ZeroJudge_d366-UVa_294.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D366 · UVa 294。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d380-UVa_10106",
       "title": "ZeroJudge_d380-UVa_10106",
       "url": "problems/ZeroJudge_d380-UVa_10106.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D380 · UVa 10106。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d387-UVa_10235",
       "title": "ZeroJudge_d387-UVa_10235",
       "url": "problems/ZeroJudge_d387-UVa_10235.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D387 · UVa 10235。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d418-UVa_993",
       "title": "ZeroJudge_d418-UVa_993",
       "url": "problems/ZeroJudge_d418-UVa_993.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D418 · UVa 993。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d440-UVa_10299",
       "title": "ZeroJudge_d440-UVa_10299",
       "url": "problems/ZeroJudge_d440-UVa_10299.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D440 · UVa 10299。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d443-UVa_10497",
       "title": "ZeroJudge_d443-UVa_10497",
       "url": "problems/ZeroJudge_d443-UVa_10497.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D443 · UVa 10497。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d492-UVa_10226",
       "title": "ZeroJudge_d492-UVa_10226",
       "url": "problems/ZeroJudge_d492-UVa_10226.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D492 · UVa 10226。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d658-UVa_11636",
       "title": "ZeroJudge_d658-UVa_11636",
       "url": "problems/ZeroJudge_d658-UVa_11636.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D658 · UVa 11636。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d659-UVa_11727",
       "title": "ZeroJudge_d659-UVa_11727",
       "url": "problems/ZeroJudge_d659-UVa_11727.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D659 · UVa 11727。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d669-UVa_11677",
       "title": "ZeroJudge_d669-UVa_11677",
       "url": "problems/ZeroJudge_d669-UVa_11677.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D669 · UVa 11677。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d671-UVa_11716",
       "title": "ZeroJudge_d671-UVa_11716",
       "url": "problems/ZeroJudge_d671-UVa_11716.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D671 · UVa 11716。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d672-UVa_10922",
       "title": "ZeroJudge_d672-UVa_10922",
       "url": "problems/ZeroJudge_d672-UVa_10922.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D672 · UVa 10922。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d673-UVa_11608",
       "title": "ZeroJudge_d673-UVa_11608",
       "url": "problems/ZeroJudge_d673-UVa_11608.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D673 · UVa 11608。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d674-UVa_10192",
       "title": "ZeroJudge_d674-UVa_10192",
       "url": "problems/ZeroJudge_d674-UVa_10192.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D674 · UVa 10192。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d686-UVa_10003",
       "title": "ZeroJudge_d686-UVa_10003",
       "url": "problems/ZeroJudge_d686-UVa_10003.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D686 · UVa 10003。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d731-UVa_11039",
       "title": "ZeroJudge_d731-UVa_11039",
       "url": "problems/ZeroJudge_d731-UVa_11039.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D731 · UVa 11039。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d750-UVa_11321",
       "title": "ZeroJudge_d750-UVa_11321",
       "url": "problems/ZeroJudge_d750-UVa_11321.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D750 · UVa 11321。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d762-UVa_10344",
       "title": "ZeroJudge_d762-UVa_10344",
       "url": "problems/ZeroJudge_d762-UVa_10344.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D762 · UVa 10344。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d793-UVa_929",
       "title": "ZeroJudge_d793-UVa_929",
       "url": "problems/ZeroJudge_d793-UVa_929.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D793 · UVa 929。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d813-UVa_10583",
       "title": "ZeroJudge_d813-UVa_10583",
       "url": "problems/ZeroJudge_d813-UVa_10583.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D813 · UVa 10583。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d898-UVa_10128",
       "title": "ZeroJudge_d898-UVa_10128",
       "url": "problems/ZeroJudge_d898-UVa_10128.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D898 · UVa 10128。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d908",
       "title": "ZeroJudge_d908",
       "url": "problems/ZeroJudge_d908.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D908。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_d980-UVa_11479",
       "title": "ZeroJudge_d980-UVa_11479",
       "url": "problems/ZeroJudge_d980-UVa_11479.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge D980 · UVa 11479。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e183-UVa_10940",
       "title": "ZeroJudge_e183-UVa_10940",
       "url": "problems/ZeroJudge_e183-UVa_10940.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E183 · UVa 10940。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e286",
       "title": "ZeroJudge_e286",
       "url": "problems/ZeroJudge_e286.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E286。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e287",
       "title": "ZeroJudge_e287",
       "url": "problems/ZeroJudge_e287.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E287。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e288",
       "title": "ZeroJudge_e288",
       "url": "problems/ZeroJudge_e288.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E288。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e289",
       "title": "ZeroJudge_e289",
       "url": "problems/ZeroJudge_e289.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E289。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e313",
       "title": "ZeroJudge_e313",
       "url": "problems/ZeroJudge_e313.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E313。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e465",
       "title": "ZeroJudge_e465",
       "url": "problems/ZeroJudge_e465.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E465。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e507-UVa_10252",
       "title": "ZeroJudge_e507-UVa_10252",
       "url": "problems/ZeroJudge_e507-UVa_10252.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E507 · UVa 10252。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e507-UVa_10252",
       "title": "ZeroJudge_e507-UVa_10252",
       "url": "problems/ZeroJudge_e507-UVa_10252-2.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E507 · UVa 10252。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e510-UVa_10056",
       "title": "ZeroJudge_e510-UVa_10056",
       "url": "problems/ZeroJudge_e510-UVa_10056.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E510 · UVa 10056。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e512-UVa_10242",
       "title": "ZeroJudge_e512-UVa_10242",
       "url": "problems/ZeroJudge_e512-UVa_10242.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E512 · UVa 10242。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e513-UVa_11349",
       "title": "ZeroJudge_e513-UVa_11349",
       "url": "problems/ZeroJudge_e513-UVa_11349.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E513 · UVa 11349。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e516-UVa_10409",
       "title": "ZeroJudge_e516-UVa_10409",
       "url": "problems/ZeroJudge_e516-UVa_10409.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E516 · UVa 10409。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e530-UVa_1644",
       "title": "ZeroJudge_e530-UVa_1644",
       "url": "problems/ZeroJudge_e530-UVa_1644.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E530 · UVa 1644。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e531-UVa_10415",
       "title": "ZeroJudge_e531-UVa_10415",
       "url": "problems/ZeroJudge_e531-UVa_10415.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E531 · UVa 10415。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e535-UVa_11344",
       "title": "ZeroJudge_e535-UVa_11344",
       "url": "problems/ZeroJudge_e535-UVa_11344.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E535 · UVa 11344。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e539-UVa_967",
       "title": "ZeroJudge_e539-UVa_967",
       "url": "problems/ZeroJudge_e539-UVa_967.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E539 · UVa 967。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e545-UVa_10019",
       "title": "ZeroJudge_e545-UVa_10019",
       "url": "problems/ZeroJudge_e545-UVa_10019.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E545 · UVa 10019。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e555-UVa_10170",
       "title": "ZeroJudge_e555-UVa_10170",
       "url": "problems/ZeroJudge_e555-UVa_10170.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E555 · UVa 10170。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e561-UVa_00299",
       "title": "ZeroJudge_e561-UVa_00299",
       "url": "problems/ZeroJudge_e561-UVa_00299.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E561 · UVa 00299。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e564-UVa_540",
       "title": "ZeroJudge_e564-UVa_540",
       "url": "problems/ZeroJudge_e564-UVa_540.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E564 · UVa 540。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e565-UVa_10407",
       "title": "ZeroJudge_e565-UVa_10407",
       "url": "problems/ZeroJudge_e565-UVa_10407.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E565 · UVa 10407。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e566-UVa_10190",
       "title": "ZeroJudge_e566-UVa_10190",
       "url": "problems/ZeroJudge_e566-UVa_10190.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E566 · UVa 10190。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e573-UVa_10700",
       "title": "ZeroJudge_e573-UVa_10700",
       "url": "problems/ZeroJudge_e573-UVa_10700.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E573 · UVa 10700。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e575-UVa_10908",
       "title": "ZeroJudge_e575-UVa_10908",
       "url": "problems/ZeroJudge_e575-UVa_10908.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E575 · UVa 10908。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e578-UVa_10222",
       "title": "ZeroJudge_e578-UVa_10222",
       "url": "problems/ZeroJudge_e578-UVa_10222.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E578 · UVa 10222。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e579-UVa_10050",
       "title": "ZeroJudge_e579-UVa_10050",
       "url": "problems/ZeroJudge_e579-UVa_10050.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E579 · UVa 10050。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e580-UVa_696",
       "title": "ZeroJudge_e580-UVa_696",
       "url": "problems/ZeroJudge_e580-UVa_696.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E580 · UVa 696。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e581-UVa_11067",
       "title": "ZeroJudge_e581-UVa_11067",
       "url": "problems/ZeroJudge_e581-UVa_11067.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E581 · UVa 11067。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e583-UVa_11040",
       "title": "ZeroJudge_e583-UVa_11040",
       "url": "problems/ZeroJudge_e583-UVa_11040.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E583 · UVa 11040。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e584-UVa_11094",
       "title": "ZeroJudge_e584-UVa_11094",
       "url": "problems/ZeroJudge_e584-UVa_11094.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E584 · UVa 11094。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e586-UVa_1208",
       "title": "ZeroJudge_e586-UVa_1208",
       "url": "problems/ZeroJudge_e586-UVa_1208.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E586 · UVa 1208。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e591-UVa_11264",
       "title": "ZeroJudge_e591-UVa_11264",
       "url": "problems/ZeroJudge_e591-UVa_11264.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E591 · UVa 11264。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e601-UVa_255",
       "title": "ZeroJudge_e601-UVa_255",
       "url": "problems/ZeroJudge_e601-UVa_255.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E601 · UVa 255。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e603-UVa_10104",
       "title": "ZeroJudge_e603-UVa_10104",
       "url": "problems/ZeroJudge_e603-UVa_10104.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E603 · UVa 10104。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e605-UVa_10189",
       "title": "ZeroJudge_e605-UVa_10189",
       "url": "problems/ZeroJudge_e605-UVa_10189.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E605 · UVa 10189。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e606-UVa_10057",
       "title": "ZeroJudge_e606-UVa_10057",
       "url": "problems/ZeroJudge_e606-UVa_10057.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E606 · UVa 10057。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_e679-UVa_11115",
       "title": "ZeroJudge_e679-UVa_11115",
       "url": "problems/ZeroJudge_e679-UVa_11115.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge E679 · UVa 11115。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f163",
       "title": "ZeroJudge_f163",
       "url": "problems/ZeroJudge_f163.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F163。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f166",
       "title": "ZeroJudge_f166",
       "url": "problems/ZeroJudge_f166.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F166。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f312",
       "title": "ZeroJudge_f312",
       "url": "problems/ZeroJudge_f312.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F312。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f313",
       "title": "ZeroJudge_f313",
       "url": "problems/ZeroJudge_f313.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F313。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f314",
       "title": "ZeroJudge_f314",
       "url": "problems/ZeroJudge_f314.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F314。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f434-UVa_458",
       "title": "ZeroJudge_f434-UVa_458",
       "url": "problems/ZeroJudge_f434-UVa_458.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F434 · UVa 458。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f444-UVa_10268",
       "title": "ZeroJudge_f444-UVa_10268",
       "url": "problems/ZeroJudge_f444-UVa_10268.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F444 · UVa 10268。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f579",
       "title": "ZeroJudge_f579",
       "url": "problems/ZeroJudge_f579.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F579。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f580",
       "title": "ZeroJudge_f580",
       "url": "problems/ZeroJudge_f580.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F580。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f581",
       "title": "ZeroJudge_f581",
       "url": "problems/ZeroJudge_f581.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F581。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f605",
       "title": "ZeroJudge_f605",
       "url": "problems/ZeroJudge_f605.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F605。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f606",
       "title": "ZeroJudge_f606",
       "url": "problems/ZeroJudge_f606.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F606。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f607",
       "title": "ZeroJudge_f607",
       "url": "problems/ZeroJudge_f607.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F607。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f637",
       "title": "ZeroJudge_f637",
       "url": "problems/ZeroJudge_f637.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F637。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_f709-UVa_12019",
       "title": "ZeroJudge_f709-UVa_12019",
       "url": "problems/ZeroJudge_f709-UVa_12019.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge F709 · UVa 12019。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_i859-UVa_10642",
       "title": "ZeroJudge_i859-UVa_10642",
       "url": "problems/ZeroJudge_i859-UVa_10642.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge I859 · UVa 10642。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_i959-UVa_11078",
       "title": "ZeroJudge_i959-UVa_11078",
       "url": "problems/ZeroJudge_i959-UVa_11078.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge I959 · UVa 11078。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_j059-UVa_11547",
       "title": "ZeroJudge_j059-UVa_11547",
       "url": "problems/ZeroJudge_j059-UVa_11547.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge J059 · UVa 11547。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_j123",
       "title": "ZeroJudge_j123",
       "url": "problems/ZeroJudge_j123.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge J123。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_k519",
       "title": "ZeroJudge_k519",
       "url": "problems/ZeroJudge_k519.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge K519。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_m371",
       "title": "ZeroJudge_m371",
       "url": "problems/ZeroJudge_m371.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge M371。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_n693-UVa_10721",
       "title": "ZeroJudge_n693-UVa_10721",
       "url": "problems/ZeroJudge_n693-UVa_10721.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge N693 · UVa 10721。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_n773-UVa_10424",
       "title": "ZeroJudge_n773-UVa_10424",
       "url": "problems/ZeroJudge_n773-UVa_10424.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge N773 · UVa 10424。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_n786-UVa_10093",
       "title": "ZeroJudge_n786-UVa_10093",
       "url": "problems/ZeroJudge_n786-UVa_10093.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge N786 · UVa 10093。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_p497-UVa_497",
       "title": "ZeroJudge_p497-UVa_497",
       "url": "problems/ZeroJudge_p497-UVa_497.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge P497 · UVa 497。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_q837",
       "title": "ZeroJudge_q837",
       "url": "problems/ZeroJudge_q837.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge Q837。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     },
     {
       "id": "ZeroJudge_q981-UVa_151",
       "title": "ZeroJudge_q981-UVa_151",
       "url": "problems/ZeroJudge_q981-UVa_151.html",
       "type": "其他",
-      "difficulty": 3,
-      "description": "【題源】ZeroJudge Q981 · UVa 151。程式未附完整文字題解，請對照原題網站與下列程式碼。"
+      "difficulty": 3
     }
   ]
 }
