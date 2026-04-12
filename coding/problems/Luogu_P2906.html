@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P2906 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P2906</h1>
+        <p class="subtitle">題目編號：Luogu_P2906</p>
+        <p><a href="https://www.luogu.com.cn/problem/P2906" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;set&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;utility&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;cows;
+vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;fark;
+set&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;slides;
+<span class="token keyword">int</span> N,C,x,y,posL,posR,res_cnt,res_max;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> findf(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(fark[x].first==x){<span class="token keyword">return</span> x;}
+    <span class="token keyword">return</span> fark[x].first=findf(fark[x].first);
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> unite(<span class="token keyword">int</span> a,<span class="token keyword">int</span> b){
+    a=findf(a);
+    b=findf(b);
+    <span class="token keyword">if</span>(a==b){<span class="token keyword">return</span>;}
+
+    --res_cnt;
+
+    <span class="token keyword">if</span>(fark[a].second &gt; fark[b].second){
+        fark[a].second+=fark[b].second;
+        fark[b].first=a;
+        res_max=max(res_max,fark[a].second);
+    }<span class="token keyword">else</span>{
+        fark[b].second+=fark[a].second;
+        fark[a].first=b;
+        res_max=max(res_max,fark[b].second);
+    }
+    <span class="token keyword">return</span>;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    sort(cows.begin(),cows.end());
+
+    <span class="token keyword">for</span>(posR=<span class="token number">0</span>,posL=<span class="token number">0</span>,res_cnt=N,res_max=<span class="token number">1</span>;posR&lt;N;++posR){
+        <span class="token keyword">while</span>(cows[posR].first - cows[posL].first &gt; C){
+            slides.erase({cows[posL].second,posL});
+            ++posL;
+        }
+
+        set&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;::iterator pos=slides.lower_bound({cows[posR].second-C,<span class="token number">0</span>});
+        <span class="token keyword">if</span>(pos!=slides.end() &amp;&amp; pos-&gt;first &lt;= cows[posR].second+C){
+            unite(pos-&gt;second,posR);
+
+            pos=slides.upper_bound({cows[posR].second+C,N+<span class="token number">1</span>});
+            --pos;
+            unite(pos-&gt;second,posR);
+        }
+
+        slides.insert({cows[posR].second,posR});
+    }
+    <span class="token keyword">return</span>;
+}
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(N=read()){
+        C=read();
+        cows.clear();
+        fark.clear();
+        slides.clear();
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            x=read();y=read();
+            fark.push_back({i,<span class="token number">1</span>});
+            cows.push_back({x+y,x-y});
+        }
+        solve();
+        write(res_cnt);
+        putchar(<span class="token string">&#x27; &#x27;</span>);
+        write(res_max);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES_1753-2.html" class="problem-link">CSES_1753</a> <a href="ZeroJudge_c004-UVa_10812.html" class="problem-link">ZeroJudge_c004-UVa_10812</a> <a href="ZeroJudge_e575-UVa_10908.html" class="problem-link">ZeroJudge_e575-UVa_10908</a> <a href="ZeroJudge_d908.html" class="problem-link">ZeroJudge_d908</a> <a href="UVa_11742.html" class="problem-link">UVa_11742</a> <a href="ZeroJudge_c575.html" class="problem-link">ZeroJudge_c575</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

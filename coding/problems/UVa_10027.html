@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVa_10027 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>UVa_10027</h1>
+        <p class="subtitle">題目編號：UVa_10027</p>
+        <p><a href="https://vjudge.net/problem/UVA-10027" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token comment">/* I/O Optimize */</span>
+<span class="token keyword">struct</span> roleS{
+    string l,r;
+    roleS(<span class="token keyword">const</span> string &amp;_l, <span class="token keyword">const</span> string &amp;_r):l(_l),r(_r){}
+    roleS(){}
+};
+<span class="token keyword">inline</span> string CleanStr(<span class="token keyword">const</span> string &amp;s){
+    <span class="token keyword">if</span>(s.size()&gt;=<span class="token number">2</span> &amp;&amp; s.front()==<span class="token string">&#x27;&quot;&#x27;</span> &amp;&amp; s.back()==<span class="token string">&#x27;&quot;&#x27;</span>){
+        <span class="token keyword">return</span> s.substr(<span class="token number">1</span>,s.size()-<span class="token number">2</span>);
+    }
+    <span class="token keyword">return</span> s;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    <span class="token keyword">int</span> T;
+    string line;
+    getline(cin,line);
+    <span class="token keyword">while</span>(line.empty() &amp;&amp; getline(cin,line)){}
+    T=stoi(line);
+    <span class="token keyword">while</span>(T--){
+        string s;
+        <span class="token keyword">while</span>(getline(cin,s) &amp;&amp; s.empty()){}
+
+        <span class="token comment">//init</span>
+        string InitS;
+        InitS=CleanStr(s);
+        <span class="token comment">//init</span>
+
+        <span class="token keyword">bool</span> f=<span class="token keyword">false</span>;
+        vector&lt;roleS&gt;trans;
+        <span class="token keyword">while</span>(getline(cin,s)){
+            <span class="token keyword">if</span>(s.empty()){<span class="token keyword">break</span>;}
+            <span class="token keyword">if</span>(s.find(<span class="token string">&quot;-&gt;&quot;</span>)==string::npos){<span class="token keyword">continue</span>;}
+            size_t pos=s.find(<span class="token string">&quot;-&gt;&quot;</span>);
+            
+            string lft=CleanStr(s.substr(<span class="token number">0</span>,pos));
+            string rit=CleanStr(s.substr(pos+<span class="token number">2</span>));
+            <span class="token keyword">if</span>(lft==rit){<span class="token keyword">continue</span>;}
+            <span class="token keyword">if</span>(lft.empty() &amp;&amp; !rit.empty()){f=<span class="token keyword">true</span>;}
+            <span class="token keyword">if</span>(rit.find(lft)!=rit.npos){f=<span class="token keyword">true</span>;}
+            trans.emplace_back(lft,rit);
+        }
+        <span class="token keyword">if</span>(f){
+            cout&lt;&lt;<span class="token string">&quot;Too many.\n&quot;</span>;
+            <span class="token keyword">continue</span>;
+        }
+        unordered_set&lt;string&gt; vis;
+        vis.reserve(<span class="token number">1001</span>);
+        queue&lt;string&gt; Q;
+        vis.emplace(InitS);
+        Q.emplace(InitS);
+        <span class="token keyword">while</span>(!Q.empty() &amp;&amp; vis.size() &lt;= <span class="token number">1000</span>){
+            string cur=Q.front();
+            Q.pop();
+            <span class="token keyword">for</span>(<span class="token keyword">const</span> <span class="token keyword">auto</span> &amp;form:trans){
+                <span class="token keyword">auto</span> pos=<span class="token number">0</span>;
+                <span class="token keyword">while</span>((pos=cur.find(form.l,pos))!=string::npos){
+                    string ns=cur.substr(<span class="token number">0</span>,pos) + form.r + cur.substr(pos+form.l.size());
+
+                    <span class="token keyword">if</span>(vis.find(ns)==vis.end()){
+                        vis.emplace(ns);
+                        Q.push(move(ns));
+                        <span class="token keyword">if</span>(vis.size() &gt; <span class="token number">1000</span>){f=<span class="token keyword">true</span>;<span class="token keyword">break</span>;}
+                    }
+                }
+                <span class="token keyword">if</span>(f){<span class="token keyword">break</span>;}
+                ++pos;
+            }
+            <span class="token keyword">if</span>(f){<span class="token keyword">break</span>;}
+        }
+        <span class="token keyword">if</span>(f){
+            cout&lt;&lt;<span class="token string">&quot;Too many.\n&quot;</span>;
+        }<span class="token keyword">else</span>{
+            cout&lt;&lt;vis.size()&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+        }
+        <span class="token keyword">if</span>(T&gt;<span class="token number">0</span>) cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;  <span class="token comment">// 測資間空行</span>
+    }
+    cout.flush();
+}
+
+<span class="token comment">/* Programing area*/</span>
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    solve();
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_d731-UVa_11039.html" class="problem-link">ZeroJudge_d731-UVa_11039</a> <a href="CSES_1621.html" class="problem-link">CSES_1621</a> <a href="ZeroJudge_c297.html" class="problem-link">ZeroJudge_c297</a> <a href="ZeroJudge_c007-UVa_00272.html" class="problem-link">ZeroJudge_c007-UVa_00272</a> <a href="ZeroJudge_d057-UVa_11491.html" class="problem-link">ZeroJudge_d057-UVa_11491</a> <a href="ZeroJudge_f637.html" class="problem-link">ZeroJudge_f637</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_f163 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_f163</h1>
+        <p class="subtitle">題目編號：ZeroJudge_f163</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=F163" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span>&lt;bits/stdc++.h&gt;
+<span class="token comment">//#define int long long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;routes[<span class="token number">1000000</span>];
+<span class="token keyword">int</span> N,M,a,b,c,goods[<span class="token number">1999999</span>],Ques[<span class="token number">10000</span>];
+
+<span class="token keyword">int</span> init(<span class="token keyword">int</span> id){
+    <span class="token keyword">if</span>(id&gt;=N) <span class="token keyword">return</span> goods[id];
+    goods[id]=init(routes[id].first)+init(routes[id].second);
+    <span class="token keyword">return</span> goods[id];
+}
+
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+
+    cin&gt;&gt;N&gt;&gt;M;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=N;i&lt;N*<span class="token number">2</span>;i++){
+        cin&gt;&gt;goods[i];
+    }
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
+        cin&gt;&gt;Ques[i];
+    }
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;N;i++){
+        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+        routes[a]={b,c};
+    }
+    a=init(<span class="token number">1</span>);
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;M;i++){
+        <span class="token keyword">int</span> np=<span class="token number">1</span>;
+        <span class="token keyword">while</span>(np&lt;N){
+            <span class="token keyword">if</span>(goods[routes[np].first]&gt;goods[routes[np].second]){
+                np=routes[np].second;
+            }<span class="token keyword">else</span>{np=routes[np].first;}
+            goods[np]+=Ques[i];
+        }
+        cout&lt;&lt;np&lt;&lt;<span class="token string">&quot; &quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="UVa_10010.html" class="problem-link">UVa_10010</a> <a href="ZeroJudge_e579-UVa_10050.html" class="problem-link">ZeroJudge_e579-UVa_10050</a> <a href="ZeroJudge_d195-UVa_11495.html" class="problem-link">ZeroJudge_d195-UVa_11495</a> <a href="CSES_1650.html" class="problem-link">CSES_1650</a> <a href="ZeroJudge_c082-UVa_00118.html" class="problem-link">ZeroJudge_c082-UVa_00118</a> <a href="ZeroJudge_f312.html" class="problem-link">ZeroJudge_f312</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_c088-UVa_516 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_c088-UVa_516</h1>
+        <p class="subtitle">題目編號：ZeroJudge_c088-UVa_516</p>
+        <p><a href="https://vjudge.net/problem/UVA-516" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token comment">//#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;)</span>
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;iostream&gt;
+<span class="token directive">#include</span>&lt;cstdio&gt;
+<span class="token directive">#include</span>&lt;vector&gt;
+<span class="token directive">#include</span>&lt;string&gt;
+<span class="token directive">#include</span>&lt;sstream&gt;
+
+<span class="token directive">#define</span> MAXN <span class="token number">32768</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+<span class="token comment">// -block</span>
+vector&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">bool</span> isprime[MAXN+<span class="token number">1</span>];
+<span class="token keyword">inline</span> <span class="token keyword">void</span> form(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;=MAXN;i++){
+        <span class="token keyword">if</span>(!isprime[i]){primes.emplace_back(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> &amp;p:primes){
+            <span class="token keyword">if</span>(i*p&gt;MAXN){<span class="token keyword">break</span>;}
+            isprime[i*p]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%p==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        }
+    }
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> power(<span class="token keyword">int</span> x,<span class="token keyword">int</span> depth){
+    <span class="token keyword">if</span>(depth==<span class="token number">1</span>){<span class="token keyword">return</span> x;}
+    <span class="token keyword">return</span> x*power(x,depth-<span class="token number">1</span>);
+}
+
+<span class="token keyword">signed</span> main(){
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+    form();<span class="token comment">/*
+    for(int &amp;p:primes){
+        write(p);
+        putchar(&#x27;\n&#x27;);
+    }*/</span>
+    string IN,P;
+    <span class="token keyword">while</span>(getline(cin,IN)){
+        <span class="token keyword">if</span>(IN==<span class="token string">&quot;0&quot;</span>){<span class="token keyword">break</span>;}
+        <span class="token comment">//decode</span>
+        stringstream ss(IN);
+        <span class="token keyword">int</span> n=<span class="token number">0</span>,l=<span class="token number">0</span>,num=<span class="token number">1</span>;
+        <span class="token keyword">while</span>(ss&gt;&gt;P){
+            <span class="token keyword">if</span>(n==<span class="token number">0</span>){
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;P.size();i++){
+                    n=(n&lt;&lt;<span class="token number">3</span>)+(n&lt;&lt;<span class="token number">1</span>)+(P[i]-<span class="token string">&#x27;0&#x27;</span>);
+                }
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;P.size();i++){
+                    l=(l&lt;&lt;<span class="token number">3</span>)+(l&lt;&lt;<span class="token number">1</span>)+(P[i]-<span class="token string">&#x27;0&#x27;</span>);
+                }
+                num*=power(n,l);
+                n=<span class="token number">0</span>;l=<span class="token number">0</span>;
+            }
+        }
+        <span class="token comment">//-decode</span>
+        <span class="token comment">//cal</span>
+        num-=<span class="token number">1</span>;
+        <span class="token comment">//-cal</span>
+        <span class="token keyword">int</span> index=primes.size()-<span class="token number">1</span>,cnt,flag=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(num!=<span class="token number">1</span>){
+            cnt=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(num%primes[index]==<span class="token number">0</span>){
+                num/=primes[index];
+                cnt++;
+            }
+            <span class="token keyword">if</span>(cnt){
+                <span class="token keyword">if</span>(flag){putchar(<span class="token string">&#x27; &#x27;</span>);}
+                <span class="token keyword">else</span>{flag=<span class="token number">1</span>;}
+                write(primes[index]);
+                putchar(<span class="token string">&#x27; &#x27;</span>);
+                write(cnt);
+            }
+            index--;
+        }
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_c471.html" class="problem-link">ZeroJudge_c471</a> <a href="ZeroJudge_e555-UVa_10170.html" class="problem-link">ZeroJudge_e555-UVa_10170</a> <a href="Luogu_P2580.html" class="problem-link">Luogu_P2580</a> <a href="CSES_1753.html" class="problem-link">CSES_1753</a> <a href="UVa_657.html" class="problem-link">UVa_657</a> <a href="UVa_10199.html" class="problem-link">UVa_10199</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

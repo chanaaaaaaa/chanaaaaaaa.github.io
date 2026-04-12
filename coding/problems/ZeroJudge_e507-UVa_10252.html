@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_e507-UVa_10252 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_e507-UVa_10252</h1>
+        <p class="subtitle">題目編號：ZeroJudge_e507-UVa_10252</p>
+        <p><a href="https://vjudge.net/problem/UVA-10252" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> main() {
+    ios::sync_with_stdio(<span class="token keyword">false</span>);
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    string s1,s2;
+
+    <span class="token keyword">while</span>(getline(cin,s1)){
+        getline(cin,s2);
+
+        vector&lt;<span class="token keyword">int</span>&gt;count1(<span class="token number">26</span>,<span class="token number">0</span>);
+        vector&lt;<span class="token keyword">int</span>&gt;count2(<span class="token number">26</span>,<span class="token number">0</span>);
+
+        <span class="token keyword">for</span>(<span class="token keyword">char</span> &amp;c:s1) {
+            <span class="token keyword">if</span>(c&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                ++count1[c-<span class="token string">&#x27;a&#x27;</span>];
+            }
+        }
+
+        <span class="token keyword">for</span>(<span class="token keyword">char</span> &amp;c:s2) {
+            <span class="token keyword">if</span>(c&gt;=<span class="token string">&#x27;a&#x27;</span> &amp;&amp; c&lt;=<span class="token string">&#x27;z&#x27;</span>){
+                ++count2[c-<span class="token string">&#x27;a&#x27;</span>];
+            }
+        }
+
+        string res = <span class="token string">&quot;&quot;</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">26</span>;++i){
+            <span class="token keyword">int</span> common_count=min(count1[i],count2[i]);
+
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> k=<span class="token number">0</span>;k&lt;common_count;++k){
+                res+=(<span class="token keyword">char</span>)(<span class="token string">&#x27;a&#x27;</span>+i);
+            }
+        }
+
+        cout&lt;&lt;res&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES_1090.html" class="problem-link">CSES_1090</a> <a href="UVa_10010.html" class="problem-link">UVa_10010</a> <a href="UVa_796.html" class="problem-link">UVa_796</a> <a href="UVa_1208.html" class="problem-link">UVa_1208</a> <a href="ZeroJudge_d658-UVa_11636.html" class="problem-link">ZeroJudge_d658-UVa_11636</a> <a href="ZeroJudge_d186-UVa_11461.html" class="problem-link">ZeroJudge_d186-UVa_11461</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVa_507 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>UVa_507</h1>
+        <p class="subtitle">題目編號：UVa_507</p>
+        <p><a href="https://vjudge.net/problem/UVA-507" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx&quot;</span>)
+<span class="token comment">//#pragma comment(linker, &quot;/stack:200000000&quot;)</span>
+<span class="token directive">#include</span>&lt;stdio.h&gt;
+<span class="token directive">#include</span>&lt;algorithm&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+<span class="token comment">//-block</span>
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> T;
+    scanf(<span class="token string">&quot;%d&quot;</span>,&amp;T);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> cases=<span class="token number">1</span>;cases&lt;=T;cases++){
+        <span class="token keyword">int</span> N,pos=-<span class="token number">1</span>,maxStart=<span class="token number">0</span>,maxEnd=<span class="token number">0</span>,num=-<span class="token number">1</span>,
+                        Start=<span class="token number">0</span>,   End=<span class="token number">0</span>,Max=-<span class="token number">1</span>;
+        scanf(<span class="token string">&quot;%d&quot;</span>,&amp;N);
+        <span class="token keyword">int</span> dat[N],maxx[N];
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N-<span class="token number">1</span>;i++){
+            scanf(<span class="token string">&quot;%d&quot;</span>,&amp;dat[i]);
+
+            <span class="token keyword">if</span>(num&gt;=<span class="token number">0</span>){
+                num+=dat[i];
+                End=i+<span class="token number">1</span>;
+            }<span class="token keyword">else</span>{
+                num=dat[i];
+                Start=i;
+                End=i+<span class="token number">1</span>;
+            }
+
+            <span class="token keyword">if</span>(num&gt;Max || (num==Max &amp;&amp; End-Start&gt;maxEnd-maxStart)){
+                maxStart=Start;
+                maxEnd=End;
+                Max=num;
+            }
+        }
+        <span class="token keyword">if</span>(Max!=-<span class="token number">1</span>){
+            printf(<span class="token string">&quot;The nicest part of route %d is between stops %d and %d\n&quot;</span>,cases,maxStart,maxEnd);
+        }<span class="token keyword">else</span>{printf(<span class="token string">&quot;Route %d has no nice parts\n&quot;</span>,cases);}
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="UVa_11121.html" class="problem-link">UVa_11121</a> <a href="ZeroJudge_d219-UVa_374.html" class="problem-link">ZeroJudge_d219-UVa_374</a> <a href="ZeroJudge_c074-UVa_441.html" class="problem-link">ZeroJudge_c074-UVa_441</a> <a href="ZeroJudge_e535-UVa_11344.html" class="problem-link">ZeroJudge_e535-UVa_11344</a> <a href="ZeroJudge_f314.html" class="problem-link">ZeroJudge_f314</a> <a href="ZeroJudge_c014-UVa_10035.html" class="problem-link">ZeroJudge_c014-UVa_10035</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVa_10031 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>UVa_10031</h1>
+        <p class="subtitle">題目編號：UVa_10031</p>
+        <p><a href="https://vjudge.net/problem/UVA-10031" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;utility&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#include</span> &lt;math.h&gt;
+
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;nodes;
+string S;
+<span class="token keyword">int</span> total_squares,max_y;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> addEdge(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,y=<span class="token number">0</span>;
+    <span class="token keyword">bool</span> f=<span class="token keyword">false</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">char</span> &amp;c:S){
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27; &#x27;</span>){f=<span class="token keyword">true</span>;}
+        <span class="token keyword">if</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){<span class="token keyword">continue</span>;}
+
+        <span class="token keyword">if</span>(!f){
+            x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        }<span class="token keyword">else</span>{
+            y=(y&lt;&lt;<span class="token number">3</span>)+(y&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        }
+    }
+    max_y=max(max_y,y);
+    nodes.push_back({x,y});
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> SweepLine(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> y=<span class="token number">0</span>;y&lt;max_y;++y){
+        vector&lt;pair&lt;<span class="token keyword">double</span>,pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;&gt;intersections;
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;nodes.size();++i){
+            pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt; st=nodes[i];
+            pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt; ed=nodes[(i+<span class="token number">1</span>)%nodes.size()];
+
+            <span class="token keyword">if</span>(min(st.second,ed.second) &lt;= y &amp;&amp; max(st.second,ed.second) &gt;= y+<span class="token number">1</span>){
+                <span class="token keyword">int</span> dx=ed.first-st.first;
+                <span class="token keyword">int</span> dy=ed.second-st.second;
+                <span class="token keyword">if</span>(dy &lt; <span class="token number">0</span>){
+                    dx=-dx;
+                    dy=-dy;
+                }
+
+                <span class="token keyword">int</span> N_bottom=dx*(y-st.second);
+                <span class="token keyword">int</span> N_top=dx*(y+<span class="token number">1</span>-st.second);
+
+                <span class="token keyword">int</span> N_max=max(N_bottom,N_top);
+                <span class="token keyword">int</span> N_min=min(N_bottom,N_top);
+
+                <span class="token keyword">int</span> left_bound=st.first+(N_max&gt;=<span class="token number">0</span> ? (N_max+dy-<span class="token number">1</span>)/dy : N_max/dy);
+                <span class="token keyword">int</span> right_bound=st.first+(N_min&gt;=<span class="token number">0</span> ? N_min/dy : (N_min-dy+<span class="token number">1</span>)/dy);
+
+                <span class="token keyword">double</span> mid_x=(st.first+dx*(y*<span class="token number">2</span>+<span class="token number">1</span>-st.second*<span class="token number">2</span>)/(dy*<span class="token number">2</span>));
+
+                intersections.push_back({mid_x,{left_bound,right_bound}});
+            }
+        }
+        sort(intersections.begin(),intersections.end());
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;intersections.size();i+=<span class="token number">2</span>){
+            <span class="token keyword">int</span> L_safe=intersections[i].second.first;
+            <span class="token keyword">int</span> R_safe=intersections[i+<span class="token number">1</span>].second.second;
+
+            <span class="token keyword">if</span>(L_safe &lt; R_safe){
+                total_squares+=(R_safe-L_safe);
+            }
+        }
+    }
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> solve(){
+    nodes.clear();
+    total_squares=<span class="token number">0</span>;
+    max_y=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(getline(cin,S)){
+        <span class="token keyword">if</span>(S==<span class="token string">&quot;&quot;</span>){<span class="token keyword">break</span>;}
+        addEdge();
+    }
+    SweepLine();
+    cout&lt;&lt;total_squares&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+    <span class="token keyword">return</span>;
+}
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> T;
+    <span class="token keyword">while</span>(cin&gt;&gt;T){
+        cin.ignore();
+        cin.ignore();
+        <span class="token keyword">while</span>(T--){
+            solve();
+            <span class="token keyword">if</span>(T){cout&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;}
+        }
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_b059.html" class="problem-link">ZeroJudge_b059</a> <a href="UVa_11683.html" class="problem-link">UVa_11683</a> <a href="UVa_10887.html" class="problem-link">UVa_10887</a> <a href="ZeroJudge_b966.html" class="problem-link">ZeroJudge_b966</a> <a href="Luogu_P2580.html" class="problem-link">Luogu_P2580</a> <a href="ZeroJudge_d671-UVa_11716.html" class="problem-link">ZeroJudge_d671-UVa_11716</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

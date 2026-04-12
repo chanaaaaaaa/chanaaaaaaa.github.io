@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtCoder_abc208_E - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>AtCoder_abc208_E</h1>
+        <p class="subtitle">題目編號：AtCoder_abc208_E</p>
+        <p><a href="https://atcoder.jp/contests/abc208/tasks/abc208_e" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token number">1</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">2</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token number">3</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fgcse-lm&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-vrp&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpeephole2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ffast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-spec&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;unroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-labels&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdevirtualize&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcaller-saves&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcrossjumping&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fthread-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funroll-loops&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fwhole-program&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-blocks&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-tail-merge&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fschedule-insns2&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-aliasing&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fstrict-overflow&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-falign-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fcse-follow-jumps&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fsched-interblock&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fpartial-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;no-stack-protector&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-freorder-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-findirect-inlining&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ferun-cse-after-loop&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-finline-small-functions&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-ftree-switch-conversion&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-foptimize-sibling-calls&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fexpensive-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-funsafe-loop-optimizations&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;inline-function-called-once&quot;</span>)
+<span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;-fdelete-null-pointer-checks&quot;</span>)
+
+<span class="token comment">/* Self Define Const */</span>
+
+<span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;string&gt;
+<span class="token directive">#include</span> &lt;unordered_map&gt;
+
+<span class="token directive">#define</span> LL <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token comment">/* Programing area */</span>
+
+<span class="token comment">// ABC 208 E - Digit Products</span>
+
+<span class="token comment">// opt：mul is only 0 or 2^a*3^b*5^c*7^d, act.num = O((log K)^4)</span>
+<span class="token comment">// dp[start][small][prod]=cnt</span>
+
+<span class="token comment">//N=123456789</span>
+
+<span class="token keyword">void</span> solve() {
+    string N;
+    LL K;
+    cin &gt;&gt; N &gt;&gt; K;
+
+    LL INF = K + <span class="token number">1</span>;
+    unordered_map&lt;LL, LL&gt; dp;  <span class="token comment">// product , count</span>
+    LL eq_prod = <span class="token number">1</span>;            <span class="token comment">// the product of all digits(char &amp;c:s)</span>
+
+    <span class="token keyword">bool</span> f=<span class="token keyword">true</span>;        <span class="token comment">//isfirst digit ?</span>
+    <span class="token keyword">for</span> (<span class="token keyword">char</span> &amp;c:N) {
+        <span class="token keyword">int</span> digit = c - <span class="token string">&#x27;0&#x27;</span>;
+        unordered_map&lt;LL, LL&gt; nxt;
+
+        <span class="token comment">// (1) less -&gt; less: 已小於 N 的前綴，可選 0~9</span>
+        <span class="token comment">//                   曾在某項出現過 ${d} &lt; ${digit}</span>
+        <span class="token keyword">for</span> (<span class="token keyword">auto</span>&amp; [prod, val] : dp) {
+            <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">0</span>; d &lt;= <span class="token number">9</span>; d++) {
+                LL nxt_prod = min(INF, prod * d);
+                nxt[nxt_prod] += val;
+            }
+        }
+
+        <span class="token comment">// (2) equal -&gt; less: 前綴等於 N，此位選小於 digit 的數</span>
+        <span class="token comment">//                    before this step for all ${d} == ${digit}</span>
+        <span class="token comment">//                    in this step get the ${d} &lt; ${digit}</span>
+        <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">0</span>; d &lt; digit; d++) {
+            <span class="token keyword">if</span> (f &amp;&amp; d == <span class="token number">0</span>) <span class="token keyword">continue</span>;  <span class="token comment">//the first digit can&#x27;t be 0</span>
+            LL nxt_prod = min(INF, eq_prod * d);
+            nxt[nxt_prod] += <span class="token number">1</span>;         <span class="token comment">//eq_prod.cnt always 1</span>
+        }
+        
+        <span class="token comment">// (3) equal -&gt; equal: 繼續匹配 N</span>
+        <span class="token comment">//                     only need to make next eq_prod</span>
+        <span class="token comment">//                     if eq_prod is a sol. for K </span>
+        <span class="token comment">//                        res++ after the result counting</span>
+        eq_prod = min(INF, eq_prod * digit);
+
+        <span class="token comment">// (4) 0...0d 形式：前 i 位全 0，此位選 1~9（單一位數等）</span>
+        <span class="token comment">//                 get [all zero] -&gt; [less]</span>
+        <span class="token comment">//                 the count of [all zero] is 0</span>
+        <span class="token comment">//                 but the act of {less} is special ,so make the count of {less} +1</span>
+        <span class="token keyword">if</span> (!f) {
+            <span class="token keyword">for</span> (<span class="token keyword">int</span> d = <span class="token number">1</span>; d &lt;= <span class="token number">9</span>; d++) {
+                LL nxt_prod = min(INF, (LL)d);
+                nxt[nxt_prod] += <span class="token number">1</span>;
+            }
+        }
+        <span class="token comment">// (5) no need to discuss any {all zero} -&gt; {all zero}</span>
+
+        dp = move(nxt);
+        f=<span class="token keyword">false</span>;
+    }
+
+    LL answer = <span class="token number">0</span>;
+
+    <span class="token comment">// 統計乘積 &lt;= K 的數量</span>
+    <span class="token keyword">for</span> (<span class="token keyword">auto</span>&amp; [prod, val] : dp) {
+        <span class="token keyword">if</span> (prod &lt;= K) answer += val;
+    }
+    <span class="token keyword">if</span> (eq_prod &lt;= K) answer += <span class="token number">1</span>;
+
+    cout &lt;&lt; answer &lt;&lt; <span class="token string">&#x27;\n&#x27;</span>;
+}
+
+<span class="token keyword">signed</span> main() {
+    <span class="token comment">//IO</span>
+    solve();
+    system(<span class="token string">&quot;pause&quot;</span>);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES_1074.html" class="problem-link">CSES_1074</a> <a href="ZeroJudge_f580.html" class="problem-link">ZeroJudge_f580</a> <a href="ZeroJudge_e581-UVa_11067.html" class="problem-link">ZeroJudge_e581-UVa_11067</a> <a href="ZeroJudge_b059.html" class="problem-link">ZeroJudge_b059</a> <a href="UVa_11005.html" class="problem-link">UVa_11005</a> <a href="UVa_10959.html" class="problem-link">UVa_10959</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

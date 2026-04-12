@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P4648 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P4648</h1>
+        <p class="subtitle">題目編號：Luogu_P4648</p>
+        <p><a href="https://www.luogu.com.cn/problem/P4648" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+
+<span class="token keyword">int</span> B,N,D,M,res;
+<span class="token comment">//B=1</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> B_1(){
+    vector&lt;<span class="token keyword">int</span>&gt;dat(N);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        dat[i]=read();
+    }
+    sort(dat.begin(),dat.end());
+
+    <span class="token keyword">int</span> pos=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        <span class="token keyword">while</span>(pos&lt;N &amp;&amp; dat[pos]-dat[i]&lt;=D){
+            ++pos;
+        }
+        res+=(pos-i-<span class="token number">1</span>);
+    }
+    <span class="token keyword">return</span>;
+}
+<span class="token comment">//B=2</span>
+<span class="token keyword">struct</span> node{
+    <span class="token keyword">int</span> u,v;
+    node(<span class="token keyword">int</span> _u,<span class="token keyword">int</span> _v):u(_u),v(_v) {}
+    node(){}
+};
+<span class="token keyword">int</span> offset,MAX_V;
+vector&lt;<span class="token keyword">int</span>&gt;BIT;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> add(<span class="token keyword">int</span> index,<span class="token keyword">int</span> val){
+    <span class="token keyword">while</span>(index &lt; MAX_V){
+        BIT[index]+=val;
+        index+=(index &amp; -index);
+    }
+}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> query(<span class="token keyword">int</span> index){
+    <span class="token keyword">if</span>(index&lt;<span class="token number">0</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">if</span>(index &gt;= MAX_V){index=MAX_V-<span class="token number">1</span>;}
+
+    <span class="token keyword">int</span> sum=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(index&gt;<span class="token number">0</span>){
+        sum+=BIT[index];
+        index-=(index &amp; -index);
+    }
+    <span class="token keyword">return</span> sum;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> cmp(<span class="token keyword">const</span> node &amp;a,<span class="token keyword">const</span> node &amp;b){
+    <span class="token keyword">return</span> a.u &lt; b.u;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> B_2(){
+    vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dat(N,vector&lt;<span class="token keyword">int</span>&gt;(<span class="token number">2</span>,<span class="token number">0</span>));
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        dat[i][<span class="token number">0</span>]=read();
+        dat[i][<span class="token number">1</span>]=read();
+    }
+
+    offset=M+<span class="token number">1</span>;
+    MAX_V=M*<span class="token number">2</span>+<span class="token number">2</span>;
+    BIT.assign(MAX_V,<span class="token number">0</span>);
+
+    vector&lt;node&gt;nds(N);
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        nds[i].u=dat[i][<span class="token number">0</span>]+dat[i][<span class="token number">1</span>];
+        nds[i].v=dat[i][<span class="token number">0</span>]-dat[i][<span class="token number">1</span>]+offset;
+    }
+    sort(nds.begin(),nds.end(),cmp);
+
+    <span class="token keyword">int</span> posL=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> posR=<span class="token number">0</span>;posR&lt;N;++posR){
+        <span class="token keyword">while</span>(nds[posR].u-nds[posL].u &gt; D){
+            add(nds[posL].v,-<span class="token number">1</span>);
+            ++posL;
+        }
+
+        <span class="token keyword">int</span> v_min=nds[posR].v-D;
+        <span class="token keyword">int</span> v_max=nds[posR].v+D;
+        res+=query(v_max)-query(v_min-<span class="token number">1</span>);
+        add(nds[posR].v,<span class="token number">1</span>);
+    }
+}
+<span class="token comment">//B=3</span>
+<span class="token keyword">int</span> M_MAX,MAX_U;
+vector&lt;vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;&gt;cnt,prefix;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> B_3(){
+    M_MAX=<span class="token number">75</span>;MAX_U=<span class="token number">155</span>;MAX_V=<span class="token number">155</span>;
+    cnt.assign(M_MAX+<span class="token number">1</span>,vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;(MAX_U,vector&lt;<span class="token keyword">int</span>&gt;(MAX_V,<span class="token number">0</span>)));
+    prefix.assign(M_MAX+<span class="token number">1</span>,vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;(MAX_U,vector&lt;<span class="token keyword">int</span>&gt;(MAX_V,<span class="token number">0</span>)));
+
+    vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;dat(N,vector&lt;<span class="token keyword">int</span>&gt;(<span class="token number">3</span>,<span class="token number">0</span>));
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        dat[i][<span class="token number">0</span>]=read();
+        dat[i][<span class="token number">1</span>]=read();
+        dat[i][<span class="token number">2</span>]=read();
+    }
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        <span class="token keyword">int</span> nx=dat[i][<span class="token number">0</span>];
+        <span class="token keyword">int</span> ny=dat[i][<span class="token number">1</span>];
+        <span class="token keyword">int</span> nz=dat[i][<span class="token number">2</span>];
+
+        <span class="token keyword">int</span> nu=ny+nz;
+        <span class="token keyword">int</span> nv=ny-nz+<span class="token number">75</span>;
+        ++cnt[nx][nu][nv];
+    }
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> x=<span class="token number">1</span>;x&lt;=<span class="token number">75</span>;++x){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> u=<span class="token number">1</span>;u&lt;=<span class="token number">150</span>;++u){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> v=<span class="token number">1</span>;v&lt;=<span class="token number">150</span>;++v){
+                prefix[x][u][v]=cnt[x][u][v]+
+                                prefix[x][u-<span class="token number">1</span>][v]+
+                                prefix[x][u][v-<span class="token number">1</span>]-
+                                prefix[x][u-<span class="token number">1</span>][v-<span class="token number">1</span>];
+            }
+        }
+    }
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+         <span class="token keyword">int</span> nx=dat[i][<span class="token number">0</span>];
+         <span class="token keyword">int</span> nu=dat[i][<span class="token number">1</span>]+dat[i][<span class="token number">2</span>];
+         <span class="token keyword">int</span> nv=dat[i][<span class="token number">1</span>]-dat[i][<span class="token number">2</span>]+<span class="token number">75</span>;
+
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> lx=<span class="token number">1</span>;lx&lt;=<span class="token number">75</span>;++lx){
+            <span class="token keyword">int</span> dL=D-abs(nx-lx);
+
+            <span class="token keyword">if</span>(dL&lt;<span class="token number">0</span>){<span class="token keyword">continue</span>;}
+
+            <span class="token keyword">int</span> u_min=max((<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">1</span>,nu-dL);
+            <span class="token keyword">int</span> u_max=min((<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">150</span>,nu+dL);
+            <span class="token keyword">int</span> v_min=max((<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">1</span>,nv-dL);
+            <span class="token keyword">int</span> v_max=min((<span class="token keyword">long</span> <span class="token keyword">long</span>)<span class="token number">150</span>,nv+dL);
+
+            res+=prefix[lx][u_max][v_max]-
+                 prefix[lx][u_min-<span class="token number">1</span>][v_max]-
+                 prefix[lx][u_max][v_min-<span class="token number">1</span>]+
+                 prefix[lx][u_min-<span class="token number">1</span>][v_min-<span class="token number">1</span>];
+        }
+    }
+    res=(res-N)/<span class="token number">2</span>;
+    <span class="token keyword">return</span>;
+}
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(B=read()){
+        N=read();D=read();M=read();res=<span class="token number">0</span>;
+        <span class="token keyword">if</span>(B==<span class="token number">1</span>){
+            B_1();
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(B==<span class="token number">2</span>){
+            B_2();
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(B==<span class="token number">3</span>){
+            B_3();
+        }
+        write(res);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="UVa_11729.html" class="problem-link">UVa_11729</a> <a href="UVa_10027.html" class="problem-link">UVa_10027</a> <a href="ZeroJudge_d206-UVa_108.html" class="problem-link">ZeroJudge_d206-UVa_108</a> <a href="ZeroJudge_c463.html" class="problem-link">ZeroJudge_c463</a> <a href="UVa_12783.html" class="problem-link">UVa_12783</a> <a href="UVa_10236.html" class="problem-link">UVa_10236</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

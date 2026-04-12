@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P12367 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P12367</h1>
+        <p class="subtitle">題目編號：Luogu_P12367</p>
+        <p><a href="https://www.luogu.com.cn/problem/P12367" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">inline</span> <span class="token keyword">int</span> abs(<span class="token keyword">const</span> <span class="token keyword">int</span> &amp;a){
+    <span class="token keyword">return</span> a&gt;<span class="token number">0</span>?a:-a;
+}
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> d[<span class="token number">6</span>][<span class="token number">2</span>]={
+    {-<span class="token number">2</span>,<span class="token number">0</span>},
+    {-<span class="token number">1</span>,<span class="token number">1</span>},
+    {<span class="token number">1</span>,<span class="token number">1</span>},
+    {<span class="token number">2</span>,<span class="token number">0</span>},
+    {<span class="token number">1</span>,-<span class="token number">1</span>},
+    {-<span class="token number">1</span>,-<span class="token number">1</span>}
+};
+
+<span class="token keyword">int</span> ad,ap,aq,bd,bp,bq;
+<span class="token keyword">signed</span> main(){
+    ad=read();
+    ap=read();
+    aq=read();
+    bd=read();
+    bp=read();
+    bq=read();
+
+    <span class="token keyword">int</span> ax=d[ad][<span class="token number">0</span>]*ap+d[(ad+<span class="token number">2</span>)%<span class="token number">6</span>][<span class="token number">0</span>]*aq;
+    <span class="token keyword">int</span> ay=d[ad][<span class="token number">1</span>]*ap+d[(ad+<span class="token number">2</span>)%<span class="token number">6</span>][<span class="token number">1</span>]*aq;
+
+    <span class="token keyword">int</span> bx=d[bd][<span class="token number">0</span>]*bp+d[(bd+<span class="token number">2</span>)%<span class="token number">6</span>][<span class="token number">0</span>]*bq;
+    <span class="token keyword">int</span> by=d[bd][<span class="token number">1</span>]*bp+d[(bd+<span class="token number">2</span>)%<span class="token number">6</span>][<span class="token number">1</span>]*bq;
+
+    <span class="token keyword">int</span> dx=abs(ax-bx);
+    <span class="token keyword">int</span> dy=abs(ay-by);
+
+    <span class="token keyword">if</span>(dx &gt;= dy){
+        write((dy+dx)&gt;&gt;<span class="token number">1</span>);
+    }<span class="token keyword">else</span>{
+        write(dy);
+    }
+    putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="Luogu_P2580.html" class="problem-link">Luogu_P2580</a> <a href="ZeroJudge_f579.html" class="problem-link">ZeroJudge_f579</a> <a href="ZeroJudge_e591-UVa_11264.html" class="problem-link">ZeroJudge_e591-UVa_11264</a> <a href="UVa_10022.html" class="problem-link">UVa_10022</a> <a href="ZeroJudge_a741-UVa_10101.html" class="problem-link">ZeroJudge_a741-UVa_10101</a> <a href="ZeroJudge_d672-UVa_10922.html" class="problem-link">ZeroJudge_d672-UVa_10922</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

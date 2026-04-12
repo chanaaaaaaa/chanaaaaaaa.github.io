@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P1294 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P1294</h1>
+        <p class="subtitle">題目編號：Luogu_P1294</p>
+        <p><a href="https://www.luogu.com.cn/problem/P1294" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;utility&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+    <span class="token keyword">return</span>;
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">inline</span> <span class="token keyword">int</span> max(<span class="token keyword">const</span> <span class="token keyword">int</span> &amp;a,<span class="token keyword">const</span> <span class="token keyword">int</span> &amp;b){
+    <span class="token keyword">return</span> a&gt;b?a:b;
+}
+
+<span class="token keyword">int</span> N,M,x,y,w,res;
+vector&lt;vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;&gt;mp;
+vector&lt;<span class="token keyword">bool</span>&gt;vis;
+<span class="token keyword">inline</span> <span class="token keyword">void</span> dfs(<span class="token keyword">int</span> cur,<span class="token keyword">int</span> wgt){
+    <span class="token keyword">bool</span> bad=<span class="token keyword">true</span>;
+    <span class="token keyword">for</span>(pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt; &amp;p:mp[cur]){
+        <span class="token keyword">if</span>(vis[p.first]){<span class="token keyword">continue</span>;}
+
+        vis[p.first]=<span class="token keyword">true</span>;
+        dfs(p.first,wgt+p.second);
+        vis[p.first]=<span class="token keyword">false</span>;
+        bad=<span class="token keyword">false</span>;
+    }
+    <span class="token keyword">if</span>(bad){
+        res=max(res,wgt);
+    }
+    <span class="token keyword">return</span>;
+}
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(N=read()){
+        mp.assign(N,vector&lt;pair&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;&gt;());
+        vis.assign(N,<span class="token keyword">false</span>);
+        res=<span class="token number">0</span>;
+        M=read();
+        <span class="token keyword">while</span>(M--){
+            x=read();y=read();w=read();
+            mp[x-<span class="token number">1</span>].push_back({y-<span class="token number">1</span>,w});
+            mp[y-<span class="token number">1</span>].push_back({x-<span class="token number">1</span>,w});
+        }
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            vis[i]=<span class="token keyword">true</span>;
+            dfs(i,<span class="token number">0</span>);
+            vis[i]=<span class="token keyword">false</span>;
+        }
+        write(res);
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_b266.html" class="problem-link">ZeroJudge_b266</a> <a href="ZeroJudge_c813-UVa_11332.html" class="problem-link">ZeroJudge_c813-UVa_11332</a> <a href="CSES_1631.html" class="problem-link">CSES_1631</a> <a href="ZeroJudge_c024-UVa_10079.html" class="problem-link">ZeroJudge_c024-UVa_10079</a> <a href="ZeroJudge_c012-UVa_10062.html" class="problem-link">ZeroJudge_c012-UVa_10062</a> <a href="ZeroJudge_a223-UVa_10298.html" class="problem-link">ZeroJudge_a223-UVa_10298</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

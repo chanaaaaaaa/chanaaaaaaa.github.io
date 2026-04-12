@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P4169 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P4169</h1>
+        <p class="subtitle">題目編號：Luogu_P4169</p>
+        <p><a href="https://www.luogu.com.cn/problem/P4169" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+<span class="token directive">#include</span> &lt;cmath&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN = <span class="token number">1e7</span>+<span class="token number">5</span>; 
+<span class="token keyword">const</span> <span class="token keyword">double</span> ALPHA = <span class="token number">0.75</span>;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+<span class="token keyword">int</span> cmp_dim;
+
+<span class="token keyword">struct</span> Node{
+    <span class="token keyword">int</span> d[<span class="token number">2</span>],
+        min_d[<span class="token number">2</span>],
+        max_d[<span class="token number">2</span>],
+        ls, rs,
+        size;
+}tree[MAXN];
+
+<span class="token keyword">int</span> root,tot,ans;
+
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> cmp(<span class="token keyword">const</span> <span class="token keyword">int</span> &amp;a,<span class="token keyword">const</span> <span class="token keyword">int</span> &amp;b){
+    <span class="token keyword">return</span> tree[a].d[cmp_dim] &lt; tree[b].d[cmp_dim];
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> pushup(<span class="token keyword">int</span> u) {
+    <span class="token keyword">int</span> l=tree[u].ls, r=tree[u].rs;
+    tree[u].size=tree[l].size+tree[r].size+<span class="token number">1</span>;
+    <span class="token keyword">for</span> (<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">2</span>;++i){
+        tree[u].min_d[i]=tree[u].max_d[i]=tree[u].d[i];
+        <span class="token keyword">if</span>(l){
+            tree[u].min_d[i]=min(tree[u].min_d[i],tree[l].min_d[i]);
+            tree[u].max_d[i]=max(tree[u].max_d[i],tree[l].max_d[i]);
+        }
+        <span class="token keyword">if</span>(r){
+            tree[u].min_d[i]=min(tree[u].min_d[i],tree[r].min_d[i]);
+            tree[u].max_d[i]=max(tree[u].max_d[i],tree[r].max_d[i]);
+        }
+    }
+}
+
+<span class="token keyword">int</span> build(<span class="token keyword">int</span> L,<span class="token keyword">int</span> R,<span class="token keyword">int</span> dim,vector&lt;<span class="token keyword">int</span>&gt; &amp;g){
+    <span class="token keyword">if</span>(L&gt;R){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    <span class="token keyword">int</span> mid=(L+R)&gt;&gt;<span class="token number">1</span>;
+    cmp_dim=dim;
+    
+    nth_element(g.begin()+L,g.begin()+mid,g.begin()+R+<span class="token number">1</span>,cmp);
+    
+    <span class="token keyword">int</span> u=g[mid];
+    tree[u].ls=build(L,mid-<span class="token number">1</span>,dim^<span class="token number">1</span>,g);
+    tree[u].rs=build(mid+<span class="token number">1</span>,R,dim^<span class="token number">1</span>,g);
+    pushup(u);
+    <span class="token keyword">return</span> u;
+}
+
+<span class="token keyword">void</span> flatten(<span class="token keyword">int</span> u,vector&lt;<span class="token keyword">int</span>&gt; &amp;g){
+    <span class="token keyword">if</span>(!u){<span class="token keyword">return</span>;}
+    g.push_back(u);
+    flatten(tree[u].ls,g);
+    flatten(tree[u].rs,g);
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> check(<span class="token keyword">int</span>&amp; u,<span class="token keyword">int</span> dim){
+    <span class="token keyword">int</span> max_child_size=max(tree[tree[u].ls].size,tree[tree[u].rs].size);
+    
+    <span class="token keyword">if</span>(max_child_size&gt;ALPHA*tree[u].size){
+        vector&lt;<span class="token keyword">int</span>&gt;g;
+        flatten(u,g);
+        u=build(<span class="token number">0</span>,g.size()-<span class="token number">1</span>,dim,g); 
+    }
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> new_node(<span class="token keyword">int</span> x,<span class="token keyword">int</span> y){
+    ++tot;
+    tree[tot].d[<span class="token number">0</span>]=tree[tot].min_d[<span class="token number">0</span>]=tree[tot].max_d[<span class="token number">0</span>]=x;
+    tree[tot].d[<span class="token number">1</span>]=tree[tot].min_d[<span class="token number">1</span>]=tree[tot].max_d[<span class="token number">1</span>]=y;
+    tree[tot].ls=tree[tot].rs=<span class="token number">0</span>;
+    tree[tot].size=<span class="token number">1</span>;
+    <span class="token keyword">return</span> tot;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> insert(<span class="token keyword">int</span> &amp;u,<span class="token keyword">int</span> pid,<span class="token keyword">int</span> dim){
+    <span class="token keyword">if</span>(!u){
+        u=pid;
+        pushup(u);
+        <span class="token keyword">return</span>;
+    }
+    
+    <span class="token keyword">if</span>(tree[pid].d[dim]&lt;=tree[u].d[dim]){
+        insert(tree[u].ls,pid,dim^<span class="token number">1</span>);
+    } <span class="token keyword">else</span> {
+        insert(tree[u].rs,pid,dim^<span class="token number">1</span>);
+    }
+    
+    pushup(u); 
+    check(u,dim);
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> get_min_dist(<span class="token keyword">int</span> u,<span class="token keyword">int</span> qx,<span class="token keyword">int</span> qy){
+    <span class="token keyword">if</span>(!u){<span class="token keyword">return</span> <span class="token number">2e9</span>;}
+    <span class="token keyword">int</span> dist=<span class="token number">0</span>;
+    <span class="token keyword">if</span>(qx&lt;tree[u].min_d[<span class="token number">0</span>]){dist+=tree[u].min_d[<span class="token number">0</span>]-qx;}
+    <span class="token keyword">if</span>(qx&gt;tree[u].max_d[<span class="token number">0</span>]){dist+=qx-tree[u].max_d[<span class="token number">0</span>];}
+    <span class="token keyword">if</span>(qy&lt;tree[u].min_d[<span class="token number">1</span>]){dist+=tree[u].min_d[<span class="token number">1</span>]-qy;}
+    <span class="token keyword">if</span>(qy&gt;tree[u].max_d[<span class="token number">1</span>]){dist+=qy-tree[u].max_d[<span class="token number">1</span>];}
+    <span class="token keyword">return</span> dist;
+}
+
+<span class="token keyword">void</span> query(<span class="token keyword">int</span> u,<span class="token keyword">int</span> qx,<span class="token keyword">int</span> qy){
+    <span class="token keyword">if</span>(!u){<span class="token keyword">return</span>;}
+    
+    <span class="token keyword">int</span> current_dist=abs(tree[u].d[<span class="token number">0</span>]-qx)+abs(tree[u].d[<span class="token number">1</span>]-qy);
+    ans=min(ans,current_dist);
+
+    <span class="token keyword">int</span> dl=get_min_dist(tree[u].ls,qx,qy);
+    <span class="token keyword">int</span> dr=get_min_dist(tree[u].rs,qx,qy);
+
+    <span class="token keyword">if</span>(dl&lt;dr){
+        <span class="token keyword">if</span>(dl&lt;ans){query(tree[u].ls,qx,qy);}
+        <span class="token keyword">if</span>(dr&lt;ans){query(tree[u].rs,qx,qy);}
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">if</span>(dr&lt;ans){query(tree[u].rs,qx,qy);}
+        <span class="token keyword">if</span>(dl&lt;ans){query(tree[u].ls,qx,qy);}
+    }
+}
+
+<span class="token keyword">int</span> N,M;
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(N=read()){
+        root=<span class="token number">0</span>;tot=<span class="token number">0</span>;
+        M=read();
+        <span class="token keyword">while</span>(N--){
+            insert(root,new_node(read(),read()),<span class="token number">0</span>);
+        }
+        <span class="token keyword">while</span>(M--){
+            <span class="token keyword">int</span> f=read();
+            <span class="token keyword">if</span>(f==<span class="token number">1</span>){
+                insert(root,new_node(read(),read()),<span class="token number">0</span>);
+            }<span class="token keyword">else</span>{
+                ans=<span class="token number">2e9</span>;
+                query(root,read(),read());
+                write(ans);
+                putchar(<span class="token string">&#x27;\n&#x27;</span>);
+            }
+        }
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES_1630.html" class="problem-link">CSES_1630</a> <a href="ZeroJudge_d191-UVa_11352.html" class="problem-link">ZeroJudge_d191-UVa_11352</a> <a href="ZeroJudge_c004-UVa_10812.html" class="problem-link">ZeroJudge_c004-UVa_10812</a> <a href="Luogu_P2522.html" class="problem-link">Luogu_P2522</a> <a href="ZeroJudge_f163.html" class="problem-link">ZeroJudge_f163</a> <a href="ZeroJudge_d674-UVa_10192.html" class="problem-link">ZeroJudge_d674-UVa_10192</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

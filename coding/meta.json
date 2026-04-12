@@ -1,1701 +1,1835 @@
 {
-  "_說明": "在此補充各題的題目內容(content)、時間複雜度(complexity)、類型(type)、難度(difficulty 1-5)。content 用 --- 分隔題目大意與題解。支援 MathJax：\\( \\) 行內、\\[ \\] 區塊。",
-  "_範例": {
-    "content": "給定 n，求 \\(\\sum_{i=1}^n i\\)。\n---\n使用公式 \\(\\frac{n(n+1)}{2}\\)。",
-    "complexity": "O(1)",
-    "type": "數學",
-    "difficulty": 1
-  },
-  "AtCode212": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "AtCoder 098.C": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "AtCoder 212.C": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "AtCoder 429 D": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "CSES 1074": {
-    "complexity": "O(n log n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "CSES 1646": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "CSES 1753": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "CSES1073": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "CSES1074": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1084": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1085": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "CSES1090": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1140": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "CSES1619": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "CSES1620": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "CSES1621": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "CSES1629": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1630": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1631": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1632": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "CSES1640": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "CSES1641": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "CSES1643": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "CSES1650": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "CSES1733": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "CSES1734": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "CSES1745": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "CSES1753": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "CSES1754": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "LibreOJ 2185": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "Luogu P2261": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "Luogu P2522": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "Luogu P2580": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a001": {
-    "complexity": "O(1)",
-    "type": "字串",
-    "difficulty": 1
-  },
-  "a003": {
-    "complexity": "O(1)",
-    "type": "其他",
-    "difficulty": 1
-  },
-  "a004": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 1
-  },
-  "a005": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 1
-  },
-  "a006": {
-    "complexity": "O(1)",
-    "type": "其他",
-    "difficulty": 1
-  },
-  "a007": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "a011 uva00494": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a012 uva10055": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "a111 uva12149": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "a130 uva12015": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a132 uva10931": {
-    "content": "給定十進位整數，輸出其二進位表示與 1 的個數（parity）。\n---\n將十進位轉二進位，同時計算 1 的個數（parity）。",
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "a133 uva10066": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "a134 uva00948": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a135 uva12250": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "a158 uva11827": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a159 uva11743": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a176": {
-    "content": "給定 n、m，輸出所有合法的俄羅斯方塊排列方式（以 ASCII 圖示）及總數。有五種方塊，每種大小 2×4；限制：(1) 相同形狀不能連續出現，(2) 每種方塊最多用 m 次。\n---\n使用回溯法（DFS）枚舉。維護 dat_cnt 記錄每種方塊已用次數，遞迴時只選與前一個不同的方塊且未達上限的類型。lib 陣列預存五種方塊的 ASCII 表示，每種排列輸出兩行。狀態數約 \\(5 \\times 4^{n-1}\\)（首位 5 選 1，其後每位 4 選 1）。",
-    "complexity": "O(5 × 4^(n-1))",
-    "type": "枚舉",
-    "difficulty": 3
-  },
-  "a221 uva11734": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a223 uva10298": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a465 uva12405": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a466 uva12289": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a467 uva11398": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a518 uva12468": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "a519 uva12459": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "a520 uva12416": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a536 uva11689": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a539 uva10327": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "a540 uva10684": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "a737 uva10041": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a741 uva10101": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "a743 uva10420": {
-    "complexity": "O(n log n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "a884 uva11448": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "a993 uva10127": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "b059": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "b265 uva11286": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "b266 2016APCS": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "b343 uva11518": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "b437 uva11476": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "b917 uva11059": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "b964 2016APCS": {
-    "complexity": "O(n log n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "b965 2016APCS": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "b966 2016APCS": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "b967 2016APCS": {
-    "content": "給定 \\(N\\) 個節點與 \\(N-1\\) 條邊構成的樹（家族圖譜，每條邊表示親子關係），求樹的直徑，即任意兩節點間的最長路徑長度（邊數）。\n---\n使用兩次 DFS：從任意節點（如 0）出發找到最遠節點 \\(u\\)，再從 \\(u\\) 出發找到最遠節點 \\(v\\)，\\(u\\) 到 \\(v\\) 的距離即為直徑。以鄰接表建圖，dfs 時記錄深度並維護最遠節點與距離。",
-    "complexity": "O(N)",
-    "type": "樹直徑",
-    "difficulty": 3
-  },
-  "c001 uva10405": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "c002 uva10696": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "c004 uva10812": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "c005 uva10300": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c006 uva10550": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "c007 uva00272": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c009 uva10473": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "c010 uva10107": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c012 uva10062": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c013 uva00488": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "c014 uva10035": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "c022 uva10783": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "c024 uva10079": {
-    "complexity": "O(n)",
-    "type": "其他",
-    "difficulty": 2
-  },
-  "c033 uva406": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "c039 uva00100": {
-    "complexity": "O(n²)",
-    "type": "模擬",
-    "difficulty": 3
-  },
-  "c044 uva10008": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c045 uva00490": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c060 uva00392": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c067 uva00591": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "c074 uva441": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "c082 uva00118": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c088 uva516": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "c119 uva10220": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "c123 uva514": {
-    "content": "經典堆疊（Stack）應用。火車編號 \\(1 \\sim N\\) 依序從 A 進入，車站為死胡同（LIFO）。給定 B 方向的目標出站序列，判斷是否能透過車站達成。\n---\n用 stack 模擬車站、queue 存目標序列。依序處理每輛車 \\(i\\)：若目標前端等於 \\(i\\) 則直接「輸出」；否則先盡量將 stack 頂端與目標比對並彈出，再將 \\(i\\) 推入 stack。每輛車最多進棧、出棧各一次。",
-    "complexity": "O(N)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "c124 uva532": {
-    "content": "3D 地牢最短路。給定 \\(L \\times R \\times C\\) 的立體迷宮，從 S 走到 E，每次可往上下左右前後六方向移動一格（每步 1 分鐘），# 為牆不可通過。求最短逃脫時間，無法則輸出 Trapped!。\n---\n使用 BFS。以 queue 儲存 \\((l,r,c)\\) 座標，六方向位移陣列 \\((\\pm 1,0,0),(0,\\pm 1,0),(0,0,\\pm 1)\\)。將距離記錄在 mp 陣列，遇到 E 即回傳。",
-    "complexity": "O(L × R × C)",
-    "type": "最短路",
-    "difficulty": 3
-  },
-  "c125 uva534": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "c129 uva572": {
-    "content": "給定 \\(m \\times n\\) 網格，@ 表示有油的格子、* 表示無油。相鄰（含上下左右及四對角，共 8 方向）的 @ 屬於同一油藏。求油藏總數。\n---\n對每個未拜訪的 \\(@\\) 做 BFS 或 DFS，將同一連通塊全部標記為已拜訪。每找到一個新起點就 cnt++。使用 8 方向位移陣列 \\((\\pm 1,0),(0,\\pm 1),(\\pm 1,\\pm 1)\\)。",
-    "complexity": "O(m × n)",
-    "type": "連通塊",
-    "difficulty": 3
-  },
-  "c203 uva13185": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "c290 2017APCS": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "c292 2017APCS": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "c294 2016APCS": {
-    "complexity": "O(n log n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "c295 2016APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c296 2016APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "c297 2016APCS": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "c461 2017APCS": {
-    "complexity": "O(n)",
-    "type": "其他",
-    "difficulty": 2
-  },
-  "c462 2017APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c463 2017APCS": {
-    "content": "給定 \\(n\\) 個節點的有根樹，第 \\(i\\) 行描述節點 \\(i\\) 的子節點。求 (1) 根節點編號（從未出現在任何子節點列表的節點），(2) 所有節點高度總和 \\(H(T)\\)。節點高度 \\(h(v)\\) 定義為 \\(v\\) 到其最遠葉子的距離，葉子 \\(h=0\\)。\n---\n用 set 記錄所有節點，讀入時將出現過的子節點移除，剩餘即根。DFS 後序遍歷：葉子 \\(far[v]=\\) 深度，內部節點 \\(far[v]=\\max(far[child])\\)，高度 \\(h(v)=far[v]-depth\\)。總和用 long long 儲存。",
-    "complexity": "O(n)",
-    "type": "樹論",
-    "difficulty": 3
-  },
-  "c471 2017APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c575 2017APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "c708 uva11538": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "c813 uva11332": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "d038 uva900": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d042 uva11420": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "d047 uva10070": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "d052 uva11456": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "d056 uva10013": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "d057 uva11491": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d097 uva10038": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "d111 uva10110": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "d117 uva10924": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "d123 uva11063": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d143 uva11172": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "d150 uva11369": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "d186 uva11461": {
-    "complexity": "O(n)",
-    "type": "其他",
-    "difficulty": 2
-  },
-  "d187 uva11530": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d188 uva11342": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d189 uva11150": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d190 uva11462": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "d191 uva11352": {
-    "content": "Crazy King：\\(M \\times N\\) 網格，A 為起點、B 為終點、Z 為敵方騎士、. 為空地。國王可走 8 方向（上下左右斜），騎士走日字（L 形）。國王不可進入騎士所在格或騎士可攻擊的格，但 A、B 永遠安全。求 A 到 B 的最短步數。\n---\n先預處理：對每個 Z，標記其 8 個日字攻擊格為不可通行（僅標記空地，保留 A、B）。再從 A 做 BFS，國王 8 方向移動，遇 B 即回傳步數。",
-    "complexity": "O(M × N)",
-    "type": "最短路",
-    "difficulty": 3
-  },
-  "d192 uva11351": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d194 d716 uva11572": {
-    "complexity": "O(n³)",
-    "type": "資料結構",
-    "difficulty": 4
-  },
-  "d195 uva11495": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "d206 uva108": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "d219 uva374": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "d226 uva10071": {
-    "complexity": "O(n)",
-    "type": "其他",
-    "difficulty": 2
-  },
-  "d253 uva674": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "d255 uva11417": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d260 uva11455": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d267 uva11577": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d275 uva11586": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d306 uva10193": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d307 uva686": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "d365 uva10336": {
-    "content": "Rank the Languages：給定 \\(H \\times W\\) 地圖，每格為小寫字母（代表語言）。相鄰（上下左右，不含斜）且同字母的格子屬同一區域。求各語言出現的區域數，依區域數降序、同數則字母升序輸出。\n---\n對每個未拜訪格子做 BFS 或 DFS，將同字元連通塊標記為已拜訪，該語言區域數 +1。用 4 方向位移。輸出時每輪取區域數最大者輸出後歸零，共 26 輪或無剩餘即停。",
-    "complexity": "O(H × W)",
-    "type": "連通塊",
-    "difficulty": 3
-  },
-  "d366 uva294": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "d380 uva10106": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "d387 uva10235": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "d418 uva993": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "d440 uva10299": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d443 uva10497": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "d492 uva10226": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d658 uva11636": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d659 uva11727": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d669 uva11677": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d671 uva11716": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "d672 uva10922": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "d673 uva11608": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "d674 uva10192": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "d686 uva10003": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "d731 uva11039": {
-    "complexity": "O(n²)",
-    "type": "排序",
-    "difficulty": 3
-  },
-  "d750 uva11321": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "d762 uva10344": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d793 uva929": {
-    "complexity": "O((V + E) log V)",
-    "type": "圖論",
-    "difficulty": 4
-  },
-  "d813 uva10583": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "d898 uva10128": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "d980 uva11479": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "day-134": {
-    "complexity": "O(n³)",
-    "type": "資料結構",
-    "difficulty": 4
-  },
-  "day-135": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "day-140": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-146": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-148": {
-    "complexity": "O((V + E) log V)",
-    "type": "圖論",
-    "difficulty": 4
-  },
-  "day-149": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "day-150": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "day-151": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-152": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-153": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-155": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "day-158": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "day-160": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "day-161": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "day-162": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "day-163": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "e183 uva10940": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e286 2019APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e287 2019APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e288 2019APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e289 2019APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e313 2018APCS": {
-    "complexity": "O(n log n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "e465 2018APCS": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "e507 uva10252": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e510 uva10056": {
-    "complexity": "O(n)",
-    "type": "數學",
-    "difficulty": 2
-  },
-  "e512 uva10242": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
-    "difficulty": 3
-  },
-  "e513 uva11349": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e516 uva10409": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e530 uva1644": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "e531 uva10415": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "e535 uva11344": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e539 uva967": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "e545 uva10019": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "e555 uva10170": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e561 uva00299": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e564 uva540": {
-    "complexity": "O(n³)",
-    "type": "資料結構",
-    "difficulty": 4
-  },
-  "e565 uva10407": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "e566 uva10190": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "e573 uva10700": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "e575 uva10908": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "e578 uva10222": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e579 uva10050": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e580 uva696": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "e581 uva11067": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "e583 uva11040": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e584 uva11094": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "e591 uva11264": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e603 uva10104": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "e605 uva10189": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "e606 uva10057": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "e679 uva11115": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "f163 2020APCS": {
-    "complexity": "O(1)",
-    "type": "其他",
-    "difficulty": 1
-  },
-  "f166 2019APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "f312 2020APCS": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d275-UVa_11586": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "f313 2020APCS": {
-    "complexity": "O(n³)",
+  "ZeroJudge_d658-UVa_11636": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "f314 2020APCS": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "f434 uva458": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "f444 uva10268": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "f579 2020APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "f580 2020APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "f581 2020APCS": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "f605 2021APCS": {
-    "complexity": "O(n²)",
-    "type": "其他",
     "difficulty": 3
   },
-  "f606 2021APCS": {
-    "complexity": "O(n³)",
+  "ZeroJudge_d669-UVa_11677": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "f607 2021APCS": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "f637 2018APCS": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "f709 uva12019": {
-    "complexity": "O(n)",
-    "type": "字串",
-    "difficulty": 2
-  },
-  "i859 uva10642": {
-    "complexity": "O(n)",
-    "type": "數學",
-    "difficulty": 2
-  },
-  "i959 uva11078": {
-    "complexity": "O(n²)",
-    "type": "其他",
     "difficulty": 3
   },
-  "inclass": {
-    "complexity": "O(n)",
-    "type": "模擬",
-    "difficulty": 2
-  },
-  "j059 uva11547": {
-    "complexity": "O(n²)",
-    "type": "其他",
-    "difficulty": 3
-  },
-  "j123 2022APCS": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d671-UVa_11716": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "m371 2023APCS": {
-    "complexity": "O(V³)",
+  "ZeroJudge_d673-UVa_11608": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "n693 uva10721": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "n773 uva10424": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "n786 uva10093": {
-    "complexity": "O(n²)",
-    "type": "字串",
     "difficulty": 3
   },
-  "p497 uva497": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "pA": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d206-UVa_108": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "pB": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d440-UVa_10299": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "pC": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "pD": {
-    "complexity": "O(n²)",
-    "type": "模擬",
     "difficulty": 3
-  },
-  "pE": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "q837 2025APCS": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
   },
-  "q981 uva151": {
-    "complexity": "O(n²)",
+  "UVa_10302": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "s.cpp": {
-    "complexity": "O(n²)",
+  "UVa_10305": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva10006": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "uva10010": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "uva10015": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "uva10102": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva10125": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "uva10161": {
-    "complexity": "O(n²)",
+  "UVa_10311": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva10172": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva10174": {
-    "complexity": "O(n²)",
-    "type": "字串",
-    "difficulty": 3
-  },
-  "uva10199": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
     "difficulty": 3
   },
-  "uva10223": {
-    "complexity": "O(n²)",
+  "UVa_10312": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva10227": {
-    "complexity": "O(n²)",
-    "type": "資料結構",
     "difficulty": 3
-  },
-  "uva10236": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
   },
-  "uva10302": {
-    "complexity": "O(n²)",
+  "UVa_10325": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva10305": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva10311": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "uva10312": {
-    "complexity": "O(n²)",
+  "UVa_10334": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
-  },
-  "uva10325": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
   },
-  "uva10334": {
-    "complexity": "O(n³)",
+  "UVa_10348": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva10337": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10348": {
-    "complexity": "O(n²)",
-    "type": "其他",
     "difficulty": 3
   },
-  "uva10368": {
-    "complexity": "O(n²)",
+  "UVa_10368": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva10427": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d762-UVa_10344": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva10449": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10523": {
-    "complexity": "O(n²)",
-    "type": "字串",
     "difficulty": 3
   },
-  "uva10527": {
-    "complexity": "O(n³)",
+  "ZeroJudge_e565-UVa_10407": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva10535": {
-    "complexity": "O(n²)",
-    "type": "排序",
     "difficulty": 3
-  },
-  "uva10563": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
   },
-  "uva10579": {
-    "complexity": "O(n³)",
+  "UVa_10427": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva10596": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "uva10611": {
-    "complexity": "O(n²)",
-    "type": "搜尋",
-    "difficulty": 3
-  },
-  "uva10653": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
     "difficulty": 3
   },
-  "uva10673": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d443-UVa_10497": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
-  },
-  "uva10730": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
-  },
-  "uva10763": {
-    "complexity": "O(n³)",
-    "type": "其他",
-    "difficulty": 4
   },
-  "uva10820": {
-    "complexity": "O(n³)",
+  "UVa_10523": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva10827": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10858": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
     "difficulty": 3
-  },
-  "uva10887": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
   },
-  "uva10910": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10912": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10916": {
-    "complexity": "O(n²)",
+  "UVa_10527": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva10920": {
-    "complexity": "O(n²)",
+  "UVa_10535": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva10926": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva10930": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva10943": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "uva10959": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva11005": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "uva11015": {
-    "complexity": "O(n³)",
-    "type": "字串",
-    "difficulty": 4
-  },
-  "uva11057": {
-    "complexity": "O(n²)",
-    "type": "排序",
     "difficulty": 3
-  },
-  "uva11076": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
   },
-  "uva11086": {
-    "complexity": "O(n³)",
-    "type": "數學",
-    "difficulty": 4
-  },
-  "uva11093": {
-    "complexity": "O(n³)",
+  "UVa_10563": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva11121": {
-    "complexity": "O(n²)",
-    "type": "數學",
     "difficulty": 3
   },
-  "uva11287": {
-    "complexity": "O(n²)",
-    "type": "數學",
-    "difficulty": 3
-  },
-  "uva11396": {
-    "complexity": "O(n²)",
-    "type": "DP",
-    "difficulty": 3
-  },
-  "uva11480": {
-    "complexity": "O(n²)",
+  "UVa_10579": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva11504": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva11517": {
-    "complexity": "O(n²)",
-    "type": "DP",
     "difficulty": 3
   },
-  "uva11566": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva11709": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva11770": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva11934": {
-    "complexity": "O(n²)",
+  "UVa_10596": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 3
-  },
-  "uva11951": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva1208": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "uva1210": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva1213": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva12160": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva12186": {
-    "complexity": "O((V + E) log V)",
-    "type": "圖論",
-    "difficulty": 4
-  },
-  "uva1235": {
-    "complexity": "O(n³)",
-    "type": "排序",
-    "difficulty": 4
-  },
-  "uva12783": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
     "difficulty": 3
   },
-  "uva13249": {
-    "complexity": "O(n³)",
+  "UVa_10611": {
+    "complexity": "（請自行補充）",
     "type": "其他",
-    "difficulty": 4
-  },
-  "uva247": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
     "difficulty": 3
   },
-  "uva507": {
-    "complexity": "O(n²)",
+  "UVa_10673": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva624": {
-    "complexity": "O(n³)",
-    "type": "DP",
-    "difficulty": 4
-  },
-  "uva657": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "uva796": {
-    "complexity": "O((V + E) log V)",
-    "type": "圖論",
-    "difficulty": 4
-  },
-  "uva834": {
-    "complexity": "O(n²)",
+  "ZeroJudge_d813-UVa_10583": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
   },
-  "uva907": {
-    "complexity": "O(n³)",
-    "type": "模擬",
-    "difficulty": 4
-  },
-  "uva924": {
-    "complexity": "O(V + E)",
-    "type": "圖論",
-    "difficulty": 3
-  },
-  "ytp races": {
-    "complexity": "O(n²)",
+  "ZeroJudge_e573-UVa_10700": {
+    "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3
-  },
-  "zj.601 uva255": {
-    "complexity": "O(n)",
-    "type": "其他",
-    "difficulty": 2
   },
   "AtCode212C": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_907": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10730": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10763": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10820": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10858": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10887": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10910": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10916": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10920": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10926": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d117-UVa_10924": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10930": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e183-UVa_10940": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10959": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c124-UVa_532": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d365-UVa_10336": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d731-UVa_11039": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11057": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e583-UVa_11040": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc444_A": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc444_B": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc444_C": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc444_D": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc444_E": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11076": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e581-UVa_11067": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a176": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c033-UVa_406": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d366-UVa_294": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_q981-UVa_151": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11086": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11093": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e584-UVa_11094": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_i959-UVa_11078": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11121": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11287": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b265-UVa_11286": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e535-UVa_11344": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e591-UVa_11264": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e679-UVa_11115": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11396": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11480": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c708-UVa_11538": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11550": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11583": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11609": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11614": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11683": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11703": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11714": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11729": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11730": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c088-UVa_516": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c123-UVa_514": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c125-UVa_534": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d219-UVa_374": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11742": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_242": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c101-UVa_122": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c117-UVa_439": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_501": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_793": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_798": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c074-UVa_441": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_j059-UVa_11547": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_908": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_926": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_928": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c074-441": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d908": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1679": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_k519": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e586-UVa_1208": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1131": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10000": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1074": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e564-UVa_540": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10007": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10022": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10025": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10026": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10027": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_166": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc208_E": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c129-UVa_572": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d253-UVa_674": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_111": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_160": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P3958": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P4648": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P5098": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10031": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P1648": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P3964": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P1429": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P2906": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P4169": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P1886": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P9204": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P12367": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P1294": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10364": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d038-UVa_900": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d307-UVa_686": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e580-UVa_696": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11413": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10341": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_657": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d898-UVa_10128": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d187-UVa_11530": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d194-ZeroJudge_d716-UVa_11572": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d267-UVa_11577": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d056-UVa_10013": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d418-UVa_993": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e530-UVa_1644": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e539-UVa_967": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10827": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_1213": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_507": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_p497-UVa_497": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11566": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11517": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d047-UVa_10070": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d793-UVa_929": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d052-UVa_11456": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d057-UVa_11491": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d150-UVa_11369": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d190-UVa_11462": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d191-UVa_11352": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d195-UVa_11495": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d260-UVa_11455": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d980-UVa_11479": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10449": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e601-UVa_255": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_924": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1073": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1629": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10006": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10010": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10015": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1084": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1621": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1646": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1753": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P2580": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1090": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1640": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1754": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1619": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1630": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1632": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1140": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1631": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_1208": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_1235": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1620": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1641": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1643": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11951": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_1210": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc098_C": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1650": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_12186": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc429_D": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1734": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10102": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e603-UVa_10104": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c010-UVa_10107": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d111-UVa_10110": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "AtCoder_abc212_C": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1733": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10125": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a993-UVa_10127": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d380-UVa_10106": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10161": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_796": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10199": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_12783": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10172": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10174": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d674-UVa_10192": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d192-UVa_11351": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_624": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c119-UVa_10220": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "LibreOJ_2185": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P2261": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "Luogu_P2522": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10223": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11504": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11770": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11709": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_247": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1745": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11934": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_834": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10227": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11015": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_13249": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10236": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e507-UVa_10252": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "CSES_1085": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d188-UVa_11342": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10337": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10653": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10912": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_10943": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_11005": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "UVa_12160": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a001": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a003": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a004": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a005": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a006": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a007": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a011-UVa_00494": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a012-UVa_10055": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a111-UVa_12149": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a130-UVa_12015": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a132-UVa_10931": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a133-UVa_10066": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a134-UVa_00948": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a135-UVa_12250": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a158-UVa_11827": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a159-UVa_11743": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a221-UVa_11734": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a223-UVa_10298": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a465-UVa_12405": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a466-UVa_12289": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a467-UVa_11398": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a518-UVa_12468": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a519-UVa_12459": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a520-UVa_12416": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a536-UVa_11689": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a539-UVa_10327": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a540-UVa_10684": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a737-UVa_10041-a737": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a737-UVa_10041-new": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a741-UVa_10101": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a743-UVa_10420": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_a884-UVa_11448": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b059": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b266": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b343-UVa_11518": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b437-UVa_11476": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b917-UVa_11059": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b964": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b965": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b966": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_b967": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c001-UVa_10405": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c002-UVa_10696": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c004-UVa_10812": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c005-UVa_10300": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c006-UVa_10550": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c007-UVa_00272": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c009-UVa_10473": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c012-UVa_10062": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c013-UVa_00488": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c014-UVa_10035": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c022-UVa_10783": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c024-UVa_10079": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c039-UVa_00100": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c044-UVa_10008": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c045-UVa_00490": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c060-UVa_00392": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c067-UVa_00591": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c082-UVa_00118": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c203-UVa_13185": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c290": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c292": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c294": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c295": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c296": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c297": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c461": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c462": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c463": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c471": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c575": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_c813-UVa_11332": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d042-UVa_11420": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d097-UVa_10038": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d123-UVa_11063": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d143-UVa_11172": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d186-UVa_11461": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d189-UVa_11150": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d226-UVa_10071": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d255-UVa_11417": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d306-UVa_10193": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d387-UVa_10235": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d492-UVa_10226": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d659-UVa_11727": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d672-UVa_10922": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d686-UVa_10003": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_d750-UVa_11321": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e286": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e287": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e288": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e289": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e313": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e465": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e510-UVa_10056": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e512-UVa_10242": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e513-UVa_11349": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e516-UVa_10409": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e531-UVa_10415": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e545-UVa_10019": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e555-UVa_10170": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e561-UVa_00299": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e566-UVa_10190": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e575-UVa_10908": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e578-UVa_10222": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e579-UVa_10050": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e605-UVa_10189": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_e606-UVa_10057": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f163": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f166": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f312": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f313": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f314": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f434-UVa_458": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f444-UVa_10268": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f579": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f580": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f581": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f605": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f606": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f607": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f637": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_f709-UVa_12019": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_i859-UVa_10642": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_j123": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_m371": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_n693-UVa_10721": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_n773-UVa_10424": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_n786-UVa_10093": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3
+  },
+  "ZeroJudge_q837": {
     "complexity": "（請自行補充）",
     "type": "其他",
     "difficulty": 3

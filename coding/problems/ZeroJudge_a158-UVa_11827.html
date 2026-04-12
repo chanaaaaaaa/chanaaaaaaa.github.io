@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_a158-UVa_11827 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_a158-UVa_11827</h1>
+        <p class="subtitle">題目編號：ZeroJudge_a158-UVa_11827</p>
+        <p><a href="https://vjudge.net/problem/UVA-11827" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;sstream&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> myGCD(<span class="token keyword">int</span> x,<span class="token keyword">int</span> y){
+    <span class="token keyword">while</span>((x%=y)&amp;&amp;(y%=x));
+    <span class="token keyword">return</span> x+y;
+}
+
+<span class="token keyword">int</span> main() {
+    ios_base::sync_with_stdio(<span class="token number">0</span>);cin.tie(<span class="token number">0</span>);cout.tie(<span class="token number">0</span>);
+    <span class="token keyword">int</span> N,x,mx;
+    string s;
+    cin&gt;&gt;N;
+    cin.ignore();
+    <span class="token keyword">while</span>(N--){
+        getline(cin,s);
+        stringstream ss(s);
+        vector&lt;<span class="token keyword">int</span>&gt;v;
+
+        mx=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(ss&gt;&gt;x){
+            v.push_back(x);
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;v.size()-<span class="token number">1</span>;i++){
+                mx=max(mx,myGCD(x,v[i]));
+            }
+        }
+        cout&lt;&lt;mx&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="CSES_1753.html" class="problem-link">CSES_1753</a> <a href="ZeroJudge_d492-UVa_10226.html" class="problem-link">ZeroJudge_d492-UVa_10226</a> <a href="ZeroJudge_c014-UVa_10035.html" class="problem-link">ZeroJudge_c014-UVa_10035</a> <a href="ZeroJudge_c813-UVa_11332.html" class="problem-link">ZeroJudge_c813-UVa_11332</a> <a href="Luogu_P1294.html" class="problem-link">Luogu_P1294</a> <a href="CSES_1620.html" class="problem-link">CSES_1620</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_m371 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_m371</h1>
+        <p class="subtitle">題目編號：ZeroJudge_m371</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=M371" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#pragma</span> GCC target(<span class="token string">&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;</span>)
+<span class="token directive">#pragma</span> comment(linker, <span class="token string">&quot;/stack:200000000&quot;</span>)
+<span class="token directive">#include</span>&lt;cstdio&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>;
+    <span class="token keyword">char</span> c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp; c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=x*<span class="token number">10</span>+(c-<span class="token string">&#x27;0&#x27;</span>);
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> n,m,Ans=<span class="token number">0</span>;;
+    n=read();
+    m=read();
+    <span class="token keyword">int</span> mp[n][m];
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
+            mp[i][j]=read();
+        }
+    }
+    <span class="token keyword">bool</span> flag=<span class="token keyword">true</span>;
+    <span class="token keyword">while</span>(flag){
+        flag=<span class="token keyword">false</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
+                <span class="token keyword">if</span>(mp[i][j]==-<span class="token number">1</span>){<span class="token keyword">continue</span>;}
+                <span class="token keyword">if</span>(i+<span class="token number">1</span>&lt;n){
+                    <span class="token comment">//putchar(&#x27;i&#x27;);</span>
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> k=i+<span class="token number">1</span>;k&lt;n;k++){
+                        <span class="token keyword">if</span>(mp[k][j]==-<span class="token number">1</span>){<span class="token keyword">continue</span>;}
+                        <span class="token keyword">else</span> <span class="token keyword">if</span>(mp[k][j]!=mp[i][j]){<span class="token keyword">break</span>;}
+                        <span class="token keyword">else</span>{
+                            Ans+=mp[i][j];
+                            mp[i][j]=-<span class="token number">1</span>;
+                            mp[k][j]=-<span class="token number">1</span>;
+                            flag=<span class="token keyword">true</span>;
+                            <span class="token keyword">break</span>;
+                        }
+                        <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
+                    }
+                }
+                <span class="token keyword">if</span>(j+<span class="token number">1</span>&lt;m &amp;&amp; !flag){
+                    <span class="token comment">//putchar(&#x27;j&#x27;);</span>
+                    <span class="token keyword">for</span>(<span class="token keyword">int</span> k=j+<span class="token number">1</span>;k&lt;m;k++){
+                        <span class="token keyword">if</span>(mp[i][k]==-<span class="token number">1</span>){<span class="token keyword">continue</span>;}
+                        <span class="token keyword">else</span> <span class="token keyword">if</span>(mp[i][k]!=mp[i][j]){<span class="token keyword">break</span>;}
+                        <span class="token keyword">else</span>{
+                            Ans+=mp[i][k];
+                            mp[i][j]=-<span class="token number">1</span>;
+                            mp[i][k]=-<span class="token number">1</span>;
+                            flag=<span class="token keyword">true</span>;
+                            <span class="token keyword">break</span>;
+                        }
+                        <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
+                    }
+                }
+                <span class="token keyword">if</span>(flag){<span class="token keyword">break</span>;}
+            }
+        }<span class="token comment">/*
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;m;j++){
+                write(mp[i][j]);
+                putchar(&#x27; &#x27;);
+            }
+            putchar(&#x27;\n&#x27;);
+        }
+        putchar(&#x27;\n&#x27;);*/</span>
+    }
+    write(Ans);
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="UVa_10364.html" class="problem-link">UVa_10364</a> <a href="Luogu_P3964.html" class="problem-link">Luogu_P3964</a> <a href="Luogu_P1294.html" class="problem-link">Luogu_P1294</a> <a href="ZeroJudge_a221-UVa_11734.html" class="problem-link">ZeroJudge_a221-UVa_11734</a> <a href="ZeroJudge_f313.html" class="problem-link">ZeroJudge_f313</a> <a href="UVa_12160.html" class="problem-link">UVa_12160</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_c296 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_c296</h1>
+        <p class="subtitle">題目編號：ZeroJudge_c296</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=C296" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    <span class="token keyword">int</span> N,M,K;
+    vector&lt;<span class="token keyword">int</span>&gt;dat;
+    cin&gt;&gt;N&gt;&gt;M&gt;&gt;K;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;i++){
+        dat.push_back(i);
+    }
+    N=<span class="token number">0</span>;
+    M--;
+    <span class="token keyword">while</span>(K--){
+        N=(N+M)%dat.size();
+        dat.erase(dat.begin()+N);
+        N%=dat.size();
+    }
+    cout&lt;&lt;dat[N];
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_a536-UVa_11689.html" class="problem-link">ZeroJudge_a536-UVa_11689</a> <a href="ZeroJudge_d267-UVa_11577.html" class="problem-link">ZeroJudge_d267-UVa_11577</a> <a href="ZeroJudge_a518-UVa_12468.html" class="problem-link">ZeroJudge_a518-UVa_12468</a> <a href="UVa_798.html" class="problem-link">UVa_798</a> <a href="ZeroJudge_f709-UVa_12019.html" class="problem-link">ZeroJudge_f709-UVa_12019</a> <a href="ZeroJudge_j123.html" class="problem-link">ZeroJudge_j123</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

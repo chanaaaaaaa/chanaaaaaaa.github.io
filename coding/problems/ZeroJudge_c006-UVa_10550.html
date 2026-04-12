@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_c006-UVa_10550 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_c006-UVa_10550</h1>
+        <p class="subtitle">題目編號：ZeroJudge_c006-UVa_10550</p>
+        <p><a href="https://vjudge.net/problem/UVA-10550" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+    <span class="token keyword">int</span> a,b,c,d;
+    <span class="token keyword">while</span>(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d){
+        <span class="token keyword">int</span> deg=<span class="token number">0</span>;
+        <span class="token keyword">if</span>(a+b+c+d==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        deg+=<span class="token number">40</span>*<span class="token number">3</span>;
+
+        <span class="token keyword">if</span>(b&gt;=a){deg+=<span class="token number">40</span>-(b-a);}
+        <span class="token keyword">else</span>{deg+=(a-b);}
+
+        <span class="token keyword">if</span>(b&gt;=c){deg+=<span class="token number">40</span>-(b-c);}
+        <span class="token keyword">else</span>{deg+=(c-b);}
+
+        <span class="token keyword">if</span>(d&gt;=c){deg+=<span class="token number">40</span>-(d-c);}
+        <span class="token keyword">else</span>{deg+=(c-d);}
+
+        cout&lt;&lt;deg*<span class="token number">9</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_c014-UVa_10035.html" class="problem-link">ZeroJudge_c014-UVa_10035</a> <a href="UVa_10449.html" class="problem-link">UVa_10449</a> <a href="ZeroJudge_a741-UVa_10101.html" class="problem-link">ZeroJudge_a741-UVa_10101</a> <a href="ZeroJudge_i959-UVa_11078.html" class="problem-link">ZeroJudge_i959-UVa_11078</a> <a href="ZeroJudge_d731-UVa_11039.html" class="problem-link">ZeroJudge_d731-UVa_11039</a> <a href="ZeroJudge_f314.html" class="problem-link">ZeroJudge_f314</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

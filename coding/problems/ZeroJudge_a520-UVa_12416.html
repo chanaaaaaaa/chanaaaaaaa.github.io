@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_a520-UVa_12416 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_a520-UVa_12416</h1>
+        <p class="subtitle">題目編號：ZeroJudge_a520-UVa_12416</p>
+        <p><a href="https://vjudge.net/problem/UVA-12416" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> main(){
+    string a;
+    <span class="token keyword">while</span>(getline(cin,a)){
+        <span class="token keyword">int</span> maxx=<span class="token number">0</span>,cou=<span class="token number">0</span>;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;a.size();i++){
+            <span class="token keyword">if</span>(a[i]==<span class="token string">&#x27; &#x27;</span>){
+                cou++;
+            }<span class="token keyword">else</span>{
+                <span class="token keyword">if</span>(cou&gt;maxx){maxx=cou;}
+                cou=<span class="token number">0</span>;
+            }
+        }
+        <span class="token keyword">int</span> time=<span class="token number">0</span>;
+        <span class="token keyword">while</span>(maxx&gt;<span class="token number">1</span>){
+            <span class="token keyword">if</span>(maxx%<span class="token number">2</span>==<span class="token number">0</span>){
+                maxx/=<span class="token number">2</span>;
+            }<span class="token keyword">else</span>{
+                maxx-=<span class="token number">1</span>;
+                maxx/=<span class="token number">2</span>;
+                maxx+=<span class="token number">1</span>;
+            }
+            time++;
+        }
+        cout&lt;&lt;time&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_n693-UVa_10721.html" class="problem-link">ZeroJudge_n693-UVa_10721</a> <a href="ZeroJudge_e530-UVa_1644.html" class="problem-link">ZeroJudge_e530-UVa_1644</a> <a href="CSES_1090.html" class="problem-link">CSES_1090</a> <a href="ZeroJudge_d267-UVa_11577.html" class="problem-link">ZeroJudge_d267-UVa_11577</a> <a href="ZeroJudge_d143-UVa_11172.html" class="problem-link">ZeroJudge_d143-UVa_11172</a> <a href="UVa_10763.html" class="problem-link">UVa_10763</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

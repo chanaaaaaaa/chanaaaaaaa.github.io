@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_e605-UVa_10189 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_e605-UVa_10189</h1>
+        <p class="subtitle">題目編號：ZeroJudge_e605-UVa_10189</p>
+        <p><a href="https://vjudge.net/problem/UVA-10189" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#pragma</span> GCC optimize(<span class="token string">&quot;Ofast,unroll-loops,no-stack-protector,fast-math&quot;</span>)
+<span class="token directive">#include</span> &lt;bits/stdc++.h&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> n,m,ron=<span class="token number">1</span>;
+<span class="token keyword">int</span> bom[<span class="token number">100</span>][<span class="token number">100</span>];
+
+<span class="token keyword">int</span> main(){
+    cin.tie(<span class="token number">0</span>);
+    cout.tie(<span class="token number">0</span>);
+    ios_base::sync_with_stdio(<span class="token number">0</span>);
+
+
+    <span class="token keyword">while</span>(cin&gt;&gt;n&gt;&gt;m){
+        <span class="token keyword">if</span>(n+m==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        <span class="token comment">//part-input</span>
+        <span class="token keyword">char</span> A;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
+                cin&gt;&gt;A;
+                <span class="token keyword">if</span>(A==<span class="token string">&#x27;*&#x27;</span>){bom[i][j]=<span class="token number">9</span>;}
+                <span class="token keyword">else</span>{bom[i][j]=<span class="token number">0</span>;}
+            }
+        }
+        <span class="token comment">//part-doing</span>
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
+                <span class="token keyword">if</span>(bom[i][j]&gt;=<span class="token number">9</span>){
+                    <span class="token keyword">if</span>(i==<span class="token number">0</span>){
+                        <span class="token keyword">if</span>(j==<span class="token number">0</span>){
+                            bom[<span class="token number">0</span>][<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][<span class="token number">0</span>]++;
+                            bom[<span class="token number">1</span>][<span class="token number">1</span>]++;
+                        }<span class="token keyword">else</span> <span class="token keyword">if</span>(j==m-<span class="token number">1</span>){
+                            bom[<span class="token number">0</span>][j-<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][j]++;
+                        }<span class="token keyword">else</span>{
+                            bom[<span class="token number">0</span>][j-<span class="token number">1</span>]++;
+                            bom[<span class="token number">0</span>][j+<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                            bom[<span class="token number">1</span>][j]++;
+                        }
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(i==n-<span class="token number">1</span>){
+                        <span class="token keyword">if</span>(j==<span class="token number">0</span>){
+                            bom[i-<span class="token number">1</span>][<span class="token number">0</span>]++;
+                            bom[i-<span class="token number">1</span>][<span class="token number">1</span>]++;
+                            bom[i][<span class="token number">1</span>]++;
+                        }<span class="token keyword">else</span> <span class="token keyword">if</span>(j==m-<span class="token number">1</span>){
+                            bom[i-<span class="token number">1</span>][j]++;
+                            bom[i-<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                            bom[i][j-<span class="token number">1</span>]++;
+                        }<span class="token keyword">else</span>{
+                            bom[i][j+<span class="token number">1</span>]++;
+                            bom[i][j-<span class="token number">1</span>]++;
+                            bom[i-<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                            bom[i-<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                            bom[i-<span class="token number">1</span>][j]++;
+                        }
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(j==<span class="token number">0</span>){
+                        bom[i+<span class="token number">1</span>][j]++;
+                        bom[i-<span class="token number">1</span>][j]++;
+                        bom[i+<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                        bom[i-<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                        bom[i][j+<span class="token number">1</span>]++;
+                    }<span class="token keyword">else</span> <span class="token keyword">if</span>(j==m-<span class="token number">1</span>){
+                        bom[i+<span class="token number">1</span>][j]++;
+                        bom[i-<span class="token number">1</span>][j]++;
+                        bom[i+<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                        bom[i-<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                        bom[i][j-<span class="token number">1</span>]++;
+                    }<span class="token keyword">else</span>{
+                        bom[i+<span class="token number">1</span>][j]++;
+                        bom[i+<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                        bom[i+<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                        bom[i][j+<span class="token number">1</span>]++;
+                        bom[i][j-<span class="token number">1</span>]++;
+                        bom[i-<span class="token number">1</span>][j]++;
+                        bom[i-<span class="token number">1</span>][j+<span class="token number">1</span>]++;
+                        bom[i-<span class="token number">1</span>][j-<span class="token number">1</span>]++;
+                    }
+                }
+            }
+        }
+        <span class="token comment">//part-output</span>
+        cout&lt;&lt;<span class="token string">&quot;Field #&quot;</span>&lt;&lt;ron&lt;&lt;<span class="token string">&quot;:&quot;</span>&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        ron++;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;n;i++){
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> j=<span class="token number">0</span>;j&lt;m;j++){
+                <span class="token keyword">if</span>(bom[i][j]&gt;=<span class="token number">9</span>){cout&lt;&lt;<span class="token string">&quot;*&quot;</span>;}
+                <span class="token keyword">else</span>{cout&lt;&lt;bom[i][j];}
+            }
+            cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+        }
+        cout&lt;&lt;<span class="token string">&quot;\n&quot;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_d898-UVa_10128.html" class="problem-link">ZeroJudge_d898-UVa_10128</a> <a href="UVa_10027.html" class="problem-link">UVa_10027</a> <a href="ZeroJudge_c045-UVa_00490.html" class="problem-link">ZeroJudge_c045-UVa_00490</a> <a href="UVa_1210.html" class="problem-link">UVa_1210</a> <a href="ZeroJudge_a132-UVa_10931.html" class="problem-link">ZeroJudge_a132-UVa_10931</a> <a href="UVa_10325.html" class="problem-link">UVa_10325</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
