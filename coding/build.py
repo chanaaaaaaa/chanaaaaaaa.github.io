@@ -751,7 +751,7 @@ def git_commit_push_repo(
 ) -> tuple[bool, str]:
     """
     在 repo 根目錄 git add -A；若有變更則 commit（subject 必填，description 可選為第二段）；
-    最後 git push。
+    再 git pull --rebase 整合遠端（避免 push 因「需先 fetch」被拒），最後 git push。
     回傳 (成功與否, 給使用者看的訊息)。
     """
     if not (repo / ".git").is_dir():
@@ -794,6 +794,20 @@ def git_commit_push_repo(
             )
             if cm.returncode != 0:
                 return False, f"git commit 失敗 ({repo}): {cm.stderr or cm.stdout}"
+
+        pr = subprocess.run(
+            ["git", "pull", "--rebase"],
+            cwd=repo,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        if pr.returncode != 0:
+            return False, (
+                f"git pull --rebase 失敗 ({repo})，請手動解決衝突後再 push：\n"
+                f"{pr.stderr or pr.stdout}"
+            )
 
         pu = subprocess.run(
             ["git", "push"],
