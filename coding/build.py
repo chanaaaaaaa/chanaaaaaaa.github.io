@@ -18,6 +18,8 @@ import json
 import random
 import html
 import argparse
+import subprocess
+from datetime import datetime
 from pathlib import Path
 
 # 預設路徑
@@ -110,6 +112,32 @@ def extract_from_code(code: str, problem_id: str) -> tuple:
             break
 
     return solution or "（請自行補充）", complexity or "（請自行補充）"
+
+
+def cpp_stem_to_share_label(stem: str) -> str:
+    """
+    將 .cpp 檔名（不含副檔名）轉成貼文用題號，例如 UVa_11413 -> UVa.11413。
+    """
+    s = stem
+    s = re.sub(r"(?i)UVa_", "UVa.", s)
+    s = re.sub(r"(?i)CSES_", "CSES.", s)
+    s = re.sub(r"(?i)Luogu_", "Luogu.", s)
+    s = re.sub(r"(?i)LibreOJ_", "LibreOJ.", s)
+    s = re.sub(r"AtCoder_", "AtCoder.", s)
+    s = re.sub(r"ZeroJudge_", "ZeroJudge.", s)
+    s = s.replace("_", ".")
+    s = s.replace("-", " · ")
+    return s
+
+
+def cpp_path_outer_folder_name(cpp_path: str) -> str:
+    """程式碼所在資料夾名稱（如 day-183、further）。"""
+    if not cpp_path or not str(cpp_path).strip():
+        return "（未知資料夾）"
+    p = Path(cpp_path)
+    if p.is_file():
+        return p.parent.name
+    return p.name
 
 
 def strip_pragma_lines(code: str) -> str:
@@ -537,6 +565,7 @@ def build_pages(
 
     # 僅對有程式碼的 scanned 題目產生 HTML；已存在的 .html 不覆寫
     written = 0
+    share_snapshots: list[tuple[str, str]] = []  # (外層資料夾名, 貼文題號標籤)
     for i, p in enumerate(scanned_problems):
         html_path = out / "problems" / f"{p['safe_id']}.html"
         if html_path.is_file():
@@ -595,6 +624,24 @@ def build_pages(
         cpp_p = p.get("cpp_path") or ""
         print(f"來源 .cpp: {cpp_p}")
         print(f"新建 .html: {html_path.resolve()}")
+        print()
+        day_folder = cpp_path_outer_folder_name(cpp_p)
+        share_label = cpp_stem_to_share_label(p["id"])
+        share_snapshots.append((day_folder, share_label))
+
+    if share_snapshots:
+        print("=" * 52)
+        print("【每日貼文範本】以下為本次新建題目；括號內請手動補充")
+        print("=" * 52)
+        for day_folder, label in share_snapshots:
+            print()
+            print(f"每日亂捲直到跟皮卡丘一樣⚡️ {day_folder}")
+            print("-")
+            print(f"->{label} - （題名待補）")
+            print("（待補）")
+            print("-")
+        print("https://chanaaaaaaa.github.io/coding/index.html")
+        print("https://github.com/chanaaaaaaa/CodeLib")
         print()
 
     # 依類型與難度分組排序（merged_problems 已有 type、difficulty）
@@ -694,12 +741,109 @@ def build_pages(
     return written
 
 
+def git_commit_message_wrc() -> str:
+    """commit summary：wrc_{YYYY}/{MM}/{DD}-{HH}.{MM}_done（description 留白）"""
+    return datetime.now().strftime("wrc_%Y/%m/%d-%H.%M_done")
+
+
+def git_commit_push_repo(repo: Path, message: str) -> tuple[bool, str]:
+    """
+    在 repo 根目錄 git add -A；若有變更則 commit（僅 -m，無 body）；最後 git push。
+    回傳 (成功與否, 給使用者看的訊息)。
+    """
+    if not (repo / ".git").is_dir():
+        return False, f"略過（非 git 儲存庫）: {repo}"
+
+    try:
+        r = subprocess.run(
+            ["git", "add", "-A"],
+            cwd=repo,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        if r.returncode != 0:
+            return False, f"git add 失敗 ({repo}): {r.stderr or r.stdout}"
+
+        st = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=repo,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        if st.returncode != 0:
+            return False, f"git status 失敗 ({repo}): {st.stderr}"
+
+        if st.stdout.strip():
+            cm = subprocess.run(
+                ["git", "commit", "-m", message],
+                cwd=repo,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+            )
+            if cm.returncode != 0:
+                return False, f"git commit 失敗 ({repo}): {cm.stderr or cm.stdout}"
+
+        pu = subprocess.run(
+            ["git", "push"],
+            cwd=repo,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        if pu.returncode != 0:
+            return False, f"git push 失敗 ({repo}): {pu.stderr or pu.stdout}"
+
+        return True, f"已 push: {repo}"
+    except FileNotFoundError:
+        return False, "找不到 git 執行檔，請安裝 Git 並加入 PATH"
+    except OSError as e:
+        return False, f"git 執行錯誤: {e}"
+
+
+def git_push_codelib_and_site(code_dir: str, output_dir: str) -> int:
+    """
+    依序對 CodeLib 與 chanaaaaaaa.github.io 根目錄 commit + push。
+    code_dir 預設為 .../CodeLib/code；output_dir 預設為 .../chanaaaaaaa.github.io/coding。
+    """
+    code_root = Path(code_dir).resolve().parent
+    site_root = Path(output_dir).resolve().parent
+    roots: list[Path] = []
+    for p in (code_root, site_root):
+        rp = p.resolve()
+        if rp not in roots:
+            roots.append(rp)
+
+    msg = git_commit_message_wrc()
+    print("\n--- Git：commit & push（summary 無 description）---")
+    print(f"commit 訊息: {msg}")
+
+    exit_code = 0
+    for root in roots:
+        ok, info = git_commit_push_repo(root, msg)
+        print(info)
+        if not ok and "略過" not in info:
+            exit_code = 1
+    return exit_code
+
+
 def main():
     parser = argparse.ArgumentParser(description="建置 CodeLib 題解網站（輸出至 coding/）")
     parser.add_argument("--code-dir", default=DEFAULT_CODELIB, help="CodeLib/code 目錄路徑")
     parser.add_argument("--output", default=DEFAULT_OUTPUT, help="輸出目錄（預設為 coding/）")
     parser.add_argument("--links", type=int, default=6, help="每頁顯示的其他題目連結數量")
     parser.add_argument("--seed", type=int, default=None, help="隨機種子")
+    parser.add_argument(
+        "--skip-git-push",
+        action="store_true",
+        help="不執行 CodeLib / chanaaaaaaa.github.io 的 git commit 與 push",
+    )
     args = parser.parse_args()
 
     code_dir = args.code_dir if os.path.exists(args.code_dir) else ALT_CODELIB
@@ -740,6 +884,11 @@ def main():
     print(f"本次新建 {count} 個題目頁面（既有 .html 未覆寫）；已更新 index.html 與 data/problems.json")
     print(f"輸出目錄：{output_dir}")
     print(f"提示：可編輯 meta.json 補充各題的「題目內容(content)」與「時間複雜度」")
+
+    if not args.skip_git_push:
+        git_rc = git_push_codelib_and_site(code_dir, output_dir)
+        if git_rc != 0:
+            return git_rc
     return 0
 
 
