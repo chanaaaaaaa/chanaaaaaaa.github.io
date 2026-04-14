@@ -742,13 +742,16 @@ def build_pages(
 
 
 def git_commit_message_wrc() -> str:
-    """commit summary：wrc_{YYYY}/{MM}/{DD}-{HH}.{MM}_done（description 留白）"""
+    """commit subject：wrc_{YYYY}/{MM}/{DD}-{HH}.{MM}_done"""
     return datetime.now().strftime("wrc_%Y/%m/%d-%H.%M_done")
 
 
-def git_commit_push_repo(repo: Path, message: str) -> tuple[bool, str]:
+def git_commit_push_repo(
+    repo: Path, subject: str, description: str = ""
+) -> tuple[bool, str]:
     """
-    在 repo 根目錄 git add -A；若有變更則 commit（僅 -m，無 body）；最後 git push。
+    在 repo 根目錄 git add -A；若有變更則 commit（subject 必填，description 可選為第二段）；
+    最後 git push。
     回傳 (成功與否, 給使用者看的訊息)。
     """
     if not (repo / ".git").is_dir():
@@ -778,8 +781,11 @@ def git_commit_push_repo(repo: Path, message: str) -> tuple[bool, str]:
             return False, f"git status 失敗 ({repo}): {st.stderr}"
 
         if st.stdout.strip():
+            commit_cmd = ["git", "commit", "-m", subject]
+            if description.strip():
+                commit_cmd.extend(["-m", description.strip()])
             cm = subprocess.run(
-                ["git", "commit", "-m", message],
+                commit_cmd,
                 cwd=repo,
                 capture_output=True,
                 text=True,
@@ -821,12 +827,17 @@ def git_push_codelib_and_site(code_dir: str, output_dir: str) -> int:
             roots.append(rp)
 
     msg = git_commit_message_wrc()
-    print("\n--- Git：commit & push（summary 無 description）---")
+    print("\n--- Git：commit & push ---")
     print(f"commit 訊息: {msg}")
+    try:
+        desc = input("description（直接 Enter 略過）: ")
+    except EOFError:
+        desc = ""
+    desc = (desc or "").strip()
 
     exit_code = 0
     for root in roots:
-        ok, info = git_commit_push_repo(root, msg)
+        ok, info = git_commit_push_repo(root, msg, desc)
         print(info)
         if not ok and "略過" not in info:
             exit_code = 1
