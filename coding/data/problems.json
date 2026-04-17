@@ -463,6 +463,13 @@
       "difficulty": 3
     },
     {
+      "id": "UVa_10037",
+      "title": "UVa_10037",
+      "url": "problems/UVa_10037.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "UVa_10102",
       "title": "UVa_10102",
       "url": "problems/UVa_10102.html",
@@ -2153,6 +2160,13 @@
       "id": "ZeroJudge_d813-UVa_10583",
       "title": "ZeroJudge_d813-UVa_10583",
       "url": "problems/ZeroJudge_d813-UVa_10583.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "ZeroJudge_d872",
+      "title": "ZeroJudge_d872",
+      "url": "problems/ZeroJudge_d872.html",
       "type": "其他",
       "difficulty": 3
     },
