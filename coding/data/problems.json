@@ -281,6 +281,13 @@
       "difficulty": 3
     },
     {
+      "id": "CodeForces_1631C",
+      "title": "CodeForces_1631C",
+      "url": "problems/CodeForces_1631C.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "LibreOJ_2185",
       "title": "LibreOJ_2185",
       "url": "problems/LibreOJ_2185.html",
@@ -848,6 +855,13 @@
       "difficulty": 3
     },
     {
+      "id": "UVa_1121",
+      "title": "UVa_1121",
+      "url": "problems/UVa_1121.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "UVa_11287",
       "title": "UVa_11287",
       "url": "problems/UVa_11287.html",
@@ -893,6 +907,13 @@
       "id": "UVa_11550",
       "title": "UVa_11550",
       "url": "problems/UVa_11550.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "UVa_11559",
+      "title": "UVa_11559",
+      "url": "problems/UVa_11559.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -1954,6 +1975,13 @@
       "difficulty": 3
     },
     {
+      "id": "ZeroJudge_d206-UVa_108",
+      "title": "ZeroJudge_d206-UVa_108",
+      "url": "problems/ZeroJudge_d206-UVa_108-2.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "ZeroJudge_d219-UVa_374",
       "title": "ZeroJudge_d219-UVa_374",
       "url": "problems/ZeroJudge_d219-UVa_374.html",
@@ -2265,6 +2293,13 @@
       "id": "ZeroJudge_e510-UVa_10056",
       "title": "ZeroJudge_e510-UVa_10056",
       "url": "problems/ZeroJudge_e510-UVa_10056.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "ZeroJudge_e511-UVa_11364",
+      "title": "ZeroJudge_e511-UVa_11364",
+      "url": "problems/ZeroJudge_e511-UVa_11364.html",
       "type": "其他",
       "difficulty": 3
     },

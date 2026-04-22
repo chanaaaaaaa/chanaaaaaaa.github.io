@@ -6,7 +6,8 @@ CodeLib GitHub Pages 建置腳本（入口）。
 
 題目檔名建議與 CodeLib 正規化規則一致：
 UVa_{num}、CSES_{num}、AtCoder_abc{場次}_{題目}、ZeroJudge_{小寫字母}{數字}、
-Luogu_{題號字串}（如 Luogu_P1234）、LibreOJ_{num}；複合題以「-」連接多個片段。
+Luogu_{題號字串}（如 Luogu_P1234）、LibreOJ_{num}、CodeForces_{字串}（如 CodeForces_1805A 或
+CodeForces_1805_A）；複合題以「-」連接多個片段。
 
 實作模組見 site_builder/ 目錄。
 """

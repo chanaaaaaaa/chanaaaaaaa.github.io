@@ -157,18 +157,17 @@ def build_pages(
         print("=" * 52)
         print("【每日貼文範本】以下為本次新建題目；括號內請手動補充")
         print("=" * 52)
+        
+        print()
+        print(f"每日亂捲直到跟皮卡丘一樣⚡️ {day_folder}")
+        print("-")
         for day_folder, label in share_snapshots:
-            print()
-            print(f"每日亂捲直到跟皮卡丘一樣⚡️ {day_folder}")
-            print("-")
-            print("（待補）")
-            print("-")
             print(f"->{label} - （題名待補）")
             print("（待補）")
             print("-")
-            print("https://chanaaaaaaa.github.io/coding/index.html")
-            print("https://github.com/chanaaaaaaa/CodeLib")
-            print()
+        print("https://chanaaaaaaa.github.io/coding/index.html")
+        print("https://github.com/chanaaaaaaa/CodeLib")
+        print()
 
     TYPE_ORDER = [
         "圖論", "DP", "貪心", "排序", "搜尋", "數學", "字串", "資料結構", "模擬", "其他",

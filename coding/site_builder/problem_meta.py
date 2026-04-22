@@ -13,6 +13,7 @@ def cpp_stem_to_share_label(stem: str) -> str:
     s = re.sub(r"(?i)CSES_", "CSES.", s)
     s = re.sub(r"(?i)Luogu_", "Luogu.", s)
     s = re.sub(r"(?i)LibreOJ_", "LibreOJ.", s)
+    s = re.sub(r"(?i)CodeForces_", "CodeForces.", s)
     s = re.sub(r"AtCoder_", "AtCoder.", s)
     s = re.sub(r"ZeroJudge_", "ZeroJudge.", s)
     s = s.replace("_", ".")
@@ -56,6 +57,9 @@ def _describe_canonical_segment(seg: str) -> str | None:
     m = re.match(r"(?i)^LibreOJ_(\d+)$", seg)
     if m:
         return f"LibreOJ {m.group(1)}"
+    m = re.match(r"(?i)^CodeForces_(.+)$", seg)
+    if m:
+        return f"Codeforces {m.group(1).replace('_', ' ')}"
     return None
 
 
@@ -103,6 +107,12 @@ def format_problem_source(problem_id: str) -> str:
         parts.append(f"APCS {year.group(0) if year else ''}".strip())
     if re.search(r"atcoder|atcode", pid, re.I):
         parts.append("AtCoder")
+    if re.search(r"codeforces", pid, re.I):
+        m = re.search(r"(?i)CodeForces_([^-]+)", pid)
+        if m:
+            parts.append(f"Codeforces {m.group(1).replace('_', ' ')}")
+        else:
+            parts.append("Codeforces")
     if not parts:
         return problem_id.strip()
     return " · ".join(parts)
@@ -121,6 +131,17 @@ def find_problem_link(problem_id: str) -> str:
     if m:
         a, ch = m.group(1), m.group(2).lower()
         return f"https://atcoder.jp/contests/abc{a}/tasks/abc{a}_{ch}"
+
+    m = re.search(r"(?i)CodeForces_([^-]+)", raw)
+    if m:
+        s = m.group(1).strip()
+        m_cf = re.match(r"(?i)^(\d+)_([A-Z][0-9A-Za-z]*)$", s)
+        if m_cf:
+            return f"https://codeforces.com/problemset/problem/{m_cf.group(1)}/{m_cf.group(2)}"
+        m_cf = re.match(r"(?i)^(\d+)([A-Z][0-9A-Za-z]*)$", s)
+        if m_cf:
+            return f"https://codeforces.com/problemset/problem/{m_cf.group(1)}/{m_cf.group(2)}"
+        return ""
 
     m = re.search(r"(?i)LibreOJ_(\d+)", raw)
     if m:
