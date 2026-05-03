@@ -337,6 +337,13 @@
       "difficulty": 3
     },
     {
+      "id": "Luogu_P1471",
+      "title": "Luogu_P1471",
+      "url": "problems/Luogu_P1471.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "Luogu_P1648",
       "title": "Luogu_P1648",
       "url": "problems/Luogu_P1648.html",
@@ -347,6 +354,13 @@
       "id": "Luogu_P1886",
       "title": "Luogu_P1886",
       "url": "problems/Luogu_P1886.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "Luogu_P2122",
+      "title": "Luogu_P2122",
+      "url": "problems/Luogu_P2122.html",
       "type": "其他",
       "difficulty": 3
     },
