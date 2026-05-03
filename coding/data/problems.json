@@ -232,6 +232,13 @@
       "difficulty": 3
     },
     {
+      "id": "CSES_1648",
+      "title": "CSES_1648",
+      "url": "problems/CSES_1648-2.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "CSES_1650",
       "title": "CSES_1650",
       "url": "problems/CSES_1650.html",
@@ -298,6 +305,13 @@
       "id": "LibreOJ_2185",
       "title": "LibreOJ_2185",
       "url": "problems/LibreOJ_2185.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "Luogu_P1020",
+      "title": "Luogu_P1020",
+      "url": "problems/Luogu_P1020.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -396,6 +410,13 @@
       "id": "Luogu_P4648",
       "title": "Luogu_P4648",
       "url": "problems/Luogu_P4648.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "Luogu_P4979",
+      "title": "Luogu_P4979",
+      "url": "problems/Luogu_P4979.html",
       "type": "其他",
       "difficulty": 3
     },
