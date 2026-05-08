@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu_P2742 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>Luogu_P2742</h1>
+        <p class="subtitle">題目編號：Luogu_P2742</p>
+        <p><a href="https://www.luogu.com.cn/problem/P2742" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+<span class="token directive">#include</span> &lt;cmath&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">struct</span> point{
+    <span class="token keyword">double</span> x,y;
+};
+point p0;
+vector&lt;point&gt;dat;
+
+<span class="token keyword">inline</span> <span class="token keyword">double</span> disppo(point &amp;p1,point &amp;p2){
+    <span class="token keyword">return</span> (p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y);
+}
+<span class="token keyword">inline</span> <span class="token keyword">int</span> orient(point &amp;p,point &amp;q,point &amp;r){
+    <span class="token keyword">double</span> val=(q.x-p.x)*(r.y-p.y)-(q.y-p.y)*(r.x-p.x);
+
+    <span class="token keyword">if</span>(val&gt;<span class="token number">0</span>){
+        <span class="token keyword">return</span> <span class="token number">1</span>;
+    }<span class="token keyword">else</span> <span class="token keyword">if</span>(val&lt;<span class="token number">0</span>){
+        <span class="token keyword">return</span> -<span class="token number">1</span>;
+    }<span class="token keyword">else</span>{
+        <span class="token keyword">return</span> <span class="token number">0</span>;
+    }
+}
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> cmp(point &amp;a,point &amp;b){
+    <span class="token keyword">int</span> o=orient(p0,a,b);
+    <span class="token keyword">if</span>(o==<span class="token number">0</span>){
+        <span class="token keyword">return</span> disppo(p0,a)&lt;disppo(p0,b);
+    }
+    <span class="token keyword">return</span> o==<span class="token number">1</span>;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> hex(){
+    <span class="token keyword">int</span> sz=dat.size();
+    <span class="token keyword">if</span>(sz==<span class="token number">1</span>){
+        printf(<span class="token string">&quot;0.00\n&quot;</span>);
+        <span class="token keyword">return</span>;
+    }
+    <span class="token keyword">if</span>(sz==<span class="token number">2</span>){
+        printf(<span class="token string">&quot;%.2lf\n&quot;</span>,<span class="token number">2.0</span>*sqrt(disppo(dat[<span class="token number">0</span>],dat[<span class="token number">1</span>])));
+        <span class="token keyword">return</span>;
+    }
+    <span class="token comment">//get p0</span>
+    <span class="token keyword">int</span> minn=<span class="token number">0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;sz;++i){
+        <span class="token keyword">if</span>(dat[i].y&lt;dat[minn].y){
+            minn=i;
+        }<span class="token keyword">else</span> <span class="token keyword">if</span>(dat[i].y==dat[minn].y &amp;&amp; dat[i].x&lt;dat[minn].x){
+            minn=i;
+        }
+    }
+    swap(dat[<span class="token number">0</span>],dat[minn]);
+    p0=dat[<span class="token number">0</span>];
+    sort(dat.begin()+<span class="token number">1</span>,dat.end(),cmp);
+
+    <span class="token keyword">int</span> m=<span class="token number">1</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;sz;++i){
+        <span class="token keyword">while</span>(i&lt;sz-<span class="token number">1</span> &amp;&amp; orient(p0,dat[i],dat[i+<span class="token number">1</span>])==<span class="token number">0</span>){
+            ++i;
+        }
+        dat[m]=dat[i];
+        ++m;
+    }
+    <span class="token comment">//-clean bad points</span>
+    <span class="token keyword">if</span>(m==<span class="token number">1</span>){
+        printf(<span class="token string">&quot;0.00\n&quot;</span>);
+        <span class="token keyword">return</span>;
+    }
+    <span class="token keyword">if</span>(m==<span class="token number">2</span>){
+        printf(<span class="token string">&quot;%.2lf\n&quot;</span>,<span class="token number">2.0</span>*sqrt(disppo(dat[<span class="token number">0</span>],dat[<span class="token number">1</span>])));
+        <span class="token keyword">return</span>;
+    }
+
+    vector&lt;point&gt;spept;
+    spept.push_back(dat[<span class="token number">0</span>]);
+    spept.push_back(dat[<span class="token number">1</span>]);
+    spept.push_back(dat[<span class="token number">2</span>]);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">3</span>;i&lt;m;++i){
+        <span class="token keyword">while</span>(spept.size()&gt;<span class="token number">1</span> &amp;&amp; orient(spept[spept.size()-<span class="token number">2</span>],spept.back(),dat[i])!=<span class="token number">1</span>){
+            spept.pop_back();
+        }
+        spept.push_back(dat[i]);
+    }
+
+    <span class="token keyword">double</span> res=<span class="token number">0.0</span>;
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;spept.size();++i){
+        res+=sqrt(disppo(spept[i],spept[i-<span class="token number">1</span>]));
+    }
+    res+=sqrt(disppo(spept[<span class="token number">0</span>],spept.back()));
+    printf(<span class="token string">&quot;%.2lf\n&quot;</span>,res);
+    <span class="token keyword">return</span>;
+}
+<span class="token keyword">int</span> N;
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(~scanf(<span class="token string">&quot;%d&quot;</span>,&amp;N)){
+        dat.assign(N,{});
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            scanf(<span class="token string">&quot;%lf %lf&quot;</span>,&amp;dat[i].x,&amp;dat[i].y);
+        }
+        hex();
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_f605.html" class="problem-link">ZeroJudge_f605</a> <a href="UVa_924-2.html" class="problem-link">UVa_924</a> <a href="ZeroJudge_e555-UVa_10170.html" class="problem-link">ZeroJudge_e555-UVa_10170</a> <a href="ZeroJudge_d275-UVa_11586.html" class="problem-link">ZeroJudge_d275-UVa_11586</a> <a href="UVa_11086.html" class="problem-link">UVa_11086</a> <a href="ZeroJudge_d191-UVa_11352.html" class="problem-link">ZeroJudge_d191-UVa_11352</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

@@ -3118,5 +3118,53 @@
     "summary": "",
     "content": "",
     "description": ""
+  },
+  "UVa_10589": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
+  },
+  "ZeroJudge_c089-UVa_389": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
+  },
+  "ZeroJudge_c108-UVa_305": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
+  },
+  "ZeroJudge_d256-UVa_11388": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
+  },
+  "ZeroJudge_d265-UVa_10165": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
+  },
+  "Luogu_P2742": {
+    "complexity": "（請自行補充）",
+    "type": "其他",
+    "difficulty": 3,
+    "summary": "",
+    "content": "",
+    "description": ""
   }
 }
