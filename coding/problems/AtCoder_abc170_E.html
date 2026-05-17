@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtCoder_abc170_E - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>AtCoder_abc170_E</h1>
+        <p class="subtitle">題目編號：AtCoder_abc170_E</p>
+        <p><a href="https://atcoder.jp/contests/abc170/tasks/abc170_e" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;set&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#define</span> <span class="token keyword">int</span> <span class="token keyword">long</span> <span class="token keyword">long</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x){
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+<span class="token comment">//-block</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">2e5</span>+<span class="token number">10</span>;
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N=read();
+    <span class="token keyword">int</span> Q=read();
+    vector&lt;<span class="token keyword">int</span>&gt;a(MAXN);
+    vector&lt;<span class="token keyword">int</span>&gt;b(MAXN);
+    vector&lt;<span class="token keyword">int</span>&gt;f(MAXN);
+    vector&lt;multiset&lt;<span class="token keyword">int</span>,greater&lt;<span class="token keyword">int</span>&gt;&gt;&gt;s(MAXN);
+    multiset&lt;<span class="token keyword">int</span>&gt;x;
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;=N;++i){
+        a[i]=read();
+        f[i]=b[i]=read();
+        s[b[i]].insert(a[i]);
+    }
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">1</span>;i&lt;MAXN;++i){
+        <span class="token keyword">if</span>(!s[i].empty()){x.insert(*s[i].begin());}
+    }
+
+    <span class="token keyword">while</span>(Q--){
+        <span class="token keyword">int</span> c=read();
+        <span class="token keyword">int</span> d=read();
+        <span class="token keyword">int</span> p=a[c];
+        <span class="token keyword">int</span> zu=f[c];
+
+        s[zu].erase(s[zu].find(p));
+        f[c]=d;
+        <span class="token keyword">if</span>(s[zu].empty() || p&gt;*s[zu].begin()){
+            x.erase(x.find(p));
+            <span class="token keyword">if</span>(!s[zu].empty()){x.insert(*s[zu].begin());}
+        }
+        <span class="token keyword">if</span>(s[d].empty() || p&gt;*s[d].begin()){
+            <span class="token keyword">if</span>(!s[d].empty()){x.erase(x.find(*s[d].begin()));}
+            x.insert(p);
+        }
+        s[d].insert(p);
+        write(*x.begin());
+        putchar(<span class="token string">&#x27;\n&#x27;</span>);
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="Luogu_P4169.html" class="problem-link">Luogu_P4169</a> <a href="UVa_10341.html" class="problem-link">UVa_10341</a> <a href="ZeroJudge_e516-UVa_10409.html" class="problem-link">ZeroJudge_e516-UVa_10409</a> <a href="UVa_242.html" class="problem-link">UVa_242</a> <a href="UVa_10920.html" class="problem-link">UVa_10920</a> <a href="ZeroJudge_a135-UVa_12250.html" class="problem-link">ZeroJudge_a135-UVa_12250</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
