@@ -8,6 +8,48 @@
       "difficulty": 3
     },
     {
+      "id": "AtCoder_abc159_A",
+      "title": "AtCoder_abc159_A",
+      "url": "problems/AtCoder_abc159_A.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc159_B",
+      "title": "AtCoder_abc159_B",
+      "url": "problems/AtCoder_abc159_B.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc159_C",
+      "title": "AtCoder_abc159_C",
+      "url": "problems/AtCoder_abc159_C.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc159_D",
+      "title": "AtCoder_abc159_D",
+      "url": "problems/AtCoder_abc159_D.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc159_E",
+      "title": "AtCoder_abc159_E",
+      "url": "problems/AtCoder_abc159_E.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc159_F",
+      "title": "AtCoder_abc159_F",
+      "url": "problems/AtCoder_abc159_F.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "AtCoder_abc208_E",
       "title": "AtCoder_abc208_E",
       "url": "problems/AtCoder_abc208_E.html",
@@ -2300,6 +2342,13 @@
       "id": "ZeroJudge_d750-UVa_11321",
       "title": "ZeroJudge_d750-UVa_11321",
       "url": "problems/ZeroJudge_d750-UVa_11321.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "ZeroJudge_d751-UVa_10049",
+      "title": "ZeroJudge_d751-UVa_10049",
+      "url": "problems/ZeroJudge_d751-UVa_10049.html",
       "type": "其他",
       "difficulty": 3
     },
