@@ -288,6 +288,34 @@
       "difficulty": 3
     },
     {
+      "id": "AtCoder_abc460_A",
+      "title": "AtCoder_abc460_A",
+      "url": "problems/AtCoder_abc460_A.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc460_B",
+      "title": "AtCoder_abc460_B",
+      "url": "problems/AtCoder_abc460_B.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc460_C",
+      "title": "AtCoder_abc460_C",
+      "url": "problems/AtCoder_abc460_C.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "AtCoder_abc460_F",
+      "title": "AtCoder_abc460_F",
+      "url": "problems/AtCoder_abc460_F.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "CSES_1073",
       "title": "CSES_1073",
       "url": "problems/CSES_1073.html",

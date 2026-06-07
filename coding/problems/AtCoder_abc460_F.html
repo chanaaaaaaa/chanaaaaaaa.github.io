@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtCoder_abc460_F - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>AtCoder_abc460_F</h1>
+        <p class="subtitle">題目編號：AtCoder_abc460_F</p>
+        <p><a href="https://atcoder.jp/contests/abc460/tasks/abc460_f" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> INF=<span class="token number">1e9</span>;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,w=<span class="token number">1</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==<span class="token string">&#x27;-&#x27;</span>){w=-<span class="token number">1</span>;}
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> <span class="token number">0</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x*w;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> write(<span class="token keyword">int</span> x) {
+    <span class="token keyword">if</span>(x&lt;<span class="token number">0</span>){putchar(<span class="token string">&#x27;-&#x27;</span>);x=-x;}
+    <span class="token keyword">if</span>(x&gt;=<span class="token number">10</span>){write(x/<span class="token number">10</span>);}
+    putchar(x%<span class="token number">10</span>+<span class="token string">&#x27;0&#x27;</span>);
+}
+
+
+<span class="token keyword">struct</span> Node{
+    <span class="token keyword">int</span> min_d,max_d,max_l,max_r,ans;
+    Node(){
+        min_d=max_d=max_l=max_r=ans=-INF;
+    }
+};
+
+<span class="token keyword">int</span> N,Q;
+vector&lt;vector&lt;<span class="token keyword">int</span>&gt;&gt;adjL;
+vector&lt;<span class="token keyword">bool</span>&gt;color;
+vector&lt;<span class="token keyword">int</span>&gt;depth;
+vector&lt;<span class="token keyword">int</span>&gt;pos;
+vector&lt;<span class="token keyword">int</span>&gt;euler;
+vector&lt;Node&gt;tree;
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> dfs(<span class="token keyword">int</span> cur,<span class="token keyword">int</span> fa,<span class="token keyword">int</span> d){
+    depth[cur]=d;
+    pos[cur]=euler.size();
+    euler.push_back(cur);
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> nxt:adjL[cur]){
+        <span class="token keyword">if</span>(nxt!=fa){
+            dfs(nxt,cur,d+<span class="token number">1</span>);
+            euler.push_back(cur);
+        }
+    }
+}
+
+<span class="token keyword">inline</span> Node merge(<span class="token keyword">const</span> Node&amp; L,<span class="token keyword">const</span> Node&amp; R){
+    Node res;
+    res.min_d=min(L.min_d,R.min_d);
+    res.max_d=max(L.max_d,R.max_d);
+    res.max_l=max({L.max_l,R.max_l,L.max_d-<span class="token number">2</span>*R.min_d});
+    res.max_r=max({L.max_r,R.max_r,R.max_d-<span class="token number">2</span>*L.min_d});
+    res.ans=max({L.ans,R.ans,L.max_l+R.max_d,L.max_d+R.max_r});
+    <span class="token keyword">return</span> res;
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> build(<span class="token keyword">int</span> node,<span class="token keyword">int</span> l,<span class="token keyword">int</span> r){
+    <span class="token keyword">if</span>(l==r){
+        <span class="token keyword">int</span> u=euler[l];
+        tree[node].min_d=depth[u];
+        <span class="token keyword">if</span>(l==pos[u] &amp;&amp; !color[u]){
+            tree[node].max_d=depth[u];
+            tree[node].max_l=-depth[u];
+            tree[node].max_r=-depth[u];
+            tree[node].ans=<span class="token number">0</span>;
+        }<span class="token keyword">else</span>{
+            tree[node].max_d=-INF;
+            tree[node].max_l=-INF;
+            tree[node].max_r=-INF;
+            tree[node].ans=-INF;
+        }
+        <span class="token keyword">return</span>;
+    }
+    <span class="token keyword">int</span> mid=(l+r)&gt;&gt;<span class="token number">1</span>;
+    build(node&lt;&lt;<span class="token number">1</span>,l,mid);
+    build(node&lt;&lt;<span class="token number">1</span>|<span class="token number">1</span>,mid+<span class="token number">1</span>,r);
+    tree[node]=merge(tree[node&lt;&lt;<span class="token number">1</span>],tree[node&lt;&lt;<span class="token number">1</span>|<span class="token number">1</span>]);
+}
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> update(<span class="token keyword">int</span> node,<span class="token keyword">int</span> l,<span class="token keyword">int</span> r,<span class="token keyword">int</span> idx,<span class="token keyword">int</span> u){
+    <span class="token keyword">if</span>(l==r){
+        tree[node].min_d=depth[u];
+        <span class="token keyword">if</span>(l==pos[u] &amp;&amp; !color[u]){
+            tree[node].max_d=depth[u];
+            tree[node].max_l=-depth[u];
+            tree[node].max_r=-depth[u];
+            tree[node].ans=<span class="token number">0</span>;
+        }<span class="token keyword">else</span>{
+            tree[node].max_d=-INF;
+            tree[node].max_l=-INF;
+            tree[node].max_r=-INF;
+            tree[node].ans=-INF;
+        }
+        <span class="token keyword">return</span>;
+    }
+    <span class="token keyword">int</span> mid=(l+r)&gt;&gt;<span class="token number">1</span>;
+    <span class="token keyword">if</span>(idx&lt;=mid){
+        update(node&lt;&lt;<span class="token number">1</span>,l,mid,idx,u);
+    }<span class="token keyword">else</span>{
+        update(node&lt;&lt;<span class="token number">1</span>|<span class="token number">1</span>,mid+<span class="token number">1</span>,r,idx,u);
+    }
+    tree[node]=merge(tree[node&lt;&lt;<span class="token number">1</span>],tree[node&lt;&lt;<span class="token number">1</span>|<span class="token number">1</span>]);
+}
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">while</span>(N=read()){
+        adjL.assign(N+<span class="token number">1</span>,vector&lt;<span class="token keyword">int</span>&gt;());
+        color.assign(N+<span class="token number">1</span>,<span class="token keyword">false</span>);
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N-<span class="token number">1</span>;++i){
+            <span class="token keyword">int</span> u=read();
+            <span class="token keyword">int</span> v=read();
+            adjL[u].emplace_back(v);
+            adjL[v].emplace_back(u);
+        }
+
+        depth.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        pos.assign(N+<span class="token number">1</span>,<span class="token number">0</span>);
+        euler.clear();
+
+        <span class="token keyword">if</span>(N&gt;<span class="token number">0</span>){
+            dfs(<span class="token number">1</span>,<span class="token number">0</span>,<span class="token number">0</span>);
+            tree.assign(<span class="token number">4</span>*euler.size(),Node());
+            build(<span class="token number">1</span>,<span class="token number">0</span>,euler.size()-<span class="token number">1</span>);
+        }
+
+        <span class="token keyword">int</span> black_cnt=N;
+
+        Q=read();
+        <span class="token keyword">while</span>(Q--){
+            <span class="token keyword">int</span> st=read();
+            color[st]=!color[st];
+
+            <span class="token keyword">if</span>(color[st]){
+                black_cnt--;
+            }<span class="token keyword">else</span>{
+                black_cnt++;
+            }
+
+            <span class="token keyword">if</span>(N&gt;<span class="token number">0</span>){
+                update(<span class="token number">1</span>,<span class="token number">0</span>,euler.size()-<span class="token number">1</span>,pos[st],st);
+            }
+
+            <span class="token keyword">if</span>(black_cnt&lt;=<span class="token number">1</span>){
+                write(<span class="token number">0</span>);
+            }<span class="token keyword">else</span>{
+                write(max(<span class="token number">0</span>,tree[<span class="token number">1</span>].ans));
+            }
+            putchar(<span class="token string">&#x27;\n&#x27;</span>);
+        }
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="Luogu_P4979.html" class="problem-link">Luogu_P4979</a> <a href="ZeroJudge_d980-UVa_11479.html" class="problem-link">ZeroJudge_d980-UVa_11479</a> <a href="UVa_160.html" class="problem-link">UVa_160</a> <a href="UVa_908.html" class="problem-link">UVa_908</a> <a href="ZeroJudge_j123.html" class="problem-link">ZeroJudge_j123</a> <a href="ZeroJudge_c295.html" class="problem-link">ZeroJudge_c295</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
