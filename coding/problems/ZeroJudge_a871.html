@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroJudge_a871 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>ZeroJudge_a871</h1>
+        <p class="subtitle">題目編號：ZeroJudge_a871</p>
+        <p><a href="https://zerojudge.tw/ShowProblem?problemid=A871" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;iostream&gt;
+<span class="token directive">#include</span> &lt;iomanip&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;algorithm&gt;
+<span class="token directive">#include</span> &lt;utility&gt;
+<span class="token directive">#include</span> &lt;cmath&gt;
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">int</span> N;
+vector&lt;pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&gt;points;
+
+pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt; <span class="token keyword">operator</span>-(<span class="token keyword">const</span> pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&amp;a,<span class="token keyword">const</span> pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&amp;b){
+    <span class="token keyword">return</span> {a.first-b.first,a.second-b.second};
+}
+<span class="token keyword">float</span> cross(<span class="token keyword">const</span> pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&amp;a,<span class="token keyword">const</span> pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&amp;b){
+    <span class="token keyword">return</span> a.first*b.second-a.second*b.first;
+}
+<span class="token keyword">inline</span> <span class="token keyword">float</span> slove(){
+    sort(points.begin(),points.end());
+
+    vector&lt;pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt;&gt;hull;
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;<span class="token number">2</span>;++i){
+        <span class="token keyword">int</span> t=hull.size();
+        <span class="token keyword">for</span>(pair&lt;<span class="token keyword">float</span>,<span class="token keyword">float</span>&gt; &amp;pt:points){
+            <span class="token keyword">while</span>(hull.size()-t&gt;=<span class="token number">2</span> &amp;&amp; cross(hull.back()-hull[hull.size()-<span class="token number">2</span>],pt-hull[hull.size()-<span class="token number">2</span>])&lt;=<span class="token number">0</span>){
+                hull.pop_back();
+            }
+            hull.push_back(pt);
+        }
+        hull.pop_back();
+        reverse(points.begin(),points.end());
+    }
+    points.assign(hull.begin(),hull.end());
+
+    <span class="token keyword">float</span> res=<span class="token number">0.0</span>;
+    N=points.size();
+    points.push_back(points[<span class="token number">0</span>]);
+
+
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+        <span class="token comment">//printf(&quot;%f %f &quot;,points[i].first,points[i].second);</span>
+        res+=points[i].first*points[i+<span class="token number">1</span>].second-points[i+<span class="token number">1</span>].first*points[i].second;
+        <span class="token comment">//printf(&quot;%f\n&quot;,res);</span>
+    }
+    <span class="token keyword">return</span> res*<span class="token number">0.5</span>;
+}
+
+<span class="token keyword">signed</span> main(){
+    <span class="token keyword">int</span> N;
+    <span class="token keyword">while</span>(cin&gt;&gt;N){
+        points.clear();
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">0</span>;i&lt;N;++i){
+            <span class="token keyword">float</span> x,y;
+            cin&gt;&gt;x&gt;&gt;y;
+            points.push_back({x,y});
+        }
+        cout&lt;&lt;fixed&lt;&lt;setprecision(<span class="token number">2</span>)&lt;&lt;slove()&lt;&lt;<span class="token string">&#x27;\n&#x27;</span>;
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="ZeroJudge_n773-UVa_10424.html" class="problem-link">ZeroJudge_n773-UVa_10424</a> <a href="ZeroJudge_d097-UVa_10038.html" class="problem-link">ZeroJudge_d097-UVa_10038</a> <a href="ZeroJudge_b966.html" class="problem-link">ZeroJudge_b966</a> <a href="CSES_1621.html" class="problem-link">CSES_1621</a> <a href="ZeroJudge_d255-UVa_11417.html" class="problem-link">ZeroJudge_d255-UVa_11417</a> <a href="UVa_10132.html" class="problem-link">UVa_10132</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>

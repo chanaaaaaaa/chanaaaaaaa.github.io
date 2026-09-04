@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVa_10139 - CodeLib 題解</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../vendor/prism-tomorrow.min.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(' , '\\\)']],
+          displayMath: [['\\[', '\\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <div class="page-wrapper">
+    <header>
+        <a href="../index.html" class="back-link">← 返回題目列表</a>
+        <h1>UVa_10139</h1>
+        <p class="subtitle">題目編號：UVa_10139</p>
+        <p><a href="https://vjudge.net/problem/UVA-10139" target="_blank" rel="noopener">題目連結（原題／評測）</a></p>
+    </header>
+
+    <div class="content-card">
+    <h2>題目大意</h2>
+    <p>（請自行查閱題目描述）</p>
+
+    <h2>題解</h2>
+    <p>（請自行補充）</p>
+
+    <h2>時間複雜度</h2>
+    <p>（請自行補充）</p>
+
+    <h2>程式碼</h2>
+    <pre class="code-block language-cpp"><code><span class="token directive">#include</span> &lt;cstdio&gt;
+<span class="token directive">#include</span> &lt;vector&gt;
+<span class="token directive">#include</span> &lt;map&gt;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std;
+
+<span class="token keyword">inline</span> <span class="token keyword">int</span> read(){
+    <span class="token keyword">int</span> x=<span class="token number">0</span>,c=<span class="token number">0</span>;
+    <span class="token keyword">while</span>(c&lt;<span class="token string">&#x27;0&#x27;</span> || c&gt;<span class="token string">&#x27;9&#x27;</span>){
+        c=getchar();
+        <span class="token keyword">if</span>(c==-<span class="token number">1</span>){<span class="token keyword">return</span> -<span class="token number">1</span>;}
+    }
+    <span class="token keyword">while</span>(c&gt;=<span class="token string">&#x27;0&#x27;</span>&amp;&amp;c&lt;=<span class="token string">&#x27;9&#x27;</span>){
+        x=(x&lt;&lt;<span class="token number">3</span>)+(x&lt;&lt;<span class="token number">1</span>)+c-<span class="token string">&#x27;0&#x27;</span>;
+        c=getchar();
+    }
+    <span class="token keyword">return</span> x;
+}
+<span class="token comment">//==</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN=<span class="token number">1</span>&lt;&lt;<span class="token number">16</span>;
+vector&lt;<span class="token keyword">int</span>&gt;primes;
+<span class="token keyword">bool</span> isprime[MAXN+<span class="token number">1</span>];
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> build(){
+    <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>;i&lt;MAXN;++i){
+        <span class="token keyword">if</span>(!isprime[i]){primes.push_back(i);}
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> p:primes){
+            <span class="token keyword">if</span>(i*p&gt;MAXN){<span class="token keyword">break</span>;}
+            isprime[i*p]=<span class="token keyword">true</span>;
+            <span class="token keyword">if</span>(i%p==<span class="token number">0</span>){<span class="token keyword">break</span>;}
+        }
+    }
+}
+
+<span class="token keyword">signed</span> main(){
+    build();
+    <span class="token keyword">int</span> A,B;
+    <span class="token keyword">while</span>(<span class="token keyword">true</span>){
+        A=read();<span class="token keyword">if</span>(A==-<span class="token number">1</span>){<span class="token keyword">break</span>;}
+        B=read();
+
+        <span class="token keyword">if</span>(B==<span class="token number">1</span> || B==<span class="token number">0</span>){
+            printf(<span class="token string">&quot;%d divides %d!\n&quot;</span>,B,A);
+            <span class="token keyword">continue</span>;
+        }
+
+        map&lt;<span class="token keyword">int</span>,<span class="token keyword">int</span>&gt;mp;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> i=<span class="token number">2</span>,num;i&lt;=A;++i){
+            num=i;
+            <span class="token keyword">for</span>(<span class="token keyword">int</span> pos=<span class="token number">0</span>,cnt;pos&lt;primes.size() &amp;&amp; num!=<span class="token number">1</span>;++pos){
+                cnt=<span class="token number">0</span>;
+                <span class="token keyword">while</span>(num%primes[pos]==<span class="token number">0</span>){
+                    num/=primes[pos];
+                    ++cnt;
+                }
+                <span class="token comment">//printf(&quot;%d %d %d\n&quot;,i,primes[pos],cnt);</span>
+                mp[primes[pos]]+=cnt;
+            }
+        }
+        <span class="token comment">//</span>
+        <span class="token comment">//for(auto p:mp){</span>
+        <span class="token comment">//    printf(&quot;%d %d\n&quot;,p.first,p.second);</span>
+        <span class="token comment">//}</span>
+        <span class="token comment">//</span>
+        <span class="token keyword">bool</span> f=<span class="token keyword">true</span>;
+        <span class="token keyword">int</span> num=B;
+        <span class="token keyword">for</span>(<span class="token keyword">int</span> pos=<span class="token number">0</span>,cnt;pos&lt;primes.size();++pos){
+            cnt=<span class="token number">0</span>;
+            <span class="token keyword">while</span>(num%primes[pos]==<span class="token number">0</span>){
+                num/=primes[pos];
+                ++cnt;
+            }
+            <span class="token keyword">if</span>(mp[primes[pos]]&gt;=cnt){
+                mp[primes[pos]]-=cnt;
+            }<span class="token keyword">else</span>{
+                f=<span class="token keyword">false</span>;
+                <span class="token keyword">break</span>;
+            }
+        }
+
+        <span class="token keyword">if</span>(f &amp;&amp; num==<span class="token number">1</span>){
+            printf(<span class="token string">&quot;%d divides %d!\n&quot;</span>,B,A);
+        }<span class="token keyword">else</span>{
+            printf(<span class="token string">&quot;%d does not divide %d!\n&quot;</span>,B,A);
+        }
+    }
+    <span class="token keyword">return</span> <span class="token number">0</span>;
+}
+</code></pre>
+    </div>
+
+    <div class="other-problems">
+        <h3>其他題目</h3>
+        <p><a href="UVa_10132.html" class="problem-link">UVa_10132</a> <a href="AtCoder_abc159_D.html" class="problem-link">AtCoder_abc159_D</a> <a href="UVa_10730.html" class="problem-link">UVa_10730</a> <a href="ZeroJudge_a006.html" class="problem-link">ZeroJudge_a006</a> <a href="AtCoder_abc170_B-2.html" class="problem-link">AtCoder_abc170_B</a> <a href="UVa_11714.html" class="problem-link">UVa_11714</a></p>
+    </div>
+
+    <footer>
+        LibOfManyCodes · 程式競賽題解
+    </footer>
+    </div>
+</body>
+</html>
