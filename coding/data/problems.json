@@ -841,6 +841,13 @@
       "difficulty": 3
     },
     {
+      "id": "UVa_10165-ZeroJudge_d265",
+      "title": "UVa_10165-ZeroJudge_d265",
+      "url": "problems/UVa_10165-ZeroJudge_d265.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "UVa_10172",
       "title": "UVa_10172",
       "url": "problems/UVa_10172.html",
@@ -1401,6 +1408,13 @@
       "difficulty": 3
     },
     {
+      "id": "UVa_1230",
+      "title": "UVa_1230",
+      "url": "problems/UVa_1230.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "UVa_1235",
       "title": "UVa_1235",
       "url": "problems/UVa_1235.html",
@@ -1782,6 +1796,13 @@
       "id": "ZeroJudge_a871",
       "title": "ZeroJudge_a871",
       "url": "problems/ZeroJudge_a871.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "ZeroJudge_a874",
+      "title": "ZeroJudge_a874",
+      "url": "problems/ZeroJudge_a874.html",
       "type": "其他",
       "difficulty": 3
     },
@@ -2622,6 +2643,13 @@
       "id": "ZeroJudge_d908",
       "title": "ZeroJudge_d908",
       "url": "problems/ZeroJudge_d908.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "ZeroJudge_d909",
+      "title": "ZeroJudge_d909",
+      "url": "problems/ZeroJudge_d909.html",
       "type": "其他",
       "difficulty": 3
     },
