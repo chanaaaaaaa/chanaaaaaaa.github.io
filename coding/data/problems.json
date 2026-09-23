@@ -855,6 +855,13 @@
       "difficulty": 3
     },
     {
+      "id": "UVa_10171",
+      "title": "UVa_10171",
+      "url": "problems/UVa_10171.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
       "id": "UVa_10172",
       "title": "UVa_10172",
       "url": "problems/UVa_10172.html",
@@ -865,6 +872,13 @@
       "id": "UVa_10174",
       "title": "UVa_10174",
       "url": "problems/UVa_10174.html",
+      "type": "其他",
+      "difficulty": 3
+    },
+    {
+      "id": "UVa_10177",
+      "title": "UVa_10177",
+      "url": "problems/UVa_10177.html",
       "type": "其他",
       "difficulty": 3
     },
