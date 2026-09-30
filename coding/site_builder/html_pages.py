@@ -159,7 +159,7 @@ def build_pages(
         print("=" * 52)
         
         print()
-        print(f"每日亂捲直到跟皮卡丘一樣⚡️ {day_folder}")
+        print(f"每天刷題直到她回來 {day_folder}")
         print("-")
         for day_folder, label in share_snapshots:
             print(f"->{label} - （題名待補）")
